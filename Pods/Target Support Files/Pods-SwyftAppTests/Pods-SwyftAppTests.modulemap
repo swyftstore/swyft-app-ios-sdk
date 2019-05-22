@@ -1,0 +1,6 @@
+framework module Pods_SwyftAppTests {
+  umbrella header "Pods-SwyftAppTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
