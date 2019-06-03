@@ -11,12 +11,12 @@ import FirebaseFirestore
 
 
 public class GetCustomer: FireStoreRead {
-       
-    public var success: FireStoreRead.successClbk
-    public var fail: FireStoreRead.failClbk
+
+    public var success: SwyftConstants.readSuccess
+    public var fail:  SwyftConstants.fail
     public var db: Firestore
     
-    public required init(success: FireStoreRead.successClbk, fail: FireStoreRead.failClbk) {
+    public required init(success:  SwyftConstants.readSuccess, fail:  SwyftConstants.fail) {
         self.success = success
         self.fail = fail
         self.db = Configure.current.db!
@@ -46,7 +46,7 @@ public class GetCustomer: FireStoreRead {
         }
     }
     
-    public func querySuccess(data: Dictionary<String, Any>, id: String) {
+    public func querySuccess(data: Dictionary<String, Any>, id: String, done: Bool) {
         let customer = Customer()
         customer.serialize(data: data)
         customer.id = id

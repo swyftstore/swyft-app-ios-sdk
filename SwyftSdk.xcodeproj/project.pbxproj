@@ -15,6 +15,9 @@
 		D06A397F22849F6B00DBF639 /* SwyftSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06A397E22849F6B00DBF639 /* SwyftSession.swift */; };
 		D06A398422849FE900DBF639 /* SwyftConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06A398322849FE900DBF639 /* SwyftConstants.swift */; };
 		D06A39882284A12F00DBF639 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06A39872284A12F00DBF639 /* Extentions.swift */; };
+		D08D7F2222A592D700A6298B /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08D7F2122A592D700A6298B /* Order.swift */; };
+		D08D7F2422A5A17700A6298B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08D7F2322A5A17700A6298B /* Product.swift */; };
+		D08D7F2622A5C63200A6298B /* GetOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08D7F2522A5C63200A6298B /* GetOrder.swift */; };
 		D09679792280D14200437952 /* GetActivationCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09679782280D14200437952 /* GetActivationCode.swift */; };
 		D096797B2280D15D00437952 /* GetOrders.swift in Sources */ = {isa = PBXBuildFile; fileRef = D096797A2280D15D00437952 /* GetOrders.swift */; };
 		D096797D2280D17300437952 /* GetStores.swift in Sources */ = {isa = PBXBuildFile; fileRef = D096797C2280D17300437952 /* GetStores.swift */; };
@@ -66,6 +69,9 @@
 		D06A398122849FAE00DBF639 /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D06A398322849FE900DBF639 /* SwyftConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwyftConstants.swift; sourceTree = "<group>"; };
 		D06A39872284A12F00DBF639 /* Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		D08D7F2122A592D700A6298B /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		D08D7F2322A5A17700A6298B /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		D08D7F2522A5C63200A6298B /* GetOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOrder.swift; sourceTree = "<group>"; };
 		D09679782280D14200437952 /* GetActivationCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetActivationCode.swift; sourceTree = "<group>"; };
 		D096797A2280D15D00437952 /* GetOrders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOrders.swift; sourceTree = "<group>"; };
 		D096797C2280D17300437952 /* GetStores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStores.swift; sourceTree = "<group>"; };
@@ -234,11 +240,27 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		D08D7F2722A5C77100A6298B /* base */ = {
+			isa = PBXGroup;
+			children = (
+				D0997B332280AF4C00A82DFB /* FireStoreRead.swift */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		D08D7F2822A5C77C00A6298B /* base */ = {
+			isa = PBXGroup;
+			children = (
+				D09679852280D20200437952 /* FireStoreWrite.swift */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
 		D09679822280D1AE00437952 /* Write */ = {
 			isa = PBXGroup;
 			children = (
+				D08D7F2822A5C77C00A6298B /* base */,
 				D09679832280D1EB00437952 /* UpdateCustomer.swift */,
-				D09679852280D20200437952 /* FireStoreWrite.swift */,
 			);
 			path = Write;
 			sourceTree = "<group>";
@@ -301,10 +323,11 @@
 		D0997B312280AF4C00A82DFB /* Read */ = {
 			isa = PBXGroup;
 			children = (
+				D08D7F2722A5C77100A6298B /* base */,
 				D0997B322280AF4C00A82DFB /* GetCustomer.swift */,
-				D0997B332280AF4C00A82DFB /* FireStoreRead.swift */,
 				D09679782280D14200437952 /* GetActivationCode.swift */,
 				D096797A2280D15D00437952 /* GetOrders.swift */,
+				D08D7F2522A5C63200A6298B /* GetOrder.swift */,
 				D096797C2280D17300437952 /* GetStores.swift */,
 				D096797E2280D18C00437952 /* GetPaymentMethods.swift */,
 				D09679802280D1A300437952 /* GetProducts.swift */,
@@ -317,6 +340,8 @@
 			children = (
 				D0997B3B2280AF4C00A82DFB /* FireStoreModel.swift */,
 				D0997B3C2280AF4C00A82DFB /* Customer.swift */,
+				D08D7F2122A592D700A6298B /* Order.swift */,
+				D08D7F2322A5A17700A6298B /* Product.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -558,6 +583,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D08D7F2422A5A17700A6298B /* Product.swift in Sources */,
+				D08D7F2622A5C63200A6298B /* GetOrder.swift in Sources */,
 				D09679862280D20200437952 /* FireStoreWrite.swift in Sources */,
 				D0997B432280AF4D00A82DFB /* FireStoreRead.swift in Sources */,
 				D06A39882284A12F00DBF639 /* Extentions.swift in Sources */,
@@ -570,6 +597,7 @@
 				D06A397F22849F6B00DBF639 /* SwyftSession.swift in Sources */,
 				D09679812280D1A300437952 /* GetProducts.swift in Sources */,
 				D06A397D22849A1800DBF639 /* Configure.swift in Sources */,
+				D08D7F2222A592D700A6298B /* Order.swift in Sources */,
 				D09679842280D1EB00437952 /* UpdateCustomer.swift in Sources */,
 				D06A398422849FE900DBF639 /* SwyftConstants.swift in Sources */,
 				D096797D2280D17300437952 /* GetStores.swift in Sources */,
