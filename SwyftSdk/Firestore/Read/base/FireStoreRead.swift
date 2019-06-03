@@ -31,13 +31,19 @@ extension FireStoreRead {
                         let documents = snap.documents
                         let size = documents.count
                         var done = false
-                        for (index, document) in documents.enumerated(){
-                            let data = document.data()
-                            debugPrint(data)
-                            if index < (size - 1) {
-                              done = true
+                        var index = 1
+                        for document in documents as [AnyObject] {
+                           
+                            if let data = document.data() {
+                                debugPrint(data)
+                                if index <= size {
+                                    done = true
+                                }
+                                self.querySuccess(data:data, id: document.documentID, done: done)
+                            } else {
+                                print("Warning: document does not contain data")
                             }
-                            self.querySuccess(data:data, id: document.documentID, done: done)
+                            index += 1
                         }
                     } else {
                         self.queryFailure(msg: "document not found")
