@@ -36,6 +36,7 @@ public class Order:  FireStoreModelSerialize, FireStoreModelProto {
             if responds(to: Selector(keyName)) {
                 if "products" == keyName,
                     let values = value as? Array<Dictionary<String, Any>> {
+                    //todo: this is hacky 
                         var _products = [Product]()
                         for val in values {
                             let product = Product()
@@ -43,7 +44,9 @@ public class Order:  FireStoreModelSerialize, FireStoreModelProto {
                             _products.append(product)
                         }
                     setValue(_products, forKey: keyName)
-                  
+                } else if "description" == keyName {
+                    //todo: this is hacky
+                    setValue(value, forKey: "desc")
                 } else {
                     setValue(value, forKey: keyName)
                 }
