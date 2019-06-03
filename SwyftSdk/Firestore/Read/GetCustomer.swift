@@ -51,9 +51,9 @@ public class GetCustomer: FireStoreRead {
         customer.serialize(data: data)
         customer.id = id
         Configure.current.session?.customer = customer
-        if let _success = success {
+        if done {
             DispatchQueue.main.async {
-                _success(customer)
+                self.success?(customer)
             }
         }
     }

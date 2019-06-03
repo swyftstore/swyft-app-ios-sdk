@@ -18,7 +18,6 @@
 		D08D7F2222A592D700A6298B /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08D7F2122A592D700A6298B /* Order.swift */; };
 		D08D7F2422A5A17700A6298B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08D7F2322A5A17700A6298B /* Product.swift */; };
 		D08D7F2622A5C63200A6298B /* GetOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08D7F2522A5C63200A6298B /* GetOrder.swift */; };
-		D09679792280D14200437952 /* GetActivationCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09679782280D14200437952 /* GetActivationCode.swift */; };
 		D096797B2280D15D00437952 /* GetOrders.swift in Sources */ = {isa = PBXBuildFile; fileRef = D096797A2280D15D00437952 /* GetOrders.swift */; };
 		D096797D2280D17300437952 /* GetStores.swift in Sources */ = {isa = PBXBuildFile; fileRef = D096797C2280D17300437952 /* GetStores.swift */; };
 		D096797F2280D18C00437952 /* GetPaymentMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = D096797E2280D18C00437952 /* GetPaymentMethods.swift */; };
@@ -72,7 +71,6 @@
 		D08D7F2122A592D700A6298B /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		D08D7F2322A5A17700A6298B /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		D08D7F2522A5C63200A6298B /* GetOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOrder.swift; sourceTree = "<group>"; };
-		D09679782280D14200437952 /* GetActivationCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetActivationCode.swift; sourceTree = "<group>"; };
 		D096797A2280D15D00437952 /* GetOrders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOrders.swift; sourceTree = "<group>"; };
 		D096797C2280D17300437952 /* GetStores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStores.swift; sourceTree = "<group>"; };
 		D096797E2280D18C00437952 /* GetPaymentMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPaymentMethods.swift; sourceTree = "<group>"; };
@@ -325,7 +323,6 @@
 			children = (
 				D08D7F2722A5C77100A6298B /* base */,
 				D0997B322280AF4C00A82DFB /* GetCustomer.swift */,
-				D09679782280D14200437952 /* GetActivationCode.swift */,
 				D096797A2280D15D00437952 /* GetOrders.swift */,
 				D08D7F2522A5C63200A6298B /* GetOrder.swift */,
 				D096797C2280D17300437952 /* GetStores.swift */,
@@ -601,7 +598,6 @@
 				D09679842280D1EB00437952 /* UpdateCustomer.swift in Sources */,
 				D06A398422849FE900DBF639 /* SwyftConstants.swift in Sources */,
 				D096797D2280D17300437952 /* GetStores.swift in Sources */,
-				D09679792280D14200437952 /* GetActivationCode.swift in Sources */,
 				D052DA88228E1B0A0082C3AE /* PopUpManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
