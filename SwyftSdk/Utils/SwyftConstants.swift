@@ -27,6 +27,7 @@ open class SwyftConstants {
     //DB Collections
     public static let CustomerCollection = "customers"
     public static let OrderCollection = "orders"
+    public static let ProductCollection = "products"
     
     //Type Alaises
     public typealias readSuccess = ((_ data: FireStoreModelProto)->Void)?

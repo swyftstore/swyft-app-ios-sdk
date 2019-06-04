@@ -1,16 +1,15 @@
 //
-//  GetOrder.swift
+//  GetProducts.swift
 //  SwyftSdk
 //
-//  Created by Tom Manuel on 6/3/19.
+//  Created by Tom Manuel on 5/6/19.
 //  Copyright © 2019 Swyft. All rights reserved.
 //
 
 import Foundation
 import FirebaseFirestore
 
-
-public class GetOrder: FireStoreRead {
+public class GetProduct: FireStoreRead {
     public var fail: SwyftConstants.fail
     public var success: SwyftConstants.readSuccess
     
@@ -46,7 +45,7 @@ public class GetOrder: FireStoreRead {
     public func get(id: String) {
         var ref: CollectionReference?
         
-        ref = db.collection(SwyftConstants.OrderCollection)
+        ref = db.collection(SwyftConstants.ProductCollection)
         let doc = ref?.document(id)
         if let doc = doc {
             self.queryDB(document: doc)
