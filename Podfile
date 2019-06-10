@@ -6,9 +6,17 @@ target 'SwyftSdk' do
   use_frameworks!
 
   # Pods for swyft-app-ios-sdk
+  
+  # MBProgressHUD
   pod 'MBProgressHUD'
+  # Moya
+  pod 'Moya', '~> 12.0.1'
+  
+  # Firebase
   pod 'Firebase/Core', '~> 5.15.0'
   pod 'Firebase/Firestore', '~> 5.15.0'
+  
+  #JVFloatLabeledTextField
   pod 'JVFloatLabeledTextField', '~> 1.2.1'
 
   target 'SwyftSdkTests' do
