@@ -11,14 +11,12 @@ import Firebase
 import FirebaseFirestore
 
 public protocol FireStoreWrite: class {
-    typealias successClbk = ((_ msg: String, _ id: String?)->Void)?
-    typealias failClbk = ((_ msg: String)->Void)?
     
-    var success: successClbk {get}
-    var fail: failClbk {get}
+    var success: SwyftConstants.writeSuccess {get}
+    var fail: SwyftConstants.fail {get}
     var db: Firestore {get}
     
-    init(success: successClbk, fail: failClbk)
+    init(success: SwyftConstants.writeSuccess, fail: SwyftConstants.fail)
     
     func querySuccess(msg: String, id: String)
     func queryFailure(msg: String)

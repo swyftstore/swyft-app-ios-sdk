@@ -11,19 +11,12 @@ import Firebase
 import FirebaseFirestore
 
 public protocol FireStoreRead: class {
-    typealias successClbk = ((_ data: FireStoreModelProto)->Void)?
-    typealias failClbk = ((_ msg: String)->Void)?
-    
-    var success: FireStoreRead.successClbk {get}
-    var fail: FireStoreRead.failClbk {get}
+   
+    var fail: SwyftConstants.fail {get}
     var db: Firestore {get}
     
-    init(success: successClbk, fail: failClbk)
-
-    func querySuccess(data: Dictionary<String, Any>, id: String)
+    func querySuccess(data: Dictionary<String, Any>, id: String, done: Bool)
     func queryFailure(msg: String)
-    func get(id: String)
-    
 }
 
 extension FireStoreRead {
@@ -36,13 +29,21 @@ extension FireStoreRead {
                 } else {
                     if let snap = querySnapshot, !snap.isEmpty {                        
                         let documents = snap.documents
+                        let size = documents.count
+                        var done = false
+                        var index = 1
                         for document in documents as [AnyObject] {
+                           
                             if let data = document.data() {
                                 debugPrint(data)
-                                self.querySuccess(data:data, id: document.documentID)
+                                if index <= size {
+                                    done = true
+                                }
+                                self.querySuccess(data:data, id: document.documentID, done: done)
                             } else {
-                                 self.queryFailure(msg: "document not found")
-                            }                            
+                                print("Warning: document does not contain data")
+                            }
+                            index += 1
                         }
                     } else {
                         self.queryFailure(msg: "document not found")
@@ -61,7 +62,7 @@ extension FireStoreRead {
                     self.queryFailure(msg: err.localizedDescription)
                 } else {
                     if let snap = documentSnapshot, snap.exists, let data = snap.data() {            
-                        self.querySuccess(data: data, id: snap.documentID)
+                        self.querySuccess(data: data, id: snap.documentID, done: true)
                     } else {
                         self.queryFailure(msg: "document not found")
                     }

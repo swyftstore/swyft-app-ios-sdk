@@ -18,5 +18,9 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
+	<key>ENVIRONMENT_URL</key>
+	<string>$(ENVIRONMENT_URL)</string>
 </dict>
 </plist>

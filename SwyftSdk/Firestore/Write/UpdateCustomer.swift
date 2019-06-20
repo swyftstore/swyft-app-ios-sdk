@@ -12,13 +12,13 @@ import FirebaseFirestore
 
 public class UpdateCustomer: FireStoreWrite {
     
-    public var success:FireStoreWrite.successClbk
+    public var success:SwyftConstants.writeSuccess
     
-    public var fail: FireStoreWrite.failClbk
+    public var fail: SwyftConstants.fail
     
     public var db: Firestore
     
-    public required init(success: FireStoreWrite.successClbk, fail: FireStoreWrite.failClbk) {
+    public required init(success: SwyftConstants.writeSuccess, fail: SwyftConstants.fail) {
         self.success = success;
         self.fail = fail;
         self.db = Configure.current.db!

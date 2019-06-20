@@ -21,8 +21,20 @@ open class SwyftConstants {
     public static let LogInCounter = "logInCounter"
     public static let LastLogIn = "lastLogIn"
     
+    //Order data keys
+    public static let CustomerId = "customerId"
+    
     //DB Collections
     public static let CustomerCollection = "customers"
+    public static let OrderCollection = "orders"
+    public static let ProductCollection = "products"
+    
+    //Type Alaises
+    public typealias readSuccess = ((_ data: FireStoreModelProto)->Void)?
+    public typealias readSuccessWArray = ((_ data: [FireStoreModelProto])->Void)?
+    public typealias writeSuccess = ((_ msg: String, _ id: String?)->Void)?
+    
+    public typealias fail = ((_ msg: String)->Void)?
     
     
     
