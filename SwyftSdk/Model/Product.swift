@@ -37,7 +37,7 @@ public class Product: FireStoreModelSerialize, FireStoreModelProto  {
             let keyName = key as String
             
             if responds(to: Selector(keyName)) {
-                if "dimenstions" == keyName,
+                if "dimensions" == keyName,
                     let dict = value as? Dictionary<String, Any> {
                     //todo: this is hacky
                     let dims = Dimensions()
