@@ -15,9 +15,7 @@ public class Notifications: FireStoreModelSerialize, FireStoreModelProto {
     @objc public var email = true
     @objc public var sms = true
     
-    func toString() {
+    public func toString() {
         //todo
     }
-    
-    
 }
