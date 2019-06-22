@@ -1,8 +1,8 @@
 //
-//  GetOrder.swift
+//  GetStore.swift
 //  SwyftSdk
 //
-//  Created by Tom Manuel on 6/3/19.
+//  Created by Tom Manuel on 6/17/19.
 //  Copyright © 2019 Swyft. All rights reserved.
 //
 
@@ -10,12 +10,12 @@ import Foundation
 import FirebaseFirestore
 
 
-public class GetOrder: FireStoreRead {
+public class GetStore: FireStoreRead {
     public var fail: SwyftConstants.fail
     public var success: SwyftConstants.readSuccess
     
     public var db: Firestore
-        
+    
     public required init(success: SwyftConstants.readSuccess, fail: SwyftConstants.fail) {
         self.success = success
         self.fail = fail
@@ -23,12 +23,12 @@ public class GetOrder: FireStoreRead {
     }
     
     public func querySuccess(data: Dictionary<String, Any>, id: String, done: Bool) {
-        let order = Order()
-        order.serialize(data: data)
-        order.id = id
+        let store = Store()
+        store.serialize(data: data)
+        store.id = id
         if done {
             DispatchQueue.main.async {
-                self.success?(order)
+                self.success?(store)
             }
         }
     }
@@ -44,7 +44,7 @@ public class GetOrder: FireStoreRead {
     public func get(id: String) {
         var ref: CollectionReference?
         
-        ref = db.collection(SwyftConstants.OrderCollection)
+        ref = db.collection(SwyftConstants.StoreCollection)
         let doc = ref?.document(id)
         if let doc = doc {
             self.queryDB(document: doc)
@@ -54,3 +54,4 @@ public class GetOrder: FireStoreRead {
     }
     
 }
+
