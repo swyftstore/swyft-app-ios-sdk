@@ -15,6 +15,8 @@
 		D06A397F22849F6B00DBF639 /* SwyftSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06A397E22849F6B00DBF639 /* SwyftSession.swift */; };
 		D06A398422849FE900DBF639 /* SwyftConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06A398322849FE900DBF639 /* SwyftConstants.swift */; };
 		D06A39882284A12F00DBF639 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06A39872284A12F00DBF639 /* Extentions.swift */; };
+		D08A3F3822B8314600D264D2 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08A3F3722B8314600D264D2 /* Store.swift */; };
+		D08A3F3C22B83F7F00D264D2 /* GetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08A3F3B22B83F7F00D264D2 /* GetStore.swift */; };
 		D08D7F2222A592D700A6298B /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08D7F2122A592D700A6298B /* Order.swift */; };
 		D08D7F2422A5A17700A6298B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08D7F2322A5A17700A6298B /* Product.swift */; };
 		D08D7F2622A5C63200A6298B /* GetOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08D7F2522A5C63200A6298B /* GetOrder.swift */; };
@@ -72,6 +74,8 @@
 		D06A398122849FAE00DBF639 /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D06A398322849FE900DBF639 /* SwyftConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwyftConstants.swift; sourceTree = "<group>"; };
 		D06A39872284A12F00DBF639 /* Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		D08A3F3722B8314600D264D2 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		D08A3F3B22B83F7F00D264D2 /* GetStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStore.swift; sourceTree = "<group>"; };
 		D08D7F2122A592D700A6298B /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		D08D7F2322A5A17700A6298B /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		D08D7F2522A5C63200A6298B /* GetOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOrder.swift; sourceTree = "<group>"; };
@@ -347,6 +351,7 @@
 				D096797C2280D17300437952 /* GetStores.swift */,
 				D096797E2280D18C00437952 /* GetPaymentMethods.swift */,
 				D09679802280D1A300437952 /* GetProduct.swift */,
+				D08A3F3B22B83F7F00D264D2 /* GetStore.swift */,
 			);
 			path = Read;
 			sourceTree = "<group>";
@@ -358,6 +363,7 @@
 				D0997B3C2280AF4C00A82DFB /* Customer.swift */,
 				D08D7F2122A592D700A6298B /* Order.swift */,
 				D08D7F2322A5A17700A6298B /* Product.swift */,
+				D08A3F3722B8314600D264D2 /* Store.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -612,6 +618,8 @@
 				D09679862280D20200437952 /* FireStoreWrite.swift in Sources */,
 				D08D7F2D22AAF5DA00A6298B /* Respository.swift in Sources */,
 				D0997B432280AF4D00A82DFB /* FireStoreRead.swift in Sources */,
+				D08A3F3822B8314600D264D2 /* Store.swift in Sources */,
+				D08A3F3C22B83F7F00D264D2 /* GetStore.swift in Sources */,
 				D06A39882284A12F00DBF639 /* Extentions.swift in Sources */,
 				D052DA83228E16B00082C3AE /* ProgressHud.swift in Sources */,
 				D0997B4A2280AF4D00A82DFB /* Customer.swift in Sources */,
