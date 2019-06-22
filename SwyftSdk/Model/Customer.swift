@@ -24,6 +24,7 @@ public class Customer: FireStoreModelSerialize, FireStoreModelProto {
     @objc public var status: String?
     @objc public var activationCode: String?
     @objc public var accountType = "customer"
+    @objc public var notifications: Notifications?
     
     
     public func toString() {
