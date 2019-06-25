@@ -9,7 +9,7 @@
 import Foundation
 import XMLMapper
 
-class PaymentResponse: XMLModel {
+class PaymentMethodResponse: XMLModel {
     private let merchantRefKey = "MERCHANTREF"
     private let cardRefKey = "CARDREFERENCE"
     private let dateTimeKey = "DATETIME"
@@ -30,8 +30,7 @@ class PaymentResponse: XMLModel {
    
 }
 
-
-extension PaymentResponse: XMLMappable {
+extension PaymentMethodResponse: XMLMappable {
     public var nodeName: String! {
         get {
             return "SECURECARDREGISTRATIONRESPONSE"
@@ -40,14 +39,10 @@ extension PaymentResponse: XMLMappable {
         }
     }
     
-    
-    
     public func mapping(map: XMLMap) {
         merchantRef <- map[merchantRefKey]
         cardRef <- map[dateTimeKey]
         dateTime <- map[cardRefKey]
         hash <- map[hashKey]
     }
-    
-    
 }

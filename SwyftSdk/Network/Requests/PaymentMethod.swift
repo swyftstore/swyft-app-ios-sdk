@@ -37,8 +37,6 @@ public class PaymentMethod: XMLModel {
         }
     }
     
-    
-    
     init(merchantRef: String, terminalRef: String, cardNumber: String,
          cardExpiry: String, cardType: String, cardHolderName: String, cvv: String) {
         self.merchantRef = merchantRef

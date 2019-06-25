@@ -29,17 +29,21 @@ public class AddPaymentInteractor {
                 }
         
                 if (!cardFound) {
-                    SwyftNetworkAdapter.request(target: .addPayment(paymentMethod: method), success: { response in
+                    SwyftNetworkAdapter.request(target: .addPayment(paymentMethod: method),
+                                                success: { response in
                         if (response.statusCode == 200) {
                             let resp = String(data:  response.data, encoding: .utf8)!
-                            let paymentResponse = PaymentResponse.init(XMLString: resp)
+                            let paymentResponse = PaymentMethodResponse.init(XMLString: resp)
                             let swyftPaymentMethod = SwyftPaymentMethod()
+                            
                             swyftPaymentMethod.cardType = cardType
                             swyftPaymentMethod.last4 = last4
                             swyftPaymentMethod.cardExpiry = method.cardExpiry
                             swyftPaymentMethod.isDefault = false
                             swyftPaymentMethod.token = paymentResponse?.cardRef
+                            
                             customer.paymentMethods.append(swyftPaymentMethod)
+                            
                             let update = UpdateCustomer.init(success: { (msg, id) in
                                 DispatchQueue.main.async {
                                     _sucesss?(swyftPaymentMethod)
@@ -57,24 +61,24 @@ public class AddPaymentInteractor {
                             } else {
                                 msg = "Failed to parse response"
                             }
-                            print("Add Paymet Error: \(msg)")
+                            print("Add Payment Method Error: \(msg)")
                             DispatchQueue.main.async {
                                 failure?(msg)
                             }
                         }
                     }, error: { error in
-                        print("Add Paymet Error: ",error)
+                        print("Add Payment Method Error: ",error)
                         let msg = error.localizedDescription
                         DispatchQueue.main.async {
                             failure?(msg)
                         }
                     }, failure: { error in
-                        print("Add Paymet Error: ",error)
+                        print("Add Payment Method Error: ",error)
                         var msg : String
                         if let _msg = error.errorDescription {
                            msg = _msg
                         } else {
-                            msg = "Something went wrong, please try again"
+                            msg = "Something went wrong. Please try again"
                         }
                         DispatchQueue.main.async {
                             failure?(msg)
@@ -82,13 +86,15 @@ public class AddPaymentInteractor {
                     })
                 } else {
                     DispatchQueue.main.async {
-                        failure?("Card already registerd, to update call update payment method")
+                        let msg = "Card already registered. To update call update payment method"
+                        print("Add Payment Method Error: \(msg)")
+                        failure?(msg)
                     }
                 }
             } else {
                 DispatchQueue.main.async {
-                    let msg = "Session Ended, can not add card"
-                    print("Add Paymet Error: \(msg)")
+                    let msg = "Session Ended. Cannot add payment method"
+                    print("Add Payment Method Error: \(msg)")
                     failure?(msg)
                 }
             }

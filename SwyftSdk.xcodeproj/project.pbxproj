@@ -49,7 +49,7 @@
 		D0CD3477228E21B300585879 /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CD3476228E21B300585879 /* MBProgressHUD.framework */; };
 		D0CD3479228E21B300585879 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CD3478228E21B300585879 /* nanopb.framework */; };
 		D0CD347B228E21B300585879 /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CD347A228E21B300585879 /* openssl.framework */; };
-		D0D3228722C2A10600A2AC98 /* PaymentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D3228622C2A10600A2AC98 /* PaymentResponse.swift */; };
+		D0D3228722C2A10600A2AC98 /* PaymentMethodResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D3228622C2A10600A2AC98 /* PaymentMethodResponse.swift */; };
 		D0D3228922C2A2D200A2AC98 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D3228822C2A2D200A2AC98 /* ErrorResponse.swift */; };
 		D0D3228B22C2A5A200A2AC98 /* SwyftPaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D3228A22C2A5A200A2AC98 /* SwyftPaymentMethod.swift */; };
 /* End PBXBuildFile section */
@@ -137,7 +137,7 @@
 		D0D0477E2280BBC3001909EF /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D047802280BBC3001909EF /* openssl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = openssl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D047822280BBC3001909EF /* Protobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Protobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D0D3228622C2A10600A2AC98 /* PaymentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentResponse.swift; sourceTree = "<group>"; };
+		D0D3228622C2A10600A2AC98 /* PaymentMethodResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodResponse.swift; sourceTree = "<group>"; };
 		D0D3228822C2A2D200A2AC98 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		D0D3228A22C2A5A200A2AC98 /* SwyftPaymentMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwyftPaymentMethod.swift; sourceTree = "<group>"; };
 		E83E1F4F39A8D38E55C50D33 /* Pods-SwyftSdk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwyftSdk.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwyftSdk/Pods-SwyftSdk.release.xcconfig"; sourceTree = "<group>"; };
@@ -411,7 +411,7 @@
 		D0D3228422C29EE700A2AC98 /* Responses */ = {
 			isa = PBXGroup;
 			children = (
-				D0D3228622C2A10600A2AC98 /* PaymentResponse.swift */,
+				D0D3228622C2A10600A2AC98 /* PaymentMethodResponse.swift */,
 				D0D3228822C2A2D200A2AC98 /* ErrorResponse.swift */,
 			);
 			path = Responses;
@@ -619,7 +619,7 @@
 				D08A3F4022BD537700D264D2 /* PaymentMethod.swift in Sources */,
 				D096797D2280D17300437952 /* GetStores.swift in Sources */,
 				D052DA88228E1B0A0082C3AE /* PopUpManager.swift in Sources */,
-				D0D3228722C2A10600A2AC98 /* PaymentResponse.swift in Sources */,
+				D0D3228722C2A10600A2AC98 /* PaymentMethodResponse.swift in Sources */,
 				D08A3F4222BD538800D264D2 /* XMLModel.swift in Sources */,
 				D0D3228922C2A2D200A2AC98 /* ErrorResponse.swift in Sources */,
 			);
