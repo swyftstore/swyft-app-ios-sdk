@@ -12,24 +12,19 @@ import Foundation
 public class AddPaymentInteractor {
     
     public func addPaymentMethod(method: PaymentMethod, isDefault: Bool,
-                                 success:SwyftConstants.addPaymentSuccess, fail: SwyftConstants.fail) {
+                                 success:SwyftConstants.addPaymentSuccess, failure: SwyftConstants.fail) {
         DispatchQueue.global(qos: .background).async {
             if let session = Configure.current.session, let customer = session.customer {
                 let last4 = method.last4
                 let cardType = method.cardType
                 let _sucesss = success
-                let _fail = fail
-                
+                let _failure = failure
                 var cardFound = false
                 
                 for method in customer.paymentMethods {
                     if ( last4 ==  method.last4 && cardType == method.cardType ) {
-                        DispatchQueue.main.async {
-                            _fail?("Card already registerd, to update call update payment method")
-                        }
                         cardFound = true;
                         break;
-                        
                     }
                 }
         
@@ -39,8 +34,8 @@ public class AddPaymentInteractor {
                             let resp = String(data:  response.data, encoding: .utf8)!
                             let paymentResponse = PaymentResponse.init(XMLString: resp)
                             let swyftPaymentMethod = SwyftPaymentMethod()
-                            swyftPaymentMethod.cardType = method.cardType
-                            swyftPaymentMethod.last4 = method.last4
+                            swyftPaymentMethod.cardType = cardType
+                            swyftPaymentMethod.last4 = last4
                             swyftPaymentMethod.cardExpiry = method.cardExpiry
                             swyftPaymentMethod.isDefault = false
                             swyftPaymentMethod.token = paymentResponse?.cardRef
@@ -51,7 +46,7 @@ public class AddPaymentInteractor {
                                 }
                             }, fail: {failure in
                                 DispatchQueue.main.async {
-                                    _fail?("Unable to update customer profile")
+                                    _failure?("Unable to update customer profile")
                                 }
                             })
                             update.put(key: customer.id!, customer: customer)
@@ -62,18 +57,19 @@ public class AddPaymentInteractor {
                             } else {
                                 msg = "Failed to parse response"
                             }
+                            print("Add Paymet Error: \(msg)")
                             DispatchQueue.main.async {
-                                _fail?(msg)
+                                failure?(msg)
                             }
                         }
                     }, error: { error in
-                        print(error)
+                        print("Add Paymet Error: ",error)
                         let msg = error.localizedDescription
                         DispatchQueue.main.async {
-                            fail?(msg)
+                            failure?(msg)
                         }
                     }, failure: { error in
-                        print(error)
+                        print("Add Paymet Error: ",error)
                         var msg : String
                         if let _msg = error.errorDescription {
                            msg = _msg
@@ -81,13 +77,19 @@ public class AddPaymentInteractor {
                             msg = "Something went wrong, please try again"
                         }
                         DispatchQueue.main.async {
-                            fail?(msg)
+                            failure?(msg)
                         }
                     })
+                } else {
+                    DispatchQueue.main.async {
+                        failure?("Card already registerd, to update call update payment method")
+                    }
                 }
             } else {
                 DispatchQueue.main.async {
-                    fail?("Session Ended, can not add card")
+                    let msg = "Session Ended, can not add card"
+                    print("Add Paymet Error: \(msg)")
+                    failure?(msg)
                 }
             }
         }
