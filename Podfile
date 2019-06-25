@@ -11,6 +11,12 @@ target 'SwyftSdk' do
   pod 'MBProgressHUD'
   # Moya
   pod 'Moya', '~> 12.0.1'
+  #pod 'EVReflection/MoyaXML', '~> 5.10.1'
+  #XML Mapper
+  pod 'XMLMapper', '~> 1.5.3'
+  
+  # CryptoSwift
+  pod 'CryptoSwift', '~> 1.0.0'
   
   # Firebase
   pod 'Firebase/Core', '~> 5.15.0'

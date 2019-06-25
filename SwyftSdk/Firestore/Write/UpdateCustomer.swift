@@ -63,5 +63,16 @@ public class UpdateCustomer: FireStoreWrite {
         }
     }
     
+    public func put(key: String, customer: Customer) {
+        let data = customer.deserialize()
+        put(key: key, data: data)
+        
+    }
+    
+    public func add(key: String?, customer: Customer) {
+        let data = customer.deserialize()
+        add(key: key, data: data)
+    }
+    
     
 }
