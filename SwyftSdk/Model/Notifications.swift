@@ -18,6 +18,4 @@ public class Notifications: FireStoreModelSerialize, FireStoreModelProto {
     public func toString() {
         //todo
     }
-    
-    
 }

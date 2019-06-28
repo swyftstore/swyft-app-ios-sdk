@@ -24,10 +24,21 @@ open class SwyftConstants {
     //Order data keys
     public static let CustomerId = "customerId"
     
+    //Store data keys
+    public enum StoreSearchKey : String{
+        case ID = "id"
+        case GeoPoint = "geoPoint"
+        case Name = "name"
+        case MerchantName = "merchantName"
+        
+        static let values = [ID.rawValue, GeoPoint.rawValue, Name.rawValue,MerchantName.rawValue]
+    }
+    
     //DB Collections
     public static let CustomerCollection = "customers"
     public static let OrderCollection = "orders"
     public static let ProductCollection = "products"
+    public static let StoreCollection = "stores"
     
     //Type Alaises
     public typealias readSuccess = ((_ data: FireStoreModelProto)->Void)?
@@ -39,6 +50,10 @@ open class SwyftConstants {
     
     public typealias fail = ((_ msg: String)->Void)?
     
+    //Errors
+    enum ClientError: Error {
+        case runtimeError(String)
+    }
     
     
     
