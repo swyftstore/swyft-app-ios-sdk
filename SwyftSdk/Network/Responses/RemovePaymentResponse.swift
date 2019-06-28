@@ -1,36 +1,39 @@
 //
-//  PaymentResponse.swift
+//  RemovePaymentResponse.swift
 //  SwyftSdk
 //
-//  Created by Tom Manuel on 6/25/19.
+//  Created by Tom Manuel on 6/28/19.
 //  Copyright © 2019 Swyft. All rights reserved.
 //
 
 import Foundation
 import XMLMapper
 
-class PaymentMethodResponse: XmlResponseBase {
+class RemoveMethodResponse: XmlResponseBase {
     private let cardRefKey = "CARDREFERENCE"
+    private let terminalRefKey = "TERMINALID"
     private let hashKey = "HASH"
     
     private var hashCode: String?
+
     var cardRef: String?
+    var terminalRef: String?
     
     required public init?(map: XMLMap) {
         super.init()
-        merchantRef = map[merchantRefKey].currentValue as? String
+        terminalRef = map[terminalRefKey].currentValue as? String
         cardRef = map[cardRefKey].currentValue as? String
         dateTime = map[dateTimeKey].currentValue as? String
         hashCode = map[hashKey].currentValue as? String
-        
+      
     }
-   
+    
 }
 
-extension PaymentMethodResponse: XMLMappable {
+extension RemoveMethodResponse: XMLMappable {
     public var nodeName: String! {
         get {
-            return "SECURECARDREGISTRATIONRESPONSE"
+            return "SECURECARDREMOVALRESPONSE"
         }
         set(newValue) {
         }

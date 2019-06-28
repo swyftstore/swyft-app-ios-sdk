@@ -9,14 +9,14 @@
 import Foundation
 import XMLMapper
 
-class ErrorResponse: XMLModel {
+class ErrorResponse: XmlResponseBase {
     private let errorStringKey = "ERRORSTRING"
     
-    var errorString: String
+    var errorString: String?
     
     required public init?(map: XMLMap) {
-        errorString = map[errorStringKey].currentValue as! String
         super.init()
+        errorString = map[errorStringKey].currentValue as? String        
     }
     
 }

@@ -40,19 +40,7 @@ class Utils: NSObject {
         return url
     }
     
-    static func getPaymentSecret() -> String? {
-        var secret: String?
-        if let _url = Bundle.main.url(forResource:"Info", withExtension: "plist") {
-            do {
-                let data = try Data(contentsOf:_url)
-                let infoPlist = try PropertyListSerialization.propertyList(from: data, options: [], format: nil) as! [String:Any]
-                secret = infoPlist["PAYMENT_SECRET"] as? String
-            } catch {
-                print(error)
-            }
-        }
-        return secret
-    }
+   
     
     static func getPaymentDateTime() -> String{
         let dateFormatter = DateFormatter()

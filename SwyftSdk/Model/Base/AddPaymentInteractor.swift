@@ -56,8 +56,8 @@ public class AddPaymentInteractor {
                             update.put(key: customer.id!, customer: customer)
                         } else {
                             var msg : String
-                            if let errorMsg = String(data:  response.data, encoding: .utf8), let errorResp = ErrorResponse.init(XMLString: errorMsg) {
-                                msg = errorResp.errorString
+                            if let errorMsg = String(data:  response.data, encoding: .utf8), let errorResp = ErrorResponse.init(XMLString: errorMsg), let _msg = errorResp.errorString {
+                                msg = _msg                                
                             } else {
                                 msg = "Failed to parse response"
                             }
@@ -86,7 +86,7 @@ public class AddPaymentInteractor {
                     })
                 } else {
                     DispatchQueue.main.async {
-                        let msg = "Card already registered. To update call update payment method"
+                        let msg = "Payment Method already registered. To update call update payment method"
                         print("Add Payment Method Error: \(msg)")
                         failure?(msg)
                     }

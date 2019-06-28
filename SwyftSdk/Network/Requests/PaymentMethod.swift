@@ -9,66 +9,58 @@
 import Foundation
 import XMLMapper
 
-public class PaymentMethod: XMLModel {
-    private let merchantRefKey = "MERCHANTREF"
-    private let terminalRefKey = "TERMINALID"
+public class PaymentMethod: XmlRequestBase {
+
     private let cardNumberKey = "CARDNUMBER"
     private let cardExpiryKey = "CARDEXPIRY"
     private let cardTypeKey = "CARDTYPE"
     private let cardHolderNameKey = "CARDHOLDERNAME"
-    private let dateTimeKey = "DATETIME"
     private let cvvKey = "CVV"
     private let hashKey = "HASH"
     
-    private var dateTime: String
-    private var hash: String
+    private var hashCode: String?
     
-    var merchantRef: String
-    var terminalRef: String
-    var cardNumber: String
-    var cardExpiry: String
-    var cardType: String
-    var cardHolderName: String
-    var cvv: String
+    var cardNumber: String?
+    var cardExpiry: String?
+    var cardType: String?
+    var cardHolderName: String?
+    var cvv: String?
     
-    var last4 : String {
+    var last4 : String? {
         get {
-            return String(cardNumber.suffix(4))
+            if let _ = cardNumber {
+                return String(cardNumber!.suffix(4))
+            } else {
+                return "0000"
+            }
         }
     }
     
-    init(merchantRef: String, terminalRef: String, cardNumber: String,
+    init(cardNumber: String,
          cardExpiry: String, cardType: String, cardHolderName: String, cvv: String) {
-        self.merchantRef = merchantRef
-        self.terminalRef = terminalRef
+        super.init()
         self.cardNumber = cardNumber
         self.cardType = cardType
         self.cardHolderName = cardHolderName
         self.cardExpiry = cardExpiry
         self.cvv = cvv
-        self.dateTime = Utils.getPaymentDateTime()
         
-        let prefix = "\(terminalRef)\(merchantRef)\(dateTime)\(cardNumber)\(cardType)\(cardHolderName)"
-        if let secret = Utils.getPaymentSecret() {
-            self.hash = Utils.createPaymentHash(prefix: prefix, secret: secret)
-        } else {
-            self.hash = Utils.createPaymentHash(prefix: prefix, secret: "")
-        }
-        super.init()
-       
+        let prefix = "\(terminalRef!):\(merchantRef!):\(dateTime!):\(self.cardNumber!):\(self.cardType!):\(self.cardHolderName!)"
+        self.hashCode = Utils.createPaymentHash(prefix: prefix, secret: secret)
     }
     
     required public init?(map: XMLMap) {
-        merchantRef = map[merchantRefKey].currentValue as! String
-        terminalRef = map[terminalRefKey].currentValue as! String
-        cardNumber = map[cardNumberKey].currentValue as! String
-        cardExpiry = map[cardExpiryKey].currentValue as! String
-        cardType = map[cardTypeKey].currentValue as! String
-        cardHolderName = map[cardHolderNameKey].currentValue as! String
-        cvv = map[cvvKey].currentValue as! String
-        dateTime = map[dateTimeKey].currentValue as! String
-        hash = map[hashKey].currentValue as! String
         super.init()
+        merchantRef = map[merchantRefKey].currentValue as? String
+        terminalRef = map[terminalRefKey].currentValue as? String
+        cardNumber = map[cardNumberKey].currentValue as? String
+        cardExpiry = map[cardExpiryKey].currentValue as? String
+        cardType = map[cardTypeKey].currentValue as? String
+        cardHolderName = map[cardHolderNameKey].currentValue as? String
+        cvv = map[cvvKey].currentValue as? String
+        dateTime = map[dateTimeKey].currentValue as? String
+        hashCode = map[hashKey].currentValue as? String
+        
     }
     
     
@@ -94,7 +86,7 @@ extension PaymentMethod: XMLMappable {
         cardType <- map[cardTypeKey]
         cardHolderName <- map[cardHolderNameKey]
         cvv <- map[cvvKey]
-        hash <- map[hashKey]
+        hashCode <- map[hashKey]
     }
     
     
