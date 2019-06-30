@@ -11,15 +11,30 @@ import Moya
 
 public enum Repository {
     case auth(token: String)
+    case addPayment(paymentMethod: PaymentMethod)
+    case removePayment(paymentMethod: RemovePaymentMethod)
 }
 
 extension Repository: TargetType {
-    public var baseURL: URL { return Utils.getBaseURL()! }
+    public var baseURL: URL {
+        switch self {
+        case .auth:
+            return  Utils.getBaseURL()!
+        case .addPayment:
+            return Utils.getPyamentURL()!
+        case .removePayment:
+            return Utils.getPyamentURL()!
+        }
+    }
     
     public var path: String {
         switch self {
         case .auth:
             return "rest/auth"
+        case .addPayment:
+            return "merchant/xmlpayment"
+        case .removePayment:
+            return "merchant/xmlpayment"
         }
     }
     
@@ -27,18 +42,38 @@ extension Repository: TargetType {
         switch self {
         case .auth:
             return .post
+        case .addPayment:
+            return .post
+        case .removePayment:
+            return .post
         }
     }
     
-    public var parameters: [String: Any] {
+    public var parameters: [String : Any] {
         switch self {
         case .auth(let token):
             var parameters = [String: Any]()
             parameters["token"] = token
-            return parameters        
+            return parameters
+        default:
+            let parameters = [String: Any]()
+            return parameters
         }
     }
     
+    
+    public var data: Data {
+        switch self {
+        case .addPayment(let paymentMethod):
+            return "\"\(paymentMethod.toXMLString()!)\"".data(using: .utf8)!
+        case .removePayment(let paymentMethod):
+            return "\"\(paymentMethod.toXMLString()!)\"".data(using: .utf8)!
+        default:
+            return Data()
+        }
+    }
+        
+
     public var sampleData: Data {
         return Data()
     }
@@ -46,15 +81,25 @@ extension Repository: TargetType {
     public var task: Task {
         switch self {
         case .auth:
-              return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+        case .addPayment:
+            return .requestData(data)
+        case .removePayment:
+            return .requestData(data)
         }
       
     }
     
     public var headers: [String : String]? {
         var headers = [String: String]()
-        headers["Content-Type"] = "application/json"
-        return headers
+        switch self {
+        case .auth:            
+            headers["Content-Type"] = "application/json"
+            return headers
+        default:
+            return headers
+        }
+        
     }
     
     
