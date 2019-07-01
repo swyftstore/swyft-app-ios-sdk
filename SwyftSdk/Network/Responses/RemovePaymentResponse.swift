@@ -11,21 +11,26 @@ import XMLMapper
 
 class RemoveMethodResponse: XmlResponseBase {
     private let cardRefKey = "CARDREFERENCE"
-    private let terminalRefKey = "TERMINALID"
     private let hashKey = "HASH"
     
     private var hashCode: String?
 
     var cardRef: String?
-    var terminalRef: String?
     
     required public init?(map: XMLMap) {
         super.init()
-        terminalRef = map[terminalRefKey].currentValue as? String
+        merchantRef = map[merchantRefKey].currentValue as? String
         cardRef = map[cardRefKey].currentValue as? String
         dateTime = map[dateTimeKey].currentValue as? String
         hashCode = map[hashKey].currentValue as? String
       
+    }
+    
+    func compareHash() -> Bool {
+        //TERMINALID:MERCHANTREF:CARDREFERENCE:DATETIME:SECRET
+        let _hashCode = Utils.createPaymentHash(prefix: "\(terminalId!):\(merchantRef!):\(cardRef!):\(dateTime!)", secret: secret)
+        
+        return _hashCode == self.hashCode
     }
     
 }

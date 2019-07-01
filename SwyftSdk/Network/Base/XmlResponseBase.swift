@@ -12,14 +12,18 @@ class XmlResponseBase {
     
     let dateTimeKey = "DATETIME"
     let merchantRefKey = "MERCHANTREF"
+    let terminalIdKey = "TERMINALID"
     
     var merchantRef: String?
+    var terminalId: String?
     var dateTime: String?
+    
     
     var secret: String
     
     init() {
         secret = XmlResponseBase.getPaymentSecret()
+        terminalId = XmlResponseBase.getTerminalRef()
         dateTime = Utils.getPaymentDateTime()
     }
     
@@ -35,5 +39,19 @@ class XmlResponseBase {
             }
         }
         return secret
+    }
+    
+    private static func getTerminalRef() -> String {
+        var terminalRef = ""
+        if let _url = Bundle.main.url(forResource:"Info", withExtension: "plist") {
+            do {
+                let data = try Data(contentsOf:_url)
+                let infoPlist = try PropertyListSerialization.propertyList(from: data, options: [], format: nil) as! [String:Any]
+                terminalRef = infoPlist["TERMINAL_REF"] as! String
+            } catch {
+                print(error)
+            }
+        }
+        return terminalRef
     }
 }

@@ -24,6 +24,13 @@ class PaymentMethodResponse: XmlResponseBase {
         hashCode = map[hashKey].currentValue as? String
         
     }
+    
+    func compareHash() -> Bool {
+        //TERMINALID:MERCHANTREF:CARDREFERENCE:DATETIME:SECRET
+        let _hashCode = Utils.createPaymentHash(prefix: "\(terminalId!):\(merchantRef!):\(cardRef!):\(dateTime!)", secret: secret)
+        
+        return _hashCode == self.hashCode
+    }
    
 }
 
