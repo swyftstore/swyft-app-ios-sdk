@@ -36,7 +36,7 @@ public class AddPaymentInteractor {
                             let paymentResponse = PaymentMethodResponse.init(XMLString: resp)
                             
                             if let _ = paymentResponse,
-                                paymentResponse!.compareHash()) {
+                                paymentResponse!.compareHash() {
                             
                                 let swyftPaymentMethod = SwyftPaymentMethod()
                                 
