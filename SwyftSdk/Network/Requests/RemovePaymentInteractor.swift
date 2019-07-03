@@ -32,18 +32,29 @@ public class RemovePaymentInteractor {
                     SwyftNetworkAdapter.request(target: .removePayment(paymentMethod: removeMethod),
                         success: { response in
                             if (response.statusCode == 200) {
-                                customer.paymentMethods.remove(at: index)
-                                    
-                                let update = UpdateCustomer.init(success: { (msg, id) in
+                                let resp = String(data:  response.data, encoding: .utf8)!
+                                let paymentResponse = RemoveMethodResponse.init(XMLString: resp)
+                                if let _ = paymentResponse,
+                                    paymentResponse!.compareHash() {
+                                    customer.paymentMethods.remove(at: index)
+                                        
+                                    let update = UpdateCustomer.init(success: { (msg, id) in
+                                        DispatchQueue.main.async {
+                                            _sucesss?()
+                                        }
+                                    }, fail: {failure in
+                                        DispatchQueue.main.async {
+                                            _failure?("Unable to update customer profile")
+                                        }
+                                    })
+                                    update.put(key: customer.id!, customer: customer)
+                                } else {
+                                    let msg = "Hash verification failed"
+                                    print("Add Payment Method Error: \(msg)")
                                     DispatchQueue.main.async {
-                                        _sucesss?()
+                                        failure?(msg)
                                     }
-                                }, fail: {failure in
-                                    DispatchQueue.main.async {
-                                        _failure?("Unable to update customer profile")
-                                    }
-                                })
-                                update.put(key: customer.id!, customer: customer)
+                                }
                                 
                             } else {
                                 var msg : String

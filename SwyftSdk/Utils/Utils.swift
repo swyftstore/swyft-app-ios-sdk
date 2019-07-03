@@ -53,6 +53,6 @@ class Utils: NSObject {
     static func createPaymentHash(prefix: String, secret: String) -> String {
         let result = "\(prefix):\(secret)"
         let data = Data(result.bytes)
-        return data.sha512().base64EncodedString()
+        return data.sha512().toHexString()
     }
 }

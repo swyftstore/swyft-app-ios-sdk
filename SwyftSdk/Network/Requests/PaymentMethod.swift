@@ -45,14 +45,14 @@ public class PaymentMethod: XmlRequestBase {
         self.cardExpiry = cardExpiry
         self.cvv = cvv
         
-        let prefix = "\(terminalRef!):\(merchantRef!):\(dateTime!):\(self.cardNumber!):\(self.cardType!):\(self.cardHolderName!)"
+        let prefix = "\(terminalId!):\(merchantRef!):\(dateTime!):\(self.cardNumber!):\(self.cardType!):\(self.cardHolderName!)"
         self.hashCode = Utils.createPaymentHash(prefix: prefix, secret: secret)
     }
     
     required public init?(map: XMLMap) {
         super.init()
         merchantRef = map[merchantRefKey].currentValue as? String
-        terminalRef = map[terminalRefKey].currentValue as? String
+        terminalId = map[terminalIdKey].currentValue as? String
         cardNumber = map[cardNumberKey].currentValue as? String
         cardExpiry = map[cardExpiryKey].currentValue as? String
         cardType = map[cardTypeKey].currentValue as? String
@@ -80,7 +80,7 @@ extension PaymentMethod: XMLMappable {
     
     public func mapping(map: XMLMap) {
         merchantRef <- map[merchantRefKey]
-        terminalRef <- map[terminalRefKey]
+        terminalId <- map[terminalIdKey]
         cardNumber <- map[cardNumberKey]
         cardExpiry <- map[cardExpiryKey]
         cardType <- map[cardTypeKey]

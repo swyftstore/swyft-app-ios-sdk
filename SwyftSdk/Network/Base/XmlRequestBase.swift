@@ -11,18 +11,18 @@ import CryptoSwift
 
 public class XmlRequestBase{
     let merchantRefKey = "MERCHANTREF"
-    let terminalRefKey = "TERMINALID"
+    let terminalIdKey = "TERMINALID"
     let dateTimeKey = "DATETIME"
     
     var merchantRef: String?
-    var terminalRef: String?
+    var terminalId: String?
     var dateTime: String?
     
     var secret: String
     
      init() {
         merchantRef = XmlRequestBase.getMerchantRef()
-        terminalRef = XmlRequestBase.getTerminalRef()
+        terminalId = XmlRequestBase.getTerminalRef()
         secret = XmlRequestBase.getPaymentSecret()
         dateTime = Utils.getPaymentDateTime()    
     }

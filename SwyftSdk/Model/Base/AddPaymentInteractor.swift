@@ -34,26 +34,37 @@ public class AddPaymentInteractor {
                         if (response.statusCode == 200) {
                             let resp = String(data:  response.data, encoding: .utf8)!
                             let paymentResponse = PaymentMethodResponse.init(XMLString: resp)
-                            let swyftPaymentMethod = SwyftPaymentMethod()
                             
-                            swyftPaymentMethod.cardType = cardType
-                            swyftPaymentMethod.last4 = last4
-                            swyftPaymentMethod.cardExpiry = method.cardExpiry
-                            swyftPaymentMethod.isDefault = false
-                            swyftPaymentMethod.token = paymentResponse?.cardRef
+                            if let _ = paymentResponse,
+                                paymentResponse!.compareHash() {
                             
-                            customer.paymentMethods.append(swyftPaymentMethod)
-                            
-                            let update = UpdateCustomer.init(success: { (msg, id) in
+                                let swyftPaymentMethod = SwyftPaymentMethod()
+                                
+                                swyftPaymentMethod.cardType = cardType
+                                swyftPaymentMethod.last4 = last4
+                                swyftPaymentMethod.cardExpiry = method.cardExpiry
+                                swyftPaymentMethod.isDefault = false
+                                swyftPaymentMethod.token = paymentResponse?.cardRef
+                                
+                                customer.paymentMethods.append(swyftPaymentMethod)
+                                
+                                let update = UpdateCustomer.init(success: { (msg, id) in
+                                    DispatchQueue.main.async {
+                                        _sucesss?(swyftPaymentMethod)
+                                    }
+                                }, fail: {failure in
+                                    DispatchQueue.main.async {
+                                        _failure?("Unable to update customer profile")
+                                    }
+                                })
+                                update.put(key: customer.id!, customer: customer)
+                            } else {
+                                let msg = "Hash verification failed"
+                                print("Add Payment Method Error: \(msg)")
                                 DispatchQueue.main.async {
-                                    _sucesss?(swyftPaymentMethod)
+                                    failure?(msg)
                                 }
-                            }, fail: {failure in
-                                DispatchQueue.main.async {
-                                    _failure?("Unable to update customer profile")
-                                }
-                            })
-                            update.put(key: customer.id!, customer: customer)
+                            }
                         } else {
                             var msg : String
                             if let errorMsg = String(data:  response.data, encoding: .utf8), let errorResp = ErrorResponse.init(XMLString: errorMsg), let _msg = errorResp.errorString {
