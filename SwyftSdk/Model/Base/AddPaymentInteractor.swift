@@ -43,11 +43,14 @@ public class AddPaymentInteractor {
                                 swyftPaymentMethod.cardType = cardType
                                 swyftPaymentMethod.last4 = last4
                                 swyftPaymentMethod.cardExpiry = method.cardExpiry
-                                swyftPaymentMethod.isDefault = false
                                 swyftPaymentMethod.token = paymentResponse!.cardRef
                                 
                                 
                                 customer.paymentMethods[paymentResponse!.cardRef!] = swyftPaymentMethod
+                                
+                                if isDefault {
+                                    customer.defaultPaymentMethod = paymentResponse!.cardRef!
+                                }
                                 
                                 let update = UpdateCustomer.init(success: { (msg, id) in
                                     DispatchQueue.main.async {
