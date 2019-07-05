@@ -34,6 +34,7 @@ open class SwyftConstants {
     public typealias readSuccessWArray = ((_ data: [FireStoreModelProto])->Void)?
     public typealias writeSuccess = ((_ msg: String, _ id: String?)->Void)?
     public typealias addPaymentSuccess = ((_ method: SwyftPaymentMethod)->Void)?
+    public typealias editPaymentSuccess = ((_ method: SwyftPaymentMethod)->Void)?
     public typealias defaultPaymentSuccess = (()->Void)?
     public typealias removePaymentSuccess = (()->Void)?
     

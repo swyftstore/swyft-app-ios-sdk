@@ -12,6 +12,7 @@ import Moya
 public enum Repository {
     case auth(token: String)
     case addPayment(paymentMethod: PaymentMethod)
+    case editPayment(paymentMethod: EditPaymentMethod)
     case removePayment(paymentMethod: RemovePaymentMethod)
 }
 
@@ -21,6 +22,8 @@ extension Repository: TargetType {
         case .auth:
             return  Utils.getBaseURL()!
         case .addPayment:
+            return Utils.getPyamentURL()!
+        case .editPayment:
             return Utils.getPyamentURL()!
         case .removePayment:
             return Utils.getPyamentURL()!
@@ -33,6 +36,8 @@ extension Repository: TargetType {
             return "rest/auth"
         case .addPayment:
             return "merchant/xmlpayment"
+        case .editPayment:
+            return "merchant/xmlpayment"
         case .removePayment:
             return "merchant/xmlpayment"
         }
@@ -43,6 +48,8 @@ extension Repository: TargetType {
         case .auth:
             return .post
         case .addPayment:
+            return .post
+        case .editPayment:
             return .post
         case .removePayment:
             return .post
@@ -68,6 +75,8 @@ extension Repository: TargetType {
             return "\"\(paymentMethod.toXMLString()!)\"".data(using: .utf8)!
         case .removePayment(let paymentMethod):
             return "\"\(paymentMethod.toXMLString()!)\"".data(using: .utf8)!
+        case .editPayment(let paymentMethod):
+            return "\"\(paymentMethod.toXMLString()!)\"".data(using: .utf8)!
         default:
             return Data()
         }
@@ -85,6 +94,8 @@ extension Repository: TargetType {
         case .addPayment:
             return .requestData(data)
         case .removePayment:
+            return .requestData(data)
+        case .editPayment:
             return .requestData(data)
         }
       

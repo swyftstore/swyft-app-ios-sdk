@@ -14,6 +14,9 @@
 		D049249322C68EAE0074A67F /* RemovePaymentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D049249222C68EAE0074A67F /* RemovePaymentResponse.swift */; };
 		D049249522C6C14D0074A67F /* XmlResponseBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D049249422C6C14D0074A67F /* XmlResponseBase.swift */; };
 		D049249722C6CBC90074A67F /* DefaultPaymentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D049249622C6CBC90074A67F /* DefaultPaymentInteractor.swift */; };
+		D049249922CFF0810074A67F /* EditPaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D049249822CFF0810074A67F /* EditPaymentMethod.swift */; };
+		D049249B22CFF0C80074A67F /* EditPaymentMethodResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D049249A22CFF0C70074A67F /* EditPaymentMethodResponse.swift */; };
+		D049249D22CFF1480074A67F /* EditPaymentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D049249C22CFF1480074A67F /* EditPaymentInteractor.swift */; };
 		D052DA83228E16B00082C3AE /* ProgressHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = D052DA82228E16B00082C3AE /* ProgressHud.swift */; };
 		D052DA88228E1B0A0082C3AE /* PopUpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D052DA87228E1B0A0082C3AE /* PopUpManager.swift */; };
 		D06A397D22849A1800DBF639 /* Configure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06A397C22849A1800DBF639 /* Configure.swift */; };
@@ -53,7 +56,7 @@
 		D0CD3477228E21B300585879 /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CD3476228E21B300585879 /* MBProgressHUD.framework */; };
 		D0CD3479228E21B300585879 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CD3478228E21B300585879 /* nanopb.framework */; };
 		D0CD347B228E21B300585879 /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CD347A228E21B300585879 /* openssl.framework */; };
-		D0D3228722C2A10600A2AC98 /* PaymentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D3228622C2A10600A2AC98 /* PaymentResponse.swift */; };
+		D0D3228722C2A10600A2AC98 /* PaymentMethodResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D3228622C2A10600A2AC98 /* PaymentMethodResponse.swift */; };
 		D0D3228922C2A2D200A2AC98 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D3228822C2A2D200A2AC98 /* ErrorResponse.swift */; };
 		D0D3228B22C2A5A200A2AC98 /* SwyftPaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D3228A22C2A5A200A2AC98 /* SwyftPaymentMethod.swift */; };
 		D0D3228D22C684D300A2AC98 /* RemovePaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D3228C22C684D300A2AC98 /* RemovePaymentMethod.swift */; };
@@ -82,6 +85,9 @@
 		D049249222C68EAE0074A67F /* RemovePaymentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemovePaymentResponse.swift; sourceTree = "<group>"; };
 		D049249422C6C14D0074A67F /* XmlResponseBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XmlResponseBase.swift; sourceTree = "<group>"; };
 		D049249622C6CBC90074A67F /* DefaultPaymentInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DefaultPaymentInteractor.swift; path = SwyftSdk/Network/Base/DefaultPaymentInteractor.swift; sourceTree = SOURCE_ROOT; };
+		D049249822CFF0810074A67F /* EditPaymentMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPaymentMethod.swift; sourceTree = "<group>"; };
+		D049249A22CFF0C70074A67F /* EditPaymentMethodResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPaymentMethodResponse.swift; sourceTree = "<group>"; };
+		D049249C22CFF1480074A67F /* EditPaymentInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditPaymentInteractor.swift; path = SwyftSdk/Network/Responses/EditPaymentInteractor.swift; sourceTree = SOURCE_ROOT; };
 		D052DA82228E16B00082C3AE /* ProgressHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHud.swift; sourceTree = "<group>"; };
 		D052DA87228E1B0A0082C3AE /* PopUpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpManager.swift; sourceTree = "<group>"; };
 		D06A397C22849A1800DBF639 /* Configure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configure.swift; sourceTree = "<group>"; };
@@ -146,7 +152,7 @@
 		D0D0477E2280BBC3001909EF /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D047802280BBC3001909EF /* openssl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = openssl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D047822280BBC3001909EF /* Protobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Protobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D0D3228622C2A10600A2AC98 /* PaymentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentResponse.swift; sourceTree = "<group>"; };
+		D0D3228622C2A10600A2AC98 /* PaymentMethodResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodResponse.swift; sourceTree = "<group>"; };
 		D0D3228822C2A2D200A2AC98 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		D0D3228A22C2A5A200A2AC98 /* SwyftPaymentMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwyftPaymentMethod.swift; sourceTree = "<group>"; };
 		D0D3228C22C684D300A2AC98 /* RemovePaymentMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemovePaymentMethod.swift; sourceTree = "<group>"; };
@@ -396,6 +402,7 @@
 				D08A3F4322BD89D000D264D2 /* AddPaymentInteractor.swift */,
 				D049249022C68DE30074A67F /* RemovePaymentInteractor.swift */,
 				D049249622C6CBC90074A67F /* DefaultPaymentInteractor.swift */,
+				D049249C22CFF1480074A67F /* EditPaymentInteractor.swift */,
 			);
 			path = Payments;
 			sourceTree = "<group>";
@@ -417,6 +424,7 @@
 			children = (
 				D08A3F3F22BD537700D264D2 /* PaymentMethod.swift */,
 				D0D3228C22C684D300A2AC98 /* RemovePaymentMethod.swift */,
+				D049249822CFF0810074A67F /* EditPaymentMethod.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -424,9 +432,10 @@
 		D0D3228422C29EE700A2AC98 /* Responses */ = {
 			isa = PBXGroup;
 			children = (
-				D0D3228622C2A10600A2AC98 /* PaymentResponse.swift */,
+				D0D3228622C2A10600A2AC98 /* PaymentMethodResponse.swift */,
 				D0D3228822C2A2D200A2AC98 /* ErrorResponse.swift */,
 				D049249222C68EAE0074A67F /* RemovePaymentResponse.swift */,
+				D049249A22CFF0C70074A67F /* EditPaymentMethodResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -623,6 +632,8 @@
 				D096797B2280D15D00437952 /* GetOrders.swift in Sources */,
 				D096797F2280D18C00437952 /* GetPaymentMethods.swift in Sources */,
 				D08D7F3122AB082500A6298B /* SwyftNetworkAdapter.swift in Sources */,
+				D049249B22CFF0C80074A67F /* EditPaymentMethodResponse.swift in Sources */,
+				D049249D22CFF1480074A67F /* EditPaymentInteractor.swift in Sources */,
 				D09EECAF2280B42D00B90451 /* FireStoreModel.swift in Sources */,
 				D049249122C68DE30074A67F /* RemovePaymentInteractor.swift in Sources */,
 				D06A397F22849F6B00DBF639 /* SwyftSession.swift in Sources */,
@@ -638,7 +649,8 @@
 				D08A3F4022BD537700D264D2 /* PaymentMethod.swift in Sources */,
 				D096797D2280D17300437952 /* GetStores.swift in Sources */,
 				D052DA88228E1B0A0082C3AE /* PopUpManager.swift in Sources */,
-				D0D3228722C2A10600A2AC98 /* PaymentResponse.swift in Sources */,
+				D0D3228722C2A10600A2AC98 /* PaymentMethodResponse.swift in Sources */,
+				D049249922CFF0810074A67F /* EditPaymentMethod.swift in Sources */,
 				D08A3F4222BD538800D264D2 /* XmlRequestBase.swift in Sources */,
 				D049249522C6C14D0074A67F /* XmlResponseBase.swift in Sources */,
 				D0D3228922C2A2D200A2AC98 /* ErrorResponse.swift in Sources */,
