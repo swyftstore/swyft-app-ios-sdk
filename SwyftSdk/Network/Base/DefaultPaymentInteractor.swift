@@ -19,29 +19,15 @@ public class DefaultPaymentInteractor {
                 
                 let _sucesss = success
                 let _failure = failure
-                var curentDefault: Int?
-                var newDefault: Int?
-                var index = 0
-                for method in customer.paymentMethods {
-                    if ( method.token == defaultMethod.token ) {
-                        newDefault = index
-                    } else if ( method.isDefault ) {
-                        curentDefault = index
-                    }
-                    
-                    if let _  = newDefault,
-                        let _ = curentDefault {
-                        break
-                    }
-                    index = index + 1
+                var newDefault: SwyftPaymentMethod?
+                
+                if let token = defaultMethod.token {
+                    newDefault = customer.paymentMethods[token]
                 }
                 
                 if let _  = newDefault  {
                     
-                    customer.paymentMethods[curentDefault!].isDefault = false
-                    if let _ = curentDefault {
-                        customer.paymentMethods[newDefault!].isDefault = true
-                    }
+                    customer.defaultPaymentMethod = defaultMethod.token
                     
                     let update = UpdateCustomer.init(success: { (msg, id) in
                         DispatchQueue.main.async {
