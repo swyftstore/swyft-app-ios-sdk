@@ -76,8 +76,6 @@ extension PaymentMethod: XMLMappable {
         }
     }
     
-    
-    
     public func mapping(map: XMLMap) {
         merchantRef <- map[merchantRefKey]
         terminalId <- map[terminalIdKey]
@@ -88,6 +86,4 @@ extension PaymentMethod: XMLMappable {
         cvv <- map[cvvKey]
         hashCode <- map[hashKey]
     }
-    
-    
 }

@@ -40,8 +40,6 @@ class Utils: NSObject {
         return url
     }
     
-   
-    
     static func getPaymentDateTime() -> String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "DD-MM-YYYY:HH:mm:ss:SSS"
