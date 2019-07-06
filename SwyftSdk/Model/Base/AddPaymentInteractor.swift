@@ -21,7 +21,7 @@ public class AddPaymentInteractor {
                 let _failure = failure
                 var cardFound = false
                 
-                for method in customer.paymentMethods {
+                for method in customer.paymentMethods.values {
                     if ( last4 ==  method.last4 && cardType == method.cardType ) {
                         cardFound = true;
                         break;
@@ -35,7 +35,7 @@ public class AddPaymentInteractor {
                             let resp = String(data:  response.data, encoding: .utf8)!
                             let paymentResponse = PaymentMethodResponse.init(XMLString: resp)
                             
-                            if let _ = paymentResponse,
+                            if let _ = paymentResponse, let _ = paymentResponse!.cardRef,
                                 paymentResponse!.compareHash() {
                             
                                 let swyftPaymentMethod = SwyftPaymentMethod()
@@ -43,10 +43,14 @@ public class AddPaymentInteractor {
                                 swyftPaymentMethod.cardType = cardType
                                 swyftPaymentMethod.last4 = last4
                                 swyftPaymentMethod.cardExpiry = method.cardExpiry
-                                swyftPaymentMethod.isDefault = false
-                                swyftPaymentMethod.token = paymentResponse?.cardRef
+                                swyftPaymentMethod.token = paymentResponse!.cardRef
                                 
-                                customer.paymentMethods.append(swyftPaymentMethod)
+                                
+                                customer.paymentMethods[paymentResponse!.cardRef!] = swyftPaymentMethod
+                                
+                                if isDefault {
+                                    customer.defaultPaymentMethod = paymentResponse!.cardRef!
+                                }
                                 
                                 let update = UpdateCustomer.init(success: { (msg, id) in
                                     DispatchQueue.main.async {

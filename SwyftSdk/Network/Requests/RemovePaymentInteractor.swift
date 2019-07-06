@@ -19,14 +19,11 @@ public class RemovePaymentInteractor {
                 let _sucesss = success
                 let _failure = failure
                 var swyftMethod: SwyftPaymentMethod?
-                var index = 0;
-                for method in customer.paymentMethods {
-                    if ( method.token ==  removeMethod.cardRef) {
-                        swyftMethod = method;
-                        index = index + 1
-                        break;
-                    }
+               
+                if let token = removeMethod.cardRef {
+                    swyftMethod = customer.paymentMethods[token]
                 }
+    
                 
                 if let _ = swyftMethod {
                     SwyftNetworkAdapter.request(target: .removePayment(paymentMethod: removeMethod),
@@ -36,7 +33,7 @@ public class RemovePaymentInteractor {
                                 let paymentResponse = RemoveMethodResponse.init(XMLString: resp)
                                 if let _ = paymentResponse,
                                     paymentResponse!.compareHash() {
-                                    customer.paymentMethods.remove(at: index)
+                                    customer.paymentMethods.removeValue(forKey: removeMethod.cardRef!)
                                         
                                     let update = UpdateCustomer.init(success: { (msg, id) in
                                         DispatchQueue.main.async {
