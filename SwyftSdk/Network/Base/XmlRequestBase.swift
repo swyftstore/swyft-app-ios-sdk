@@ -22,7 +22,7 @@ public class XmlRequestBase{
     
      init() {
         merchantRef = XmlRequestBase.getMerchantRef()
-        terminalId = XmlRequestBase.getTerminalRef()
+        terminalId = XmlRequestBase.getTerminalId()
         secret = XmlRequestBase.getPaymentSecret()
         dateTime = Utils.getPaymentDateTime()    
     }
@@ -55,13 +55,13 @@ public class XmlRequestBase{
         return merchantRef
     }
     
-    private static func getTerminalRef() -> String {
+    private static func getTerminalId() -> String {
         var terminalRef = ""
         if let _url = Bundle.main.url(forResource:"Info", withExtension: "plist") {
             do {
                 let data = try Data(contentsOf:_url)
                 let infoPlist = try PropertyListSerialization.propertyList(from: data, options: [], format: nil) as! [String:Any]
-                terminalRef = infoPlist["TERMINAL_REF"] as! String
+                terminalRef = infoPlist["TERMINAL_ID"] as! String
             } catch {
                 print(error)
             }
