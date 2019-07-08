@@ -20,15 +20,17 @@ public class SwyftPaymentMethod: FireStoreModelSerialize, FireStoreModelProto  {
         //todo
     }
     
-    public func isExpired() -> Bool {
-        if let _cardExpiry = cardExpiry {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MMyy"
-            if let date = dateFormatter.date(from: _cardExpiry),
-                Date() > date {
-                return true
+    public var isExpired: Bool {
+         get {
+            if let _cardExpiry = cardExpiry {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MMyy"
+                if let date = dateFormatter.date(from: _cardExpiry),
+                    Date() > date {
+                    return true
+                }
             }
+            return false
         }
-        return false
     }
 }
