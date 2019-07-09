@@ -24,6 +24,9 @@ target 'SwyftSdk' do
   
   #JVFloatLabeledTextField
   pod 'JVFloatLabeledTextField', '~> 1.2.1'
+  
+  #SwiftTryCatch
+  pod 'SwiftTryCatch', '~> 0.0.1'
 
   target 'SwyftSdkTests' do
     inherit! :search_paths
