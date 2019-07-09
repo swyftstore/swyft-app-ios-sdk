@@ -28,9 +28,6 @@ target 'SwyftSdk' do
   #SwiftTryCatch
   pod 'SwiftTryCatch', '~> 0.0.1'
   
-  #SwiftQRCode
-  #pod 'SwiftQRCode', '~> 3.0.2'
-
   target 'SwyftSdkTests' do
     inherit! :search_paths
     # Pods for testing

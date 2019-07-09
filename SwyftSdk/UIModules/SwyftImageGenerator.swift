@@ -11,17 +11,19 @@ import CoreImage
 
 
 public class SwyftImageGenerator {
-        
+    
+    private static let qrCodeGen =  "CIQRCodeGenerator"
+    private static let barCodeGen =  "CICode128BarcodeGenerator"
+    
     public static func buildQRImage(string: String, color: UIColor = UIColor.black) -> UIImage? {
-        if let ciImage = buildImage(string, "CIQRCodeGenerator", color){
+        if let ciImage = buildImage(string, qrCodeGen, color){
             return UIImage(ciImage: ciImage)
         }
         return nil
     }
     
     public static func buildBarcodeImage(string: String, color: UIColor = UIColor.black) -> UIImage? {
-    
-        if let ciImage = buildImage(string, "CICode128BarcodeGenerator", color) {
+        if let ciImage = buildImage(string, barCodeGen, color) {
             return UIImage(ciImage: ciImage)
         }
         
