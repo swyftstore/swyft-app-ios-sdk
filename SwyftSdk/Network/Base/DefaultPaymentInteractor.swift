@@ -11,7 +11,7 @@ import Foundation
 
 public class DefaultPaymentInteractor {
     
-    public func removePaymentMethod(defaultMethod: SwyftPaymentMethod,
+    public static func setDefaultPaymentMethod(defaultMethod: SwyftPaymentMethod,
                                     success:SwyftConstants.defaultPaymentSuccess, failure: SwyftConstants.fail) {
         DispatchQueue.global(qos: .background).async {
             if let session = Configure.current.session,

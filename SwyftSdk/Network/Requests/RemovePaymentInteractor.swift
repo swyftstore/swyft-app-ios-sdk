@@ -10,7 +10,7 @@ import Foundation
 
 public class RemovePaymentInteractor {
     
-    public func removePaymentMethod(removeMethod: RemovePaymentMethod,
+    public static func removePaymentMethod(removeMethod: RemovePaymentMethod,
                                  success:SwyftConstants.removePaymentSuccess,
                                  failure: SwyftConstants.fail) {
         DispatchQueue.global(qos: .background).async {

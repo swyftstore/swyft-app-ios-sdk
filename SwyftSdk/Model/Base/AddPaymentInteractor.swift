@@ -11,7 +11,7 @@ import Foundation
 
 public class AddPaymentInteractor {
     
-    public func addPaymentMethod(method: PaymentMethod, isDefault: Bool,
+    public static func addPaymentMethod(method: PaymentMethod, isDefault: Bool,
                                  success:SwyftConstants.addPaymentSuccess, failure: SwyftConstants.fail) {
         DispatchQueue.global(qos: .background).async {
             if let session = Configure.current.session, let customer = session.customer {
