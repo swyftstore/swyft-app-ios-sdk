@@ -26,7 +26,6 @@ public class SwyftImageGenerator {
         if let ciImage = buildImage(string, barCodeGen, color) {
             return UIImage(ciImage: ciImage)
         }
-        
         return nil
     }
     
