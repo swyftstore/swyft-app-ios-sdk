@@ -42,7 +42,7 @@ class Utils: NSObject {
     
     static func getPaymentDateTime() -> String{
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "DD-MM-YYYY:HH:mm:ss:SSS"
+        dateFormatter.dateFormat = "dd-MM-YYYY:HH:mm:ss:SSS"
         dateFormatter.timeZone = TimeZone(identifier: "UTC")
         let date = Date()
         return dateFormatter.string(from: date)
