@@ -72,11 +72,14 @@ extension Repository: TargetType {
     public var data: Data {
         switch self {
         case .addPayment(let paymentMethod):
-            return "\"\(paymentMethod.toXMLString()!)\"".data(using: .utf8)!
+            let req = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\(paymentMethod.toXMLString()!)"
+            return req.data(using: .utf8)!
         case .removePayment(let paymentMethod):
-            return "\"\(paymentMethod.toXMLString()!)\"".data(using: .utf8)!
+            let req = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\(paymentMethod.toXMLString()!)"
+            return req.data(using: .utf8)!
         case .editPayment(let paymentMethod):
-            return "\"\(paymentMethod.toXMLString()!)\"".data(using: .utf8)!
+            let req = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\(paymentMethod.toXMLString()!)"
+            return req.data(using: .utf8)!
         default:
             return Data()
         }

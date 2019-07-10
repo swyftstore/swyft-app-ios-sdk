@@ -11,7 +11,8 @@ import Moya
 
 
 open class SwyftNetworkAdapter {
-    static let provider = MoyaProvider<Repository>()
+    static let plugins = [NetworkLoggerPlugin()]
+    static let provider = MoyaProvider<Repository>(plugins:plugins)
     
     
     public static func request(target: Repository, success successCallback: @escaping (Response) -> Void, error errorCallback: @escaping (Swift.Error) -> Void, failure failureCallback: @escaping (MoyaError) -> Void) {
@@ -32,4 +33,6 @@ open class SwyftNetworkAdapter {
             }
         }
     }
+    
+    
 }

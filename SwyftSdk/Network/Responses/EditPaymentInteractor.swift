@@ -30,7 +30,8 @@ public class EditPaymentInteractor {
                 if (cardFound) {
                     SwyftNetworkAdapter.request(target: .editPayment(paymentMethod: method),
                             success: { response in
-                                if (response.statusCode == 200) {
+                                let resp = String(data:  response.data, encoding: .utf8)!
+                                if (response.statusCode == 200 && !resp.contains("ERRORSTRING")) {
                                     let resp = String(data:  response.data, encoding: .utf8)!
                                     let paymentResponse = PaymentMethodResponse.init(XMLString: resp)
                                     
@@ -69,16 +70,7 @@ public class EditPaymentInteractor {
                                         }
                                     }
                                 } else {
-                                    var msg : String
-                                    if let errorMsg = String(data:  response.data, encoding: .utf8), let errorResp = ErrorResponse.init(XMLString: errorMsg), let _msg = errorResp.errorString {
-                                        msg = _msg
-                                    } else {
-                                        msg = "Failed to parse response"
-                                    }
-                                    print("Edit Payment Method Error: \(msg)")
-                                    DispatchQueue.main.async {
-                                        failure?(msg)
-                                    }
+                                   errorHandler(errorMsg: resp, failure: failure)
                                 }
                     }, error: { error in
                         print("Edit Payment Method Error: ",error)
@@ -114,5 +106,18 @@ public class EditPaymentInteractor {
             }
         }
         
+    }
+    
+    private static func errorHandler(errorMsg: String, failure: SwyftConstants.fail) {
+        var msg : String
+        if let errorResp = ErrorResponse.init(XMLString: errorMsg), let _msg = errorResp.errorString {
+            msg = _msg
+        } else {
+            msg = "Failed to parse response"
+        }
+        print("Edit Payment Method Error: \(msg)")
+        DispatchQueue.main.async {
+            failure?(msg)
+        }
     }
 }

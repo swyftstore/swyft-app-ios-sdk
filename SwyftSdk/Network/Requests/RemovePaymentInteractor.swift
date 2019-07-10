@@ -28,13 +28,13 @@ public class RemovePaymentInteractor {
                 if let _ = swyftMethod {
                     SwyftNetworkAdapter.request(target: .removePayment(paymentMethod: removeMethod),
                         success: { response in
-                            if (response.statusCode == 200) {
-                                let resp = String(data:  response.data, encoding: .utf8)!
+                            let resp = String(data:  response.data, encoding: .utf8)!
+                            if (response.statusCode == 200 && !resp.contains("ERRORSTRING")) {      
                                 let paymentResponse = RemoveMethodResponse.init(XMLString: resp)
                                 if let _ = paymentResponse,
                                     paymentResponse!.compareHash() {
                                     customer.paymentMethods.removeValue(forKey: removeMethod.cardRef!)
-                                        
+                                    
                                     let update = UpdateCustomer.init(success: { (msg, id) in
                                         DispatchQueue.main.async {
                                             _sucesss?()
@@ -52,18 +52,8 @@ public class RemovePaymentInteractor {
                                         failure?(msg)
                                     }
                                 }
-                                
-                            } else {
-                                var msg : String
-                                if let errorMsg = String(data:  response.data, encoding: .utf8), let errorResp = ErrorResponse.init(XMLString: errorMsg), let _msg = errorResp.errorString {
-                                    msg = _msg
-                                } else {
-                                    msg = "Failed to parse response"
-                                }
-                                print("Remove Payment Method Error: \(msg)")
-                                DispatchQueue.main.async {
-                                    failure?(msg)
-                                }
+                            } else {                               
+                                errorHandler(errorMsg: resp, failure: failure)
                             }
                     }, error: { error in
                         print("Remove Payment Method Error: ",error)
@@ -99,5 +89,18 @@ public class RemovePaymentInteractor {
             }
         }
         
+    }
+    
+    private static func errorHandler(errorMsg: String, failure: SwyftConstants.fail) {
+        var msg : String
+        if let errorResp = ErrorResponse.init(XMLString: errorMsg), let _msg = errorResp.errorString {
+            msg = _msg
+        } else {
+            msg = "Failed to parse response"
+        }
+        print("Remove Payment Method Error: \(msg)")
+        DispatchQueue.main.async {
+            failure?(msg)
+        }
     }
 }
