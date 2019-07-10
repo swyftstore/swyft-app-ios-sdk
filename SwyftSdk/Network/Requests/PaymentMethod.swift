@@ -36,8 +36,8 @@ public class PaymentMethod: XmlRequestBase {
         }
     }
     
-    init(cardNumber: String,
-         cardExpiry: String, cardType: String, cardHolderName: String, cvv: String) {
+    public init(cardNumber: String,
+                cardExpiry: String, cardType: String, cardHolderName: String, cvv: String) {
         super.init()
         self.cardNumber = cardNumber
         self.cardType = cardType
