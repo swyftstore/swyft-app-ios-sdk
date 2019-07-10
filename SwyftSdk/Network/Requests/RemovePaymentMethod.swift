@@ -18,7 +18,7 @@ public class RemovePaymentMethod: XmlRequestBase {
     
     var cardRef: String?
     
-    init(cardRef: String) {
+    public init(cardRef: String) {
         super.init()
         self.cardRef = cardRef;
         //TERMINALID:MERCHANTREF:DATETIME:CARDREFERENCE:SECRET

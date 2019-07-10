@@ -39,7 +39,7 @@ public class EditPaymentMethod: XmlRequestBase {
         }
     }
     
-    init(cardNumber: String,
+    public init(cardNumber: String,
          cardExpiry: String, cardType: String, cardHolderName: String, cvv: String) {
         super.init()
         self.cardNumber = cardNumber
