@@ -34,7 +34,7 @@ public class SwyftImageGenerator {
         let imgData = value.data(using: String.Encoding.ascii)
         imgFilter.setValue(imgData, forKey: "inputMessage")
         
-        let imgTransform = CGAffineTransform(scaleX: 12, y: 12)
+        let imgTransform = CGAffineTransform(scaleX: 24, y: 24)
         let imgImage = imgFilter.outputImage?.transformed(by: imgTransform)
         
         return imgImage?.tinted(using: color)
