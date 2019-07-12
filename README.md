@@ -1,1 +1,1 @@
-# swyft-app-ios-sdk
+# Swyft SDK
