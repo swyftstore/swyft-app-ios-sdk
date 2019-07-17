@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Firebase
+import FirebaseCore
 import FirebaseFirestore
 
 public protocol FireStoreWrite: class {

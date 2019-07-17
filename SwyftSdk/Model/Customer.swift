@@ -27,6 +27,7 @@ public class Customer: FireStoreModelSerialize, FireStoreModelProto {
     @objc public var notifications: Notifications?
     @objc public var defaultPaymentMethod: String?
     @objc public var paymentMethods:  [String: SwyftPaymentMethod] = [:]
+    @objc public var userAgent: String?
     
     public func toString() {
         //write to string for logging
