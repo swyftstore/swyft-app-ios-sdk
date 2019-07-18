@@ -30,7 +30,6 @@ public class StoreTransactions:  FireStoreModelSerialize, FireStoreModelProto {
             if responds(to: Selector(keyName)) {
                 if "cartItems" == keyName,
                     let values = value as? Array<Dictionary<String, Any>> {
-                    //todo: this is hacky 
                     var _products = [Product]()
                     for val in values {
                         let product = Product()
