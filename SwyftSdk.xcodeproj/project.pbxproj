@@ -30,7 +30,6 @@
 		D08A3F4022BD537700D264D2 /* PaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08A3F3F22BD537700D264D2 /* PaymentMethod.swift */; };
 		D08A3F4222BD538800D264D2 /* XmlRequestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08A3F4122BD538800D264D2 /* XmlRequestBase.swift */; };
 		D08A3F4422BD89D000D264D2 /* AddPaymentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08A3F4322BD89D000D264D2 /* AddPaymentInteractor.swift */; };
-		D08D7F2222A592D700A6298B /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08D7F2122A592D700A6298B /* Order.swift */; };
 		D08D7F2422A5A17700A6298B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08D7F2322A5A17700A6298B /* Product.swift */; };
 		D08D7F2622A5C63200A6298B /* GetOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08D7F2522A5C63200A6298B /* GetOrder.swift */; };
 		D08D7F2D22AAF5DA00A6298B /* Respository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08D7F2C22AAF5DA00A6298B /* Respository.swift */; };
@@ -50,6 +49,8 @@
 		D0997B432280AF4D00A82DFB /* FireStoreRead.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0997B332280AF4C00A82DFB /* FireStoreRead.swift */; };
 		D0997B4A2280AF4D00A82DFB /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0997B3C2280AF4C00A82DFB /* Customer.swift */; };
 		D09EECAF2280B42D00B90451 /* FireStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0997B3B2280AF4C00A82DFB /* FireStoreModel.swift */; };
+		D0B6DAD322E11A520091CA00 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B6DAD222E11A520091CA00 /* Order.swift */; };
+		D0B6DAD522E11AFF0091CA00 /* StoreTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B6DAD422E11AFF0091CA00 /* StoreTransactions.swift */; };
 		D0CD3465228E21B300585879 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CD3464228E21B300585879 /* FirebaseCore.framework */; };
 		D0CD3467228E21B300585879 /* FirebaseFirestore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CD3466228E21B300585879 /* FirebaseFirestore.framework */; };
 		D0CD346D228E21B300585879 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CD346C228E21B300585879 /* GoogleUtilities.framework */; };
@@ -106,7 +107,6 @@
 		D08A3F3F22BD537700D264D2 /* PaymentMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethod.swift; sourceTree = "<group>"; };
 		D08A3F4122BD538800D264D2 /* XmlRequestBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XmlRequestBase.swift; sourceTree = "<group>"; };
 		D08A3F4322BD89D000D264D2 /* AddPaymentInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddPaymentInteractor.swift; path = SwyftSdk/Model/base/AddPaymentInteractor.swift; sourceTree = SOURCE_ROOT; };
-		D08D7F2122A592D700A6298B /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		D08D7F2322A5A17700A6298B /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		D08D7F2522A5C63200A6298B /* GetOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOrder.swift; sourceTree = "<group>"; };
 		D08D7F2C22AAF5DA00A6298B /* Respository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Respository.swift; sourceTree = "<group>"; };
@@ -129,6 +129,8 @@
 		D0997B332280AF4C00A82DFB /* FireStoreRead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireStoreRead.swift; sourceTree = "<group>"; };
 		D0997B3B2280AF4C00A82DFB /* FireStoreModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireStoreModel.swift; sourceTree = "<group>"; };
 		D0997B3C2280AF4C00A82DFB /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		D0B6DAD222E11A520091CA00 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		D0B6DAD422E11AFF0091CA00 /* StoreTransactions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreTransactions.swift; sourceTree = "<group>"; };
 		D0CD345E228E20AF00585879 /* MBProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MBProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0CD3460228E212600585879 /* Pods_customer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_customer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0CD3462228E21B300585879 /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -398,12 +400,13 @@
 			children = (
 				D08D7F2A22A6F0B700A6298B /* Base */,
 				D0997B3C2280AF4C00A82DFB /* Customer.swift */,
+				D0B6DAD422E11AFF0091CA00 /* StoreTransactions.swift */,
 				B177C4E322BEBF1A0010756F /* Notifications.swift */,
-				D08D7F2122A592D700A6298B /* Order.swift */,
 				D08D7F2322A5A17700A6298B /* Product.swift */,
 				D08A3F3D22BD458E00D264D2 /* Notifications.swift */,
 				D0D3228A22C2A5A200A2AC98 /* SwyftPaymentMethod.swift */,
 				D08A3F3722B8314600D264D2 /* Store.swift */,
+				D0B6DAD222E11A520091CA00 /* Order.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -484,7 +487,6 @@
 				D0997B0F2280AEBC00A82DFB /* Sources */,
 				D0997B102280AEBC00A82DFB /* Frameworks */,
 				D0997B112280AEBC00A82DFB /* Resources */,
-				2E31C6D9F46F01B15E2B1228 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -569,23 +571,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2E31C6D9F46F01B15E2B1228 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SwyftSdk/Pods-SwyftSdk-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SwyftSdk/Pods-SwyftSdk-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwyftSdk/Pods-SwyftSdk-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		5C2CC6544F94D914DDD262CF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -634,7 +619,9 @@
 				D09679862280D20200437952 /* FireStoreWrite.swift in Sources */,
 				D049249722C6CBC90074A67F /* DefaultPaymentInteractor.swift in Sources */,
 				D0D3228D22C684D300A2AC98 /* RemovePaymentMethod.swift in Sources */,
+				D0B6DAD522E11AFF0091CA00 /* StoreTransactions.swift in Sources */,
 				D08A3F4422BD89D000D264D2 /* AddPaymentInteractor.swift in Sources */,
+				D0B6DAD322E11A520091CA00 /* Order.swift in Sources */,
 				D08D7F2D22AAF5DA00A6298B /* Respository.swift in Sources */,
 				D0997B432280AF4D00A82DFB /* FireStoreRead.swift in Sources */,
 				D08A3F3822B8314600D264D2 /* Store.swift in Sources */,
@@ -655,7 +642,6 @@
 				D049249322C68EAE0074A67F /* RemovePaymentResponse.swift in Sources */,
 				D09679812280D1A300437952 /* GetProduct.swift in Sources */,
 				D06A397D22849A1800DBF639 /* Configure.swift in Sources */,
-				D08D7F2222A592D700A6298B /* Order.swift in Sources */,
 				D09679842280D1EB00437952 /* UpdateCustomer.swift in Sources */,
 				D08D7F2F22AAFDBD00A6298B /* Utils.swift in Sources */,
 				D08A3F3E22BD458E00D264D2 /* Notifications.swift in Sources */,
