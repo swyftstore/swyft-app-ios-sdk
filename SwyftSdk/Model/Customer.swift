@@ -15,6 +15,7 @@ public class Customer: FireStoreModelSerialize, FireStoreModelProto {
     @objc public var firstName: String?
     @objc public var lastName: String?
     @objc public var phoneNumber: String?
+    @objc public var newPhoneNumber: String?
     @objc public var logInCounter = 0
     @objc public var lastLogIn: String?
     @objc public var birthDate: String?

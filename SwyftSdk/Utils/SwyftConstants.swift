@@ -16,6 +16,7 @@ open class SwyftConstants {
     //Customer data keys
     public static let ActivationCode = "activationCode"
     public static let PhoneNumber = "phoneNumber"
+    public static let NewPhoneNumber = "newPhoneNumber"
     public static let Status = "status"
     public static let EmailAddress = "emailAddress"
     public static let LogInCounter = "logInCounter"
