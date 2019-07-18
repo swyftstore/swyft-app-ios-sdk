@@ -31,12 +31,12 @@ public class StoreTransactions:  FireStoreModelSerialize, FireStoreModelProto {
                 if "cartItems" == keyName,
                     let values = value as? Array<Dictionary<String, Any>> {
                     //todo: this is hacky 
-                        var _products = [Product]()
-                        for val in values {
-                            let product = Product()
-                            product.serialize(data: val)
-                            _products.append(product)
-                        }
+                    var _products = [Product]()
+                    for val in values {
+                        let product = Product()
+                        product.serialize(data: val)
+                        _products.append(product)
+                    }
                     setValue(_products, forKey: keyName)
                 } else {
                     setValue(value, forKey: keyName)
