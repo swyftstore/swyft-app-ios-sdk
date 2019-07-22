@@ -40,6 +40,7 @@ open class SwyftConstants {
     public static let OrderCollection = "nanshop/cart"
     public static let ProductCollection = "products"
     public static let StoreCollection = "stores"
+    public static let OrderCreationDate = "createDateTime"
     
     //Type Alaises
     public typealias readSuccess = ((_ data: FireStoreModelProto)->Void)?
