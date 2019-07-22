@@ -17,7 +17,7 @@ public class Product: FireStoreModelSerialize, FireStoreModelProto  {
     @objc public var name: String?
     @objc public var orderQuantity = 0
     @objc public var price: String?
-    @objc public var ageRestricted: String?
+    @objc public var ageRestricted = false
     @objc public var sku: String?
     @objc public var upc: String?
     
@@ -38,19 +38,3 @@ public class Product: FireStoreModelSerialize, FireStoreModelProto  {
     }
     
 }
-
-public class Dimensions: FireStoreModelSerialize, FireStoreModelProto  {
-    @objc public var h = 0
-    @objc public var w = 0
-    @objc public var l = 0
-    
-    
-    public func toString() {
-        
-    }
-    
-   
-    
-    
-}
-
