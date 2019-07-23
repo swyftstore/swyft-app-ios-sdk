@@ -43,11 +43,10 @@ public class GetOrders: FireStoreRead{
         }
     }
     
-    public func get(customerId: String) {
-        var ref: CollectionReference?
-        
-        ref = db.collection(SwyftConstants.OrderCollection)
-        let query = ref?.whereField(SwyftConstants.CustomerId, isEqualTo: customerId)
+    public func get(customerId: String, startIndex: Int, stopIndex: Int) {
+        var group: Query?
+        group = db.collectionGroup(SwyftConstants.OrderCollection)
+        let query = group?.whereField(SwyftConstants.CustomerId, isEqualTo: customerId).order(by: SwyftConstants.OrderCreationDate).start(at: [startIndex]).end(before: [stopIndex])
         if let query = query {
             self.queryDB(query: query)
         } else {

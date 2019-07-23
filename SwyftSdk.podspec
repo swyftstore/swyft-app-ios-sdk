@@ -143,9 +143,8 @@ Pod::Spec.new do |spec|
   spec.dependency 'CryptoSwift', '~> 1.0.0'
   
   # Firebase
-  spec.dependency 'Firebase', '~>  5.15.0'
-  spec.dependency 'Firebase/Core', '~> 5.15.0'
-  spec.dependency 'Firebase/Firestore', '~> 5.15.0'
+  spec.dependency 'Firebase/Core', '~> 6.5.0'
+  spec.dependency 'Firebase/Firestore', '~> 6.5.0'
   
   #JVFloatLabeledTextField
   spec.dependency 'JVFloatLabeledTextField', '~> 1.2.1'

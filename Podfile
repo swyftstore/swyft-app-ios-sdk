@@ -19,9 +19,8 @@ target 'SwyftSdk' do
   pod 'CryptoSwift', '~> 1.0.0'
   
   # Firebase
-  pod 'Firebase',     '~> 5.15.0'
-  pod 'Firebase/Core', '~> 5.15.0'
-  pod 'Firebase/Firestore', '~> 5.15.0'
+  pod 'Firebase/Core', '~> 6.5.0'
+  pod 'Firebase/Firestore', '~> 6.5.0'
   
   #JVFloatLabeledTextField
   pod 'JVFloatLabeledTextField', '~> 1.2.1'
