@@ -37,7 +37,7 @@ open class SwyftConstants {
     
     //DB Collections
     public static let CustomerCollection = "customers"
-    public static let OrderCollection = "nanshop/cart"
+    public static let OrderCollection = "orderCollection"
     public static let ProductCollection = "products"
     public static let StoreCollection = "stores"
     public static let OrderCreationDate = "createDateTime"
