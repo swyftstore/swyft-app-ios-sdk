@@ -15,7 +15,7 @@ public class GetOrders: FireStoreRead{
     
     public var db: Firestore
     
-    private var orders = Array<Order>()
+    private var orders: Array<Order>?
     
     public required init(success: SwyftConstants.readSuccessWArray, fail: SwyftConstants.fail) {
         self.success = success
@@ -27,10 +27,12 @@ public class GetOrders: FireStoreRead{
         let order = Order()
         order.serialize(data: data)
         order.id = id
-        orders.append(order)
-        if done {
-            DispatchQueue.main.async {
-                self.success?(self.orders)
+        if var orders = orders {
+            orders.append(order)
+            if done {
+                DispatchQueue.main.async {
+                    self.success?(orders)
+                }
             }
         }
     }
@@ -43,9 +45,9 @@ public class GetOrders: FireStoreRead{
         }
     }
     
-    public func get(customerId: String, startIndex: Int, stopIndex: Int) {
-      
-        let query = db.collection(SwyftConstants.OrderCollection).whereField(SwyftConstants.CustomerId, isEqualTo: customerId).order(by: SwyftConstants.OrderCreationDate)
+    public func get(customerId: String, startIndex: Int, limit: Int) {
+        orders = []
+        let query = db.collection(SwyftConstants.OrderCollection).whereField(SwyftConstants.CustomerId, isEqualTo: customerId).order(by: SwyftConstants.OrderCreationDate).start(at: [startIndex]).limit(to: limit)
         self.queryDB(query: query)
     }
     
