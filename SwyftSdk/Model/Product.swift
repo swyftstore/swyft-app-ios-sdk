@@ -16,7 +16,7 @@ public class Product: FireStoreModelSerialize, FireStoreModelProto  {
     
     @objc public var name: String?
     @objc public var orderQuantity = 0
-    @objc public var price: String?
+    @objc public var price = 0.0
     @objc public var ageRestricted = false
     @objc public var sku: String?
     @objc public var upc: String?

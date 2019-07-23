@@ -14,9 +14,9 @@ public class StoreTransactions:  FireStoreModelSerialize, FireStoreModelProto {
     @objc public var storeId: String?
     @objc public var lastUpdated: String?
     @objc public var cartItems: [Product]?
-    @objc public var total: String?
-    @objc public var subtotal: String?
-    @objc public var tax: String?
+    @objc public var total = 0.0
+    @objc public var subtotal = 0.0
+    @objc public var tax = 0.0
     
     
     public func toString() {
@@ -29,11 +29,12 @@ public class StoreTransactions:  FireStoreModelSerialize, FireStoreModelProto {
             let keyName = key as String
             if responds(to: Selector(keyName)) {
                 if "cartItems" == keyName,
-                    let values = value as? Array<Dictionary<String, Any>> {
+                    let values = value as? Dictionary<String, Dictionary<String, Any>> {
                     var _products = [Product]()
-                    for val in values {
+                    for (_key, val) in values {
                         let product = Product()
                         product.serialize(data: val)
+                        product.id = _key
                         _products.append(product)
                     }
                     setValue(_products, forKey: keyName)

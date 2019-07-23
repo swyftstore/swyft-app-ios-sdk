@@ -12,12 +12,12 @@ public class Order:  FireStoreModelSerialize, FireStoreModelProto {
     
     public var id: String?
     @objc public var customerId: String?
-    @objc public var preAuthAmount: String?
-    @objc public var createDateTime: String?
-    @objc public var updateDateTime: String?
-    @objc public var subTotal: String?
-    @objc public var total: String?
-    @objc public var tax: String?
+    @objc public var preAuthAmount = 0.0
+    @objc public var createDateTime = 0
+    @objc public var updateDateTime = 0
+    @objc public var subTotal = 0.0
+    @objc public var total = 0.0
+    @objc public var tax = 0.0
     @objc public var settled = false
     @objc public var storeTransactions: [StoreTransactions]?
     
@@ -32,12 +32,13 @@ public class Order:  FireStoreModelSerialize, FireStoreModelProto {
             let keyName = key as String
             if responds(to: Selector(keyName)) {
                 if "storeTransactions" == keyName,
-                    let values = value as? Array<Dictionary<String, Any>> {
+                    let values = value as? Dictionary<String,Dictionary<String, Any>> {
                     //todo: this is hacky
                     var _products = [StoreTransactions]()
-                    for val in values {
+                    for (key, _value) in values {
                         let product = StoreTransactions()
-                        product.serialize(data: val)
+                        product.serialize(data: _value)
+                        product.id = key
                         _products.append(product)
                     }
                     setValue(_products, forKey: keyName)

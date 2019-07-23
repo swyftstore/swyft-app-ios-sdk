@@ -44,14 +44,9 @@ public class GetOrders: FireStoreRead{
     }
     
     public func get(customerId: String, startIndex: Int, stopIndex: Int) {
-        var group: Query?
-        group = db.collectionGroup(SwyftConstants.OrderCollection)
-        let query = group?.whereField(SwyftConstants.CustomerId, isEqualTo: customerId).order(by: SwyftConstants.OrderCreationDate).start(at: [startIndex]).end(before: [stopIndex])
-        if let query = query {
-            self.queryDB(query: query)
-        } else {
-            self.queryFailure(msg: "Error loading collection")
-        }
+      
+        let query = db.collection(SwyftConstants.OrderCollection).whereField(SwyftConstants.CustomerId, isEqualTo: customerId).order(by: SwyftConstants.OrderCreationDate)
+        self.queryDB(query: query)
     }
     
     
