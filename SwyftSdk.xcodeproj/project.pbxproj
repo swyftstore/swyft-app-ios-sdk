@@ -3,13 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		5FE08699CEBF426A424C3C96 /* Pods_SwyftSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868BFDACAFB50C90DF227616 /* Pods_SwyftSdk.framework */; };
 		B10EE0D6E8A3E2FD6D946092 /* Pods_SwyftSdkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570AF5B237BF66049749A57E /* Pods_SwyftSdkTests.framework */; };
-		B177C4E422BEBF1B0010756F /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177C4E322BEBF1A0010756F /* Notifications.swift */; };
 		CEB6B780BC4F2AB0D3241B7F /* Pods_SwyftSdkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39274FC2924BF3112B5BD2C1 /* Pods_SwyftSdkTests.framework */; };
 		D049249122C68DE30074A67F /* RemovePaymentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D049249022C68DE30074A67F /* RemovePaymentInteractor.swift */; };
 		D049249322C68EAE0074A67F /* RemovePaymentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D049249222C68EAE0074A67F /* RemovePaymentResponse.swift */; };
@@ -51,6 +50,7 @@
 		D09EECAF2280B42D00B90451 /* FireStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0997B3B2280AF4C00A82DFB /* FireStoreModel.swift */; };
 		D0B6DAD322E11A520091CA00 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B6DAD222E11A520091CA00 /* Order.swift */; };
 		D0B6DAD522E11AFF0091CA00 /* StoreTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B6DAD422E11AFF0091CA00 /* StoreTransactions.swift */; };
+		D0B6DAD922E632BB0091CA00 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B6DAD822E632BB0091CA00 /* Device.swift */; };
 		D0CD3465228E21B300585879 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CD3464228E21B300585879 /* FirebaseCore.framework */; };
 		D0CD3467228E21B300585879 /* FirebaseFirestore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CD3466228E21B300585879 /* FirebaseFirestore.framework */; };
 		D0CD346D228E21B300585879 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CD346C228E21B300585879 /* GoogleUtilities.framework */; };
@@ -84,7 +84,6 @@
 		80B062963F20B808F2AA587B /* Pods-SwyftSdkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwyftSdkTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwyftSdkTests/Pods-SwyftSdkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		868BFDACAFB50C90DF227616 /* Pods_SwyftSdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwyftSdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88DB4010AA83575ED758B0CD /* Pods-SwyftSdk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwyftSdk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwyftSdk/Pods-SwyftSdk.debug.xcconfig"; sourceTree = "<group>"; };
-		B177C4E322BEBF1A0010756F /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		CBD541C0DB7602FF109E3644 /* Pods_SwyftSdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwyftSdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D02C0F142294803E00856279 /* JVFloatLabeledTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JVFloatLabeledTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D049249022C68DE30074A67F /* RemovePaymentInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RemovePaymentInteractor.swift; path = SwyftSdk/Network/Requests/RemovePaymentInteractor.swift; sourceTree = SOURCE_ROOT; };
@@ -131,6 +130,7 @@
 		D0997B3C2280AF4C00A82DFB /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		D0B6DAD222E11A520091CA00 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		D0B6DAD422E11AFF0091CA00 /* StoreTransactions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreTransactions.swift; sourceTree = "<group>"; };
+		D0B6DAD822E632BB0091CA00 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		D0CD345E228E20AF00585879 /* MBProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MBProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0CD3460228E212600585879 /* Pods_customer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_customer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0CD3462228E21B300585879 /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -401,12 +401,12 @@
 				D08D7F2A22A6F0B700A6298B /* Base */,
 				D0997B3C2280AF4C00A82DFB /* Customer.swift */,
 				D0B6DAD422E11AFF0091CA00 /* StoreTransactions.swift */,
-				B177C4E322BEBF1A0010756F /* Notifications.swift */,
 				D08D7F2322A5A17700A6298B /* Product.swift */,
 				D08A3F3D22BD458E00D264D2 /* Notifications.swift */,
 				D0D3228A22C2A5A200A2AC98 /* SwyftPaymentMethod.swift */,
 				D08A3F3722B8314600D264D2 /* Store.swift */,
 				D0B6DAD222E11A520091CA00 /* Order.swift */,
+				D0B6DAD822E632BB0091CA00 /* Device.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -621,6 +621,7 @@
 				D0D3228D22C684D300A2AC98 /* RemovePaymentMethod.swift in Sources */,
 				D0B6DAD522E11AFF0091CA00 /* StoreTransactions.swift in Sources */,
 				D08A3F4422BD89D000D264D2 /* AddPaymentInteractor.swift in Sources */,
+				D0B6DAD922E632BB0091CA00 /* Device.swift in Sources */,
 				D0B6DAD322E11A520091CA00 /* Order.swift in Sources */,
 				D08D7F2D22AAF5DA00A6298B /* Respository.swift in Sources */,
 				D0997B432280AF4D00A82DFB /* FireStoreRead.swift in Sources */,
@@ -637,7 +638,6 @@
 				D049249D22CFF1480074A67F /* EditPaymentInteractor.swift in Sources */,
 				D09EECAF2280B42D00B90451 /* FireStoreModel.swift in Sources */,
 				D049249122C68DE30074A67F /* RemovePaymentInteractor.swift in Sources */,
-				B177C4E422BEBF1B0010756F /* Notifications.swift in Sources */,
 				D06A397F22849F6B00DBF639 /* SwyftSession.swift in Sources */,
 				D049249322C68EAE0074A67F /* RemovePaymentResponse.swift in Sources */,
 				D09679812280D1A300437952 /* GetProduct.swift in Sources */,
