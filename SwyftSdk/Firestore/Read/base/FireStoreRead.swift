@@ -36,7 +36,7 @@ extension FireStoreRead {
                            
                             if let data = document.data() {
                                 debugPrint(data)
-                                if index <= size {
+                                if index >= size {
                                     done = true
                                 }
                                 self.querySuccess(data:data, id: document.documentID, done: done)
