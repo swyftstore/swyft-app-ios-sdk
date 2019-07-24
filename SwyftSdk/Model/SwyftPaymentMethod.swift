@@ -15,6 +15,7 @@ public class SwyftPaymentMethod: FireStoreModelSerialize, FireStoreModelProto  {
     @objc public var last4: String?
     @objc public var cardType: String?
     @objc public var cardExpiry: String?
+    @objc public var cardHolderName: String?
     
     public func toString() {
         //todo
