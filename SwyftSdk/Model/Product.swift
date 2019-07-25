@@ -15,12 +15,12 @@ public class Product: FireStoreModelSerialize, FireStoreModelProto  {
     public var id: String?
     
     @objc public var name: String?
-    @objc public var orderQuantity = 0
+    @objc public var orderedQuantity = 0
     @objc public var price = 0.0
     @objc public var ageRestricted = false
     @objc public var sku: String?
     @objc public var upc: String?
-    @objc public var imageURL: String?
+    @objc public var imageUrl: String?
     
     
     public func toString() {
