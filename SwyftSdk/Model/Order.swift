@@ -19,6 +19,7 @@ public class Order:  FireStoreModelSerialize, FireStoreModelProto {
     @objc public var total = 0.0
     @objc public var tax = 0.0
     @objc public var settled = false
+    @objc public var merchantName: String?
     @objc public var storeTransactions: [StoreTransactions]?
     
     
