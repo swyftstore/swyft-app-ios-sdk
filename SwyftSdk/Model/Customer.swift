@@ -33,5 +33,36 @@ public class Customer: FireStoreModelSerialize, FireStoreModelProto {
     
     public func toString() {
         //write to string for logging
-    }      
+    }
+    
+    override public func serialize(data: Dictionary<String, Any>) {
+        
+        for (key, value) in data {
+            let keyName = key as String
+            if responds(to: Selector(keyName)) {
+                if "paymentMethods" == keyName,
+                    let values = value as? Dictionary<String, Dictionary<String, Any>> {
+                    var paymentMethods = [String: SwyftPaymentMethod]()
+                    for (_key, val) in values {
+                        let paymentMethod = SwyftPaymentMethod()
+                        paymentMethod.serialize(data: val)
+                        paymentMethods[_key] = paymentMethod
+                    }
+                    setValue(paymentMethods, forKey: keyName)
+                } else if "devices" == keyName, let values = value as? Array<Dictionary<String, Any>> {
+                    
+                    var devices = [Device]()
+                    for (val) in values {
+                        let device = Device()
+                        device.serialize(data: val)
+                        devices.append(device)
+                    }
+                    setValue(devices, forKey: keyName)
+                    
+                } else {
+                    setValue(value, forKey: keyName)
+                }
+            }
+        }
+    }
 }
