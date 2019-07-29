@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import SwiftTryCatch
 
 class Store: FireStoreModelSerialize, FireStoreModelProto {
     public var id: String?
@@ -26,12 +26,12 @@ class Store: FireStoreModelSerialize, FireStoreModelProto {
     }
     
     override public func serialize(data: Dictionary<String, Any>) {
-        
-        for (key, value) in data {
-            let keyName = key as String
-            if responds(to: Selector(keyName)) {
-                if "products" == keyName,
-                   let values = value as? Array<Dictionary<String, Any>> {
+        SwiftTryCatch.try({
+            for (key, value) in data {
+                let keyName = key as String
+                if self.responds(to: Selector(keyName)) {
+                    if "products" == keyName,
+                        let values = value as? Array<Dictionary<String, Any>> {
                         //todo: this is hacky
                         var _products = [Product]()
                         for val in values {
@@ -39,28 +39,32 @@ class Store: FireStoreModelSerialize, FireStoreModelProto {
                             product.serialize(data: val)
                             _products.append(product)
                         }
-                        setValue(_products, forKey: keyName)
-                } else if "geoPoint" == keyName, let values = value as? Dictionary<String, Any> {
+                        self.setValue(_products, forKey: keyName)
+                    } else if "geoPoint" == keyName, let values = value as? Dictionary<String, Any> {
                         let geoPoint = GeoPoint()
                         geoPoint.serialize(data: values)
-                        setValue(value, forKey: "geoPoint")
-                } else if "location" == keyName, let values = value as? Dictionary<String, Any> {
+                        self.setValue(value, forKey: "geoPoint")
+                    } else if "location" == keyName, let values = value as? Dictionary<String, Any> {
                         let location = Location()
                         location.serialize(data: values)
-                        setValue(value, forKey: "location")
-                } else if "hours" == keyName, let values = value as? Array<Dictionary<String, Any>> {
+                        self.setValue(value, forKey: "location")
+                    } else if "hours" == keyName, let values = value as? Array<Dictionary<String, Any>> {
                         var hoursArray = [Hours]()
                         for value in values {
                             let hours = Hours()
                             hours.serialize(data: value)
                             hoursArray.append(hours)
                         }
-                        setValue(hoursArray, forKey: "hours")
-                } else {
-                    setValue(value, forKey: keyName)
+                        self.setValue(hoursArray, forKey: "hours")
+                    } else {
+                        self.setValue(value, forKey: keyName)
+                    }
                 }
             }
-        }
+        }, catch: { (error) in
+            print("Error serializing data \(error!.description)")
+        }, finally: {})
+        
     }
     
 }
