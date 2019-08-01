@@ -56,3 +56,20 @@ public class Order:  FireStoreModelSerialize, FireStoreModelProto {
     }
     
 }
+
+public class Address: FireStoreModelSerialize, FireStoreModelProto {
+    
+    @objc public var address1: String?
+    @objc public var address2: String?
+    @objc public var city: String?
+    @objc public var zip: String?
+    @objc public var state: String?
+    @objc public var country: String?
+    @objc public var providence: String?
+    
+    public func toString() {
+        //todo
+    }
+    
+    
+}
