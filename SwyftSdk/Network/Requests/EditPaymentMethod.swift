@@ -89,4 +89,19 @@ extension EditPaymentMethod: XMLMappable {
         cvv <- map[cvvKey]
         hashCode <- map[hashKey]
     }
+    
+    public func toXMLString() -> String  {
+        var xml = "<?xml version='1.0' encoding='UTF-8' standalone='yes' ?> <\(nodeName!)>"
+        
+        xml = "\(xml)\(buildXMLTag(key: merchantRefKey, value:merchantRef))"
+        xml = "\(xml)\(buildXMLTag(key: terminalIdKey, value: terminalId))"
+        xml = "\(xml)\(buildXMLTag(key: dateTimeKey, value: dateTime))"
+        xml = "\(xml)\(buildXMLTag(key: cardExpiryKey, value:cardExpiry))"
+        xml = "\(xml)\(buildXMLTag(key: cardTypeKey, value:cardType))"
+        xml = "\(xml)\(buildXMLTag(key: hashKey, value:hashCode))"
+        xml = "\(xml)\(buildXMLTag(key: cvvKey, value:cvv))"
+        xml = "\(xml)</\(nodeName!)>"
+        
+        return  xml
+    }
 }

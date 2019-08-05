@@ -72,7 +72,7 @@ extension Repository: TargetType {
     public var data: Data {
         switch self {
         case .addPayment(let paymentMethod):
-            let req = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\(paymentMethod.toXMLString()!)"
+            let req = paymentMethod.toXMLString()
             return req.data(using: .utf8)!
         case .removePayment(let paymentMethod):
             let req = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\(paymentMethod.toXMLString()!)"
@@ -109,6 +109,15 @@ extension Repository: TargetType {
         switch self {
         case .auth:            
             headers["Content-Type"] = "application/json"
+            return headers
+        case .addPayment:
+            headers["Content-Type"] = "text/x-markdown"
+            return headers
+        case .removePayment:
+            headers["Content-Type"] = "text/x-markdown"
+            return headers
+        case .editPayment:
+            headers["Content-Type"] = "text/x-markdown"
             return headers
         default:
             return headers

@@ -16,8 +16,7 @@ public class XmlRequestBase{
     
     var merchantRef: String?
     var terminalId: String?
-    var dateTime: String?
-    
+    var dateTime: String?    
     var secret: String
     
      init() {
@@ -67,6 +66,16 @@ public class XmlRequestBase{
             }
         }
         return terminalRef
+    }
+    
+    func buildXMLTag(key: String, value: String?) -> String {
+        var tag: String
+        if let value = value {
+            tag = "<\(key)>\(value)</\(key)>"
+        } else {
+            tag = "<\(key)></\(key)>"
+        }
+        return tag
     }
     
 }

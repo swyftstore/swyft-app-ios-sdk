@@ -45,7 +45,8 @@ public class PaymentMethod: XmlRequestBase {
         self.cardExpiry = cardExpiry
         self.cvv = cvv
         
-        let prefix = "\(terminalId!):\(merchantRef!):\(dateTime!):\(self.cardNumber!):\(self.cardType!):\(self.cardHolderName!)"
+        //TERMINALID:MERCHANTREF:DATETIME:CARDNUMBER:CARDEXPIRY:CARDTYPE:CARDHOLDERNAME:SECRET
+        let prefix = "\(terminalId!):\(merchantRef!):\(dateTime!):\(self.cardNumber!):\(self.cardExpiry!):\(self.cardType!):\(self.cardHolderName!)"
         self.hashCode = Utils.createPaymentHash(prefix: prefix, secret: secret)
     }
     
@@ -53,13 +54,13 @@ public class PaymentMethod: XmlRequestBase {
         super.init()
         merchantRef = map[merchantRefKey].currentValue as? String
         terminalId = map[terminalIdKey].currentValue as? String
+        dateTime = map[dateTimeKey].currentValue as? String
         cardNumber = map[cardNumberKey].currentValue as? String
         cardExpiry = map[cardExpiryKey].currentValue as? String
         cardType = map[cardTypeKey].currentValue as? String
         cardHolderName = map[cardHolderNameKey].currentValue as? String
-        cvv = map[cvvKey].currentValue as? String
-        dateTime = map[dateTimeKey].currentValue as? String
         hashCode = map[hashKey].currentValue as? String
+        cvv = map[cvvKey].currentValue as? String
         
     }
     
@@ -76,14 +77,33 @@ extension PaymentMethod: XMLMappable {
         }
     }
     
+    
     public func mapping(map: XMLMap) {
         merchantRef <- map[merchantRefKey]
         terminalId <- map[terminalIdKey]
+        dateTime <- map[dateTimeKey]
         cardNumber <- map[cardNumberKey]
         cardExpiry <- map[cardExpiryKey]
         cardType <- map[cardTypeKey]
         cardHolderName <- map[cardHolderNameKey]
-        cvv <- map[cvvKey]
         hashCode <- map[hashKey]
+        cvv <- map[cvvKey]
+    }
+    
+    public func toXMLString() -> String  {
+        var xml = "<?xml version='1.0' encoding='UTF-8' standalone='yes' ?> <\(nodeName!)>"
+       
+        xml = "\(xml)\(buildXMLTag(key: merchantRefKey, value:merchantRef))"
+        xml = "\(xml)\(buildXMLTag(key: terminalIdKey, value: terminalId))"
+        xml = "\(xml)\(buildXMLTag(key: dateTimeKey, value: dateTime))"
+        xml = "\(xml)\(buildXMLTag(key: cardNumberKey, value:cardNumber))"
+        xml = "\(xml)\(buildXMLTag(key: cardExpiryKey, value:cardExpiry))"
+        xml = "\(xml)\(buildXMLTag(key: cardTypeKey, value:cardType))"
+        xml = "\(xml)\(buildXMLTag(key: cardHolderNameKey, value:cardHolderName))"
+        xml = "\(xml)\(buildXMLTag(key: hashKey, value:hashCode))"
+        xml = "\(xml)\(buildXMLTag(key: cvvKey, value:cvv))"
+        xml = "\(xml)</\(nodeName!)>"
+        
+        return  xml
     }
 }

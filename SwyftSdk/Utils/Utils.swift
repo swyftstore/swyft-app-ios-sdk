@@ -50,7 +50,10 @@ class Utils: NSObject {
     
     static func createPaymentHash(prefix: String, secret: String) -> String {
         let result = "\(prefix):\(secret)"
+        debugPrint("hash contents: \(result)")
         let data = Data(result.bytes)
-        return data.sha512().toHexString()
+        let hash = data.sha512().toHexString().lowercased()
+        
+        return hash
     }
 }

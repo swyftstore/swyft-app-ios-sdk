@@ -50,5 +50,19 @@ extension RemovePaymentMethod: XMLMappable {
         terminalId <- map[terminalIdKey]
         cardRef <- map[cardRefKey]
         hashCode <- map[hashKey]
-    }    
+    }
+    
+
+    public func toXMLString() -> String  {
+        var xml = "<?xml version='1.0' encoding='UTF-8' standalone='yes' ?> <\(nodeName!)>"
+        
+        xml = "\(xml)\(buildXMLTag(key: merchantRefKey, value:merchantRef))"
+        xml = "\(xml)\(buildXMLTag(key: cardRefKey, value: cardRef))"
+        xml = "\(xml)\(buildXMLTag(key: terminalIdKey, value:terminalId))"
+        xml = "\(xml)\(buildXMLTag(key: dateTimeKey, value: dateTime))"
+        xml = "\(xml)\(buildXMLTag(key: hashKey, value:hashCode))"
+        xml = "\(xml)</\(nodeName!)>"
+        
+        return  xml
+    }
 }
