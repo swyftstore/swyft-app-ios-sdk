@@ -32,7 +32,7 @@ public class AddPaymentInteractor {
                     SwyftNetworkAdapter.request(target: .addPayment(paymentMethod: method),
                                                 success: { response in
                         let resp = String(data:  response.data, encoding: .utf8)!
-                        if (response.statusCode == 200 && !resp.contains("ERRORSTRING")) {
+                        if (response.statusCode == 200 && !resp.contains("ERROR")) {
                             let paymentResponse = PaymentMethodResponse.init(XMLString: resp)
                             
                             if let _ = paymentResponse, let _ = paymentResponse!.cardRef,
@@ -44,12 +44,20 @@ public class AddPaymentInteractor {
                                 swyftPaymentMethod.last4 = last4
                                 swyftPaymentMethod.cardExpiry = method.cardExpiry
                                 swyftPaymentMethod.token = paymentResponse!.cardRef
+                                swyftPaymentMethod.merchantRef = paymentResponse!.merchantRef
+                                swyftPaymentMethod.cardholderName = method.cardHolderName
                                 
                                 
                                 customer.paymentMethods[paymentResponse!.cardRef!] = swyftPaymentMethod
                                 
                                 if isDefault {
                                     customer.defaultPaymentMethod = paymentResponse!.cardRef!
+                                } else {
+                                    if let defaultMethod = customer.defaultPaymentMethod, defaultMethod == "" {
+                                        customer.defaultPaymentMethod = paymentResponse!.cardRef!
+                                    } else {
+                                        customer.defaultPaymentMethod = paymentResponse!.cardRef!
+                                    }
                                 }
                                 
                                 let update = UpdateCustomer.init(success: { (msg, id) in

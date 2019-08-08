@@ -48,8 +48,8 @@ public class EditPaymentMethod: XmlRequestBase {
         self.cardExpiry = cardExpiry
         self.cvv = cvv
         
-        let prefix = "\(terminalId!):\(merchantRef!):\(dateTime!):\(self.cardNumber!):\(self.cardType!):\(self.cardHolderName!)"
-        self.hashCode = Utils.createPaymentHash(prefix: prefix, secret: secret)
+        let signature = "\(terminalId!):\(merchantRef!):\(dateTime!):\(self.cardNumber!):\(self.cardType!):\(self.cardHolderName!):\(secret)"
+        self.hashCode = Utils.createPaymentHash(signature: signature)
     }
     
     required public init?(map: XMLMap) {

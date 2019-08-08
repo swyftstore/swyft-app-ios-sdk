@@ -27,7 +27,7 @@ class EditPaymentMethodResponse: XmlResponseBase {
     
     func compareHash() -> Bool {
         //TERMINALID:MERCHANTREF:CARDREFERENCE:DATETIME:SECRET
-        let _hashCode = Utils.createPaymentHash(prefix: "\(terminalId!):\(merchantRef!):\(cardRef!):\(dateTime!)", secret: secret)
+        let _hashCode = Utils.createPaymentHash(signature: "\(terminalId!):\(merchantRef!):\(cardRef!):\(dateTime!):\(secret)")
         
         return _hashCode == self.hashCode
     }

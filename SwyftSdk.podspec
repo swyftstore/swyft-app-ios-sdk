@@ -151,6 +151,10 @@ Pod::Spec.new do |spec|
   
   #SwiftTryCatch
   spec.dependency 'SwiftTryCatch', '~> 0.0.1'
+
+  #SipHash 
+  spec.dependency 'SipHash', '~> 1.2'
+
   # spec.dependency "JSONKit", "~> 1.4"
 
   #spec.frameworks = 'FirebaseCore', 'FirebaseFirestore'

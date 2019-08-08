@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 public class RemovePaymentInteractor {
     
@@ -23,18 +24,20 @@ public class RemovePaymentInteractor {
                 if let token = removeMethod.cardRef {
                     swyftMethod = customer.paymentMethods[token]
                 }
-    
                 
                 if let _ = swyftMethod {
                     SwyftNetworkAdapter.request(target: .removePayment(paymentMethod: removeMethod),
                         success: { response in
                             let resp = String(data:  response.data, encoding: .utf8)!
-                            if (response.statusCode == 200 && !resp.contains("ERRORSTRING")) {      
+                            if (response.statusCode == 200 && !resp.contains("ERRORSTRING")) {
+                                debugPrint("payment response: ",resp)
                                 let paymentResponse = RemoveMethodResponse.init(XMLString: resp)
+                                paymentResponse?.cardRef = removeMethod.cardRef
                                 if let _ = paymentResponse,
                                     paymentResponse!.compareHash() {
-                                    customer.paymentMethods.removeValue(forKey: removeMethod.cardRef!)
-                                    
+                                    let token = removeMethod.cardRef;
+                                    customer.paymentMethods.removeValue(forKey: token!)
+                                   
                                     let update = UpdateCustomer.init(success: { (msg, id) in
                                         DispatchQueue.main.async {
                                             _sucesss?()
@@ -44,7 +47,18 @@ public class RemovePaymentInteractor {
                                             _failure?("Unable to update customer profile")
                                         }
                                     })
-                                    update.put(key: customer.id!, customer: customer)
+                                    var data : [String: Any] = [:]
+                                    var pMethods : [String: Any] = [:]
+                                    pMethods[token!] = FieldValue.delete()
+                                    if customer.paymentMethods.isEmpty {
+                                        data["defaultPaymentMethod"] = FieldValue.delete()
+                                    } else if customer.defaultPaymentMethod == token {
+                                        var interator = customer.paymentMethods.makeIterator()
+                                        let pMethod = interator.next();
+                                        data["defaultPaymentMethod"] = pMethod?.value.token
+                                    }
+                                    data["paymentMethods"] = pMethods
+                                    update.put(key: customer.id!, data: data)
                                 } else {
                                     let msg = "Hash verification failed"
                                     print("Add Payment Method Error: \(msg)")

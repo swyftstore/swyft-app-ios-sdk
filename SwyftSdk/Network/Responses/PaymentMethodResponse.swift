@@ -26,8 +26,10 @@ class PaymentMethodResponse: XmlResponseBase {
     }
     
     func compareHash() -> Bool {
+        
+        
         //TERMINALID:MERCHANTREF:CARDREFERENCE:DATETIME:SECRET
-        let _hashCode = Utils.createPaymentHash(prefix: "\(terminalId!):\(merchantRef!):\(cardRef!):\(dateTime!)", secret: secret)
+        let _hashCode = Utils.createPaymentHash(signature: "\(terminalId!):\(merchantRef!):\(cardRef!):\(dateTime!):\(secret)")
         
         return _hashCode == self.hashCode
     }
@@ -45,8 +47,8 @@ extension PaymentMethodResponse: XMLMappable {
     
     public func mapping(map: XMLMap) {
         merchantRef <- map[merchantRefKey]
-        cardRef <- map[dateTimeKey]
-        dateTime <- map[cardRefKey]
+        cardRef <- map[cardRefKey]
+        dateTime <- map[dateTimeKey]
         hashCode <- map[hashKey]
     }
 }

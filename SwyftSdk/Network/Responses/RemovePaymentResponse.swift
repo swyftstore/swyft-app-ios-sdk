@@ -27,8 +27,8 @@ class RemoveMethodResponse: XmlResponseBase {
     }
     
     func compareHash() -> Bool {
-        //TERMINALID:MERCHANTREF:CARDREFERENCE:DATETIME:SECRET
-        let _hashCode = Utils.createPaymentHash(prefix: "\(terminalId!):\(merchantRef!):\(cardRef!):\(dateTime!)", secret: secret)
+        //TERMINALID:MERCHANTREF:DATETIME:SECRET
+        let _hashCode = Utils.createPaymentHash(signature: "\(terminalId!):\(merchantRef!):\(dateTime!):\(secret)")
         
         return _hashCode == self.hashCode
     }
@@ -46,8 +46,8 @@ extension RemoveMethodResponse: XMLMappable {
     
     public func mapping(map: XMLMap) {
         merchantRef <- map[merchantRefKey]
-        cardRef <- map[dateTimeKey]
-        dateTime <- map[cardRefKey]
+        cardRef <- map[cardRefKey]
+        dateTime <- map[dateTimeKey]
         hashCode <- map[hashKey]
     }
 }

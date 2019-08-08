@@ -8,6 +8,7 @@
 
 import Foundation
 import XMLMapper
+import SipHash
 
 public class PaymentMethod: XmlRequestBase {
 
@@ -44,11 +45,13 @@ public class PaymentMethod: XmlRequestBase {
         self.cardHolderName = cardHolderName
         self.cardExpiry = cardExpiry
         self.cvv = cvv
+        self.merchantRef = buildMerchantRef();
         
         //TERMINALID:MERCHANTREF:DATETIME:CARDNUMBER:CARDEXPIRY:CARDTYPE:CARDHOLDERNAME:SECRET
-        let prefix = "\(terminalId!):\(merchantRef!):\(dateTime!):\(self.cardNumber!):\(self.cardExpiry!):\(self.cardType!):\(self.cardHolderName!)"
-        self.hashCode = Utils.createPaymentHash(prefix: prefix, secret: secret)
+        let signature = "\(terminalId!):\(merchantRef!):\(dateTime!):\(self.cardNumber!):\(self.cardExpiry!):\(self.cardType!):\(self.cardHolderName!):\(secret)"
+        self.hashCode = Utils.createPaymentHash(signature: signature)
     }
+
     
     required public init?(map: XMLMap) {
         super.init()
@@ -62,6 +65,15 @@ public class PaymentMethod: XmlRequestBase {
         hashCode = map[hashKey].currentValue as? String
         cvv = map[cvvKey].currentValue as? String
         
+    }
+    
+    private func buildMerchantRef() -> String {
+       
+        var hasher = SipHasher()
+        let mRef = "\(self.last4!)\(self.dateTime!)"
+        hasher.append(mRef)
+        let hash = String(format:"%02X", hasher.finalize()).lowercased()
+        return hash
     }
     
     

@@ -28,6 +28,9 @@ target 'SwyftSdk' do
   #SwiftTryCatch
   pod 'SwiftTryCatch', '~> 0.0.1'
   
+  #SipHash
+  pod 'SipHash', '~> 1.2'
+  
   target 'SwyftSdkTests' do
     inherit! :search_paths
     # Pods for testing

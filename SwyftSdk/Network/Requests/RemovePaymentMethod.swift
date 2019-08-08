@@ -18,13 +18,14 @@ public class RemovePaymentMethod: XmlRequestBase {
     
     var cardRef: String?
     
-    public init(cardRef: String) {
+    public init(cardRef: String, merchantRef: String) {
         super.init()
         self.cardRef = cardRef;
+        self.merchantRef = merchantRef;
         //TERMINALID:MERCHANTREF:DATETIME:CARDREFERENCE:SECRET
-        let prefix = "\(terminalId!):\(merchantRef!):\(dateTime!):\(self.cardRef!)"
+        let signature = "\(terminalId!):\(merchantRef):\(dateTime!):\(self.cardRef!):\(secret)"
         
-        self.hashCode = Utils.createPaymentHash(prefix: prefix, secret: secret)
+        self.hashCode = Utils.createPaymentHash(signature: signature)
     }
     
     required public init?(map: XMLMap) {

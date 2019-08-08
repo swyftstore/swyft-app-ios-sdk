@@ -44,6 +44,20 @@ public class FireStoreModelSerialize: NSObject {
                     dict[prop] = val
                 } else if let val = value(forKey: prop) as? Array<String> {
                     dict[prop] = val
+                } else if let vals = value(forKey: prop) as? [SwyftPaymentMethod] {
+                    var _vals: [Any] = []
+                    for val in vals {
+                        let data = val.deserialize()
+                        _vals.append(data)
+                    }
+                    dict[prop] = _vals
+                } else if let vals = value(forKey: prop) as? [String: SwyftPaymentMethod] {
+                    var _vals: [String: Any] = [:]
+                    for (key, val)in vals {
+                        let data = val.deserialize()
+                        _vals[key] = data
+                    }
+                    dict[prop] = _vals
                 } else if let val = value(forKey: prop) as? FireStoreModelSerialize {
                     dict[prop] = val.deserialize()
                 }

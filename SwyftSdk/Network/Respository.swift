@@ -75,10 +75,10 @@ extension Repository: TargetType {
             let req = paymentMethod.toXMLString()
             return req.data(using: .utf8)!
         case .removePayment(let paymentMethod):
-            let req = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\(paymentMethod.toXMLString()!)"
+            let req = paymentMethod.toXMLString()
             return req.data(using: .utf8)!
         case .editPayment(let paymentMethod):
-            let req = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\(paymentMethod.toXMLString()!)"
+            let req = paymentMethod.toXMLString()
             return req.data(using: .utf8)!
         default:
             return Data()

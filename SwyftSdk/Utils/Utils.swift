@@ -48,10 +48,9 @@ class Utils: NSObject {
         return dateFormatter.string(from: date)
     }
     
-    static func createPaymentHash(prefix: String, secret: String) -> String {
-        let result = "\(prefix):\(secret)"
-        debugPrint("hash contents: \(result)")
-        let data = Data(result.bytes)
+    static func createPaymentHash(signature: String) -> String {
+        debugPrint("hash contents: \(signature)")
+        let data = Data(signature.bytes)
         let hash = data.sha512().toHexString().lowercased()
         
         return hash
