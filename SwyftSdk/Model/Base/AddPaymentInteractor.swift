@@ -53,9 +53,7 @@ public class AddPaymentInteractor {
                                 if isDefault {
                                     customer.defaultPaymentMethod = paymentResponse!.cardRef!
                                 } else {
-                                    if let defaultMethod = customer.defaultPaymentMethod, defaultMethod == "" {
-                                        customer.defaultPaymentMethod = paymentResponse!.cardRef!
-                                    } else {
+                                    if let _ = customer.defaultPaymentMethod {} else {
                                         customer.defaultPaymentMethod = paymentResponse!.cardRef!
                                     }
                                 }
