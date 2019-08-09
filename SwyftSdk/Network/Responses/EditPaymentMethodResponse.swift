@@ -45,8 +45,8 @@ extension EditPaymentMethodResponse: XMLMappable {
     
     public func mapping(map: XMLMap) {
         merchantRef <- map[merchantRefKey]
-        cardRef <- map[dateTimeKey]
-        dateTime <- map[cardRefKey]
+        cardRef <- map[cardRefKey]
+        dateTime <- map[dateTimeKey]
         hashCode <- map[hashKey]
     }
 }

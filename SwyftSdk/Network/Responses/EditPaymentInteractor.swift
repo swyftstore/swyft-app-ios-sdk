@@ -33,7 +33,7 @@ public class EditPaymentInteractor {
                                 let resp = String(data:  response.data, encoding: .utf8)!
                                 if (response.statusCode == 200 && !resp.contains("ERRORSTRING")) {
                                     let resp = String(data:  response.data, encoding: .utf8)!
-                                    let paymentResponse = PaymentMethodResponse.init(XMLString: resp)
+                                    let paymentResponse = EditPaymentMethodResponse.init(XMLString: resp)
                                     
                                     if let _ = paymentResponse, let _ = paymentResponse!.cardRef,
                                         paymentResponse!.compareHash() {
@@ -44,13 +44,11 @@ public class EditPaymentInteractor {
                                         swyftPaymentMethod.last4 = last4
                                         swyftPaymentMethod.cardExpiry = method.cardExpiry
                                         swyftPaymentMethod.token = paymentResponse!.cardRef
+                                        swyftPaymentMethod.merchantRef = method.merchantRef
+                                        swyftPaymentMethod.cardholderName = method.cardHolderName
                                         
-                                        
-                                        customer.paymentMethods[paymentResponse!.cardRef!] = swyftPaymentMethod
-                                        
-                                        if isDefault {
-                                            customer.defaultPaymentMethod = paymentResponse!.cardRef!
-                                        }
+                                        var data : [String: Any] = [:]
+                                        var pMethods : [String: Any] = [:]
                                         
                                         let update = UpdateCustomer.init(success: { (msg, id) in
                                             DispatchQueue.main.async {
@@ -61,7 +59,14 @@ public class EditPaymentInteractor {
                                                 _failure?("Unable to update customer profile")
                                             }
                                         })
-                                        update.put(key: customer.id!, customer: customer)
+                                                                                                            
+                                        if isDefault {
+                                            data["defaultPaymentMethod"] = swyftPaymentMethod.token!
+                                        }
+                                        pMethods[swyftPaymentMethod.token!] = swyftPaymentMethod.deserialize()
+                                        data["paymentMethods"] = pMethods
+                                        update.put(key: customer.id!, data: data)
+                                        
                                     } else {
                                         let msg = "Hash verification failed"
                                         print("Edit Payment Method Error: \(msg)")

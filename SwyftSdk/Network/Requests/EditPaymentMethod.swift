@@ -40,15 +40,19 @@ public class EditPaymentMethod: XmlRequestBase {
     }
     
     public init(cardNumber: String,
-         cardExpiry: String, cardType: String, cardHolderName: String, cvv: String) {
+         cardExpiry: String, cardType: String,
+         cardHolderName: String, cvv: String, merchantRef: String) {
         super.init()
         self.cardNumber = cardNumber
         self.cardType = cardType
         self.cardHolderName = cardHolderName
         self.cardExpiry = cardExpiry
         self.cvv = cvv
+        self.merchantRef = merchantRef
         
-        let signature = "\(terminalId!):\(merchantRef!):\(dateTime!):\(self.cardNumber!):\(self.cardType!):\(self.cardHolderName!):\(secret)"
+        //TERMINALID:MERCHANTREF:DATETIME:CARDEXPIRY:CARDTYPE:CARDHOLDERNAME:SECRET
+
+        let signature = "\(terminalId!):\(merchantRef):\(dateTime!):\(cardExpiry):\(cardType):\(cardHolderName):\(secret)"
         self.hashCode = Utils.createPaymentHash(signature: signature)
     }
     
@@ -98,6 +102,7 @@ extension EditPaymentMethod: XMLMappable {
         xml = "\(xml)\(buildXMLTag(key: dateTimeKey, value: dateTime))"
         xml = "\(xml)\(buildXMLTag(key: cardExpiryKey, value:cardExpiry))"
         xml = "\(xml)\(buildXMLTag(key: cardTypeKey, value:cardType))"
+        xml = "\(xml)\(buildXMLTag(key: cardHolderNameKey, value:cardHolderName))"
         xml = "\(xml)\(buildXMLTag(key: hashKey, value:hashCode))"
         xml = "\(xml)\(buildXMLTag(key: cvvKey, value:cvv))"
         xml = "\(xml)</\(nodeName!)>"
