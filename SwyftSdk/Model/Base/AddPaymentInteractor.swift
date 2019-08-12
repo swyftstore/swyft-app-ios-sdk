@@ -53,7 +53,7 @@ public class AddPaymentInteractor {
                                 if isDefault {
                                     customer.defaultPaymentMethod = paymentResponse!.cardRef!
                                 } else {
-                                    if let token = customer.defaultPaymentMethod, let methods = customer.paymentMethods, let _ = methods[token]  {} else {
+                                    if let token = customer.defaultPaymentMethod, let _ = customer.paymentMethods[token]  {} else {
                                         customer.defaultPaymentMethod = paymentResponse!.cardRef!
                                     }
                                 }
