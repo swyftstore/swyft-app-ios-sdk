@@ -11,7 +11,8 @@ import Moya
 
 
 open class SwyftNetworkAdapter {
-    static let plugins = [NetworkLoggerPlugin()]
+    static var plugins : [PluginType] = []
+    //plugins.append(NetworkLoggerPlugin())
     static let provider = MoyaProvider<Repository>(plugins:plugins)
     
     

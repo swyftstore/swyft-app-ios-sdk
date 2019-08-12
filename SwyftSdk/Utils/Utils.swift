@@ -49,7 +49,6 @@ class Utils: NSObject {
     }
     
     static func createPaymentHash(signature: String) -> String {
-        debugPrint("hash contents: \(signature)")
         let data = Data(signature.bytes)
         let hash = data.sha512().toHexString().lowercased()
         

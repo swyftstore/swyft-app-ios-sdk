@@ -32,6 +32,8 @@ public class AddPaymentInteractor {
                     SwyftNetworkAdapter.request(target: .addPayment(paymentMethod: method),
                                                 success: { response in
                         let resp = String(data:  response.data, encoding: .utf8)!
+                        debugPrint("payment response: ",resp)
+
                         if (response.statusCode == 200 && !resp.contains("ERROR")) {
                             let paymentResponse = PaymentMethodResponse.init(XMLString: resp)
                             
