@@ -46,7 +46,7 @@ public class AddPaymentInteractor {
                                 swyftPaymentMethod.last4 = last4
                                 swyftPaymentMethod.cardExpiry = method.cardExpiry
                                 swyftPaymentMethod.token = paymentResponse!.cardRef
-                                swyftPaymentMethod.merchantRef = paymentResponse!.merchantRef
+                                swyftPaymentMethod.merchantRef = method.merchantRef
                                 swyftPaymentMethod.cardholderName = method.cardHolderName
                                 
                                 
