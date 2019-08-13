@@ -50,9 +50,9 @@ public class EditPaymentMethod: XmlRequestBase {
         self.cvv = cvv
         self.merchantRef = merchantRef
         
-        //TERMINALID:MERCHANTREF:DATETIME:CARDEXPIRY:CARDTYPE:CARDHOLDERNAME:SECRET
+        //TERMINALID:MERCHANTREF:DATETIME:CARDEXPIRY:CARDHOLDERNAME:SECRET
 
-        let signature = "\(terminalId!):\(merchantRef):\(dateTime!):\(cardExpiry):\(cardType):\(cardHolderName):\(secret)"
+        let signature = "\(terminalId!):\(merchantRef):\(dateTime!):\(cardExpiry):\(cardHolderName):\(secret)"
         self.hashCode = Utils.createPaymentHash(signature: signature)
     }
     
@@ -101,7 +101,6 @@ extension EditPaymentMethod: XMLMappable {
         xml = "\(xml)\(buildXMLTag(key: terminalIdKey, value: terminalId))"
         xml = "\(xml)\(buildXMLTag(key: dateTimeKey, value: dateTime))"
         xml = "\(xml)\(buildXMLTag(key: cardExpiryKey, value:cardExpiry))"
-        xml = "\(xml)\(buildXMLTag(key: cardTypeKey, value:cardType))"
         xml = "\(xml)\(buildXMLTag(key: cardHolderNameKey, value:cardHolderName))"
         xml = "\(xml)\(buildXMLTag(key: hashKey, value:hashCode))"
         xml = "\(xml)\(buildXMLTag(key: cvvKey, value:cvv))"
