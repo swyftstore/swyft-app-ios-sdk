@@ -42,15 +42,20 @@ public class GetStore: FireStoreRead {
     }
     
     public func get(id: String) {
-        var ref: CollectionReference?
-        
-        ref = db.collection(SwyftConstants.StoreCollection)
-        let doc = ref?.document(id)
-        if let doc = doc {
-            self.queryDB(document: doc)
-        } else {
-            self.queryFailure(msg: "Error loading collection")
+//        var ref: CollectionReference?
+//
+//        ref = db.collection(SwyftConstants.StoreCollection)
+//        let doc = ref?.document(id)
+//        if let doc = doc {
+//            self.queryDB(document: doc)
+//        } else {
+//            self.queryFailure(msg: "Error loading collection")
+//        }
+        let data = Utils.getMockData(fileName: "MockStores.json")
+        if let data = data, let store = data[id] as? Dictionary<String, Any> {
+            querySuccess(data: store, id: id, done: false)
         }
+
     }
     
 }
