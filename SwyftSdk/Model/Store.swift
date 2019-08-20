@@ -9,7 +9,7 @@
 import Foundation
 import SwiftTryCatch
 
-class Store: FireStoreModelSerialize, FireStoreModelProto {
+public class Store: FireStoreModelSerialize, FireStoreModelProto {
     public var id: String?
     
     @objc public var name: String?
@@ -70,7 +70,7 @@ class Store: FireStoreModelSerialize, FireStoreModelProto {
 }
 
 
-class Location: FireStoreModelSerialize, FireStoreModelProto  {
+public class Location: FireStoreModelSerialize, FireStoreModelProto  {
     
     @objc public var address1: String?
     @objc public var address2: String?
@@ -87,7 +87,7 @@ class Location: FireStoreModelSerialize, FireStoreModelProto  {
     
 }
 
-class Hours: FireStoreModelSerialize, FireStoreModelProto {
+public class Hours: FireStoreModelSerialize, FireStoreModelProto {
     
     @objc public var open: String?
     @objc public var close: String?
@@ -99,7 +99,7 @@ class Hours: FireStoreModelSerialize, FireStoreModelProto {
     
 }
 
-class GeoPoint: FireStoreModelSerialize, FireStoreModelProto  {
+public class GeoPoint: FireStoreModelSerialize, FireStoreModelProto  {
     
     @objc public var lat: String?
     @objc public var lng: String?
