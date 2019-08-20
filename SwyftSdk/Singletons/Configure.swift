@@ -11,8 +11,20 @@ import FirebaseCore
 import FirebaseFirestore
 
 public class Configure: NSObject {
+    private var _fireBaseApp: FirebaseApp?
+    
     var db : Firestore?
-    var session: SwyftSession? 
+    var session: SwyftSession?
+    
+    class public var fireBaseApp: FirebaseApp {
+        get {
+            if let _ = Static.instance._fireBaseApp {
+                return Static.instance._fireBaseApp!
+            } else {
+                fatalError("Please initialize the SDK")
+            }
+        }
+    }
     
     private struct Static {
         static let instance : Configure = Configure()
@@ -26,8 +38,10 @@ public class Configure: NSObject {
         }
     }
     
-    class public func initSDK(db: Firestore) {
-        Static.instance.db = db
+    class public func initSDK() {
+        FirebaseApp.configure()
+        Static.instance._fireBaseApp = FirebaseApp.app()
+        Static.instance.db = Firestore.firestore()
         
         let settings = current.db!.settings
         settings.areTimestampsInSnapshotsEnabled = true
@@ -38,6 +52,8 @@ public class Configure: NSObject {
     class public func setSession(sesssion: SwyftSession) {
          current.session = sesssion
     }
+    
+    
     
     private override init() {
      
