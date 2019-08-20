@@ -1,0 +1,48 @@
+{
+    "0gXwP32hs0Zdbfkj0kc8YxBnlI0V": {
+        "name": "Test Store 123",
+        "merchantName": "Test Store",
+        "status": "ACTIVE",
+        "products": [],
+        "location": {
+            "address1": "55 w 5th ave",
+            "address2": "suite 11",
+            "city": "San Mateo",
+            "zip": "94011",
+            "country": "USA",
+            "geoPoint": {
+                "lat": 37.5593839,
+                "lng": -122.3264165
+            }
+        },
+        "hours": [{
+            "open": "9:00am",
+            "close": "9:30pm"
+        },
+        {
+            "open": "9:00am",
+            "close": "9:30pm"
+        },
+        {
+            "open": "9:00am",
+            "close": "9:30pm"
+        },
+        {
+            "open": "9:00am",
+            "close": "9:30pm"
+        },
+        {
+            "open": "9:00am",
+            "close": "9:30pm"
+        },
+        {
+            "open": "9:00am",
+            "close": "9:30pm"
+        },
+        {
+            "open": "9:00am",
+            "close": "9:30pm"
+        }]
+    }
+}
+

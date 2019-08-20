@@ -51,6 +51,7 @@
 		D0B6DAD322E11A520091CA00 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B6DAD222E11A520091CA00 /* Order.swift */; };
 		D0B6DAD522E11AFF0091CA00 /* StoreTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B6DAD422E11AFF0091CA00 /* StoreTransactions.swift */; };
 		D0B6DAD922E632BB0091CA00 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B6DAD822E632BB0091CA00 /* Device.swift */; };
+		D0BE573E230B4CEA00A7C7AD /* MockStores.json in Resources */ = {isa = PBXBuildFile; fileRef = D0BE573D230B4CEA00A7C7AD /* MockStores.json */; };
 		D0CD3465228E21B300585879 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CD3464228E21B300585879 /* FirebaseCore.framework */; };
 		D0CD3467228E21B300585879 /* FirebaseFirestore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CD3466228E21B300585879 /* FirebaseFirestore.framework */; };
 		D0CD346D228E21B300585879 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CD346C228E21B300585879 /* GoogleUtilities.framework */; };
@@ -131,6 +132,7 @@
 		D0B6DAD222E11A520091CA00 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		D0B6DAD422E11AFF0091CA00 /* StoreTransactions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreTransactions.swift; sourceTree = "<group>"; };
 		D0B6DAD822E632BB0091CA00 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		D0BE573D230B4CEA00A7C7AD /* MockStores.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockStores.json; sourceTree = "<group>"; };
 		D0CD345E228E20AF00585879 /* MBProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MBProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0CD3460228E212600585879 /* Pods_customer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_customer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0CD3462228E21B300585879 /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -348,6 +350,7 @@
 		D0997B152280AEBC00A82DFB /* SwyftSdk */ = {
 			isa = PBXGroup;
 			children = (
+				D0BE573C230B4CAB00A7C7AD /* Resources */,
 				D052DA81228E16920082C3AE /* UIModules */,
 				D0852F2E2284AA3E00841037 /* Data */,
 				D06A39862284A0FC00DBF639 /* Singletons */,
@@ -432,6 +435,14 @@
 				D08D7F3022AB082500A6298B /* SwyftNetworkAdapter.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		D0BE573C230B4CAB00A7C7AD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D0BE573D230B4CEA00A7C7AD /* MockStores.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		D0D3228322C29ED000A2AC98 /* Requests */ = {
@@ -558,6 +569,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0BE573E230B4CEA00A7C7AD /* MockStores.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

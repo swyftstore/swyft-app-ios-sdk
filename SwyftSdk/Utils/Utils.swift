@@ -54,4 +54,19 @@ class Utils: NSObject {
         
         return hash
     }
+    
+    static func getMockData(fileName: String) -> [String: Any]? {
+        var json: [String: Any]?
+        if let path = Bundle.main.path(forResource: fileName, ofType: "json") {
+            do {
+                let fileUrl = URL(fileURLWithPath: path)
+                // Getting data from JSON file using the file URL
+                let data = try Data(contentsOf: fileUrl, options: .mappedIfSafe)
+                json = try? JSONSerialization.jsonObject(with: data) as! [String : Any]
+            } catch {
+                // Handle error here
+            }
+        }
+        return json
+    }
 }

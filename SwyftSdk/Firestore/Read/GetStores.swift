@@ -51,7 +51,20 @@ public class GetStores: FireStoreRead{
         
         if key == SwyftConstants.StoreSearchKey.GeoPoint,
             let _value = value as? GeoPoint {
-            //todo: we need to support geopoint searches at some point
+            let data = Utils.getMockData(fileName: "MockStores.json")
+            if let data = data {
+                let index = 0;
+                for (key, store) in data {
+                    if let _store = store as? Dictionary<String, Any> {
+                        if (index < data.count) {
+                            querySuccess(data: _store, id: key, done: false)
+                        } else {
+                            querySuccess(data: _store, id: key, done: true)
+
+                        }
+                    }
+                }
+            }
         } else if let _value = value as? String {
             let _key = key.rawValue
             query = ref?.whereField(_key, isEqualTo: _value)
