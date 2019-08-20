@@ -21,7 +21,7 @@ public class Store: FireStoreModelSerialize, FireStoreModelProto {
 
         
     
-    func toString() {
+    public func toString() {
         //todo
     }
     
@@ -80,7 +80,7 @@ public class Location: FireStoreModelSerialize, FireStoreModelProto  {
     @objc public var country: String?
     @objc public var geoPoint: GeoPoint?
     
-    func toString() {
+    public func toString() {
         //todo
     }
     
@@ -92,7 +92,7 @@ public class Hours: FireStoreModelSerialize, FireStoreModelProto {
     @objc public var open: String?
     @objc public var close: String?
     
-    func toString() {
+    public func toString() {
         //todo
     }
     
@@ -104,7 +104,7 @@ public class GeoPoint: FireStoreModelSerialize, FireStoreModelProto  {
     @objc public var lat: String?
     @objc public var lng: String?
     
-    func toString() {
+    public func toString() {
         //todo
     }
     
