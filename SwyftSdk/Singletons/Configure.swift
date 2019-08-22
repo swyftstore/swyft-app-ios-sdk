@@ -38,10 +38,21 @@ public class Configure: NSObject {
         }
     }
     
+    class public func initSDK() {
+        let filePath = Bundle.main.path(forResource: "Swyft-GoogleService-Info", ofType: "plist")
+        guard let fileopts = FirebaseOptions(contentsOfFile: filePath!)
+            else { assert(false, "Couldn't load config file") }
+        let appName = "com_swyft_SwyftSdk"
+        FirebaseApp.configure(name: appName, options: fileopts)
+        let fbApp = FirebaseApp.app(name: appName)
+        initSDK(fbApp: fbApp)
+    }
+    
     class public func initSDK(fbApp: FirebaseApp?) {
-       
         Static.instance._fireBaseApp = fbApp
-        Static.instance.db = Firestore.firestore()
+        if let _ = fbApp {
+            Static.instance.db = Firestore.firestore(app: fbApp!)
+        }
         
         let settings = current.db!.settings
         settings.areTimestampsInSnapshotsEnabled = true
