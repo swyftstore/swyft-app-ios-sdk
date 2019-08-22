@@ -74,11 +74,6 @@ public class GetStores: FireStoreRead{
             throw SwyftConstants.ClientError.runtimeError("Invalid key or value type")
         }
         
-        if let query = query {
-            self.queryDB(query: query)
-        } else {
-            self.queryFailure(msg: "Error loading collection")
-        }
     }
     
     
