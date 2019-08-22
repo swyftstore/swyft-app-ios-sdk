@@ -8,7 +8,8 @@
             "address1": "55 w 5th ave",
             "address2": "suite 11",
             "city": "San Mateo",
-            "zip": "94011",
+            "zip": "94401",
+            "state": "CA",
             "country": "USA",
             "geoPoint": {
                 "lat": 37.5593839,

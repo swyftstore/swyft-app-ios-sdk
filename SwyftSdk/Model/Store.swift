@@ -40,14 +40,10 @@ public class Store: FireStoreModelSerialize, FireStoreModelProto {
                             _products.append(product)
                         }
                         self.setValue(_products, forKey: keyName)
-                    } else if "geoPoint" == keyName, let values = value as? Dictionary<String, Any> {
-                        let geoPoint = GeoPoint()
-                        geoPoint.serialize(data: values)
-                        self.setValue(value, forKey: "geoPoint")
                     } else if "location" == keyName, let values = value as? Dictionary<String, Any> {
                         let location = Location()
                         location.serialize(data: values)
-                        self.setValue(value, forKey: "location")
+                        self.setValue(location, forKey: "location")
                     } else if "hours" == keyName, let values = value as? Array<Dictionary<String, Any>> {
                         var hoursArray = [Hours]()
                         for value in values {
@@ -84,6 +80,25 @@ public class Location: FireStoreModelSerialize, FireStoreModelProto  {
         //todo
     }
     
+    override public func serialize(data: Dictionary<String, Any>) {
+        SwiftTryCatch.try({
+            for (key, value) in data {
+                let keyName = key as String
+                if self.responds(to: Selector(keyName)) {
+                    if "geoPoint" == keyName, let values = value as? Dictionary<String, Any> {
+                        let geoPoint = GeoPoint()
+                        geoPoint.serialize(data: values)
+                        self.setValue(geoPoint, forKey: "geoPoint")
+                    } else if let _value = value as? String{
+                        self.setValue(_value, forKey: keyName)
+                    }
+                }
+            }
+        }, catch: { (error) in
+            print("Error serializing data \(error!.description)")
+        }, finally: {})
+        
+    }
     
 }
 
@@ -96,17 +111,30 @@ public class Hours: FireStoreModelSerialize, FireStoreModelProto {
         //todo
     }
     
-    
 }
 
 public class GeoPoint: FireStoreModelSerialize, FireStoreModelProto  {
     
-    @objc public var lat: String?
-    @objc public var lng: String?
+    @objc public var lat = 0.0
+    @objc public var lng = 0.0
     
     public func toString() {
         //todo
     }
     
-    
+    override public func serialize(data: Dictionary<String, Any>) {
+        SwiftTryCatch.try({
+            for (key, value) in data {
+                let keyName = key as String
+                if self.responds(to: Selector(keyName)) {
+                     if let _value = value as? Double{
+                        self.setValue(_value, forKey: keyName)
+                    }
+                }
+            }
+        }, catch: { (error) in
+            print("Error serializing data \(error!.description)")
+        }, finally: {})
+        
+    }
 }

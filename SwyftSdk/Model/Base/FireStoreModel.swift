@@ -22,7 +22,7 @@ public class FireStoreModelSerialize: NSObject {
         for (key, value) in data {
             let keyName = key as String
             SwiftTryCatch.try({
-                self.setValue(value, forKey: keyName)
+                self.setValue(value, forKey: keyName)              
             }, catch: { (error) in
                 print("Error serializing data \(error!.description)")
             }, finally: {})

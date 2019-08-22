@@ -51,17 +51,19 @@ public class GetStores: FireStoreRead{
         
         if key == SwyftConstants.StoreSearchKey.GeoPoint,
             let _value = value as? GeoPoint {
-            let data = Utils.getMockData(fileName: "MockStores.json")
+            let data = Utils.getMockData(fileName: "MockStores")
             if let data = data {
-                let index = 0;
+                var index = 1;
                 for (key, store) in data {
+                  
+                    
                     if let _store = store as? Dictionary<String, Any> {
                         if (index < data.count) {
                             querySuccess(data: _store, id: key, done: false)
                         } else {
                             querySuccess(data: _store, id: key, done: true)
-
                         }
+                        index = index+1
                     }
                 }
             }
