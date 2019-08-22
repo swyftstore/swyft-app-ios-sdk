@@ -38,9 +38,9 @@ public class Configure: NSObject {
         }
     }
     
-    class public func initSDK() {
-        FirebaseApp.configure()
-        Static.instance._fireBaseApp = FirebaseApp.app()
+    class public func initSDK(fbApp: FirebaseApp?) {
+       
+        Static.instance._fireBaseApp = fbApp
         Static.instance.db = Firestore.firestore()
         
         let settings = current.db!.settings
