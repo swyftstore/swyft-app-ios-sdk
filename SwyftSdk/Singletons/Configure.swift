@@ -41,7 +41,9 @@ public class Configure: NSObject {
     class public func initSDK() {
         let filePath = Bundle.main.path(forResource: "Swyft-GoogleService-Info", ofType: "plist")
         guard let fileopts = FirebaseOptions(contentsOfFile: filePath!)
-            else { assert(false, "Couldn't load config file") }
+            else { assert(false, "Couldn't load config file")
+                return
+        }
         let appName = "com_swyft_SwyftSdk"
         FirebaseApp.configure(name: appName, options: fileopts)
         let fbApp = FirebaseApp.app(name: appName)

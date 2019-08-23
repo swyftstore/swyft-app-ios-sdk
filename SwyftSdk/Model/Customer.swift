@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftTryCatch
+import FirebaseFirestore
 
 
 public class Customer: FireStoreModelSerialize, FireStoreModelProto {
@@ -31,6 +32,7 @@ public class Customer: FireStoreModelSerialize, FireStoreModelProto {
     @objc public var paymentMethods:  [String: SwyftPaymentMethod] = [:]
     @objc public var devices: [Device] = []
     @objc public var userAgent: String?
+    @objc public var lastKnownLocation: GeoPoint?
     
     public func toString() {
         //write to string for logging

@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftTryCatch
+import FirebaseFirestore
 
 public class Store: FireStoreModelSerialize, FireStoreModelProto {
     public var id: String?
@@ -86,8 +87,10 @@ public class Location: FireStoreModelSerialize, FireStoreModelProto  {
                 let keyName = key as String
                 if self.responds(to: Selector(keyName)) {
                     if "geoPoint" == keyName, let values = value as? Dictionary<String, Any> {
-                        let geoPoint = GeoPoint()
-                        geoPoint.serialize(data: values)
+                        let lat = values["lat"] as! Double
+                        let lng = values["lng"] as! Double
+                        let geoPoint = GeoPoint(latitude: lat,
+                                                longitude: lng)
                         self.setValue(geoPoint, forKey: "geoPoint")
                     } else if let _value = value as? String{
                         self.setValue(_value, forKey: keyName)
@@ -111,30 +114,4 @@ public class Hours: FireStoreModelSerialize, FireStoreModelProto {
         //todo
     }
     
-}
-
-public class GeoPoint: FireStoreModelSerialize, FireStoreModelProto  {
-    
-    @objc public var lat = 0.0
-    @objc public var lng = 0.0
-    
-    public func toString() {
-        //todo
-    }
-    
-    override public func serialize(data: Dictionary<String, Any>) {
-        SwiftTryCatch.try({
-            for (key, value) in data {
-                let keyName = key as String
-                if self.responds(to: Selector(keyName)) {
-                     if let _value = value as? Double{
-                        self.setValue(_value, forKey: keyName)
-                    }
-                }
-            }
-        }, catch: { (error) in
-            print("Error serializing data \(error!.description)")
-        }, finally: {})
-        
-    }
 }

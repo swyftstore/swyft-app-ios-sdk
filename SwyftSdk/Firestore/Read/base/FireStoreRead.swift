@@ -27,7 +27,8 @@ extension FireStoreRead {
                 if let _err = err {
                     self.queryFailure(msg: _err.localizedDescription)
                 } else {
-                    if let snap = querySnapshot, !snap.isEmpty {                        
+                    if let snap = querySnapshot, !snap.isEmpty {
+                        
                         let documents = snap.documents
                         let size = documents.count
                         var done = false
