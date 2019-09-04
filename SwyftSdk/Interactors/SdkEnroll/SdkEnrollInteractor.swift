@@ -86,20 +86,16 @@ public class SdkEnrollInteractor {
     }
     
     private static func returnSuccess(using response: SdkEnrollResponse) {
-        if let callback = success {
-            DispatchQueue.main.async {
-                debugPrint(response)
-                callback(response)
-            }
+        DispatchQueue.main.async {
+            debugPrint(response)
+            success?(response)
         }
     }
     
     private static func returnError(_ msg: String) {
-        if let callback = failure {
-            DispatchQueue.main.async {
-                debugPrint(msg)
-                callback?(msg)
-            }
+        DispatchQueue.main.async {
+            debugPrint(msg)
+            failure??(msg)
         }
     }
 }
