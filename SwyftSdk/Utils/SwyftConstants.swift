@@ -50,6 +50,8 @@ open class SwyftConstants {
     public typealias editPaymentSuccess = ((_ method: SwyftPaymentMethod)->Void)?
     public typealias defaultPaymentSuccess = (()->Void)?
     public typealias removePaymentSuccess = (()->Void)?
+    public typealias sdkAuthSuccess = (_ response: SdkAuthResponse)->Void
+    public typealias sdkEnrollSuccess = (_ response: SdkEnrollResponse)->Void
     
     public typealias fail = ((_ msg: String)->Void)?
     
