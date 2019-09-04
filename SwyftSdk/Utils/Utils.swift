@@ -25,7 +25,7 @@ class Utils: NSObject {
         return url
     }
     
-    static func getPyamentURL() -> URL? {
+    static func getPaymentURL() -> URL? {
         var url: URL?
         if let _url = Bundle.main.url(forResource:"Info", withExtension: "plist") {
             do {

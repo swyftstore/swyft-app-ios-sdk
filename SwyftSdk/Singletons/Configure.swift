@@ -60,6 +60,9 @@ public class Configure: NSObject {
         settings.areTimestampsInSnapshotsEnabled = true
         current.db!.settings = settings
         current.session = SwyftSession()
+        
+        // TODO call https://us-central1-zoom-shops-dev.cloudfunctions.net/app_api/rest/sdk_auth
+        //      then https://us-central1-zoom-shops-dev.cloudfunctions.net/app_api/rest/sdk_enroll
     }
     
     class public func setSession(sesssion: SwyftSession) {

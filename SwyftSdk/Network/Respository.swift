@@ -14,6 +14,8 @@ public enum Repository {
     case addPayment(paymentMethod: PaymentMethod)
     case editPayment(paymentMethod: EditPaymentMethod)
     case removePayment(paymentMethod: RemovePaymentMethod)
+    case sdkAuth(request: SdkAuthRequest)
+    case sdkEnroll(request: SdkEnrollRequest)
 }
 
 extension Repository: TargetType {
@@ -22,11 +24,13 @@ extension Repository: TargetType {
         case .auth:
             return  Utils.getBaseURL()!
         case .addPayment:
-            return Utils.getPyamentURL()!
+            return Utils.getPaymentURL()!
         case .editPayment:
-            return Utils.getPyamentURL()!
+            return Utils.getPaymentURL()!
         case .removePayment:
-            return Utils.getPyamentURL()!
+            return Utils.getPaymentURL()!
+        case .sdkAuth, .sdkEnroll:
+            return  Utils.getBaseURL()!
         }
     }
     
@@ -40,6 +44,10 @@ extension Repository: TargetType {
             return "merchant/xmlpayment"
         case .removePayment:
             return "merchant/xmlpayment"
+        case .sdkAuth:
+            return "rest/sdk_auth"
+        case .sdkEnroll:
+            return "rest/sdk_enroll"
         }
     }
     
@@ -52,6 +60,8 @@ extension Repository: TargetType {
         case .editPayment:
             return .post
         case .removePayment:
+            return .post
+        case .sdkAuth, .sdkEnroll:
             return .post
         }
     }
@@ -100,6 +110,10 @@ extension Repository: TargetType {
             return .requestData(data)
         case .editPayment:
             return .requestData(data)
+        case .sdkAuth(let request):
+            return .requestJSONEncodable(request)
+        case .sdkEnroll(let request):
+            return .requestJSONEncodable(request)
         }
       
     }
@@ -119,13 +133,10 @@ extension Repository: TargetType {
         case .editPayment:
             headers["Content-Type"] = "text/x-markdown"
             return headers
-        default:
+        case .sdkAuth, .sdkEnroll:
+            headers["Accept"] = "application/json"
+            headers["Content-type"] = "application/json"
             return headers
         }
-        
     }
-    
-    
 }
-
-
