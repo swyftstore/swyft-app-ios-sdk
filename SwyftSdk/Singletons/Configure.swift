@@ -65,6 +65,8 @@ public class Configure: NSObject {
         SdkAuthInteractor.auth(success: { response in
             
             current.session?.sdkAuthToken = response.payload.authToken
+            current.session?.merchantNames = response.payload.merchantNames
+            current.session?.categories = response.payload.categories
             
             let result = InitSDKResponse(merchantNames: response.payload.merchantNames, categories: response.payload.categories)
             success(result)
@@ -100,12 +102,12 @@ public class Configure: NSObject {
     }
 }
 
-public struct InitSDKResponse {
+public struct InitSDKResponse: Codable {
     let merchantNames: [String: String]
     let categories: [String]
 }
 
-public struct EnrollCustomerResponse {
+public struct EnrollCustomerResponse: Codable {
     // TODO: what data should we return?
     let swyftId: String
 }

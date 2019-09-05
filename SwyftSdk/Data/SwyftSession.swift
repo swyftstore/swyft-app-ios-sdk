@@ -24,8 +24,8 @@ open class SwyftSession: NSObject {
     public var sessionExpiry: Date?
     public var signInMethod: String?
     public var sdkAuthToken: String?
-    
-   
+    public var merchantNames: [String: String]?
+    public var categories: [String]?
     
     public func isSessionExpired() -> Bool {
         if let _ = signOnDate, let sessionExpiry = sessionExpiry {
@@ -42,8 +42,4 @@ open class SwyftSession: NSObject {
             debugPrint("Session expired")
         }
     }
-        
 }
-
-
-
