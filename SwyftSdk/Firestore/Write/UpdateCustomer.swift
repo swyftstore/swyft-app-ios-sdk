@@ -15,12 +15,12 @@ public class UpdateCustomer: FireStoreWrite {
     
     public var fail: SwyftConstants.fail
     
-    public var db: Firestore
+    public var db: Firestore?
     
     public required init(success: SwyftConstants.writeSuccess, fail: SwyftConstants.fail) {
         self.success = success;
         self.fail = fail;
-        self.db = Configure.current.db!
+        self.db = Configure.current.db
     }
         
     public func querySuccess(msg: String, id: String) {
@@ -46,26 +46,62 @@ public class UpdateCustomer: FireStoreWrite {
     
     public func put(key: String, data: Dictionary<String,Any>) {
         
-        let ref = db.collection(SwyftConstants.CustomerCollection)
-        let document = ref.document(key)
-        
-        self.updateDocument(document: document, data: data)
+        DispatchQueue.global(qos: .background).async {
+            if let db = self.db {
+                let ref = db.collection(SwyftConstants.CustomerCollection)
+                let document = ref.document(key)
+                
+                self.updateDocument(document: document, data: data)
+            } else {
+                var n = 0
+                while (true) {
+                    self.db = Configure.current.db
+                    if let _ = self.db {
+                        self.put(key: key, data:data)
+                        break;
+                    } else if n > SwyftConstants.MaxDbRetries {
+                        self.queryFailure(msg: "DB instance unable to initialize")
+                        break;
+                    }
+                    sleep(UInt32(SwyftConstants.WaitBetweenRetries))
+                    n = n + 1
+                }
+            }
+        }
 
     }
     
     public func add(key: String?, data: Dictionary<String,Any>) {
-        if let key = key {
-            self.put(key: key, data: data)
-        } else {
-            let ref = db.collection(SwyftConstants.CustomerCollection)
-            self.addDocument(collection: ref, data: data)
+        
+        DispatchQueue.global(qos: .background).async {
+            if let db = self.db {
+                if let key = key {
+                    self.put(key: key, data: data)
+                } else {
+                    let ref = db.collection(SwyftConstants.CustomerCollection)
+                    self.addDocument(collection: ref, data: data)
+                }
+            } else {
+                var n = 0
+                while (true) {
+                    self.db = Configure.current.db
+                    if let _ = self.db {
+                        self.add(key: key, data:data)
+                        break;
+                    } else if n > SwyftConstants.MaxDbRetries {
+                        self.queryFailure(msg: "DB instance unable to initialize")
+                        break;
+                    }
+                    sleep(UInt32(SwyftConstants.WaitBetweenRetries))
+                    n = n + 1
+                }
+            }
         }
     }
     
     public func put(key: String, customer: Customer) {
         let data = customer.deserialize()
-        put(key: key, data: data)
-        
+        put(key: key, data: data)        
     }
     
     public func add(key: String?, customer: Customer) {
