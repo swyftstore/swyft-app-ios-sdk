@@ -32,7 +32,7 @@ public class Configure: NSObject {
     }
     
     class var current : Configure {
-        if let _ = Static.instance.db {
+        if let _ = Static.instance.session {
             return Static.instance
         } else {
             fatalError("Please initialize the SDK")
@@ -53,15 +53,8 @@ public class Configure: NSObject {
     
     class public func initSDK(fbApp: FirebaseApp?) {
         
-        Static.instance._fireBaseApp = fbApp
-        if let _ = fbApp {
-            Static.instance.db = Firestore.firestore(app: fbApp!)
-        }
-        
-        let settings = current.db!.settings
-        settings.areTimestampsInSnapshotsEnabled = true
-        current.db!.settings = settings
-        current.session = SwyftSession()
+        Static.instance._fireBaseApp = fbApp        
+        Static.instance.session = SwyftSession()
         
         SdkAuthInteractor.auth(success: { response in
             
@@ -69,6 +62,10 @@ public class Configure: NSObject {
             current.session?.merchantNames = response.payload.merchantNames
             current.session?.categories = response.payload.categories
             if let _ = fbApp {
+                Static.instance.db = Firestore.firestore(app: fbApp!)
+                let settings = current.db!.settings
+                settings.areTimestampsInSnapshotsEnabled = true
+                current.db!.settings = settings
                 addAuthentication(authToken: response.payload.authToken, fbApp: fbApp!)
             }
             

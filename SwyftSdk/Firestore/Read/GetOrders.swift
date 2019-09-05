@@ -13,7 +13,7 @@ public class GetOrders: FireStoreRead{
     public var fail: SwyftConstants.fail
     public var success: SwyftConstants.readSuccessWArray
     
-    public var db: Firestore
+    public var db: Firestore?
     
     private var orders = Array<Order>()
     
@@ -45,8 +45,27 @@ public class GetOrders: FireStoreRead{
     
     public func get(customerId: String, startIndex: Int, limit: Int) {
         orders.removeAll()
-        let query = db.collection(SwyftConstants.OrderCollection).whereField(SwyftConstants.CustomerId, isEqualTo: customerId).order(by: SwyftConstants.OrderCreationDate).start(at: [startIndex]).limit(to: limit)
-        self.queryDB(query: query)
+        
+        DispatchQueue.global(qos: .background).async {            
+            if let db = self.db {
+                let query = db.collection(SwyftConstants.OrderCollection).whereField(SwyftConstants.CustomerId, isEqualTo: customerId).order(by: SwyftConstants.OrderCreationDate).start(at: [startIndex]).limit(to: limit)
+                self.queryDB(query: query)
+            } else {
+                var n = 0
+                while (true) {
+                    self.db = Configure.current.db
+                    if let _ = self.db {
+                        self.get(customerId: customerId, startIndex: startIndex, limit:limit)
+                        break;
+                    } else if n > SwyftConstants.MaxDbRetries {
+                        self.queryFailure(msg: "DB instance unable to initialize")
+                        break;
+                    }
+                    usleep(UInt32(SwyftConstants.WaitBetweenRetries))
+                    n = n + 1
+                }
+            }
+        }
     }
     
     

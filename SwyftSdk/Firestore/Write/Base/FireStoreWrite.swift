@@ -14,7 +14,7 @@ public protocol FireStoreWrite: class {
     
     var success: SwyftConstants.writeSuccess {get}
     var fail: SwyftConstants.fail {get}
-    var db: Firestore {get}
+    var db: Firestore? {get}
     
     init(success: SwyftConstants.writeSuccess, fail: SwyftConstants.fail)
     
