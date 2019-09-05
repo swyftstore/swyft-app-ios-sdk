@@ -47,8 +47,8 @@ open class SwyftConstants {
     public static let OrderCreationDate = "createDateTime"
     
     //DB Retries
-    public static let MaxDbRetries = 5
-    public static let WaitBetweenRetries = 1
+    public static let MaxDbRetries = 10
+    public static let WaitBetweenRetries = 250000
     
     //Type Alaises
     public typealias readSuccess = ((_ data: FireStoreModelProto)->Void)?

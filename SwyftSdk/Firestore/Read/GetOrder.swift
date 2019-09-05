@@ -41,7 +41,7 @@ public class GetOrder: FireStoreRead {
         }
     }
     
-    public func get(id: String) {        
+    public func get(id: String) {
        
         DispatchQueue.global(qos: .background).async {
             var ref: CollectionReference?
@@ -65,7 +65,7 @@ public class GetOrder: FireStoreRead {
                         self.queryFailure(msg: "DB instance unable to initialize")
                         break;
                     }
-                    sleep(UInt32(SwyftConstants.WaitBetweenRetries))
+                    usleep(UInt32(SwyftConstants.WaitBetweenRetries))
                     n = n + 1
                 }
             }

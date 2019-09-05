@@ -61,7 +61,7 @@ public class GetOrders: FireStoreRead{
                         self.queryFailure(msg: "DB instance unable to initialize")
                         break;
                     }
-                    sleep(UInt32(SwyftConstants.WaitBetweenRetries))
+                    usleep(UInt32(SwyftConstants.WaitBetweenRetries))
                     n = n + 1
                 }
             }
