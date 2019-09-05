@@ -7,7 +7,7 @@
 //
 
 public struct SdkEnrollResponse: Codable {
-    let success: String
+    let success: Bool
     let message: String
     let payload: SdkEnrollPayLoadResponse
 }

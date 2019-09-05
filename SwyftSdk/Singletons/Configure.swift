@@ -16,9 +16,6 @@ public class Configure: NSObject {
     var db : Firestore?
     var session: SwyftSession?
     
-    private static var success: SwyftConstants.initSDKSuccess?
-    private static var failure: SwyftConstants.fail?
-    
     class public var fireBaseApp: FirebaseApp {
         get {
             if let _ = Static.instance._fireBaseApp {
@@ -53,7 +50,7 @@ public class Configure: NSObject {
         initSDK(fbApp: fbApp, success: successCallback, failure: failureCallback)
     }
     
-    class public func initSDK(fbApp: FirebaseApp?, success successCallback: @escaping SwyftConstants.initSDKSuccess, failure failureCallback: SwyftConstants.fail) {
+    class public func initSDK(fbApp: FirebaseApp?, success: @escaping SwyftConstants.initSDKSuccess, failure: SwyftConstants.fail) {
         
         Static.instance._fireBaseApp = fbApp
         if let _ = fbApp {
@@ -65,39 +62,65 @@ public class Configure: NSObject {
         current.db!.settings = settings
         current.session = SwyftSession()
         
-        // Cache the callbacks to call them later
-        success = successCallback
-        failure = failureCallback
+        guard let id = Bundle.main.bundleIdentifier else {
+            failure?("initSDK: Bundle Id failure")
+            return
+        }
         
-        let key = "" // TODO find out
-        let id = "" // TODO find out
-        callSdkAuth(key: key, id: id)
-    }
-    
-    private class func callSdkAuth(key: String, id: String) {
-        SdkAuthInteractor.auth(key: key, id: id,
-        success: { response in
+        let key = "" // TODO fill in this
+        
+        SdkAuthInteractor.auth(key: key, id: id, success: { response in
             
-            let idToken = "" // TODO find out
-            let emailAddress = "" // TODO find out
-            let firstName = "" // TODO find out
-            let lastName = "" // TODO find out
-            let phoneNumber = "" // TODO find out
-            callSdkEnroll(key: key, id: id, idToken: idToken, emailAddress: emailAddress, firstName: firstName, lastName: lastName, phoneNumber: phoneNumber)
+            guard response.success else {
+                failure?("initSDK: SDK Auth failure")
+                return
+            }
+            
+            current.session?.sdkAuthToken = response.payload.authToken
+            
+            let result = InitSDKResponse(merchantNames: response.payload.merchantNames, categories: response.payload.categories)
+            success(result)
             
         }) { error in
-            failure??(error.debugDescription)
+            failure?(error.debugDescription)
         }
     }
     
-    private class func callSdkEnroll(key: String, id: String, idToken: String, emailAddress: String, firstName: String, lastName: String, phoneNumber: String) {
-        SdkEnrollInteractor.enroll(key: key, id: id, idToken: idToken, emailAddress: emailAddress, firstName: firstName, lastName: lastName, phoneNumber: phoneNumber,
-        success: { response in
+    class public func enrollCustomer(_ customer: Customer, success: @escaping SwyftConstants.enrollCustomerSuccess, failure: SwyftConstants.fail) {
+        
+        let key = "" // TODO fill in this
+        
+        guard let id = Bundle.main.bundleIdentifier else {
+            failure?("initSDK: Bundle Id failure")
+            return
+        }
+        
+        guard let idToken = current.session?.sdkAuthToken else {
+            failure?("enrollCustomer: SDK Auth Token missing")
+            return
+        }
+        
+        guard let emailAddress = customer.emailAddress,
+              let firstName = customer.firstName,
+              let lastName = customer.lastName,
+              let phoneNumber = customer.phoneNumber else {
+                
+            failure?("enrollCustomer: Customer data missing")
+            return
+        }
+        
+        SdkEnrollInteractor.enroll(key: key, id: id, idToken: idToken, emailAddress: emailAddress, firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, success: { response in
             
-            success?()
+            guard response.success else {
+                failure?("initSDK: SDK Enroll failure")
+                return
+            }
+            
+            let result = EnrollCustomerResponse(swyftId: response.payload.swyftId)
+            success(result)
             
         }) { error in
-            failure??(error.debugDescription)
+            failure?(error.debugDescription)
         }
     }
     
@@ -108,4 +131,14 @@ public class Configure: NSObject {
     private override init() {
      
     }
+}
+
+public struct InitSDKResponse {
+    let merchantNames: [String: String]
+    let categories: [String]
+}
+
+public struct EnrollCustomerResponse {
+    // TODO: what data should be return?
+    let swyftId: String
 }

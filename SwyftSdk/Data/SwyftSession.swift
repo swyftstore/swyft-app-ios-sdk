@@ -23,6 +23,7 @@ open class SwyftSession: NSObject {
     public var signOnDate: Date?
     public var sessionExpiry: Date?
     public var signInMethod: String?
+    public var sdkAuthToken: String?
     
    
     
