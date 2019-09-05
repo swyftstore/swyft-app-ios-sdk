@@ -14,35 +14,72 @@ public class GetCustomer: FireStoreRead {
 
     public var success: SwyftConstants.readSuccess
     public var fail:  SwyftConstants.fail
-    public var db: Firestore
+    public var db: Firestore?
     
     public required init(success:  SwyftConstants.readSuccess, fail:  SwyftConstants.fail) {
         self.success = success
         self.fail = fail
-        self.db = Configure.current.db!
+        self.db = Configure.current.db
     }
     
     public func get(id: String) {
-        var ref: CollectionReference?
         
-        ref = db.collection(SwyftConstants.CustomerCollection)
-        let doc = ref?.document(id)
-        if let doc = doc {
-            self.queryDB(document: doc)
-        } else {
-            self.queryFailure(msg: "Error loading collection")
+        DispatchQueue.global(qos: .background).async {
+            var ref: CollectionReference?
+            
+            if let db = self.db {
+                ref = db.collection(SwyftConstants.CustomerCollection)
+                let doc = ref?.document(id)
+                if let doc = doc {
+                    self.queryDB(document: doc)
+                } else {
+                    self.queryFailure(msg: "Error loading collection")
+                }
+            } else {
+                var n = 0
+                while (true) {
+                    self.db = Configure.current.db
+                    if let _ = self.db {
+                        self.get(id: id)
+                        break;
+                    } else if n > SwyftConstants.MaxDbRetries {
+                        self.queryFailure(msg: "DB instance unable to initialize")
+                        break;
+                    }
+                    sleep(UInt32(SwyftConstants.WaitBetweenRetries))
+                    n = n + 1
+                }
+            }
         }
     }
     
     public func get(email: String) {
-        var ref: CollectionReference?
-        
-        ref = db.collection(SwyftConstants.CustomerCollection)
-        let query = ref?.whereField(SwyftConstants.EmailAddress, isEqualTo: email)
-        if let query = query {
-            self.queryDB(query: query)
-        } else {
-            self.queryFailure(msg: "Error loading collection")
+        DispatchQueue.global(qos: .background).async {
+            var ref: CollectionReference?
+            
+            if let db = self.db {
+                ref = db.collection(SwyftConstants.CustomerCollection)
+                let query = ref?.whereField(SwyftConstants.EmailAddress, isEqualTo: email)
+                if let query = query {
+                    self.queryDB(query: query)
+                } else {
+                    self.queryFailure(msg: "Error loading collection")
+                }
+            } else {
+                var n = 0
+                while (true) {
+                    self.db = Configure.current.db
+                    if let _ = self.db {
+                        self.get(email: email)
+                        break;
+                    } else if n > SwyftConstants.MaxDbRetries {
+                        self.queryFailure(msg: "DB instance unable to initialize")
+                        break;
+                    }
+                    sleep(UInt32(SwyftConstants.WaitBetweenRetries))
+                    n = n + 1
+                }
+            }
         }
     }
     

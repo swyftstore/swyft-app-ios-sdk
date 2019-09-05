@@ -46,6 +46,10 @@ open class SwyftConstants {
     public static let StoreCollection = "stores"
     public static let OrderCreationDate = "createDateTime"
     
+    //DB Retries
+    public static let MaxDbRetries = 10
+    public static let WaitBetweenRetries = 250
+    
     //Type Alaises
     public typealias readSuccess = ((_ data: FireStoreModelProto)->Void)?
     public typealias readSuccessWArray = ((_ data: [FireStoreModelProto])->Void)?
