@@ -62,12 +62,7 @@ public class Configure: NSObject {
         current.db!.settings = settings
         current.session = SwyftSession()
         
-        SdkAuthInteractor.auth(key: SwyftConstants.sdkAuthKey, id: SwyftConstants.sdkAuthId, success: { response in
-            
-            guard response.success else {
-                failure?("initSDK: SDK Auth failure")
-                return
-            }
+        SdkAuthInteractor.auth(success: { response in
             
             current.session?.sdkAuthToken = response.payload.authToken
             
@@ -82,27 +77,11 @@ public class Configure: NSObject {
     class public func enrollCustomer(_ customer: Customer, success: @escaping SwyftConstants.enrollCustomerSuccess, failure: SwyftConstants.fail) {
         
         guard let idToken = current.session?.sdkAuthToken else {
-            failure?("enrollCustomer: SDK Auth Token missing")
+            failure?("Swyft SDK Enroll: Auth Token missing")
             return
         }
         
-        guard let emailAddress = customer.emailAddress,
-              let firstName = customer.firstName,
-              let lastName = customer.lastName,
-              let phoneNumber = customer.phoneNumber else {
-                
-            failure?("enrollCustomer: Customer data missing")
-            return
-        }
-        
-        SdkEnrollInteractor.enroll(key: SwyftConstants.sdkAuthKey, id: SwyftConstants.sdkAuthId,
-                                   idToken: idToken, emailAddress: emailAddress, firstName: firstName,
-                                   lastName: lastName, phoneNumber: phoneNumber, success: { response in
-            
-            guard response.success else {
-                failure?("initSDK: SDK Enroll failure")
-                return
-            }
+        SdkEnrollInteractor.enroll(customer: customer, idToken: idToken, success: { response in
             
             let result = EnrollCustomerResponse(swyftId: response.payload.swyftId)
             success(result)
@@ -127,6 +106,6 @@ public struct InitSDKResponse {
 }
 
 public struct EnrollCustomerResponse {
-    // TODO: what data should be return?
+    // TODO: what data should we return?
     let swyftId: String
 }

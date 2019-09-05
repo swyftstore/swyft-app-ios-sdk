@@ -13,7 +13,7 @@ public class SdkAuthInteractor {
     private static var success: SwyftConstants.sdkAuthSuccess?
     private static var failure: SwyftConstants.fail?
     
-    public static func auth(key: String, id: String, success successCallback: @escaping SwyftConstants.sdkAuthSuccess, failure failureCallback: SwyftConstants.fail) {
+    public static func auth(success successCallback: @escaping SwyftConstants.sdkAuthSuccess, failure failureCallback: SwyftConstants.fail) {
         
         DispatchQueue.global(qos: .background).async {
             
@@ -21,14 +21,10 @@ public class SdkAuthInteractor {
             success = successCallback
             failure = failureCallback
             
-            // Checks parameters
-            guard key.count > 0, id.count > 0 else {
-                returnError("SDK Auth: Invalid parameters")
-                return
-            }
+            let key = SwyftConstants.sdkAuthKey
+            let id = SwyftConstants.sdkAuthId
             
             let request = SdkAuthRequest(key: key, id: id)
-            
             let endpoint = Repository.sdkAuth(request: request)
             
             SwyftNetworkAdapter.request(
@@ -45,19 +41,24 @@ public class SdkAuthInteractor {
         
         // HTTP status code validation
         guard code == 200 else {
-            returnError("SDK Auth: Invalid status code")
+            returnError("Swyft SDK Auth: Invalid status code")
             return
         }
         
         // Convert raw data into a json string
-        guard let jsonString = ApiUtils.getJsonString(from: rawResponse) else {
-            returnError("SDK Auth: Data parsing error")
+        guard let jsonString = Utils.getJsonString(from: rawResponse) else {
+            returnError("Swyft SDK Auth: Data parsing error")
             return
         }
         
         // Converts the jsonString into a valid Object
         guard let response: SdkAuthResponse = jsonString.decodeFrom() else {
-            returnError("SDK Auth: Json parsing error")
+            returnError("Swyft SDK Auth: Json parsing error")
+            return
+        }
+        
+        guard response.success else {
+            returnError("Swyft SDK Auth: Auth failed")
             return
         }
         

@@ -59,3 +59,54 @@ extension CIImage {
         return filter.outputImage!
     }
 }
+
+extension Encodable {
+    
+    func encodeToJson() -> String? {
+        
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        
+        let jsonData: Data
+        
+        do {
+            jsonData = try encoder.encode(self)
+            
+        } catch {
+            debugPrint(error)
+            return nil
+        }
+        
+        guard let jsonString = String(data: jsonData, encoding: .utf8) else {
+            return nil
+        }
+        
+        guard jsonString.count > 0 else {
+            return nil
+        }
+        
+        return jsonString
+    }
+}
+
+extension String {
+    
+    func decodeFrom<T: Decodable>() -> T? {
+        
+        let decoder = JSONDecoder()
+        
+        guard let jsonData = self.data(using: .utf8) else {
+            return nil
+        }
+        
+        let object: T
+        do {
+            object = try decoder.decode(T.self, from: jsonData)
+        } catch {
+            debugPrint(error)
+            return nil
+        }
+        
+        return object
+    }
+}

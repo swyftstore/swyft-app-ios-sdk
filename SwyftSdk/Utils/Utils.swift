@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import Moya
 
 class Utils: NSObject {
     static func getBaseURL() -> URL? {
@@ -77,5 +77,20 @@ class Utils: NSObject {
         print(jsonMap!)
     
         return jsonMap
+    }
+    
+    static func getJsonString(from response: Moya.Response) -> String? {
+        
+        let jsonString: String
+        
+        do {
+            jsonString = try response.mapString()
+            
+        } catch {
+            debugPrint(error)
+            return nil
+        }
+        
+        return jsonString
     }
 }
