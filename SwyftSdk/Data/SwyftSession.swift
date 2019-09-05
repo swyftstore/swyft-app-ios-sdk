@@ -23,11 +23,12 @@ open class SwyftSession: NSObject {
     
     public var signOnDate: Date?
     public var sessionExpiry: Date?
-    public var signInMethod: String?
-    public var sdkAuthToken: String?
+    public var signInMethod: String?    
     public var merchantNames: [String: String]?
     public var categories: [String]?
-    public var sdkFirebaseUser: User?
+    
+    var sdkFirebaseUser: User?
+    var sdkAuthToken: String?
     
     public func isSessionExpired() -> Bool {
         if let _ = signOnDate, let sessionExpiry = sessionExpiry {
