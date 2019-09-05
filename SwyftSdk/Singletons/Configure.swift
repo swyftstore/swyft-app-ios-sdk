@@ -59,7 +59,7 @@ public class Configure: NSObject {
         }
         
         
-        current.session = SwyftSession()
+        Static.instance.session = SwyftSession()
         
         SdkAuthInteractor.auth(success: { response in
             
