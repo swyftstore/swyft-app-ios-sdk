@@ -38,7 +38,7 @@ public class Configure: NSObject {
         }
     }
     
-    class public func initSDK(success successCallback: @escaping SwyftConstants.initSDKSuccess, failure failureCallback: SwyftConstants.fail) {
+    class public func initSDK() {
         let filePath = Bundle.main.path(forResource: "Swyft-GoogleService-Info", ofType: "plist")
         guard let fileopts = FirebaseOptions(contentsOfFile: filePath!)
             else { assert(false, "Couldn't load config file")
@@ -47,10 +47,10 @@ public class Configure: NSObject {
         let appName = "com_swyft_SwyftSdk"
         FirebaseApp.configure(name: appName, options: fileopts)
         let fbApp = FirebaseApp.app(name: appName)
-        initSDK(fbApp: fbApp, success: successCallback, failure: failureCallback)
+        initSDK(fbApp: fbApp)
     }
     
-    class public func initSDK(fbApp: FirebaseApp?, success: @escaping SwyftConstants.initSDKSuccess, failure: SwyftConstants.fail) {
+    class public func initSDK(fbApp: FirebaseApp?) {
         
         Static.instance._fireBaseApp = fbApp
         if let _ = fbApp {
@@ -68,11 +68,8 @@ public class Configure: NSObject {
             current.session?.merchantNames = response.payload.merchantNames
             current.session?.categories = response.payload.categories
             
-            let result = InitSDKResponse(merchantNames: response.payload.merchantNames, categories: response.payload.categories)
-            success(result)
-            
         }) { error in
-            failure?(error.debugDescription)
+            debugPrint(error)
         }
     }
     
@@ -100,11 +97,6 @@ public class Configure: NSObject {
     private override init() {
      
     }
-}
-
-public struct InitSDKResponse: Codable {
-    let merchantNames: [String: String]
-    let categories: [String]
 }
 
 public struct EnrollCustomerResponse: Codable {
