@@ -145,6 +145,7 @@ Pod::Spec.new do |spec|
   # Firebase
   spec.dependency 'Firebase/Core', '~> 6.5.0'
   spec.dependency 'Firebase/Firestore', '~> 6.5.0'
+  spec.dependency 'Firebase/Auth', '~> 6.5.0' 
   
   #JVFloatLabeledTextField
   spec.dependency 'JVFloatLabeledTextField', '~> 1.2.1'

@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseCore
+import FirebaseAuth
 import FirebaseFirestore
 
 public class Configure: NSObject {
@@ -67,6 +68,9 @@ public class Configure: NSObject {
             current.session?.sdkAuthToken = response.payload.authToken
             current.session?.merchantNames = response.payload.merchantNames
             current.session?.categories = response.payload.categories
+            if let _ = fbApp {
+                addAuthentication(authToken: response.payload.authToken, fbApp: fbApp!)
+            }
             
         }) { error in
             debugPrint(error)
@@ -92,6 +96,26 @@ public class Configure: NSObject {
     
     class public func setSession(sesssion: SwyftSession) {
          current.session = sesssion
+    }
+    
+    class private func addAuthentication(authToken: String, fbApp: FirebaseApp) {
+        Auth.auth(app: fbApp).signIn(withCustomToken: authToken)
+        { (result, error) in
+            if let _ = error {
+                print("Invalid SDK Authentication")
+                current.session?.sdkFirebaseUser = nil
+            }
+            
+            if let _ = result {
+                let user = result!.user
+                current.session?.sdkFirebaseUser = user
+            } else {
+                 print("Invalid SDK Authentication")
+                current.session?.sdkFirebaseUser = nil
+            }
+            
+            
+        }
     }
     
     private override init() {
