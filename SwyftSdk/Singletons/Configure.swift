@@ -53,12 +53,7 @@ public class Configure: NSObject {
     
     class public func initSDK(fbApp: FirebaseApp?) {
         
-        Static.instance._fireBaseApp = fbApp
-        if let _ = fbApp {
-            Static.instance.db = Firestore.firestore(app: fbApp!)
-        }
-        
-        
+        Static.instance._fireBaseApp = fbApp        
         Static.instance.session = SwyftSession()
         
         SdkAuthInteractor.auth(success: { response in
