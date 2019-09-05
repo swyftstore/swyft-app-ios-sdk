@@ -62,14 +62,7 @@ public class Configure: NSObject {
         current.db!.settings = settings
         current.session = SwyftSession()
         
-        guard let id = Bundle.main.bundleIdentifier else {
-            failure?("initSDK: Bundle Id failure")
-            return
-        }
-        
-        let key = "" // TODO fill in this
-        
-        SdkAuthInteractor.auth(key: key, id: id, success: { response in
+        SdkAuthInteractor.auth(key: SwyftConstants.sdkAuthKey, id: SwyftConstants.sdkAuthId, success: { response in
             
             guard response.success else {
                 failure?("initSDK: SDK Auth failure")
@@ -88,13 +81,6 @@ public class Configure: NSObject {
     
     class public func enrollCustomer(_ customer: Customer, success: @escaping SwyftConstants.enrollCustomerSuccess, failure: SwyftConstants.fail) {
         
-        let key = "" // TODO fill in this
-        
-        guard let id = Bundle.main.bundleIdentifier else {
-            failure?("initSDK: Bundle Id failure")
-            return
-        }
-        
         guard let idToken = current.session?.sdkAuthToken else {
             failure?("enrollCustomer: SDK Auth Token missing")
             return
@@ -109,7 +95,9 @@ public class Configure: NSObject {
             return
         }
         
-        SdkEnrollInteractor.enroll(key: key, id: id, idToken: idToken, emailAddress: emailAddress, firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, success: { response in
+        SdkEnrollInteractor.enroll(key: SwyftConstants.sdkAuthKey, id: SwyftConstants.sdkAuthId,
+                                   idToken: idToken, emailAddress: emailAddress, firstName: firstName,
+                                   lastName: lastName, phoneNumber: phoneNumber, success: { response in
             
             guard response.success else {
                 failure?("initSDK: SDK Enroll failure")

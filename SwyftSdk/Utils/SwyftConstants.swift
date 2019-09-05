@@ -35,6 +35,10 @@ open class SwyftConstants {
         static let values = [ID.rawValue, GeoPoint.rawValue, Name.rawValue,MerchantName.rawValue]
     }
     
+    // SDK Auth
+    public static let sdkAuthKey = "fasdfg32243tfavartefgfy5h647sdfv2R2"
+    public static let sdkAuthId = "com.swyft.SwyftApp"
+    
     //DB Collections
     public static let CustomerCollection = "customers"
     public static let OrderCollection = "/nanoshop/cart/transactions"
