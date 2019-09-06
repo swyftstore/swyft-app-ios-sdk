@@ -21,8 +21,16 @@ public class SdkAuthInteractor {
             success = successCallback
             failure = failureCallback
             
-            let key = SwyftConstants.sdkAuthKey
-            let id = SwyftConstants.sdkAuthId
+            guard let key = Utils.getSdkAuthKey() else {
+                returnError("Swyft SDK Auth: No SDK Auth key")
+                return
+            }
+            
+            let id = "com.swyft.SwyftApp" // TODO temporal
+//            guard let id = Bundle.main.bundleIdentifier else {
+//                returnError("Swyft SDK Auth: Missing bundle identifier")
+//                return
+//            }
             
             let request = SdkAuthRequest(key: key, id: id)
             let endpoint = Repository.sdkAuth(request: request)

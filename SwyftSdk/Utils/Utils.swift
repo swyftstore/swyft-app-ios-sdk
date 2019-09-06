@@ -40,6 +40,37 @@ class Utils: NSObject {
         return url
     }
     
+    static func getSdkAuthKey() -> String? {
+        
+        guard let url = Bundle.main.url(forResource:"Info", withExtension: "plist") else {
+            debugPrint("Swyft SDK: No Info.plist file")
+            return nil
+        }
+        
+        let data: Data
+        do {
+            data = try Data(contentsOf:url)
+        } catch {
+            debugPrint(error)
+            return nil
+        }
+        
+        let infoPlist: [String:Any]
+        do {
+            infoPlist = try PropertyListSerialization.propertyList(from: data, options: [], format: nil) as! [String:Any]
+        } catch {
+            debugPrint(error)
+            return nil
+        }
+        
+        guard let key = infoPlist["SWYFT_SDK_AUTH_KEY"] as? String else {
+            debugPrint("Swyft SDK: Missing Info.plist property")
+            return nil
+        }
+        
+        return key
+    }
+    
     static func getPaymentDateTime() -> String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-YYYY:HH:mm:ss:SSS"

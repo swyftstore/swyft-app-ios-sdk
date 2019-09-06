@@ -42,8 +42,16 @@ public class SdkEnrollInteractor {
                 return
             }
             
-            let key = SwyftConstants.sdkAuthKey
-            let id = SwyftConstants.sdkAuthId
+            guard let key = Utils.getSdkAuthKey() else {
+                returnError("Swyft SDK Enroll: No SDK Auth key")
+                return
+            }
+            
+            let id = "com.swyft.SwyftApp" // TODO temporal
+//            guard let id = Bundle.main.bundleIdentifier else {
+//                returnError("Swyft SDK Enroll: Missing bundle identifier")
+//                return
+//            }
             
             let customer = SdkEnrollCustomerRequest(
                 emailAddress: emailAddress,
