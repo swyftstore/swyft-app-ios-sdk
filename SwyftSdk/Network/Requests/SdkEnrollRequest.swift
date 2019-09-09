@@ -15,7 +15,14 @@ public struct SdkEnrollRequest: Codable {
 
 public struct SdkEnrollCustomerRequest: Codable {
     let emailAddress: String
-    let firstName: String
-    let lastName: String
-    let phoneNumber: String
+    let firstName: String?
+    let lastName: String?
+    let phoneNumber: String?
+    
+    public init(emailAddress: String, firstName: String?, lastName: String?, phoneNumber: String?) {
+        self.emailAddress = emailAddress
+        self.firstName = firstName
+        self.lastName = lastName
+        self.phoneNumber = phoneNumber
+    }
 }

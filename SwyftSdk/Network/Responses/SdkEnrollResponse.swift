@@ -14,6 +14,5 @@ public struct SdkEnrollResponse: Codable {
 
 public struct SdkEnrollPayLoadResponse: Codable {
     let swyftId: String
-    let linkCredentials: Bool
-    let authToken: String? // nil for New Users
+    let authToken: String?
 }

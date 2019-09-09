@@ -13,7 +13,7 @@ public class SdkEnrollInteractor {
     private static var success: SwyftConstants.sdkEnrollSuccess?
     private static var failure: SwyftConstants.fail?
     
-    public static func enroll(customer: Customer, idToken: String, success successCallback: @escaping SwyftConstants.sdkEnrollSuccess, failure failureCallback: SwyftConstants.fail) {
+    public static func enroll(customerInfo info: CustomerInfo, idToken: String, success successCallback: @escaping SwyftConstants.sdkEnrollSuccess, failure failureCallback: SwyftConstants.fail) {
         
         DispatchQueue.global(qos: .background).async {
             
@@ -21,43 +21,21 @@ public class SdkEnrollInteractor {
             success = successCallback
             failure = failureCallback
             
-            // Check customer fields
-            guard let emailAddress = customer.emailAddress, emailAddress.count > 0 else {
-                returnError("Swyft SDK Enroll: Customer email missing")
-                return
-            }
-            
-            guard let firstName = customer.firstName, firstName.count > 0 else {
-                returnError("Swyft SDK Enroll: Customer first name missing")
-                return
-            }
-            
-            guard let lastName = customer.lastName, lastName.count > 0 else {
-                returnError("Swyft SDK Enroll: Customer last name missing")
-                return
-            }
-            
-            guard let phoneNumber = customer.phoneNumber, phoneNumber.count > 0 else {
-                returnError("Swyft SDK Enroll: Customer phone number missing")
-                return
-            }
-            
             guard let key = Utils.getSdkAuthKey() else {
-                returnError("Swyft SDK Enroll: No SDK Auth key")
+                returnError("Swyft SDK Auth: No SDK Auth key on Client App")
                 return
             }
             
-            let id = "com.swyft.SwyftApp" // TODO temporal
-//            guard let id = Bundle.main.bundleIdentifier else {
-//                returnError("Swyft SDK Enroll: Missing bundle identifier")
-//                return
-//            }
+            guard let id = Bundle.main.bundleIdentifier else {
+                returnError("Swyft SDK Enroll: Missing bundle identifier")
+                return
+            }
             
             let customer = SdkEnrollCustomerRequest(
-                emailAddress: emailAddress,
-                firstName: firstName,
-                lastName: lastName,
-                phoneNumber: phoneNumber)
+                emailAddress: info.email,
+                firstName: info.firstName,
+                lastName: info.lastName,
+                phoneNumber: info.phoneNumber)
             
             let request = SdkEnrollRequest(key: key, id: id, idToken: idToken, customer: customer)
             let endpoint = Repository.sdkEnroll(request: request)
