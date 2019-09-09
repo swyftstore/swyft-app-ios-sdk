@@ -39,7 +39,18 @@ public class Configure: NSObject {
         }
     }
     
-    class public func initSDK() {
+    class public func setSession(sesssion: SwyftSession) {
+        current.session = sesssion
+    }
+    
+    private override init() {}
+}
+
+
+// MARK: Auth
+extension Configure {
+    
+    public static func initSDK() {
         let filePath = Bundle.main.path(forResource: "Swyft-GoogleService-Info", ofType: "plist")
         guard let fileopts = FirebaseOptions(contentsOfFile: filePath!)
             else { assert(false, "Couldn't load config file")
@@ -51,9 +62,9 @@ public class Configure: NSObject {
         initSDK(fbApp: fbApp)
     }
     
-    class public func initSDK(fbApp: FirebaseApp?) {
+    public static func initSDK(fbApp: FirebaseApp?) {
         
-        Static.instance._fireBaseApp = fbApp        
+        Static.instance._fireBaseApp = fbApp
         Static.instance.session = SwyftSession()
         
         SdkAuthInteractor.auth(success: { response in
@@ -61,12 +72,13 @@ public class Configure: NSObject {
             current.session?.sdkAuthToken = response.payload.authToken
             current.session?.merchantNames = response.payload.merchantNames
             current.session?.categories = response.payload.categories
-            if let _ = fbApp {
-                Static.instance.db = Firestore.firestore(app: fbApp!)
+            
+            if let fbApp = fbApp {
+                Static.instance.db = Firestore.firestore(app: fbApp)
                 let settings = current.db!.settings
                 settings.areTimestampsInSnapshotsEnabled = true
                 current.db!.settings = settings
-                addAuthentication(authToken: response.payload.authToken, fbApp: fbApp!)
+                addAuthentication(authToken: response.payload.authToken, fbApp: fbApp)
             }
             
         }) { error in
@@ -74,14 +86,60 @@ public class Configure: NSObject {
         }
     }
     
-    class public func enrollCustomer(_ customer: Customer, success: @escaping SwyftConstants.enrollCustomerSuccess, failure: SwyftConstants.fail) {
+    private static func addAuthentication(authToken: String, fbApp: FirebaseApp) {
         
-        guard let idToken = current.session?.sdkAuthToken else {
-            failure?("Swyft SDK Enroll: Auth Token missing")
-            return
+        Auth.auth(app: fbApp).signIn(withCustomToken: authToken) { result, error in
+            
+            if let _ = error {
+                debugPrint("Swyft SDK Auth: Sign In error")
+                current.session?.sdkFirebaseUser = nil
+            }
+            
+            if let result = result {
+                let user = result.user
+                current.session?.sdkFirebaseUser = user
+            } else {
+                debugPrint("Swyft SDK Auth: No Sign In result info")
+                current.session?.sdkFirebaseUser = nil
+            }
         }
+    }
+}
+
+
+// MARK: Enrollment
+extension Configure {
+    
+    public static func enroll(using info: CustomerInfo, success: @escaping SwyftConstants.enrollCustomerSuccess, failure: SwyftConstants.fail) {
         
-        SdkEnrollInteractor.enroll(customer: customer, idToken: idToken, success: { response in
+        getToken(using: info, success: success, failure: failure)
+    }
+    
+    private static func getToken(using info: CustomerInfo, success: @escaping SwyftConstants.enrollCustomerSuccess, failure: SwyftConstants.fail) {
+        
+        current.session?.sdkFirebaseUser?.getIDTokenForcingRefresh(true, completion: { token, error in
+            
+            if let _ = error {
+                let error = "Swyft SDK Enroll: Access Token error"
+                debugPrint(error)
+                failure?(error)
+                return
+            }
+            
+            guard let token = token else {
+                let error = "Swyft SDK Enroll: No Access Token"
+                debugPrint(error)
+                failure?(error)
+                return
+            }
+            
+            runEnroll(using: token, and: info, success: success, failure: failure)
+        })
+    }
+    
+    private static func runEnroll(using idToken: String, and info: CustomerInfo, success: @escaping SwyftConstants.enrollCustomerSuccess, failure: SwyftConstants.fail) {
+        
+        SdkEnrollInteractor.enroll(customerInfo: info, idToken: idToken, success: { response in
             
             let result = EnrollCustomerResponse(swyftId: response.payload.swyftId)
             success(result)
@@ -91,36 +149,12 @@ public class Configure: NSObject {
         }
     }
     
-    class public func setSession(sesssion: SwyftSession) {
-         current.session = sesssion
-    }
-    
-    class private func addAuthentication(authToken: String, fbApp: FirebaseApp) {
-        Auth.auth(app: fbApp).signIn(withCustomToken: authToken)
-        { (result, error) in
-            if let _ = error {
-                print("Invalid SDK Authentication")
-                current.session?.sdkFirebaseUser = nil
-            }
-            
-            if let _ = result {
-                let user = result!.user
-                current.session?.sdkFirebaseUser = user
-            } else {
-                 print("Invalid SDK Authentication")
-                current.session?.sdkFirebaseUser = nil
-            }
-            
-            
-        }
-    }
-    
-    private override init() {
-     
+    private static func getRandomString(length: Int) -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        return String((0..<length).map{ _ in letters.randomElement()! })
     }
 }
 
 public struct EnrollCustomerResponse: Codable {
-    // TODO: what data should we return?
     let swyftId: String
 }
