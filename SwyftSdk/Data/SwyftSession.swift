@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 
 open class SwyftSession: NSObject {
@@ -22,9 +23,12 @@ open class SwyftSession: NSObject {
     
     public var signOnDate: Date?
     public var sessionExpiry: Date?
-    public var signInMethod: String?
+    public var signInMethod: String?    
+    public var merchantNames: [String: String]?
+    public var categories: [String]?
     
-   
+    var sdkFirebaseUser: User?
+    var sdkAuthToken: String?
     
     public func isSessionExpired() -> Bool {
         if let _ = signOnDate, let sessionExpiry = sessionExpiry {
@@ -41,8 +45,4 @@ open class SwyftSession: NSObject {
             debugPrint("Session expired")
         }
     }
-        
 }
-
-
-

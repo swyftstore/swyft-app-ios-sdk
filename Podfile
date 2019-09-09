@@ -21,6 +21,7 @@ target 'SwyftSdk' do
   # Firebase
   pod 'Firebase/Core', '~> 6.5.0'
   pod 'Firebase/Firestore', '~> 6.5.0'
+  pod 'Firebase/Auth', '~> 6.5.0'
   
   #JVFloatLabeledTextField
   pod 'JVFloatLabeledTextField', '~> 1.2.1'

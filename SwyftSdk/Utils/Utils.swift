@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import Moya
 
 class Utils: NSObject {
     static func getBaseURL() -> URL? {
@@ -25,7 +25,7 @@ class Utils: NSObject {
         return url
     }
     
-    static func getPyamentURL() -> URL? {
+    static func getPaymentURL() -> URL? {
         var url: URL?
         if let _url = Bundle.main.url(forResource:"Info", withExtension: "plist") {
             do {
@@ -38,6 +38,37 @@ class Utils: NSObject {
             }
         }
         return url
+    }
+    
+    static func getSdkAuthKey() -> String? {
+        
+        guard let url = Bundle.main.url(forResource:"Info", withExtension: "plist") else {
+            debugPrint("Swyft SDK: No Info.plist file")
+            return nil
+        }
+        
+        let data: Data
+        do {
+            data = try Data(contentsOf:url)
+        } catch {
+            debugPrint(error)
+            return nil
+        }
+        
+        let infoPlist: [String:Any]
+        do {
+            infoPlist = try PropertyListSerialization.propertyList(from: data, options: [], format: nil) as! [String:Any]
+        } catch {
+            debugPrint(error)
+            return nil
+        }
+        
+        guard let key = infoPlist["SWYFT_SDK_AUTH_KEY"] as? String else {
+            debugPrint("Swyft SDK: Missing Info.plist property")
+            return nil
+        }
+        
+        return key
     }
     
     static func getPaymentDateTime() -> String{
@@ -77,5 +108,20 @@ class Utils: NSObject {
         print(jsonMap!)
     
         return jsonMap
+    }
+    
+    static func getJsonString(from response: Moya.Response) -> String? {
+        
+        let jsonString: String
+        
+        do {
+            jsonString = try response.mapString()
+            
+        } catch {
+            debugPrint(error)
+            return nil
+        }
+        
+        return jsonString
     }
 }

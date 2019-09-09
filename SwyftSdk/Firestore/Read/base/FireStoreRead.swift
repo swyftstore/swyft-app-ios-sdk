@@ -13,7 +13,7 @@ import FirebaseFirestore
 public protocol FireStoreRead: class {
    
     var fail: SwyftConstants.fail {get}
-    var db: Firestore {get}
+    var db: Firestore? {get}
     
     func querySuccess(data: Dictionary<String, Any>, id: String, done: Bool)
     func queryFailure(msg: String)
