@@ -47,7 +47,7 @@ public class Configure: NSObject {
 }
 
 
-// MARK: Auth
+// MARK: SDK Auth
 extension Configure {
     
     public static func initSDK() {
@@ -107,17 +107,17 @@ extension Configure {
 }
 
 
-// MARK: Enrollment
+// MARK: SDK Enroll
 extension Configure {
     
-    public static func enroll(using info: CustomerInfo, success: @escaping SwyftConstants.enrollCustomerSuccess, failure: SwyftConstants.fail) {
+    public static func enroll(info: CustomerInfo, success: @escaping SwyftConstants.enrollCustomerSuccess, failure: SwyftConstants.fail) {
         
-        getToken(using: info, success: success, failure: failure)
+        getToken(info: info, success: success, failure: failure)
     }
     
-    private static func getToken(using info: CustomerInfo, success: @escaping SwyftConstants.enrollCustomerSuccess, failure: SwyftConstants.fail) {
+    private static func getToken(info: CustomerInfo, success: @escaping SwyftConstants.enrollCustomerSuccess, failure: SwyftConstants.fail) {
         
-        current.session?.sdkFirebaseUser?.getIDTokenForcingRefresh(true, completion: { token, error in
+        current.session?.sdkFirebaseUser?.getIDTokenForcingRefresh(true, completion: { idToken, error in
             
             if let _ = error {
                 let error = "Swyft SDK Enroll: Access Token error"
@@ -126,22 +126,24 @@ extension Configure {
                 return
             }
             
-            guard let token = token else {
+            guard let idToken = idToken else {
                 let error = "Swyft SDK Enroll: No Access Token"
                 debugPrint(error)
                 failure?(error)
                 return
             }
             
-            runEnroll(using: token, and: info, success: success, failure: failure)
+            runEnroll(idToken: idToken, info: info, success: success, failure: failure)
         })
     }
     
-    private static func runEnroll(using idToken: String, and info: CustomerInfo, success: @escaping SwyftConstants.enrollCustomerSuccess, failure: SwyftConstants.fail) {
+    private static func runEnroll(idToken: String, info: CustomerInfo, success: @escaping SwyftConstants.enrollCustomerSuccess, failure: SwyftConstants.fail) {
         
         SdkEnrollInteractor.enroll(customerInfo: info, idToken: idToken, success: { response in
             
-            let result = EnrollCustomerResponse(swyftId: response.payload.swyftId)
+            current.session?.sdkAuthToken = response.payload.authToken
+            
+            let result = EnrollCustomerResponse(message: response.message, swyftId: response.payload.swyftId, authToken: response.payload.authToken)
             success(result)
             
         }) { error in
@@ -156,5 +158,58 @@ extension Configure {
 }
 
 public struct EnrollCustomerResponse: Codable {
-    let swyftId: String
+    public let message: String
+    public let swyftId: String
+    public let authToken: String
+}
+
+
+// MARK: SDK Customer Auth
+extension Configure {
+ 
+    public static func customerAuth(swyftId: String, customAuth: String? = nil, success: @escaping SwyftConstants.customerAuthSuccess, failure: SwyftConstants.fail) {
+        
+        getToken(swyftId: swyftId, customAuth: customAuth, success: success, failure: failure)
+    }
+    
+    private static func getToken(swyftId: String, customAuth: String?, success: @escaping SwyftConstants.customerAuthSuccess, failure: SwyftConstants.fail) {
+        
+        current.session?.sdkFirebaseUser?.getIDTokenForcingRefresh(true, completion: { idToken, error in
+            
+            if let _ = error {
+                let error = "Swyft SDK Customer Auth: Access Token error"
+                debugPrint(error)
+                failure?(error)
+                return
+            }
+            
+            guard let idToken = idToken else {
+                let error = "Swyft SDK Customer Auth: No Access Token"
+                debugPrint(error)
+                failure?(error)
+                return
+            }
+            
+            runCustomerAuth(swyftId: swyftId, customAuth: customAuth, idToken: idToken, success: success, failure: failure  )
+        })
+    }
+ 
+    private static func runCustomerAuth(swyftId: String, customAuth: String?, idToken: String, success: @escaping SwyftConstants.customerAuthSuccess, failure: SwyftConstants.fail) {
+     
+        SdkCustomerAuthInteractor.customerAuth(swyftId: swyftId, idToken: idToken, customAuth: customAuth, success: { response in
+            
+            current.session?.sdkAuthToken = response.payload.authToken
+            
+            let result = CustomerAuthResponse(message: response.message, authToken: response.payload.authToken)
+            success(result)
+            
+        }) { error in
+            failure?(error.debugDescription)
+        }
+    }
+}
+
+public struct CustomerAuthResponse: Codable {
+    public let message: String
+    public let authToken: String
 }
