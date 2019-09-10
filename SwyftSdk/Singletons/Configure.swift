@@ -230,20 +230,62 @@ extension Configure {
             
             if let _ = customAuth {
                 token = customAuth!
-                
+                guard let newQRCode = SwyftImageGenerator.buildQRImage(string: token, color: current._qrColor) else {
+                    debugPrint("QR Code was not generated...")
+                    return
+                }
+                let result = CustomerAuthResponse(qrCode: newQRCode)
+                success(result)
             } else {
-                token = response.payload.authToken
-            }
+                getUserAuthentication(authToken:response.payload.authToken, fbApp: self.fireBaseApp, success: success, failure: failure)
+            } 
             
-            guard let newQRCode = SwyftImageGenerator.buildQRImage(string: token, color: current._qrColor) else {
-                debugPrint("QR Code was not generated...")
-                return
-            }
-            let result = CustomerAuthResponse(qrCode: newQRCode)
-            success(result)
+           
             
         }) { error in
             failure?(error.debugDescription)
+        }
+    }
+    
+    private static func getUserAuthentication(authToken: String, fbApp: FirebaseApp,success: @escaping SwyftConstants.customerAuthSuccess, failure: SwyftConstants.fail) {
+        
+        Auth.auth(app: fbApp).signIn(withCustomToken: authToken) { result, error in
+            
+            if let _ = error {
+                debugPrint("Swyft SDK Auth: Sign In error")
+                current.session?.sdkFirebaseUser = nil
+            }
+            
+            if let result = result {
+                let user = result.user
+                user.getIDTokenForcingRefresh(true, completion: { idToken, error in
+                    
+                    if let _ = error {
+                        let error = "Swyft SDK Customer Auth: Access Token error"
+                        debugPrint(error)
+                        failure?(error)
+                        return
+                    }
+                    
+                    guard let idToken = idToken else {
+                        let error = "Swyft SDK Customer Auth: No Access Token"
+                        debugPrint(error)
+                        failure?(error)
+                        return
+                    }
+                    
+                    guard let newQRCode = SwyftImageGenerator.buildQRImage(string: idToken, color: current._qrColor) else {
+                        debugPrint("QR Code was not generated...")
+                        return
+                    }
+                    
+                    let result = CustomerAuthResponse(qrCode: newQRCode)
+                    success(result)
+                    
+                })
+            } else {
+                debugPrint("Swyft SDK Auth: No Sign In result info")
+            }
         }
     }
 }
