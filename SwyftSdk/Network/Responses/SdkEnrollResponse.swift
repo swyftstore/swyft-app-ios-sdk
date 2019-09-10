@@ -14,5 +14,5 @@ public struct SdkEnrollResponse: Codable {
 
 public struct SdkEnrollPayLoadResponse: Codable {
     let swyftId: String
-    let authToken: String?
+    let authToken: String
 }

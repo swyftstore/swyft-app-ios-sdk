@@ -16,6 +16,7 @@ public enum Repository {
     case removePayment(paymentMethod: RemovePaymentMethod)
     case sdkAuth(request: SdkAuthRequest)
     case sdkEnroll(request: SdkEnrollRequest)
+    case sdkCustomerAuth(request: SdkCustomerAuthRequest)
 }
 
 extension Repository: TargetType {
@@ -29,7 +30,7 @@ extension Repository: TargetType {
             return Utils.getPaymentURL()!
         case .removePayment:
             return Utils.getPaymentURL()!
-        case .sdkAuth, .sdkEnroll:
+        case .sdkAuth, .sdkEnroll, .sdkCustomerAuth:
             return  Utils.getBaseURL()!
         }
     }
@@ -48,6 +49,8 @@ extension Repository: TargetType {
             return "rest/sdk_auth"
         case .sdkEnroll:
             return "rest/sdk_enroll"
+        case .sdkCustomerAuth:
+            return "rest/sdk_customer_auth"
         }
     }
     
@@ -61,7 +64,7 @@ extension Repository: TargetType {
             return .post
         case .removePayment:
             return .post
-        case .sdkAuth, .sdkEnroll:
+        case .sdkAuth, .sdkEnroll, .sdkCustomerAuth:
             return .post
         }
     }
@@ -114,6 +117,8 @@ extension Repository: TargetType {
             return .requestJSONEncodable(request)
         case .sdkEnroll(let request):
             return .requestJSONEncodable(request)
+        case .sdkCustomerAuth(let request):
+            return .requestJSONEncodable(request)
         }
       
     }
@@ -133,7 +138,7 @@ extension Repository: TargetType {
         case .editPayment:
             headers["Content-Type"] = "text/x-markdown"
             return headers
-        case .sdkAuth, .sdkEnroll:
+        case .sdkAuth, .sdkEnroll, .sdkCustomerAuth:
             headers["Accept"] = "application/json"
             headers["Content-type"] = "application/json"
             return headers
