@@ -26,7 +26,7 @@ public class GetOrders: FireStoreRead{
     public func querySuccess(data: Dictionary<String, Any>, id: String, done: Bool) {
         let order = Order()
         order.serialize(data: data)
-        self.hasProducts(order: order) {
+        if self.hasProducts(order: order) {
             order.id = id
             orders.append(order)
         }
