@@ -6,8 +6,8 @@
 //  Copyright © 2019 Swyft. All rights reserved.
 //
 
-import FirebaseAuth
 import FirebaseCore
+import FirebaseAuth
 import FirebaseFirestore
 
 class InitSdkPresenter {
@@ -19,14 +19,12 @@ class InitSdkPresenter {
     func execute() {
         
         guard let filePath = Bundle.main.path(forResource: "Swyft-GoogleService-Info", ofType: "plist") else {
-            let error = SwyftError.initSdkNoSwyftFile.build()
-            debugPrint(error)
+            report(.initSdkNoSwyftFile)
             return
         }
         
         guard let firebaseOptions = FirebaseOptions(contentsOfFile: filePath) else {
-            let error = SwyftError.initSdkNoFirebaseOptions.build()
-            debugPrint(error)
+            report(.initSdkNoFirebaseOptions)
             return
         }
         
@@ -59,7 +57,7 @@ class InitSdkPresenter {
              }
             
         }) { error in
-            debugPrint(error)
+            report(.initSdkAuthFailure)
         }
     }
     
@@ -69,17 +67,13 @@ class InitSdkPresenter {
             
             if let _ = error {
                 Configure.current.session?.sdkFirebaseUser = nil
-                
-                let error = SwyftError.initSdkNoFirebaseAuth.build()
-                debugPrint(error)
+                report(.initSdkFirebaseSignInFailure)
                 return
             }
             
             guard let result = result else {
                 Configure.current.session?.sdkFirebaseUser = nil
-                
-                let error = SwyftError.initSdkNoFirebaseResult.build()
-                debugPrint(error)
+                report(.initSdkNoFirebaseSignIn)
                 return
             }
 

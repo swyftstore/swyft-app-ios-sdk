@@ -33,27 +33,27 @@ public final class SwyftSDK {
         EnrollUserPresenter.shared.execute(user, success, failure)
     }
     
-    public static func authenticateUser(swyftId: String, qrCodeColor: UIColor, customAuth: String? = nil, success: SwyftAuthenticateUserCallback, failure: SwyftFailureCallback) {
+    public static func authenticateUser(swyftId: String, qrCodeColor: UIColor, customAuth: String? = nil, success: @escaping SwyftAuthenticateUserCallback, failure: @escaping SwyftFailureCallback) {
         AuthenticateUserPresenter.shared.execute(swyftId, qrCodeColor, customAuth, success, failure)
     }
     
-    public static func addPaymentMethod(method: SwyftPaymentMethod, success: SwyftAddPaymentCallback, failure: SwyftFailureCallback) {
+    public static func addPaymentMethod(method: SwyftPaymentMethod, success: @escaping SwyftAddPaymentCallback, failure: @escaping SwyftFailureCallback) {
         AddPaymentMethodPresenter.shared.execute(method, success, failure)
     }
     
-    public static func getPaymentMethods(success: SwyftGetPaymentMethodsCallback, failure: SwyftFailureCallback) {
+    public static func getPaymentMethods(success: @escaping SwyftGetPaymentMethodsCallback, failure: @escaping SwyftFailureCallback) {
         GetPaymentMethodsPresenter.shared.execute(success, failure)
     }
     
-    public static func setDefaultPaymentMethod(methodId: String, success: SwyftDefaultMethodCallback, failure: SwyftFailureCallback) {
+    public static func setDefaultPaymentMethod(methodId: String, success: @escaping SwyftDefaultMethodCallback, failure: @escaping SwyftFailureCallback) {
         SetDefaultPaymentMethodPresenter.shared.execute(methodId, success, failure)
     }
     
-    public static func removePaymentMethod(methodId: String, success: SwyftDeleteMethodCallback, failure: SwyftFailureCallback) {
+    public static func removePaymentMethod(methodId: String, success: @escaping SwyftDeleteMethodCallback, failure: @escaping SwyftFailureCallback) {
         RemovePaymentMethodPresenter.shared.execute(methodId, success, failure)
     }
     
-    public static func getOrders(start: Int, pageSize: Int, success: SwyftGetOrdersCallback, failure: SwyftFailureCallback) {
+    public static func getOrders(start: Int, pageSize: Int, success: @escaping SwyftGetOrdersCallback, failure: @escaping SwyftFailureCallback) {
         GetOrdersPresenter.shared.execute(start, pageSize, success, failure)
     }
 }

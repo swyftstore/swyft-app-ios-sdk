@@ -12,7 +12,13 @@ class SetDefaultPaymentMethodPresenter {
     static let shared = SetDefaultPaymentMethodPresenter()
     private init() {}
     
-    func execute(_ methodId: String, _ success: SwyftDefaultMethodCallback, _ failure: SwyftFailureCallback) {
+    func execute(_ methodId: String, _ success: @escaping SwyftDefaultMethodCallback, _ failure: @escaping SwyftFailureCallback) {
+        
+        // TODO: we should implement an auto retry
+        guard let _ = Configure.current.session?.sdkFirebaseUser else {
+            report(.setDefaultPaymentMethodSdkNotInitialized, failure)
+            return
+        }
         
     }
 }

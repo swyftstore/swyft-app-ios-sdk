@@ -12,7 +12,13 @@ class GetOrdersPresenter {
     static let shared = GetOrdersPresenter()
     private init() {}
     
-    func execute(_ start: Int, _ pageSize: Int, _ success: SwyftGetOrdersCallback, _ failure: SwyftFailureCallback) {
+    func execute(_ start: Int, _ pageSize: Int, _ success: @escaping SwyftGetOrdersCallback, _ failure: @escaping SwyftFailureCallback) {
+        
+        // TODO: we should implement an auto retry
+        guard let _ = Configure.current.session?.sdkFirebaseUser else {
+            report(.getOrdersSdkNotInitialized, failure)
+            return
+        }
         
     }
 }

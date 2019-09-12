@@ -14,44 +14,34 @@ class EnrollUserPresenter {
     
     func execute(_ user: SwyftUser, _ success: @escaping SwyftEnrollCallback, _ failure: @escaping SwyftFailureCallback) {
         
+        // TODO: we should implement an auto retry
         guard let _ = Configure.current.session?.sdkFirebaseUser else {
-            // TODO: we should implement an auto retry
-            let error = SwyftError.enrollUserSdkNotInitialized.build()
-            debugPrint(error)
-            failure(error)
+            report(.enrollUserSdkNotInitialized, failure)
             return
         }
         
         guard user.email.count > 0 else {
-            let error = SwyftError.enrollUserInvalidUserEmail.build()
-            debugPrint(error)
-            failure(error)
+            report(.enrollUserInvalidUserEmail, failure)
             return
         }
         
         if let firstName = user.firstName {
             guard firstName.count > 0 else {
-                let error = SwyftError.enrollUserInvalidUserFirstName.build()
-                debugPrint(error)
-                failure(error)
+                report(.enrollUserInvalidUserFirstName, failure)
                 return
             }
         }
         
         if let lastName = user.lastName {
             guard lastName.count > 0 else {
-                let error = SwyftError.enrollUserInvalidUserLastName.build()
-                debugPrint(error)
-                failure(error)
+                report(.enrollUserInvalidUserLastName, failure)
                 return
             }
         }
         
         if let phoneNumber = user.phoneNumber {
             guard phoneNumber.count > 0 else {
-                let error = SwyftError.enrollUserInvalidUserPhone.build()
-                debugPrint(error)
-                failure(error)
+                report(.enrollUserInvalidUserPhone, failure)
                 return
             }
         }
@@ -64,16 +54,12 @@ class EnrollUserPresenter {
         Configure.current.session?.sdkFirebaseUser?.getIDTokenForcingRefresh(true, completion: { idToken, error in
             
             if let _ = error {
-                let error = SwyftError.enrollUserAccessTokenFailure.build()
-                debugPrint(error)
-                failure(error)
+                report(.enrollUserAccessTokenFailure, failure)
                 return
             }
             
             guard let idToken = idToken else {
-                let error = SwyftError.enrollUserNoAccessToken.build()
-                debugPrint(error)
-                failure(error)
+                report(.enrollUserNoAccessToken, failure)
                 return
             }
             
@@ -91,10 +77,7 @@ class EnrollUserPresenter {
             success(result)
             
         }) { error in
-            
-            let error = SwyftError.enrollUserSdkEnrollFailure.build()
-            debugPrint(error)
-            failure(error)
+            report(.enrollUserSdkEnrollFailure, failure)
         }
     }
 }

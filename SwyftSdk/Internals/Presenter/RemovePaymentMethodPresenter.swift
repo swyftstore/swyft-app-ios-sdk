@@ -12,7 +12,13 @@ class RemovePaymentMethodPresenter {
     static let shared = RemovePaymentMethodPresenter()
     private init() {}
     
-    func execute(_ methodId: String, _ success: SwyftDeleteMethodCallback, _ failure: SwyftFailureCallback) {
+    func execute(_ methodId: String, _ success: @escaping SwyftDeleteMethodCallback, _ failure: @escaping SwyftFailureCallback) {
+        
+        // TODO: we should implement an auto retry
+        guard let _ = Configure.current.session?.sdkFirebaseUser else {
+            report(.removePaymentMethodSdkNotInitialized, failure)
+            return
+        }
         
     }
 }
