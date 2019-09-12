@@ -6,13 +6,13 @@
 //
 
 public struct SwyftUser: Codable {
-    let email: String
-    let firstName: String
-    let lastName: String
-    let phoneNumber: String
-    //let dateOfBirth: String?
     
-    public init(email: String, firstName: String, lastName: String, phoneNumber: String) {
+    let email: String
+    let firstName: String?
+    let lastName: String?
+    let phoneNumber: String?
+    
+    public init(email: String, firstName: String?, lastName: String?, phoneNumber: String?) {
         self.email = email
         self.firstName = firstName
         self.lastName = lastName

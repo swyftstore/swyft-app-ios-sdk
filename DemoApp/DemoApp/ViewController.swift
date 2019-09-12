@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func onTapInit(_ sender: UIButton) {
-        SwyftSdk.Configure.qrColor = self.view.tintColor
+//        SwyftSdk.Configure.qrColor = self.view.tintColor
     }
     
     @IBAction func onTapEnroll(_ sender: UIButton) {
@@ -43,7 +43,8 @@ class ViewController: UIViewController {
             lastName: "Perterson",
             phoneNumber: "+1 1234567890")
         
-        SwyftSdk.Configure.enrollUser(swyftUser: customerInfo, success: { response in
+        SwyftSDK.enrollUser(user: customerInfo, success: { response in
+        //SwyftSdk.Configure.enrollUser(swyftUser: customerInfo, success: { response in
             
             self.swyftId = response.swyftId
             
@@ -65,7 +66,8 @@ class ViewController: UIViewController {
         
         qrCodeImage.image = nil
         
-        SwyftSdk.Configure.authenticateUser(swyftId: self.swyftId, success: { response in
+        SwyftSDK.authenticateUser(swyftId: self.swyftId, qrCodeColor: self.view.tintColor, success: { response in
+        //SwyftSdk.Configure.authenticateUser(swyftId: self.swyftId, success: { response in
                         
             DispatchQueue.main.async {
                 self.qrCodeImage.image = response.qrCode
@@ -86,7 +88,8 @@ class ViewController: UIViewController {
         
         let customAuth = "myCustomStringToEncode"
         
-        SwyftSdk.Configure.authenticateUser(swyftId: self.swyftId, customAuth: customAuth, success: { response in
+        SwyftSDK.authenticateUser(swyftId: self.swyftId, qrCodeColor: self.view.tintColor, customAuth: customAuth, success: { response in
+        //SwyftSdk.Configure.authenticateUser(swyftId: self.swyftId, customAuth: customAuth, success: { response in
             
             DispatchQueue.main.async {
                 self.qrCodeImage.image = response.qrCode

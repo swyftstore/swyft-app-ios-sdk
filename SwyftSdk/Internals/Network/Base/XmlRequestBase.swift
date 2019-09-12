@@ -22,7 +22,7 @@ public class XmlRequestBase{
      init() {
         terminalId = XmlRequestBase.getTerminalId()
         secret = XmlRequestBase.getPaymentSecret()
-        dateTime = Utils.getPaymentDateTime()    
+        dateTime = Utils.getPaymentDateTime()
     }
     
     private class func getPaymentSecret() -> String {

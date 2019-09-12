@@ -133,6 +133,41 @@ extension Configure {
             debugPrint(error)
             return;
         }
+        
+        guard swyftUser.email.count > 0 else {
+            let error = "Swyft SDK Enroll: Invalid customer email"
+            debugPrint(error)
+            failure?(error)
+            return
+        }
+        
+        if let firstName = swyftUser.firstName {
+            guard firstName.count > 0 else {
+                let error = "Swyft SDK Enroll: Invalid customer first name"
+                debugPrint(error)
+                failure?(error)
+                return
+            }
+        }
+        
+        if let lastName = swyftUser.lastName {
+            guard lastName.count > 0 else {
+                let error = "Swyft SDK Enroll: Invalid customer last name"
+                debugPrint(error)
+                failure?(error)
+                return
+            }
+        }
+        
+        if let phoneNumber = swyftUser.phoneNumber {
+            guard phoneNumber.count > 0 else {
+                let error = "Swyft SDK Enroll: Invalid customer phone number"
+                debugPrint(error)
+                failure?(error)
+                return
+            }
+        }
+        
         getToken(swyftUser: swyftUser, success: success, failure: failure)
     }
     
@@ -164,7 +199,7 @@ extension Configure {
             
             current.session?.sdkAuthToken = response.payload.authToken
             
-            let result = EnrollCustomerResponse(message: response.message, swyftId: response.payload.swyftId, authToken: response.payload.authToken)
+            let result = SwyftEnrollResponse(message: response.message, swyftId: response.payload.swyftId, authToken: response.payload.authToken)
             success(result)
             
         }) { error in
@@ -178,11 +213,11 @@ extension Configure {
     }
 }
 
-public struct EnrollCustomerResponse: Codable {
-    public let message: String
-    public let swyftId: String
-    public let authToken: String
-}
+//public struct EnrollCustomerResponse: Codable {
+//    public let message: String
+//    public let swyftId: String
+//    public let authToken: String
+//}
 
 
 // MARK: SDK Customer Auth
@@ -234,7 +269,7 @@ extension Configure {
                     debugPrint("QR Code was not generated...")
                     return
                 }
-                let result = CustomerAuthResponse(qrCode: newQRCode)
+                let result = SwyftAuthenticateUserResponse(qrCode: newQRCode)
                 success(result)
             } else {
                 getUserAuthentication(authToken:response.payload.authToken, fbApp: self.fireBaseApp, success: success, failure: failure)
@@ -279,7 +314,7 @@ extension Configure {
                         return
                     }
                     
-                    let result = CustomerAuthResponse(qrCode: newQRCode)
+                    let result = SwyftAuthenticateUserResponse(qrCode: newQRCode)
                     success(result)
                     
                 })
@@ -290,6 +325,6 @@ extension Configure {
     }
 }
 
-public struct CustomerAuthResponse {
-    public let qrCode: UIImage
-}
+//public struct CustomerAuthResponse {
+//    public let qrCode: UIImage
+//}

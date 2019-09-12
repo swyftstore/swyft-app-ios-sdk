@@ -12,6 +12,19 @@
 		B133D18123282DD8007DA4B7 /* SdkCustomerAuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B133D18023282DD8007DA4B7 /* SdkCustomerAuthRequest.swift */; };
 		B133D18323282DE2007DA4B7 /* SdkCustomerAuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B133D18223282DE2007DA4B7 /* SdkCustomerAuthResponse.swift */; };
 		B133D18B23282E68007DA4B7 /* SdkCustomerAuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B133D18A23282E68007DA4B7 /* SdkCustomerAuthInteractor.swift */; };
+		B19A5E1E232A9B5700F1D15D /* RemovePaymentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19A5E1A232A9B5700F1D15D /* RemovePaymentInteractor.swift */; };
+		B19A5E1F232A9B5700F1D15D /* AddPaymentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19A5E1B232A9B5700F1D15D /* AddPaymentInteractor.swift */; };
+		B19A5E20232A9B5700F1D15D /* DefaultPaymentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19A5E1C232A9B5700F1D15D /* DefaultPaymentInteractor.swift */; };
+		B19A5E21232A9B5700F1D15D /* EditPaymentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19A5E1D232A9B5700F1D15D /* EditPaymentInteractor.swift */; };
+		B19A5E24232A9BEA00F1D15D /* SwyftSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19A5E23232A9BEA00F1D15D /* SwyftSDK.swift */; };
+		B19A5E27232AA26200F1D15D /* SwyftEnrollResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19A5E26232AA26200F1D15D /* SwyftEnrollResponse.swift */; };
+		B19A5E29232AA28800F1D15D /* SwyftAuthenticateUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19A5E28232AA28800F1D15D /* SwyftAuthenticateUserResponse.swift */; };
+		B19A5E2B232AA29000F1D15D /* SwyftAddPaymentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19A5E2A232AA29000F1D15D /* SwyftAddPaymentResponse.swift */; };
+		B19A5E2D232AA29900F1D15D /* SwyftGetPaymentMethodsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19A5E2C232AA29900F1D15D /* SwyftGetPaymentMethodsResponse.swift */; };
+		B19A5E2F232AA2A400F1D15D /* SwyftDefaultMethodResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19A5E2E232AA2A400F1D15D /* SwyftDefaultMethodResponse.swift */; };
+		B19A5E31232AA2B000F1D15D /* SwyftDeleteMethodResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19A5E30232AA2B000F1D15D /* SwyftDeleteMethodResponse.swift */; };
+		B19A5E33232AA2BD00F1D15D /* SwyftGetOrdersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19A5E32232AA2BD00F1D15D /* SwyftGetOrdersResponse.swift */; };
+		B19A5E35232AA33500F1D15D /* SwyftError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19A5E34232AA33500F1D15D /* SwyftError.swift */; };
 		B1C33F13232055EA00AA02B7 /* SdkAuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C33F12232055EA00AA02B7 /* SdkAuthResponse.swift */; };
 		B1C33F15232055F600AA02B7 /* SdkEnrollResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C33F14232055F600AA02B7 /* SdkEnrollResponse.swift */; };
 		B1C33F1A23205B3F00AA02B7 /* SdkAuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C33F1923205B3F00AA02B7 /* SdkAuthInteractor.swift */; };
@@ -19,13 +32,10 @@
 		B1E7AA3D2320532F00DDAB8C /* SdkAuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E7AA3C2320532F00DDAB8C /* SdkAuthRequest.swift */; };
 		B1E7AA3F2320547A00DDAB8C /* SdkEnrollRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E7AA3E2320547A00DDAB8C /* SdkEnrollRequest.swift */; };
 		CEB6B780BC4F2AB0D3241B7F /* Pods_SwyftSdkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39274FC2924BF3112B5BD2C1 /* Pods_SwyftSdkTests.framework */; };
-		D049249122C68DE30074A67F /* RemovePaymentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D049249022C68DE30074A67F /* RemovePaymentInteractor.swift */; };
 		D049249322C68EAE0074A67F /* RemovePaymentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D049249222C68EAE0074A67F /* RemovePaymentResponse.swift */; };
 		D049249522C6C14D0074A67F /* XmlResponseBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D049249422C6C14D0074A67F /* XmlResponseBase.swift */; };
-		D049249722C6CBC90074A67F /* DefaultPaymentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D049249622C6CBC90074A67F /* DefaultPaymentInteractor.swift */; };
 		D049249922CFF0810074A67F /* EditPaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D049249822CFF0810074A67F /* EditPaymentMethod.swift */; };
 		D049249B22CFF0C80074A67F /* EditPaymentMethodResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D049249A22CFF0C70074A67F /* EditPaymentMethodResponse.swift */; };
-		D049249D22CFF1480074A67F /* EditPaymentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D049249C22CFF1480074A67F /* EditPaymentInteractor.swift */; };
 		D052DA83228E16B00082C3AE /* ProgressHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = D052DA82228E16B00082C3AE /* ProgressHud.swift */; };
 		D052DA88228E1B0A0082C3AE /* PopUpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D052DA87228E1B0A0082C3AE /* PopUpManager.swift */; };
 		D06A397D22849A1800DBF639 /* Configure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06A397C22849A1800DBF639 /* Configure.swift */; };
@@ -37,7 +47,6 @@
 		D08A3F3E22BD458E00D264D2 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08A3F3D22BD458E00D264D2 /* Notifications.swift */; };
 		D08A3F4022BD537700D264D2 /* PaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08A3F3F22BD537700D264D2 /* PaymentMethod.swift */; };
 		D08A3F4222BD538800D264D2 /* XmlRequestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08A3F4122BD538800D264D2 /* XmlRequestBase.swift */; };
-		D08A3F4422BD89D000D264D2 /* AddPaymentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08A3F4322BD89D000D264D2 /* AddPaymentInteractor.swift */; };
 		D08D7F2422A5A17700A6298B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08D7F2322A5A17700A6298B /* Product.swift */; };
 		D08D7F2622A5C63200A6298B /* GetOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08D7F2522A5C63200A6298B /* GetOrder.swift */; };
 		D08D7F2D22AAF5DA00A6298B /* Respository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08D7F2C22AAF5DA00A6298B /* Respository.swift */; };
@@ -99,6 +108,19 @@
 		B133D18023282DD8007DA4B7 /* SdkCustomerAuthRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SdkCustomerAuthRequest.swift; sourceTree = "<group>"; };
 		B133D18223282DE2007DA4B7 /* SdkCustomerAuthResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SdkCustomerAuthResponse.swift; sourceTree = "<group>"; };
 		B133D18A23282E68007DA4B7 /* SdkCustomerAuthInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SdkCustomerAuthInteractor.swift; sourceTree = "<group>"; };
+		B19A5E1A232A9B5700F1D15D /* RemovePaymentInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemovePaymentInteractor.swift; path = SwyftSdk/Internals/Interactors/Payments/RemovePaymentInteractor.swift; sourceTree = SOURCE_ROOT; };
+		B19A5E1B232A9B5700F1D15D /* AddPaymentInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddPaymentInteractor.swift; path = SwyftSdk/Internals/Interactors/Payments/AddPaymentInteractor.swift; sourceTree = SOURCE_ROOT; };
+		B19A5E1C232A9B5700F1D15D /* DefaultPaymentInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultPaymentInteractor.swift; path = SwyftSdk/Internals/Interactors/Payments/DefaultPaymentInteractor.swift; sourceTree = SOURCE_ROOT; };
+		B19A5E1D232A9B5700F1D15D /* EditPaymentInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditPaymentInteractor.swift; path = SwyftSdk/Internals/Interactors/Payments/EditPaymentInteractor.swift; sourceTree = SOURCE_ROOT; };
+		B19A5E23232A9BEA00F1D15D /* SwyftSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwyftSDK.swift; sourceTree = "<group>"; };
+		B19A5E26232AA26200F1D15D /* SwyftEnrollResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwyftEnrollResponse.swift; sourceTree = "<group>"; };
+		B19A5E28232AA28800F1D15D /* SwyftAuthenticateUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwyftAuthenticateUserResponse.swift; sourceTree = "<group>"; };
+		B19A5E2A232AA29000F1D15D /* SwyftAddPaymentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwyftAddPaymentResponse.swift; sourceTree = "<group>"; };
+		B19A5E2C232AA29900F1D15D /* SwyftGetPaymentMethodsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwyftGetPaymentMethodsResponse.swift; sourceTree = "<group>"; };
+		B19A5E2E232AA2A400F1D15D /* SwyftDefaultMethodResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwyftDefaultMethodResponse.swift; sourceTree = "<group>"; };
+		B19A5E30232AA2B000F1D15D /* SwyftDeleteMethodResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwyftDeleteMethodResponse.swift; sourceTree = "<group>"; };
+		B19A5E32232AA2BD00F1D15D /* SwyftGetOrdersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwyftGetOrdersResponse.swift; sourceTree = "<group>"; };
+		B19A5E34232AA33500F1D15D /* SwyftError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwyftError.swift; sourceTree = "<group>"; };
 		B1C33F12232055EA00AA02B7 /* SdkAuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SdkAuthResponse.swift; sourceTree = "<group>"; };
 		B1C33F14232055F600AA02B7 /* SdkEnrollResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SdkEnrollResponse.swift; sourceTree = "<group>"; };
 		B1C33F1923205B3F00AA02B7 /* SdkAuthInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SdkAuthInteractor.swift; sourceTree = "<group>"; };
@@ -107,13 +129,10 @@
 		B1E7AA3E2320547A00DDAB8C /* SdkEnrollRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SdkEnrollRequest.swift; sourceTree = "<group>"; };
 		CBD541C0DB7602FF109E3644 /* Pods_SwyftSdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwyftSdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D02C0F142294803E00856279 /* JVFloatLabeledTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JVFloatLabeledTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D049249022C68DE30074A67F /* RemovePaymentInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RemovePaymentInteractor.swift; path = SwyftSdk/Network/Requests/RemovePaymentInteractor.swift; sourceTree = SOURCE_ROOT; };
 		D049249222C68EAE0074A67F /* RemovePaymentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemovePaymentResponse.swift; sourceTree = "<group>"; };
 		D049249422C6C14D0074A67F /* XmlResponseBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XmlResponseBase.swift; sourceTree = "<group>"; };
-		D049249622C6CBC90074A67F /* DefaultPaymentInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DefaultPaymentInteractor.swift; path = SwyftSdk/Network/Base/DefaultPaymentInteractor.swift; sourceTree = SOURCE_ROOT; };
 		D049249822CFF0810074A67F /* EditPaymentMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPaymentMethod.swift; sourceTree = "<group>"; };
 		D049249A22CFF0C70074A67F /* EditPaymentMethodResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPaymentMethodResponse.swift; sourceTree = "<group>"; };
-		D049249C22CFF1480074A67F /* EditPaymentInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditPaymentInteractor.swift; path = SwyftSdk/Network/Responses/EditPaymentInteractor.swift; sourceTree = SOURCE_ROOT; };
 		D052DA82228E16B00082C3AE /* ProgressHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHud.swift; sourceTree = "<group>"; };
 		D052DA87228E1B0A0082C3AE /* PopUpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpManager.swift; sourceTree = "<group>"; };
 		D06A397C22849A1800DBF639 /* Configure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configure.swift; sourceTree = "<group>"; };
@@ -126,7 +145,6 @@
 		D08A3F3D22BD458E00D264D2 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		D08A3F3F22BD537700D264D2 /* PaymentMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethod.swift; sourceTree = "<group>"; };
 		D08A3F4122BD538800D264D2 /* XmlRequestBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XmlRequestBase.swift; sourceTree = "<group>"; };
-		D08A3F4322BD89D000D264D2 /* AddPaymentInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddPaymentInteractor.swift; path = SwyftSdk/Model/base/AddPaymentInteractor.swift; sourceTree = SOURCE_ROOT; };
 		D08D7F2322A5A17700A6298B /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		D08D7F2522A5C63200A6298B /* GetOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOrder.swift; sourceTree = "<group>"; };
 		D08D7F2C22AAF5DA00A6298B /* Respository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Respository.swift; sourceTree = "<group>"; };
@@ -277,6 +295,47 @@
 			path = SdkCustomerAuth;
 			sourceTree = "<group>";
 		};
+		B19A5E17232A996600F1D15D /* Internals */ = {
+			isa = PBXGroup;
+			children = (
+				B1C33F1723205B1500AA02B7 /* Interactors */,
+				D052DA81228E16920082C3AE /* UIModules */,
+				D0852F2E2284AA3E00841037 /* Data */,
+				D06A39862284A0FC00DBF639 /* Singletons */,
+				D06A39852284A0EE00DBF639 /* Utils */,
+				D0997B302280AF4C00A82DFB /* Firestore */,
+				D0997B3A2280AF4C00A82DFB /* Model */,
+				D0997B3F2280AF4D00A82DFB /* Network */,
+				D0BE573C230B4CAB00A7C7AD /* Resources */,
+			);
+			path = Internals;
+			sourceTree = "<group>";
+		};
+		B19A5E22232A9BC100F1D15D /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				B19A5E23232A9BEA00F1D15D /* SwyftSDK.swift */,
+				B19A5E34232AA33500F1D15D /* SwyftError.swift */,
+				D0A410FB23283DDE00D7EAF7 /* SwyftUser.swift */,
+				B19A5E25232AA1DA00F1D15D /* Responses */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		B19A5E25232AA1DA00F1D15D /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				B19A5E26232AA26200F1D15D /* SwyftEnrollResponse.swift */,
+				B19A5E28232AA28800F1D15D /* SwyftAuthenticateUserResponse.swift */,
+				B19A5E2A232AA29000F1D15D /* SwyftAddPaymentResponse.swift */,
+				B19A5E2C232AA29900F1D15D /* SwyftGetPaymentMethodsResponse.swift */,
+				B19A5E2E232AA2A400F1D15D /* SwyftDefaultMethodResponse.swift */,
+				B19A5E30232AA2B000F1D15D /* SwyftDeleteMethodResponse.swift */,
+				B19A5E32232AA2BD00F1D15D /* SwyftGetOrdersResponse.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
 		B1C33F1623205B0600AA02B7 /* SdkAuth */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,15 +466,8 @@
 		D0997B152280AEBC00A82DFB /* SwyftSdk */ = {
 			isa = PBXGroup;
 			children = (
-				D0BE573C230B4CAB00A7C7AD /* Resources */,
-				D052DA81228E16920082C3AE /* UIModules */,
-				D0852F2E2284AA3E00841037 /* Data */,
-				D06A39862284A0FC00DBF639 /* Singletons */,
-				D06A39852284A0EE00DBF639 /* Utils */,
-				D0997B302280AF4C00A82DFB /* Firestore */,
-				D0997B3A2280AF4C00A82DFB /* Model */,
-				D0997B3F2280AF4D00A82DFB /* Network */,
-				B1C33F1723205B1500AA02B7 /* Interactors */,
+				B19A5E22232A9BC100F1D15D /* Interface */,
+				B19A5E17232A996600F1D15D /* Internals */,
 				D0997B162280AEBC00A82DFB /* SwyftSdk.h */,
 				D0997B172280AEBC00A82DFB /* Info.plist */,
 			);
@@ -458,16 +510,16 @@
 		D0997B3A2280AF4C00A82DFB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D0A410FB23283DDE00D7EAF7 /* SwyftUser.swift */,
 				D08D7F2A22A6F0B700A6298B /* Base */,
 				D0997B3C2280AF4C00A82DFB /* Customer.swift */,
 				D0B6DAD422E11AFF0091CA00 /* StoreTransactions.swift */,
 				D08D7F2322A5A17700A6298B /* Product.swift */,
 				D08A3F3D22BD458E00D264D2 /* Notifications.swift */,
-				D0D3228A22C2A5A200A2AC98 /* SwyftPaymentMethod.swift */,
 				D08A3F3722B8314600D264D2 /* Store.swift */,
 				D0B6DAD222E11A520091CA00 /* Order.swift */,
 				D0B6DAD822E632BB0091CA00 /* Device.swift */,
+				D08A3F3F22BD537700D264D2 /* PaymentMethod.swift */,
+				D0D3228A22C2A5A200A2AC98 /* SwyftPaymentMethod.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -475,10 +527,10 @@
 		D0997B3D2280AF4C00A82DFB /* Payments */ = {
 			isa = PBXGroup;
 			children = (
-				D08A3F4322BD89D000D264D2 /* AddPaymentInteractor.swift */,
-				D049249022C68DE30074A67F /* RemovePaymentInteractor.swift */,
-				D049249622C6CBC90074A67F /* DefaultPaymentInteractor.swift */,
-				D049249C22CFF1480074A67F /* EditPaymentInteractor.swift */,
+				B19A5E1B232A9B5700F1D15D /* AddPaymentInteractor.swift */,
+				B19A5E1C232A9B5700F1D15D /* DefaultPaymentInteractor.swift */,
+				B19A5E1D232A9B5700F1D15D /* EditPaymentInteractor.swift */,
+				B19A5E1A232A9B5700F1D15D /* RemovePaymentInteractor.swift */,
 			);
 			name = Payments;
 			path = ../Payments;
@@ -508,7 +560,6 @@
 		D0D3228322C29ED000A2AC98 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
-				D08A3F3F22BD537700D264D2 /* PaymentMethod.swift */,
 				D0D3228C22C684D300A2AC98 /* RemovePaymentMethod.swift */,
 				D049249822CFF0810074A67F /* EditPaymentMethod.swift */,
 				B1E7AA3C2320532F00DDAB8C /* SdkAuthRequest.swift */,
@@ -696,20 +747,20 @@
 				D0A410FC23283DDE00D7EAF7 /* SwyftUser.swift in Sources */,
 				D08D7F2422A5A17700A6298B /* Product.swift in Sources */,
 				D08D7F2622A5C63200A6298B /* GetOrder.swift in Sources */,
+				B19A5E20232A9B5700F1D15D /* DefaultPaymentInteractor.swift in Sources */,
 				B1C33F13232055EA00AA02B7 /* SdkAuthResponse.swift in Sources */,
 				D09679862280D20200437952 /* FireStoreWrite.swift in Sources */,
-				D049249722C6CBC90074A67F /* DefaultPaymentInteractor.swift in Sources */,
 				D0D3228D22C684D300A2AC98 /* RemovePaymentMethod.swift in Sources */,
 				B133D18123282DD8007DA4B7 /* SdkCustomerAuthRequest.swift in Sources */,
 				D0B6DAD522E11AFF0091CA00 /* StoreTransactions.swift in Sources */,
 				B1E7AA3D2320532F00DDAB8C /* SdkAuthRequest.swift in Sources */,
-				D08A3F4422BD89D000D264D2 /* AddPaymentInteractor.swift in Sources */,
 				B1E7AA3F2320547A00DDAB8C /* SdkEnrollRequest.swift in Sources */,
 				D0B6DAD922E632BB0091CA00 /* Device.swift in Sources */,
 				D0B6DAD322E11A520091CA00 /* Order.swift in Sources */,
 				D08D7F2D22AAF5DA00A6298B /* Respository.swift in Sources */,
 				B1C33F1A23205B3F00AA02B7 /* SdkAuthInteractor.swift in Sources */,
 				D0997B432280AF4D00A82DFB /* FireStoreRead.swift in Sources */,
+				B19A5E29232AA28800F1D15D /* SwyftAuthenticateUserResponse.swift in Sources */,
 				D08A3F3822B8314600D264D2 /* Store.swift in Sources */,
 				D08A3F3C22B83F7F00D264D2 /* GetStore.swift in Sources */,
 				D06A39882284A12F00DBF639 /* Extentions.swift in Sources */,
@@ -719,20 +770,27 @@
 				D0997B422280AF4D00A82DFB /* GetCustomer.swift in Sources */,
 				D096797B2280D15D00437952 /* GetOrders.swift in Sources */,
 				D096797F2280D18C00437952 /* GetPaymentMethods.swift in Sources */,
+				B19A5E2D232AA29900F1D15D /* SwyftGetPaymentMethodsResponse.swift in Sources */,
 				D08D7F3122AB082500A6298B /* SwyftNetworkAdapter.swift in Sources */,
+				B19A5E2B232AA29000F1D15D /* SwyftAddPaymentResponse.swift in Sources */,
+				B19A5E31232AA2B000F1D15D /* SwyftDeleteMethodResponse.swift in Sources */,
 				D049249B22CFF0C80074A67F /* EditPaymentMethodResponse.swift in Sources */,
-				D049249D22CFF1480074A67F /* EditPaymentInteractor.swift in Sources */,
+				B19A5E1E232A9B5700F1D15D /* RemovePaymentInteractor.swift in Sources */,
 				B133D18B23282E68007DA4B7 /* SdkCustomerAuthInteractor.swift in Sources */,
+				B19A5E21232A9B5700F1D15D /* EditPaymentInteractor.swift in Sources */,
 				D09EECAF2280B42D00B90451 /* FireStoreModel.swift in Sources */,
-				D049249122C68DE30074A67F /* RemovePaymentInteractor.swift in Sources */,
+				B19A5E1F232A9B5700F1D15D /* AddPaymentInteractor.swift in Sources */,
+				B19A5E35232AA33500F1D15D /* SwyftError.swift in Sources */,
 				B1C33F1E23205B5900AA02B7 /* SdkEnrollInteractor.swift in Sources */,
 				D06A397F22849F6B00DBF639 /* SwyftSession.swift in Sources */,
 				D049249322C68EAE0074A67F /* RemovePaymentResponse.swift in Sources */,
 				B133D18323282DE2007DA4B7 /* SdkCustomerAuthResponse.swift in Sources */,
 				D09679812280D1A300437952 /* GetProduct.swift in Sources */,
 				D06A397D22849A1800DBF639 /* Configure.swift in Sources */,
+				B19A5E27232AA26200F1D15D /* SwyftEnrollResponse.swift in Sources */,
 				D09679842280D1EB00437952 /* UpdateCustomer.swift in Sources */,
 				D08D7F2F22AAFDBD00A6298B /* Utils.swift in Sources */,
+				B19A5E2F232AA2A400F1D15D /* SwyftDefaultMethodResponse.swift in Sources */,
 				D08A3F3E22BD458E00D264D2 /* Notifications.swift in Sources */,
 				D0D3228B22C2A5A200A2AC98 /* SwyftPaymentMethod.swift in Sources */,
 				D06A398422849FE900DBF639 /* SwyftConstants.swift in Sources */,
@@ -741,9 +799,11 @@
 				D096797D2280D17300437952 /* GetStores.swift in Sources */,
 				D052DA88228E1B0A0082C3AE /* PopUpManager.swift in Sources */,
 				D0D3228722C2A10600A2AC98 /* PaymentMethodResponse.swift in Sources */,
+				B19A5E33232AA2BD00F1D15D /* SwyftGetOrdersResponse.swift in Sources */,
 				D049249922CFF0810074A67F /* EditPaymentMethod.swift in Sources */,
 				D08A3F4222BD538800D264D2 /* XmlRequestBase.swift in Sources */,
 				D049249522C6C14D0074A67F /* XmlResponseBase.swift in Sources */,
+				B19A5E24232A9BEA00F1D15D /* SwyftSDK.swift in Sources */,
 				D0D3228922C2A2D200A2AC98 /* ErrorResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

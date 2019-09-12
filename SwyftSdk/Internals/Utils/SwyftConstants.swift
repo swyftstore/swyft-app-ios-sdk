@@ -57,8 +57,8 @@ open class SwyftConstants {
     public typealias sdkAuthSuccess = (_ response: SdkAuthResponse)->Void
     public typealias sdkEnrollSuccess = (_ response: SdkEnrollResponse)->Void
     public typealias sdkCustomerAuthSuccess = (_ response: SdkCustomerAuthResponse)->Void
-    public typealias enrollCustomerSuccess = (_ response: EnrollCustomerResponse)->Void
-    public typealias customerAuthSuccess = (_ response: CustomerAuthResponse)->Void
+    public typealias enrollCustomerSuccess = (_ response: SwyftEnrollResponse)->Void
+    public typealias customerAuthSuccess = (_ response: SwyftAuthenticateUserResponse)->Void
     public typealias fail = ((_ msg: String)->Void)?
     
     //Errors
