@@ -62,99 +62,99 @@ extension SwyftError {
             
         // MARK: InitSdk
         case .initSdkNoSwyftFile:
-            return (code: 20_001, message: "")
+            return (code: 20_001, message: "Swyft SDK init:")
             
         case .initSdkNoFirebaseOptions:
-            return (code: 20_002, message: "")
+            return (code: 20_002, message: "Swyft SDK init:")
             
         case .initSdkFirebaseSignInFailure:
-            return (code: 20_003, message: "")
+            return (code: 20_003, message: "Swyft SDK init:")
             
         case .initSdkNoFirebaseSignIn:
-            return (code: 20_004, message: "")
+            return (code: 20_004, message: "Swyft SDK init:")
             
         case .initSdkAuthFailure:
-            return (code: 20_005, message: "")
+            return (code: 20_005, message: "Swyft SDK init:")
             
             
         // MARK: EnrollUser
         case .enrollUserSdkNotInitialized:
-            return (code: 20_101, message: "SwyftSdk still initializing, please wait a moment and try again")
+            return (code: 20_101, message: "Swyft SDK Enroll User: Sdk still initializing, please wait a moment and try again")
             
         case .enrollUserInvalidUserEmail:
-            return (code: 20_102, message: "Swyft SDK Enroll: Invalid customer email")
+            return (code: 20_102, message: "Swyft SDK Enroll User: Invalid customer email")
             
         case .enrollUserInvalidUserFirstName:
-            return (code: 20_103, message: "Swyft SDK Enroll: Invalid customer first name")
+            return (code: 20_103, message: "Swyft SDK Enroll User: Invalid customer first name")
             
         case .enrollUserInvalidUserLastName:
-            return (code: 20_104, message: "Swyft SDK Enroll: Invalid customer last name")
+            return (code: 20_104, message: "Swyft SDK Enroll User: Invalid customer last name")
             
         case .enrollUserInvalidUserPhone:
-            return (code: 20_105, message: "Swyft SDK Enroll: Invalid customer phone number")
+            return (code: 20_105, message: "Swyft SDK Enroll User: Invalid customer phone number")
             
         case .enrollUserAccessTokenFailure:
-            return (code: 20_106, message: "Swyft SDK Enroll: Access Token error")
+            return (code: 20_106, message: "Swyft SDK Enroll User: Access Token error")
             
         case .enrollUserNoAccessToken:
-            return (code: 20_107, message: "Swyft SDK Enroll: No Access Token")
+            return (code: 20_107, message: "Swyft SDK Enroll User: No Access Token")
             
         case .enrollUserSdkEnrollFailure:
-            return (code: 20_108, message: "")
+            return (code: 20_108, message: "Swyft SDK Enroll User:")
             
             
         // MARK: AuthenticateUser
         case .authenticateUserSdkNotInitialized:
-            return (code: 20_201, message: "SwyftSdk still initializing, please wait a moment and try again")
+            return (code: 20_201, message: "Swyft SDK Authenticate User: Sdk still initializing, please wait a moment and try again")
             
         case .authenticateUserSdkCustomerAuthFailure:
-            return (code: 20_202, message: "")
+            return (code: 20_202, message: "Swyft SDK Authenticate User:")
             
         case .authenticateUserFirebaseSignInFailure:
-            return (code: 20_203, message: "Swyft SDK Auth: Sign In error")
+            return (code: 20_203, message: "Swyft SDK Authenticate User: Sign In error")
             
         case .authenticateUserNoFirebaseSignIn:
-            return (code: 20_204, message: "Swyft SDK Auth: No Sign In result info")
+            return (code: 20_204, message: "Swyft SDK Authenticate User: No Sign In result info")
             
         case .authenticateUserAccessTokenFailure:
-            return (code: 20_205, message: "Swyft SDK Customer Auth: Access Token error")
+            return (code: 20_205, message: "Swyft SDK Authenticate User: Access Token error")
             
         case .authenticateUserNoAccessToken:
-            return (code: 20_206, message: "Swyft SDK Customer Auth: No Access Token")
+            return (code: 20_206, message: "Swyft SDK Authenticate User: No Access Token")
             
         case .authenticateUserQRCodeFailure:
-            return (code: 20_207, message: "QR Code was not generated...")
+            return (code: 20_207, message: "Swyft SDK Authenticate User: QR Code was not generated...")
             
         
         // MARK: AddPaymentMethod
         case .addPaymentMethodSdkNotInitialized:
-            return (code: 20_301, message: "")
+            return (code: 20_301, message: "Swyft SDK Add Payment Method:")
             
             
         // MARK: GetPaymentMethods
         case .getPaymentMethodsSdkNotInitialized:
-            return (code: 20_401, message: "")
+            return (code: 20_401, message: "Swyft SDK Get Payment Methods:")
             
             
         // MARK: SetDefaultPaymentMethod
         case .setDefaultPaymentMethodSdkNotInitialized:
-            return (code: 20_501, message: "")
+            return (code: 20_501, message: "Swyft SDK Set Default Payment Method:")
             
             
         // MARK: RemovePaymentMethod
         case .removePaymentMethodSdkNotInitialized:
-            return (code: 20_601, message: "")
+            return (code: 20_601, message: "Swyft SDK Remove Payment Method:")
             
         
         // MARK: GetOrders
         case .getOrdersSdkNotInitialized:
-            return (code: 20_701, message: "")
+            return (code: 20_701, message: "Swyft SDK Get Orders:")
             
         case .getOrdersParsingFailure:
-            return (code: 20_702, message: "")
+            return (code: 20_702, message: "Swyft SDK Get Orders:")
             
         case .getOrdersFirebaseFailure:
-            return (code: 20_703, message: "")
+            return (code: 20_703, message: "Swyft SDK Get Orders:")
         }
     }
     
