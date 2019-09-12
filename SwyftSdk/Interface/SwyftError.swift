@@ -50,6 +50,8 @@ public enum SwyftError: String, Error {
 
     // MARK: GetOrders
     case getOrdersSdkNotInitialized
+    case getOrdersParsingFailure
+    case getOrdersFirebaseFailure
 }
 
 extension SwyftError {
@@ -147,6 +149,12 @@ extension SwyftError {
         // MARK: GetOrders
         case .getOrdersSdkNotInitialized:
             return (code: 20_701, message: "")
+            
+        case .getOrdersParsingFailure:
+            return (code: 20_702, message: "")
+            
+        case .getOrdersFirebaseFailure:
+            return (code: 20_703, message: "")
         }
     }
     

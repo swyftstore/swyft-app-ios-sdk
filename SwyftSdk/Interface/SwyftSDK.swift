@@ -53,7 +53,7 @@ public final class SwyftSDK {
         RemovePaymentMethodPresenter.shared.execute(methodId, success, failure)
     }
     
-    public static func getOrders(start: Int, pageSize: Int, success: @escaping SwyftGetOrdersCallback, failure: @escaping SwyftFailureCallback) {
-        GetOrdersPresenter.shared.execute(start, pageSize, success, failure)
+    public static func getOrders(customerId: String, start: Int, pageSize: Int, success: @escaping SwyftGetOrdersCallback, failure: @escaping SwyftFailureCallback) {
+        GetOrdersPresenter.shared.execute(customerId, start, pageSize, success, failure)
     }
 }
