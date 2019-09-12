@@ -65,7 +65,7 @@ public class Configure: NSObject {
 
 // MARK: SDK Auth
 //extension Configure {
-
+//
 //    public static func initSDK() {
 //        let filePath = Bundle.main.path(forResource: "Swyft-GoogleService-Info", ofType: "plist")
 //        guard let fileopts = FirebaseOptions(contentsOfFile: filePath!)
@@ -77,9 +77,9 @@ public class Configure: NSObject {
 //        let fbApp = FirebaseApp.app(name: appName)
 //        initSDK(fbApp: fbApp)
 //    }
-    
+//    
 //    public static func initSDK(fbApp: FirebaseApp?) {
-    
+//
 //        Static.instance._fireBaseApp = fbApp
 //        Static.instance.session = SwyftSession()
 //
@@ -101,7 +101,7 @@ public class Configure: NSObject {
 //            debugPrint(error)
 //        }
 //    }
-    
+//
 //    private static func addAuthentication(authToken: String, fbApp: FirebaseApp) {
 //
 //        Auth.auth(app: fbApp).signIn(withCustomToken: authToken) { result, error in
@@ -123,96 +123,96 @@ public class Configure: NSObject {
 //}
 
 
-// MARK: SDK Enroll
-extension Configure {
-    
-    public static func enrollUser(swyftUser: SwyftUser, success: @escaping SwyftConstants.enrollCustomerSuccess, failure: SwyftConstants.fail) {
-        
-        guard let _ = current.session?.sdkFirebaseUser else {
-            //todo: we should implement an auto retry
-            let error = "SwyftSdk still initializing, please wait a moment and try again"
-            debugPrint(error)
-            return;
-        }
-        
-        guard swyftUser.email.count > 0 else {
-            let error = "Swyft SDK Enroll: Invalid customer email"
-            debugPrint(error)
-            failure?(error)
-            return
-        }
-        
-        if let firstName = swyftUser.firstName {
-            guard firstName.count > 0 else {
-                let error = "Swyft SDK Enroll: Invalid customer first name"
-                debugPrint(error)
-                failure?(error)
-                return
-            }
-        }
-        
-        if let lastName = swyftUser.lastName {
-            guard lastName.count > 0 else {
-                let error = "Swyft SDK Enroll: Invalid customer last name"
-                debugPrint(error)
-                failure?(error)
-                return
-            }
-        }
-        
-        if let phoneNumber = swyftUser.phoneNumber {
-            guard phoneNumber.count > 0 else {
-                let error = "Swyft SDK Enroll: Invalid customer phone number"
-                debugPrint(error)
-                failure?(error)
-                return
-            }
-        }
-        
-        getToken(swyftUser: swyftUser, success: success, failure: failure)
-    }
-    
-    private static func getToken(swyftUser: SwyftUser, success: @escaping SwyftConstants.enrollCustomerSuccess, failure: SwyftConstants.fail) {
-        
-        current.session?.sdkFirebaseUser?.getIDTokenForcingRefresh(true, completion: { idToken, error in
-            
-            if let _ = error {
-                let error = "Swyft SDK Enroll: Access Token error"
-                debugPrint(error)
-                failure?(error)
-                return
-            }
-            
-            guard let idToken = idToken else {
-                let error = "Swyft SDK Enroll: No Access Token"
-                debugPrint(error)
-                failure?(error)
-                return
-            }
-            
-            runEnroll(idToken: idToken, info: swyftUser, success: success, failure: failure)
-        })
-    }
-    
-    private static func runEnroll(idToken: String, info: SwyftUser, success: @escaping SwyftConstants.enrollCustomerSuccess, failure: SwyftConstants.fail) {
-        
-        SdkEnrollInteractor.enroll(customerInfo: info, idToken: idToken, success: { response in
-            
-            current.session?.sdkAuthToken = response.payload.authToken
-            
-            let result = SwyftEnrollResponse(message: response.message, swyftId: response.payload.swyftId, authToken: response.payload.authToken)
-            success(result)
-            
-        }) { error in
-            failure?(error.debugDescription)
-        }
-    }
-    
-    private static func getRandomString(length: Int) -> String {
-        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        return String((0..<length).map{ _ in letters.randomElement()! })
-    }
-}
+//// MARK: SDK Enroll
+//extension Configure {
+//
+//    public static func enrollUser(swyftUser: SwyftUser, success: @escaping SwyftConstants.enrollCustomerSuccess, failure: SwyftConstants.fail) {
+//
+////        guard let _ = current.session?.sdkFirebaseUser else {
+////            //todo: we should implement an auto retry
+////            let error = "SwyftSdk still initializing, please wait a moment and try again"
+////            debugPrint(error)
+////            return;
+////        }
+////
+////        guard swyftUser.email.count > 0 else {
+////            let error = "Swyft SDK Enroll: Invalid customer email"
+////            debugPrint(error)
+////            failure?(error)
+////            return
+////        }
+////
+////        if let firstName = swyftUser.firstName {
+////            guard firstName.count > 0 else {
+////                let error = "Swyft SDK Enroll: Invalid customer first name"
+////                debugPrint(error)
+////                failure?(error)
+////                return
+////            }
+////        }
+////
+////        if let lastName = swyftUser.lastName {
+////            guard lastName.count > 0 else {
+////                let error = "Swyft SDK Enroll: Invalid customer last name"
+////                debugPrint(error)
+////                failure?(error)
+////                return
+////            }
+////        }
+////
+////        if let phoneNumber = swyftUser.phoneNumber {
+////            guard phoneNumber.count > 0 else {
+////                let error = "Swyft SDK Enroll: Invalid customer phone number"
+////                debugPrint(error)
+////                failure?(error)
+////                return
+////            }
+////        }
+////
+////        getToken(swyftUser: swyftUser, success: success, failure: failure)
+//    }
+//
+////    private static func getToken(swyftUser: SwyftUser, success: @escaping SwyftConstants.enrollCustomerSuccess, failure: SwyftConstants.fail) {
+////
+////        current.session?.sdkFirebaseUser?.getIDTokenForcingRefresh(true, completion: { idToken, error in
+////
+////            if let _ = error {
+////                let error = "Swyft SDK Enroll: Access Token error"
+////                debugPrint(error)
+////                failure?(error)
+////                return
+////            }
+////
+////            guard let idToken = idToken else {
+////                let error = "Swyft SDK Enroll: No Access Token"
+////                debugPrint(error)
+////                failure?(error)
+////                return
+////            }
+////
+////            runEnroll(idToken: idToken, info: swyftUser, success: success, failure: failure)
+////        })
+////    }
+////
+////    private static func runEnroll(idToken: String, info: SwyftUser, success: @escaping SwyftConstants.enrollCustomerSuccess, failure: SwyftConstants.fail) {
+////
+////        SdkEnrollInteractor.enroll(customerInfo: info, idToken: idToken, success: { response in
+////
+////            current.session?.sdkAuthToken = response.payload.authToken
+////
+////            let result = SwyftEnrollResponse(message: response.message, swyftId: response.payload.swyftId, authToken: response.payload.authToken)
+////            success(result)
+////
+////        }) { error in
+////            failure?(error.debugDescription)
+////        }
+////    }
+////
+////    private static func getRandomString(length: Int) -> String {
+////        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+////        return String((0..<length).map{ _ in letters.randomElement()! })
+////    }
+//}
 
 
 // MARK: SDK Customer Auth

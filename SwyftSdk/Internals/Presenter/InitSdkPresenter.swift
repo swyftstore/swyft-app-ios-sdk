@@ -55,7 +55,7 @@ class InitSdkPresenter {
                     Configure.current.db!.settings = settings
                 }
                 
-                self.addAuthentication(authToken: response.payload.authToken, firebaseApp: firebaseApp)
+                self.addAuthentication(response.payload.authToken, firebaseApp)
              }
             
         }) { error in
@@ -63,7 +63,7 @@ class InitSdkPresenter {
         }
     }
     
-    private func addAuthentication(authToken: String, firebaseApp: FirebaseApp) {
+    private func addAuthentication(_ authToken: String, _ firebaseApp: FirebaseApp) {
         
         Auth.auth(app: firebaseApp).signIn(withCustomToken: authToken) { result, error in
             

@@ -15,7 +15,7 @@ public typealias SwyftGetPaymentMethodsCallback = (_ response: SwyftGetPaymentMe
 public typealias SwyftDefaultMethodCallback = (_ response: SwyftDefaultMethodResponse)->()
 public typealias SwyftDeleteMethodCallback = (_ response: SwyftDeleteMethodResponse)->()
 public typealias SwyftGetOrdersCallback = (_ response: SwyftGetOrdersResponse)->()
-public typealias SwyftFailureCallback = (_ error: SwyftError)->()
+public typealias SwyftFailureCallback = (_ error: NSError)->()
 
 public final class SwyftSDK {
     
@@ -29,7 +29,7 @@ public final class SwyftSDK {
         InitSdkPresenter.shared.execute(firebaseApp)
     }
     
-    public static func enrollUser(user: SwyftUser, success: SwyftEnrollCallback, failure: SwyftFailureCallback) {
+    public static func enrollUser(user: SwyftUser, success: @escaping SwyftEnrollCallback, failure: @escaping SwyftFailureCallback) {
         EnrollUserPresenter.shared.execute(user, success, failure)
     }
     
