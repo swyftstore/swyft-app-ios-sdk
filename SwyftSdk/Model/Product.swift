@@ -20,7 +20,7 @@ public class Product: FireStoreModelSerialize, FireStoreModelProto  {
     @objc public var ageRestricted = false
     @objc public var sku: String?
     @objc public var upc: String?
-    @objc public var imageUrl: String?
+    @objc public var imageURL: String?
     
     
     public func toString() {

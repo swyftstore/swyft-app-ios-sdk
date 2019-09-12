@@ -25,8 +25,10 @@ public class GetOrders: FireStoreRead{
     
     public func querySuccess(data: Dictionary<String, Any>, id: String, done: Bool) {
         let order = Order()
-        order.serialize(data: data)
-        order.id = id
+        hasProducts(order: order) {
+            order.serialize(data: data)
+            order.id = id
+        }
         orders.append(order)
         if done {
             DispatchQueue.main.async {
@@ -68,6 +70,18 @@ public class GetOrders: FireStoreRead{
         }
     }
     
-    
+    private func hasProducts(order: Order) -> Bool {
+        var hasProducts = false
+        if let transactions = order.storeTransactions {
+            for transaction in transactions {
+                if let products = transaction.cartItems,
+                    products.count > 0 {
+                    hasProducts = true
+                    break;
+                }
+            }
+        }
+        return hasProducts
+    }
     
 }
