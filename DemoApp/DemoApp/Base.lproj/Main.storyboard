@@ -29,7 +29,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MqM-Cc-bOQ">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="53.5"/>
-                                        <state key="normal" title="initSDK()"/>
+                                        <state key="normal" title="setQrColor()"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <integer key="value" value="8"/>

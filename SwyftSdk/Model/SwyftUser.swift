@@ -5,7 +5,7 @@
 //  Created by Rigoberto Saenz Imbacuan on 9/9/19.
 //
 
-public struct CustomerInfo: Codable {
+public struct SwyftUser: Codable {
     let email: String
     let firstName: String
     let lastName: String

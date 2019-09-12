@@ -11,7 +11,6 @@
 		B10EE0D6E8A3E2FD6D946092 /* Pods_SwyftSdkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570AF5B237BF66049749A57E /* Pods_SwyftSdkTests.framework */; };
 		B133D18123282DD8007DA4B7 /* SdkCustomerAuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B133D18023282DD8007DA4B7 /* SdkCustomerAuthRequest.swift */; };
 		B133D18323282DE2007DA4B7 /* SdkCustomerAuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B133D18223282DE2007DA4B7 /* SdkCustomerAuthResponse.swift */; };
-		B133D18523282E00007DA4B7 /* CustomerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B133D18423282E00007DA4B7 /* CustomerInfo.swift */; };
 		B133D18B23282E68007DA4B7 /* SdkCustomerAuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B133D18A23282E68007DA4B7 /* SdkCustomerAuthInteractor.swift */; };
 		B1C33F13232055EA00AA02B7 /* SdkAuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C33F12232055EA00AA02B7 /* SdkAuthResponse.swift */; };
 		B1C33F15232055F600AA02B7 /* SdkEnrollResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C33F14232055F600AA02B7 /* SdkEnrollResponse.swift */; };
@@ -58,6 +57,7 @@
 		D0997B432280AF4D00A82DFB /* FireStoreRead.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0997B332280AF4C00A82DFB /* FireStoreRead.swift */; };
 		D0997B4A2280AF4D00A82DFB /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0997B3C2280AF4C00A82DFB /* Customer.swift */; };
 		D09EECAF2280B42D00B90451 /* FireStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0997B3B2280AF4C00A82DFB /* FireStoreModel.swift */; };
+		D0A410FC23283DDE00D7EAF7 /* SwyftUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A410FB23283DDE00D7EAF7 /* SwyftUser.swift */; };
 		D0B6DAD322E11A520091CA00 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B6DAD222E11A520091CA00 /* Order.swift */; };
 		D0B6DAD522E11AFF0091CA00 /* StoreTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B6DAD422E11AFF0091CA00 /* StoreTransactions.swift */; };
 		D0B6DAD922E632BB0091CA00 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B6DAD822E632BB0091CA00 /* Device.swift */; };
@@ -98,7 +98,6 @@
 		88DB4010AA83575ED758B0CD /* Pods-SwyftSdk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwyftSdk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwyftSdk/Pods-SwyftSdk.debug.xcconfig"; sourceTree = "<group>"; };
 		B133D18023282DD8007DA4B7 /* SdkCustomerAuthRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SdkCustomerAuthRequest.swift; sourceTree = "<group>"; };
 		B133D18223282DE2007DA4B7 /* SdkCustomerAuthResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SdkCustomerAuthResponse.swift; sourceTree = "<group>"; };
-		B133D18423282E00007DA4B7 /* CustomerInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerInfo.swift; sourceTree = "<group>"; };
 		B133D18A23282E68007DA4B7 /* SdkCustomerAuthInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SdkCustomerAuthInteractor.swift; sourceTree = "<group>"; };
 		B1C33F12232055EA00AA02B7 /* SdkAuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SdkAuthResponse.swift; sourceTree = "<group>"; };
 		B1C33F14232055F600AA02B7 /* SdkEnrollResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SdkEnrollResponse.swift; sourceTree = "<group>"; };
@@ -150,6 +149,7 @@
 		D0997B332280AF4C00A82DFB /* FireStoreRead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireStoreRead.swift; sourceTree = "<group>"; };
 		D0997B3B2280AF4C00A82DFB /* FireStoreModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireStoreModel.swift; sourceTree = "<group>"; };
 		D0997B3C2280AF4C00A82DFB /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		D0A410FB23283DDE00D7EAF7 /* SwyftUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwyftUser.swift; sourceTree = "<group>"; };
 		D0B6DAD222E11A520091CA00 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		D0B6DAD422E11AFF0091CA00 /* StoreTransactions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreTransactions.swift; sourceTree = "<group>"; };
 		D0B6DAD822E632BB0091CA00 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
@@ -458,9 +458,9 @@
 		D0997B3A2280AF4C00A82DFB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D0A410FB23283DDE00D7EAF7 /* SwyftUser.swift */,
 				D08D7F2A22A6F0B700A6298B /* Base */,
 				D0997B3C2280AF4C00A82DFB /* Customer.swift */,
-				B133D18423282E00007DA4B7 /* CustomerInfo.swift */,
 				D0B6DAD422E11AFF0091CA00 /* StoreTransactions.swift */,
 				D08D7F2322A5A17700A6298B /* Product.swift */,
 				D08A3F3D22BD458E00D264D2 /* Notifications.swift */,
@@ -693,6 +693,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0A410FC23283DDE00D7EAF7 /* SwyftUser.swift in Sources */,
 				D08D7F2422A5A17700A6298B /* Product.swift in Sources */,
 				D08D7F2622A5C63200A6298B /* GetOrder.swift in Sources */,
 				B1C33F13232055EA00AA02B7 /* SdkAuthResponse.swift in Sources */,
@@ -725,7 +726,6 @@
 				D09EECAF2280B42D00B90451 /* FireStoreModel.swift in Sources */,
 				D049249122C68DE30074A67F /* RemovePaymentInteractor.swift in Sources */,
 				B1C33F1E23205B5900AA02B7 /* SdkEnrollInteractor.swift in Sources */,
-				B133D18523282E00007DA4B7 /* CustomerInfo.swift in Sources */,
 				D06A397F22849F6B00DBF639 /* SwyftSession.swift in Sources */,
 				D049249322C68EAE0074A67F /* RemovePaymentResponse.swift in Sources */,
 				B133D18323282DE2007DA4B7 /* SdkCustomerAuthResponse.swift in Sources */,

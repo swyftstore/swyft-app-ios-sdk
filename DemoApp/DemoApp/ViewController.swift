@@ -30,20 +30,20 @@ class ViewController: UIViewController {
     
     
     @IBAction func onTapInit(_ sender: UIButton) {
-        SwyftSdk.Configure.initSDK()
+        SwyftSdk.Configure.qrColor = self.view.tintColor
     }
     
     @IBAction func onTapEnroll(_ sender: UIButton) {
         
         KVNProgress.show()
         
-        let customerInfo = CustomerInfo(
+        let customerInfo = SwyftUser(
             email: "test15@rigo.com",
             firstName: "Carl",
             lastName: "Perterson",
             phoneNumber: "+1 1234567890")
         
-        SwyftSdk.Configure.enroll(info: customerInfo, success: { response in
+        SwyftSdk.Configure.enrollUser(swyftUser: customerInfo, success: { response in
             
             self.swyftId = response.swyftId
             
@@ -65,12 +65,11 @@ class ViewController: UIViewController {
         
         qrCodeImage.image = nil
         
-        SwyftSdk.Configure.customerAuth(swyftId: self.swyftId, success: { response in
-            
-            print("message: \(response.message)")
-            print("authToken: \(response.authToken)")
-            
-            self.generateQR(using: response.authToken)
+        SwyftSdk.Configure.authenticateUser(swyftId: self.swyftId, success: { response in
+                        
+            DispatchQueue.main.async {
+                self.qrCodeImage.image = response.qrCode
+            }
             KVNProgress.dismiss()
             
         }) { error in
@@ -87,12 +86,11 @@ class ViewController: UIViewController {
         
         let customAuth = "myCustomStringToEncode"
         
-        SwyftSdk.Configure.customerAuth(swyftId: self.swyftId, customAuth: customAuth, success: { response in
+        SwyftSdk.Configure.authenticateUser(swyftId: self.swyftId, customAuth: customAuth, success: { response in
             
-            print("message: \(response.message)")
-            print("authToken: \(response.authToken)")
-            
-            self.generateQR(using: customAuth)
+            DispatchQueue.main.async {
+                self.qrCodeImage.image = response.qrCode
+            }
             KVNProgress.dismiss()
             
         }) { error in
@@ -101,18 +99,4 @@ class ViewController: UIViewController {
         }
     }
     
-    private func generateQR(using valueToEncode: String) {
-        
-        DispatchQueue.global(qos: .utility).async {
-            
-            guard let newQRCode = SwyftImageGenerator.buildQRImage(string: valueToEncode, color: self.view.tintColor) else {
-                debugPrint("QR Code was not generated...")
-                return
-            }
-            
-            DispatchQueue.main.async {
-                self.qrCodeImage.image = newQRCode
-            }
-        }
-    }
 }

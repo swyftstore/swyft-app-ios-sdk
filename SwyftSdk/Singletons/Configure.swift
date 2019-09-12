@@ -13,6 +13,7 @@ import FirebaseFirestore
 
 public class Configure: NSObject {
     private var _fireBaseApp: FirebaseApp?
+    private var _qrColor = UIColor.black
     
     var db : Firestore?
     var session: SwyftSession?
@@ -24,6 +25,20 @@ public class Configure: NSObject {
             } else {
                 fatalError("Please initialize the SDK")
             }
+        }
+    }
+    
+    class public var qrColor: UIColor {
+        set (color) {
+            if let _ = Static.instance.session {
+                return Static.instance._qrColor = color
+            } else {
+                fatalError("Please initialize the SDK")
+            }
+        }
+        
+        get {
+             return Static.instance._qrColor
         }
     }
     
@@ -110,12 +125,18 @@ extension Configure {
 // MARK: SDK Enroll
 extension Configure {
     
-    public static func enroll(info: CustomerInfo, success: @escaping SwyftConstants.enrollCustomerSuccess, failure: SwyftConstants.fail) {
+    public static func enrollUser(swyftUser: SwyftUser, success: @escaping SwyftConstants.enrollCustomerSuccess, failure: SwyftConstants.fail) {
         
-        getToken(info: info, success: success, failure: failure)
+        guard let _ = current.session?.sdkFirebaseUser else {
+            //todo: we should implement an auto retry
+            let error = "SwyftSdk still initializing, please wait a moment and try again"
+            debugPrint(error)
+            return;
+        }
+        getToken(swyftUser: swyftUser, success: success, failure: failure)
     }
     
-    private static func getToken(info: CustomerInfo, success: @escaping SwyftConstants.enrollCustomerSuccess, failure: SwyftConstants.fail) {
+    private static func getToken(swyftUser: SwyftUser, success: @escaping SwyftConstants.enrollCustomerSuccess, failure: SwyftConstants.fail) {
         
         current.session?.sdkFirebaseUser?.getIDTokenForcingRefresh(true, completion: { idToken, error in
             
@@ -133,11 +154,11 @@ extension Configure {
                 return
             }
             
-            runEnroll(idToken: idToken, info: info, success: success, failure: failure)
+            runEnroll(idToken: idToken, info: swyftUser, success: success, failure: failure)
         })
     }
     
-    private static func runEnroll(idToken: String, info: CustomerInfo, success: @escaping SwyftConstants.enrollCustomerSuccess, failure: SwyftConstants.fail) {
+    private static func runEnroll(idToken: String, info: SwyftUser, success: @escaping SwyftConstants.enrollCustomerSuccess, failure: SwyftConstants.fail) {
         
         SdkEnrollInteractor.enroll(customerInfo: info, idToken: idToken, success: { response in
             
@@ -167,7 +188,14 @@ public struct EnrollCustomerResponse: Codable {
 // MARK: SDK Customer Auth
 extension Configure {
  
-    public static func customerAuth(swyftId: String, customAuth: String? = nil, success: @escaping SwyftConstants.customerAuthSuccess, failure: SwyftConstants.fail) {
+    public static func authenticateUser(swyftId: String, customAuth: String? = nil, success: @escaping SwyftConstants.customerAuthSuccess, failure: SwyftConstants.fail) {
+        
+        guard let _ = current.session?.sdkFirebaseUser else {
+            //todo: we should implement an auto retry
+            let error = "SwyftSdk still initializing, please wait a moment and try again"
+            debugPrint(error)
+            return;
+        }
         
         getToken(swyftId: swyftId, customAuth: customAuth, success: success, failure: failure)
     }
@@ -198,18 +226,70 @@ extension Configure {
      
         SdkCustomerAuthInteractor.customerAuth(swyftId: swyftId, idToken: idToken, customAuth: customAuth, success: { response in
             
-            current.session?.sdkAuthToken = response.payload.authToken
+            let token: String
             
-            let result = CustomerAuthResponse(message: response.message, authToken: response.payload.authToken)
-            success(result)
+            if let _ = customAuth {
+                token = customAuth!
+                guard let newQRCode = SwyftImageGenerator.buildQRImage(string: token, color: current._qrColor) else {
+                    debugPrint("QR Code was not generated...")
+                    return
+                }
+                let result = CustomerAuthResponse(qrCode: newQRCode)
+                success(result)
+            } else {
+                getUserAuthentication(authToken:response.payload.authToken, fbApp: self.fireBaseApp, success: success, failure: failure)
+            } 
+            
+           
             
         }) { error in
             failure?(error.debugDescription)
         }
     }
+    
+    private static func getUserAuthentication(authToken: String, fbApp: FirebaseApp,success: @escaping SwyftConstants.customerAuthSuccess, failure: SwyftConstants.fail) {
+        
+        Auth.auth(app: fbApp).signIn(withCustomToken: authToken) { result, error in
+            
+            if let _ = error {
+                debugPrint("Swyft SDK Auth: Sign In error")
+                current.session?.sdkFirebaseUser = nil
+            }
+            
+            if let result = result {
+                let user = result.user
+                user.getIDTokenForcingRefresh(true, completion: { idToken, error in
+                    
+                    if let _ = error {
+                        let error = "Swyft SDK Customer Auth: Access Token error"
+                        debugPrint(error)
+                        failure?(error)
+                        return
+                    }
+                    
+                    guard let idToken = idToken else {
+                        let error = "Swyft SDK Customer Auth: No Access Token"
+                        debugPrint(error)
+                        failure?(error)
+                        return
+                    }
+                    
+                    guard let newQRCode = SwyftImageGenerator.buildQRImage(string: idToken, color: current._qrColor) else {
+                        debugPrint("QR Code was not generated...")
+                        return
+                    }
+                    
+                    let result = CustomerAuthResponse(qrCode: newQRCode)
+                    success(result)
+                    
+                })
+            } else {
+                debugPrint("Swyft SDK Auth: No Sign In result info")
+            }
+        }
+    }
 }
 
-public struct CustomerAuthResponse: Codable {
-    public let message: String
-    public let authToken: String
+public struct CustomerAuthResponse {
+    public let qrCode: UIImage
 }
