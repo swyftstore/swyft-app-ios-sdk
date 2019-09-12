@@ -31,6 +31,14 @@
 		B1C33F1E23205B5900AA02B7 /* SdkEnrollInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C33F1D23205B5900AA02B7 /* SdkEnrollInteractor.swift */; };
 		B1E7AA3D2320532F00DDAB8C /* SdkAuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E7AA3C2320532F00DDAB8C /* SdkAuthRequest.swift */; };
 		B1E7AA3F2320547A00DDAB8C /* SdkEnrollRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E7AA3E2320547A00DDAB8C /* SdkEnrollRequest.swift */; };
+		B1F87FBE232ABAF900EE5994 /* GetOrdersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F87FBD232ABAF900EE5994 /* GetOrdersPresenter.swift */; };
+		B1F87FC0232ABD2C00EE5994 /* InitSdkPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F87FBF232ABD2C00EE5994 /* InitSdkPresenter.swift */; };
+		B1F87FC2232ABD3300EE5994 /* EnrollUserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F87FC1232ABD3300EE5994 /* EnrollUserPresenter.swift */; };
+		B1F87FC4232ABD3A00EE5994 /* AuthenticateUserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F87FC3232ABD3A00EE5994 /* AuthenticateUserPresenter.swift */; };
+		B1F87FC6232ABD4000EE5994 /* AddPaymentMethodPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F87FC5232ABD4000EE5994 /* AddPaymentMethodPresenter.swift */; };
+		B1F87FC8232ABD4700EE5994 /* GetPaymentMethodsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F87FC7232ABD4700EE5994 /* GetPaymentMethodsPresenter.swift */; };
+		B1F87FCA232ABD4D00EE5994 /* SetDefaultPaymentMethodPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F87FC9232ABD4D00EE5994 /* SetDefaultPaymentMethodPresenter.swift */; };
+		B1F87FCC232ABD5300EE5994 /* RemovePaymentMethodPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F87FCB232ABD5300EE5994 /* RemovePaymentMethodPresenter.swift */; };
 		CEB6B780BC4F2AB0D3241B7F /* Pods_SwyftSdkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39274FC2924BF3112B5BD2C1 /* Pods_SwyftSdkTests.framework */; };
 		D049249322C68EAE0074A67F /* RemovePaymentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D049249222C68EAE0074A67F /* RemovePaymentResponse.swift */; };
 		D049249522C6C14D0074A67F /* XmlResponseBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D049249422C6C14D0074A67F /* XmlResponseBase.swift */; };
@@ -127,6 +135,14 @@
 		B1C33F1D23205B5900AA02B7 /* SdkEnrollInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SdkEnrollInteractor.swift; sourceTree = "<group>"; };
 		B1E7AA3C2320532F00DDAB8C /* SdkAuthRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SdkAuthRequest.swift; sourceTree = "<group>"; };
 		B1E7AA3E2320547A00DDAB8C /* SdkEnrollRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SdkEnrollRequest.swift; sourceTree = "<group>"; };
+		B1F87FBD232ABAF900EE5994 /* GetOrdersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOrdersPresenter.swift; sourceTree = "<group>"; };
+		B1F87FBF232ABD2C00EE5994 /* InitSdkPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitSdkPresenter.swift; sourceTree = "<group>"; };
+		B1F87FC1232ABD3300EE5994 /* EnrollUserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollUserPresenter.swift; sourceTree = "<group>"; };
+		B1F87FC3232ABD3A00EE5994 /* AuthenticateUserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateUserPresenter.swift; sourceTree = "<group>"; };
+		B1F87FC5232ABD4000EE5994 /* AddPaymentMethodPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentMethodPresenter.swift; sourceTree = "<group>"; };
+		B1F87FC7232ABD4700EE5994 /* GetPaymentMethodsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPaymentMethodsPresenter.swift; sourceTree = "<group>"; };
+		B1F87FC9232ABD4D00EE5994 /* SetDefaultPaymentMethodPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetDefaultPaymentMethodPresenter.swift; sourceTree = "<group>"; };
+		B1F87FCB232ABD5300EE5994 /* RemovePaymentMethodPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemovePaymentMethodPresenter.swift; sourceTree = "<group>"; };
 		CBD541C0DB7602FF109E3644 /* Pods_SwyftSdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwyftSdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D02C0F142294803E00856279 /* JVFloatLabeledTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JVFloatLabeledTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D049249222C68EAE0074A67F /* RemovePaymentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemovePaymentResponse.swift; sourceTree = "<group>"; };
@@ -298,6 +314,7 @@
 		B19A5E17232A996600F1D15D /* Internals */ = {
 			isa = PBXGroup;
 			children = (
+				B1F87FB0232ABA7D00EE5994 /* Presenter */,
 				B1C33F1723205B1500AA02B7 /* Interactors */,
 				D052DA81228E16920082C3AE /* UIModules */,
 				D0852F2E2284AA3E00841037 /* Data */,
@@ -361,6 +378,21 @@
 				B1C33F1D23205B5900AA02B7 /* SdkEnrollInteractor.swift */,
 			);
 			path = SdkEnroll;
+			sourceTree = "<group>";
+		};
+		B1F87FB0232ABA7D00EE5994 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				B1F87FBF232ABD2C00EE5994 /* InitSdkPresenter.swift */,
+				B1F87FC1232ABD3300EE5994 /* EnrollUserPresenter.swift */,
+				B1F87FC3232ABD3A00EE5994 /* AuthenticateUserPresenter.swift */,
+				B1F87FC5232ABD4000EE5994 /* AddPaymentMethodPresenter.swift */,
+				B1F87FC7232ABD4700EE5994 /* GetPaymentMethodsPresenter.swift */,
+				B1F87FC9232ABD4D00EE5994 /* SetDefaultPaymentMethodPresenter.swift */,
+				B1F87FCB232ABD5300EE5994 /* RemovePaymentMethodPresenter.swift */,
+				B1F87FBD232ABAF900EE5994 /* GetOrdersPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		B55F0FCC29D0B4E1B56755F5 /* Pods */ = {
@@ -754,23 +786,29 @@
 				B133D18123282DD8007DA4B7 /* SdkCustomerAuthRequest.swift in Sources */,
 				D0B6DAD522E11AFF0091CA00 /* StoreTransactions.swift in Sources */,
 				B1E7AA3D2320532F00DDAB8C /* SdkAuthRequest.swift in Sources */,
+				B1F87FC8232ABD4700EE5994 /* GetPaymentMethodsPresenter.swift in Sources */,
 				B1E7AA3F2320547A00DDAB8C /* SdkEnrollRequest.swift in Sources */,
 				D0B6DAD922E632BB0091CA00 /* Device.swift in Sources */,
 				D0B6DAD322E11A520091CA00 /* Order.swift in Sources */,
 				D08D7F2D22AAF5DA00A6298B /* Respository.swift in Sources */,
+				B1F87FCC232ABD5300EE5994 /* RemovePaymentMethodPresenter.swift in Sources */,
+				B1F87FC6232ABD4000EE5994 /* AddPaymentMethodPresenter.swift in Sources */,
 				B1C33F1A23205B3F00AA02B7 /* SdkAuthInteractor.swift in Sources */,
 				D0997B432280AF4D00A82DFB /* FireStoreRead.swift in Sources */,
 				B19A5E29232AA28800F1D15D /* SwyftAuthenticateUserResponse.swift in Sources */,
+				B1F87FBE232ABAF900EE5994 /* GetOrdersPresenter.swift in Sources */,
 				D08A3F3822B8314600D264D2 /* Store.swift in Sources */,
 				D08A3F3C22B83F7F00D264D2 /* GetStore.swift in Sources */,
 				D06A39882284A12F00DBF639 /* Extentions.swift in Sources */,
 				B1C33F15232055F600AA02B7 /* SdkEnrollResponse.swift in Sources */,
 				D052DA83228E16B00082C3AE /* ProgressHud.swift in Sources */,
 				D0997B4A2280AF4D00A82DFB /* Customer.swift in Sources */,
+				B1F87FC0232ABD2C00EE5994 /* InitSdkPresenter.swift in Sources */,
 				D0997B422280AF4D00A82DFB /* GetCustomer.swift in Sources */,
 				D096797B2280D15D00437952 /* GetOrders.swift in Sources */,
 				D096797F2280D18C00437952 /* GetPaymentMethods.swift in Sources */,
 				B19A5E2D232AA29900F1D15D /* SwyftGetPaymentMethodsResponse.swift in Sources */,
+				B1F87FC4232ABD3A00EE5994 /* AuthenticateUserPresenter.swift in Sources */,
 				D08D7F3122AB082500A6298B /* SwyftNetworkAdapter.swift in Sources */,
 				B19A5E2B232AA29000F1D15D /* SwyftAddPaymentResponse.swift in Sources */,
 				B19A5E31232AA2B000F1D15D /* SwyftDeleteMethodResponse.swift in Sources */,
@@ -797,8 +835,10 @@
 				D08A3F4022BD537700D264D2 /* PaymentMethod.swift in Sources */,
 				D0CD933522DD133200FCE8DE /* SwyftImageGenerator.swift in Sources */,
 				D096797D2280D17300437952 /* GetStores.swift in Sources */,
+				B1F87FC2232ABD3300EE5994 /* EnrollUserPresenter.swift in Sources */,
 				D052DA88228E1B0A0082C3AE /* PopUpManager.swift in Sources */,
 				D0D3228722C2A10600A2AC98 /* PaymentMethodResponse.swift in Sources */,
+				B1F87FCA232ABD4D00EE5994 /* SetDefaultPaymentMethodPresenter.swift in Sources */,
 				B19A5E33232AA2BD00F1D15D /* SwyftGetOrdersResponse.swift in Sources */,
 				D049249922CFF0810074A67F /* EditPaymentMethod.swift in Sources */,
 				D08A3F4222BD538800D264D2 /* XmlRequestBase.swift in Sources */,
