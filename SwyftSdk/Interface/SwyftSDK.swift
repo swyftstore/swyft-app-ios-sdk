@@ -8,12 +8,12 @@
 
 import FirebaseCore
 
-public typealias SwyftEnrollCallback = (_ response: SwyftEnrollResponse)->()
+public typealias SwyftEnrollUserCallback = (_ response: SwyftEnrollUserResponse)->()
 public typealias SwyftAuthenticateUserCallback = (_ response: SwyftAuthenticateUserResponse)->()
-public typealias SwyftAddPaymentCallback = (_ response: SwyftAddPaymentResponse)->()
+public typealias SwyftAddPaymentMethodCallback = (_ response: SwyftAddPaymentMethodResponse)->()
 public typealias SwyftGetPaymentMethodsCallback = (_ response: SwyftGetPaymentMethodsResponse)->()
-public typealias SwyftDefaultMethodCallback = (_ response: SwyftDefaultMethodResponse)->()
-public typealias SwyftDeleteMethodCallback = (_ response: SwyftDeleteMethodResponse)->()
+public typealias SwyftSetDefaultPaymentMethodCallback = (_ response: SwyftSetDefaultPaymentMethodResponse)->()
+public typealias SwyftRemovePaymentMethodCallback = (_ response: SwyftRemovePaymentMethodResponse)->()
 public typealias SwyftGetOrdersCallback = (_ response: SwyftGetOrdersResponse)->()
 public typealias SwyftFailureCallback = (_ error: NSError)->()
 
@@ -29,7 +29,7 @@ public final class SwyftSDK {
         InitSdkPresenter.shared.execute(firebaseApp)
     }
     
-    public static func enrollUser(user: SwyftUser, success: @escaping SwyftEnrollCallback, failure: @escaping SwyftFailureCallback) {
+    public static func enrollUser(user: SwyftUser, success: @escaping SwyftEnrollUserCallback, failure: @escaping SwyftFailureCallback) {
         EnrollUserPresenter.shared.execute(user, success, failure)
     }
     
@@ -37,20 +37,20 @@ public final class SwyftSDK {
         AuthenticateUserPresenter.shared.execute(swyftId, qrCodeColor, customAuth, success, failure)
     }
     
-    public static func addPaymentMethod(method: SwyftPaymentMethod, success: @escaping SwyftAddPaymentCallback, failure: @escaping SwyftFailureCallback) {
-        AddPaymentMethodPresenter.shared.execute(method, success, failure)
+    public static func addPaymentMethod(method: PaymentMethod, isDefault: Bool, success: @escaping SwyftAddPaymentMethodCallback, failure: @escaping SwyftFailureCallback) {
+        AddPaymentMethodPresenter.shared.execute(method, isDefault, success, failure)
     }
     
     public static func getPaymentMethods(success: @escaping SwyftGetPaymentMethodsCallback, failure: @escaping SwyftFailureCallback) {
         GetPaymentMethodsPresenter.shared.execute(success, failure)
     }
     
-    public static func setDefaultPaymentMethod(methodId: String, success: @escaping SwyftDefaultMethodCallback, failure: @escaping SwyftFailureCallback) {
-        SetDefaultPaymentMethodPresenter.shared.execute(methodId, success, failure)
+    public static func setDefaultPaymentMethod(defaultMethod: SwyftPaymentMethod, success: @escaping SwyftSetDefaultPaymentMethodCallback, failure: @escaping SwyftFailureCallback) {
+        SetDefaultPaymentMethodPresenter.shared.execute(defaultMethod, success, failure)
     }
     
-    public static func removePaymentMethod(methodId: String, success: @escaping SwyftDeleteMethodCallback, failure: @escaping SwyftFailureCallback) {
-        RemovePaymentMethodPresenter.shared.execute(methodId, success, failure)
+    public static func removePaymentMethod(cardRef: String, merchantRef: String, success: @escaping SwyftRemovePaymentMethodCallback, failure: @escaping SwyftFailureCallback) {
+        RemovePaymentMethodPresenter.shared.execute(cardRef, merchantRef, success, failure)
     }
     
     public static func getOrders(customerId: String, start: Int, pageSize: Int, success: @escaping SwyftGetOrdersCallback, failure: @escaping SwyftFailureCallback) {

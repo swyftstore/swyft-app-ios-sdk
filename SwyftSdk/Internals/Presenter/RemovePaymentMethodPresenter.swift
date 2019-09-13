@@ -12,7 +12,7 @@ class RemovePaymentMethodPresenter {
     static let shared = RemovePaymentMethodPresenter()
     private init() {}
     
-    func execute(_ methodId: String, _ success: @escaping SwyftDeleteMethodCallback, _ failure: @escaping SwyftFailureCallback) {
+    func execute(_ cardRef: String, _ merchantRef: String, _ success: @escaping SwyftRemovePaymentMethodCallback, _ failure: @escaping SwyftFailureCallback) {
         
         // TODO: we should implement an auto retry
         guard let _ = Configure.current.session?.sdkFirebaseUser else {
@@ -20,5 +20,15 @@ class RemovePaymentMethodPresenter {
             return
         }
         
+        let removeMethod = RemovePaymentMethod(cardRef: cardRef, merchantRef: merchantRef)
+        
+        RemovePaymentInteractor.removePaymentMethod(removeMethod: removeMethod, success: {
+            
+            let response = SwyftRemovePaymentMethodResponse()
+            success(response)
+            
+        }) { error in
+            report(.removePaymentMethodFirebaseFailure, failure)
+        }
     }
 }

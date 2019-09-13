@@ -12,7 +12,7 @@ class EnrollUserPresenter {
     static let shared = EnrollUserPresenter()
     private init() {}
     
-    func execute(_ user: SwyftUser, _ success: @escaping SwyftEnrollCallback, _ failure: @escaping SwyftFailureCallback) {
+    func execute(_ user: SwyftUser, _ success: @escaping SwyftEnrollUserCallback, _ failure: @escaping SwyftFailureCallback) {
         
         // TODO: we should implement an auto retry
         guard let _ = Configure.current.session?.sdkFirebaseUser else {
@@ -49,7 +49,7 @@ class EnrollUserPresenter {
         getToken(user, success, failure)
     }
     
-    private func getToken(_ user: SwyftUser, _ success: @escaping SwyftEnrollCallback, _ failure: @escaping SwyftFailureCallback) {
+    private func getToken(_ user: SwyftUser, _ success: @escaping SwyftEnrollUserCallback, _ failure: @escaping SwyftFailureCallback) {
         
         Configure.current.session?.sdkFirebaseUser?.getIDTokenForcingRefresh(true, completion: { idToken, error in
             
@@ -67,13 +67,13 @@ class EnrollUserPresenter {
         })
     }
     
-    private func enroll(idToken: String, _ user: SwyftUser, _ success: @escaping SwyftEnrollCallback, _ failure: @escaping SwyftFailureCallback) {
+    private func enroll(idToken: String, _ user: SwyftUser, _ success: @escaping SwyftEnrollUserCallback, _ failure: @escaping SwyftFailureCallback) {
         
         SdkEnrollInteractor.enroll(customerInfo: user, idToken: idToken, success: { response in
             
             Configure.current.session?.sdkAuthToken = response.payload.authToken
             
-            let result = SwyftEnrollResponse(message: response.message, swyftId: response.payload.swyftId, authToken: response.payload.authToken)
+            let result = SwyftEnrollUserResponse(message: response.message, swyftId: response.payload.swyftId, authToken: response.payload.authToken)
             success(result)
             
         }) { error in

@@ -38,15 +38,18 @@ public enum SwyftError: String, Error {
 
     // MARK: AddPaymentMethod
     case addPaymentMethodSdkNotInitialized
+    case AddPaymentMethodFirebaseFailure
 
     // MARK: GetPaymentMethods
     case getPaymentMethodsSdkNotInitialized
 
     // MARK: SetDefaultPaymentMethod
     case setDefaultPaymentMethodSdkNotInitialized
+    case setDefaultPaymentMethodFirebaseFailure
 
     // MARK: RemovePaymentMethod
     case removePaymentMethodSdkNotInitialized
+    case removePaymentMethodFirebaseFailure
 
     // MARK: GetOrders
     case getOrdersSdkNotInitialized
@@ -130,6 +133,9 @@ extension SwyftError {
         case .addPaymentMethodSdkNotInitialized:
             return (code: 20_301, message: "Swyft SDK Add Payment Method:")
             
+        case .AddPaymentMethodFirebaseFailure:
+            return (code: 20_302, message: "Swyft SDK Add Payment Method:")
+            
             
         // MARK: GetPaymentMethods
         case .getPaymentMethodsSdkNotInitialized:
@@ -140,10 +146,16 @@ extension SwyftError {
         case .setDefaultPaymentMethodSdkNotInitialized:
             return (code: 20_501, message: "Swyft SDK Set Default Payment Method:")
             
+        case .setDefaultPaymentMethodFirebaseFailure:
+            return (code: 20_502, message: "Swyft SDK Set Default Payment Method:")
+            
             
         // MARK: RemovePaymentMethod
         case .removePaymentMethodSdkNotInitialized:
             return (code: 20_601, message: "Swyft SDK Remove Payment Method:")
+            
+        case .removePaymentMethodFirebaseFailure:
+            return (code: 20_602, message: "Swyft SDK Remove Payment Method:")
             
         
         // MARK: GetOrders

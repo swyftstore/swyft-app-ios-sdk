@@ -12,7 +12,7 @@ class AddPaymentMethodPresenter {
     static let shared = AddPaymentMethodPresenter()
     private init() {}
     
-    func execute(_ method: SwyftPaymentMethod, _ success: @escaping SwyftAddPaymentCallback, _ failure: @escaping SwyftFailureCallback) {
+    func execute(_ method: PaymentMethod, _ isDefault: Bool, _ success: @escaping SwyftAddPaymentMethodCallback, _ failure: @escaping SwyftFailureCallback) {
         
         // TODO: we should implement an auto retry
         guard let _ = Configure.current.session?.sdkFirebaseUser else {
@@ -20,5 +20,13 @@ class AddPaymentMethodPresenter {
             return
         }
         
+        AddPaymentInteractor.addPaymentMethod(method: method, isDefault: isDefault, success: { paymentMethod in
+            
+            let response = SwyftAddPaymentMethodResponse(paymentMethod: paymentMethod)
+            success(response)
+            
+        }) { error in
+            report(.AddPaymentMethodFirebaseFailure, failure)
+        }
     }
 }
