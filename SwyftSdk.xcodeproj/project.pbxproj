@@ -42,14 +42,14 @@
 		B19DE50A232C294700E7CC23 /* FireStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4C9232C294700E7CC23 /* FireStoreModel.swift */; };
 		B19DE50B232C294700E7CC23 /* MockStores.json in Resources */ = {isa = PBXBuildFile; fileRef = B19DE4CB232C294700E7CC23 /* MockStores.json */; };
 		B19DE50C232C294700E7CC23 /* Swyft-GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B19DE4CC232C294700E7CC23 /* Swyft-GoogleService-Info.plist */; };
-		B19DE50D232C294700E7CC23 /* GetOrdersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4CE232C294700E7CC23 /* GetOrdersPresenter.swift */; };
-		B19DE50E232C294700E7CC23 /* InitSdkPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4CF232C294700E7CC23 /* InitSdkPresenter.swift */; };
-		B19DE50F232C294700E7CC23 /* GetPaymentMethodsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4D0232C294700E7CC23 /* GetPaymentMethodsPresenter.swift */; };
-		B19DE510232C294700E7CC23 /* AuthenticateUserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4D1232C294700E7CC23 /* AuthenticateUserPresenter.swift */; };
-		B19DE511232C294700E7CC23 /* SetDefaultPaymentMethodPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4D2232C294700E7CC23 /* SetDefaultPaymentMethodPresenter.swift */; };
-		B19DE512232C294700E7CC23 /* EnrollUserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4D3232C294700E7CC23 /* EnrollUserPresenter.swift */; };
-		B19DE513232C294700E7CC23 /* AddPaymentMethodPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4D4232C294700E7CC23 /* AddPaymentMethodPresenter.swift */; };
-		B19DE514232C294700E7CC23 /* RemovePaymentMethodPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4D5232C294700E7CC23 /* RemovePaymentMethodPresenter.swift */; };
+		B19DE50D232C294700E7CC23 /* GetOrdersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4CE232C294700E7CC23 /* GetOrdersRouter.swift */; };
+		B19DE50E232C294700E7CC23 /* InitSdkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4CF232C294700E7CC23 /* InitSdkRouter.swift */; };
+		B19DE50F232C294700E7CC23 /* GetPaymentMethodsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4D0232C294700E7CC23 /* GetPaymentMethodsRouter.swift */; };
+		B19DE510232C294700E7CC23 /* AuthenticateUserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4D1232C294700E7CC23 /* AuthenticateUserRouter.swift */; };
+		B19DE511232C294700E7CC23 /* SetDefaultPaymentMethodRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4D2232C294700E7CC23 /* SetDefaultPaymentMethodRouter.swift */; };
+		B19DE512232C294700E7CC23 /* EnrollUserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4D3232C294700E7CC23 /* EnrollUserRouter.swift */; };
+		B19DE513232C294700E7CC23 /* AddPaymentMethodRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4D4232C294700E7CC23 /* AddPaymentMethodRouter.swift */; };
+		B19DE514232C294700E7CC23 /* RemovePaymentMethodRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4D5232C294700E7CC23 /* RemovePaymentMethodRouter.swift */; };
 		B19DE515232C294700E7CC23 /* Respository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4D7232C294700E7CC23 /* Respository.swift */; };
 		B19DE516232C294700E7CC23 /* SdkCustomerAuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4D9232C294700E7CC23 /* SdkCustomerAuthResponse.swift */; };
 		B19DE517232C294700E7CC23 /* PaymentMethodResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4DA232C294700E7CC23 /* PaymentMethodResponse.swift */; };
@@ -146,14 +146,14 @@
 		B19DE4C9232C294700E7CC23 /* FireStoreModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireStoreModel.swift; sourceTree = "<group>"; };
 		B19DE4CB232C294700E7CC23 /* MockStores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockStores.json; sourceTree = "<group>"; };
 		B19DE4CC232C294700E7CC23 /* Swyft-GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Swyft-GoogleService-Info.plist"; sourceTree = "<group>"; };
-		B19DE4CE232C294700E7CC23 /* GetOrdersPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetOrdersPresenter.swift; sourceTree = "<group>"; };
-		B19DE4CF232C294700E7CC23 /* InitSdkPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitSdkPresenter.swift; sourceTree = "<group>"; };
-		B19DE4D0232C294700E7CC23 /* GetPaymentMethodsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetPaymentMethodsPresenter.swift; sourceTree = "<group>"; };
-		B19DE4D1232C294700E7CC23 /* AuthenticateUserPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticateUserPresenter.swift; sourceTree = "<group>"; };
-		B19DE4D2232C294700E7CC23 /* SetDefaultPaymentMethodPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetDefaultPaymentMethodPresenter.swift; sourceTree = "<group>"; };
-		B19DE4D3232C294700E7CC23 /* EnrollUserPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnrollUserPresenter.swift; sourceTree = "<group>"; };
-		B19DE4D4232C294700E7CC23 /* AddPaymentMethodPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPaymentMethodPresenter.swift; sourceTree = "<group>"; };
-		B19DE4D5232C294700E7CC23 /* RemovePaymentMethodPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemovePaymentMethodPresenter.swift; sourceTree = "<group>"; };
+		B19DE4CE232C294700E7CC23 /* GetOrdersRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetOrdersRouter.swift; sourceTree = "<group>"; };
+		B19DE4CF232C294700E7CC23 /* InitSdkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitSdkRouter.swift; sourceTree = "<group>"; };
+		B19DE4D0232C294700E7CC23 /* GetPaymentMethodsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetPaymentMethodsRouter.swift; sourceTree = "<group>"; };
+		B19DE4D1232C294700E7CC23 /* AuthenticateUserRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticateUserRouter.swift; sourceTree = "<group>"; };
+		B19DE4D2232C294700E7CC23 /* SetDefaultPaymentMethodRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetDefaultPaymentMethodRouter.swift; sourceTree = "<group>"; };
+		B19DE4D3232C294700E7CC23 /* EnrollUserRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnrollUserRouter.swift; sourceTree = "<group>"; };
+		B19DE4D4232C294700E7CC23 /* AddPaymentMethodRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPaymentMethodRouter.swift; sourceTree = "<group>"; };
+		B19DE4D5232C294700E7CC23 /* RemovePaymentMethodRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemovePaymentMethodRouter.swift; sourceTree = "<group>"; };
 		B19DE4D7232C294700E7CC23 /* Respository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Respository.swift; sourceTree = "<group>"; };
 		B19DE4D9232C294700E7CC23 /* SdkCustomerAuthResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SdkCustomerAuthResponse.swift; sourceTree = "<group>"; };
 		B19DE4DA232C294700E7CC23 /* PaymentMethodResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodResponse.swift; sourceTree = "<group>"; };
@@ -341,11 +341,11 @@
 			isa = PBXGroup;
 			children = (
 				B19DE49A232C293300E7CC23 /* SwyftPaymentMethod.swift */,
-				B19DE49B232C293300E7CC23 /* SwyftUser.swift */,
-				B19DE49C232C293300E7CC23 /* Order.swift */,
-				B19DE49D232C293300E7CC23 /* Customer.swift */,
-				B19DE49E232C293300E7CC23 /* Notifications.swift */,
 				B19DE49F232C293300E7CC23 /* PaymentMethod.swift */,
+				B19DE49B232C293300E7CC23 /* SwyftUser.swift */,
+				B19DE49D232C293300E7CC23 /* Customer.swift */,
+				B19DE49C232C293300E7CC23 /* Order.swift */,
+				B19DE49E232C293300E7CC23 /* Notifications.swift */,
 				B19DE4A0232C293300E7CC23 /* Store.swift */,
 				B19DE4A1232C293300E7CC23 /* Product.swift */,
 				B19DE4A2232C293300E7CC23 /* Device.swift */,
@@ -357,9 +357,9 @@
 		B19DE4B8232C294700E7CC23 /* Internals */ = {
 			isa = PBXGroup;
 			children = (
+				B19DE4CD232C294700E7CC23 /* Presenter */,
 				B19DE4B9232C294700E7CC23 /* Firestore */,
 				B19DE4CA232C294700E7CC23 /* Resources */,
-				B19DE4CD232C294700E7CC23 /* Presenter */,
 				B19DE4D6232C294700E7CC23 /* Network */,
 				B19DE4EA232C294700E7CC23 /* Utils */,
 				B19DE4ED232C294700E7CC23 /* UIModules */,
@@ -439,14 +439,14 @@
 		B19DE4CD232C294700E7CC23 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				B19DE4CE232C294700E7CC23 /* GetOrdersPresenter.swift */,
-				B19DE4CF232C294700E7CC23 /* InitSdkPresenter.swift */,
-				B19DE4D0232C294700E7CC23 /* GetPaymentMethodsPresenter.swift */,
-				B19DE4D1232C294700E7CC23 /* AuthenticateUserPresenter.swift */,
-				B19DE4D2232C294700E7CC23 /* SetDefaultPaymentMethodPresenter.swift */,
-				B19DE4D3232C294700E7CC23 /* EnrollUserPresenter.swift */,
-				B19DE4D4232C294700E7CC23 /* AddPaymentMethodPresenter.swift */,
-				B19DE4D5232C294700E7CC23 /* RemovePaymentMethodPresenter.swift */,
+				B19DE4CF232C294700E7CC23 /* InitSdkRouter.swift */,
+				B19DE4D3232C294700E7CC23 /* EnrollUserRouter.swift */,
+				B19DE4D1232C294700E7CC23 /* AuthenticateUserRouter.swift */,
+				B19DE4D4232C294700E7CC23 /* AddPaymentMethodRouter.swift */,
+				B19DE4D0232C294700E7CC23 /* GetPaymentMethodsRouter.swift */,
+				B19DE4D2232C294700E7CC23 /* SetDefaultPaymentMethodRouter.swift */,
+				B19DE4D5232C294700E7CC23 /* RemovePaymentMethodRouter.swift */,
+				B19DE4CE232C294700E7CC23 /* GetOrdersRouter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -786,13 +786,13 @@
 				B19DE508232C294700E7CC23 /* FireStoreRead.swift in Sources */,
 				B19DE52A232C294700E7CC23 /* SdkEnrollInteractor.swift in Sources */,
 				B19DE500232C294700E7CC23 /* UpdateCustomer.swift in Sources */,
-				B19DE50F232C294700E7CC23 /* GetPaymentMethodsPresenter.swift in Sources */,
+				B19DE50F232C294700E7CC23 /* GetPaymentMethodsRouter.swift in Sources */,
 				B19DE4AA232C293300E7CC23 /* SwyftRemovePaymentMethodResponse.swift in Sources */,
 				B19DE51C232C294700E7CC23 /* RemovePaymentResponse.swift in Sources */,
 				B19DE504232C294700E7CC23 /* GetPaymentMethods.swift in Sources */,
 				B19DE4AF232C293300E7CC23 /* SwyftUser.swift in Sources */,
 				B19DE517232C294700E7CC23 /* PaymentMethodResponse.swift in Sources */,
-				B19DE513232C294700E7CC23 /* AddPaymentMethodPresenter.swift in Sources */,
+				B19DE513232C294700E7CC23 /* AddPaymentMethodRouter.swift in Sources */,
 				B19DE52B232C294700E7CC23 /* AddPaymentInteractor.swift in Sources */,
 				B19DE528232C294700E7CC23 /* ProgressHud.swift in Sources */,
 				B19DE503232C294700E7CC23 /* GetStore.swift in Sources */,
@@ -817,24 +817,24 @@
 				B19DE4A6232C293300E7CC23 /* SwyftSetDefaultPaymentMethodResponse.swift in Sources */,
 				B19DE4AE232C293300E7CC23 /* SwyftPaymentMethod.swift in Sources */,
 				B19DE522232C294700E7CC23 /* SwyftNetworkAdapter.swift in Sources */,
-				B19DE510232C294700E7CC23 /* AuthenticateUserPresenter.swift in Sources */,
+				B19DE510232C294700E7CC23 /* AuthenticateUserRouter.swift in Sources */,
 				B19DE4B6232C293300E7CC23 /* Device.swift in Sources */,
 				B19DE4B2232C293300E7CC23 /* Notifications.swift in Sources */,
 				B19DE515232C294700E7CC23 /* Respository.swift in Sources */,
 				B19DE501232C294700E7CC23 /* FireStoreWrite.swift in Sources */,
-				B19DE50E232C294700E7CC23 /* InitSdkPresenter.swift in Sources */,
+				B19DE50E232C294700E7CC23 /* InitSdkRouter.swift in Sources */,
 				B19DE4A4232C293300E7CC23 /* SwyftSDK.swift in Sources */,
-				B19DE511232C294700E7CC23 /* SetDefaultPaymentMethodPresenter.swift in Sources */,
+				B19DE511232C294700E7CC23 /* SetDefaultPaymentMethodRouter.swift in Sources */,
 				B19DE51D232C294700E7CC23 /* RemovePaymentMethod.swift in Sources */,
-				B19DE514232C294700E7CC23 /* RemovePaymentMethodPresenter.swift in Sources */,
+				B19DE514232C294700E7CC23 /* RemovePaymentMethodRouter.swift in Sources */,
 				B19DE4B1232C293300E7CC23 /* Customer.swift in Sources */,
 				B19DE4AD232C293300E7CC23 /* SwyftConstants.swift in Sources */,
 				B19DE4AC232C293300E7CC23 /* SwyftError.swift in Sources */,
 				B19DE52E232C294700E7CC23 /* RemovePaymentInteractor.swift in Sources */,
-				B19DE512232C294700E7CC23 /* EnrollUserPresenter.swift in Sources */,
+				B19DE512232C294700E7CC23 /* EnrollUserRouter.swift in Sources */,
 				B19DE52D232C294700E7CC23 /* EditPaymentInteractor.swift in Sources */,
 				B19DE4A5232C293300E7CC23 /* SwyftAuthenticateUserResponse.swift in Sources */,
-				B19DE50D232C294700E7CC23 /* GetOrdersPresenter.swift in Sources */,
+				B19DE50D232C294700E7CC23 /* GetOrdersRouter.swift in Sources */,
 				B19DE4B0232C293300E7CC23 /* Order.swift in Sources */,
 				B19DE519232C294700E7CC23 /* EditPaymentMethodResponse.swift in Sources */,
 				B19DE530232C294700E7CC23 /* SdkCustomerAuthInteractor.swift in Sources */,

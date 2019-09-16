@@ -180,7 +180,7 @@ extension SwyftError {
     }
 }
 
-func report(_ error: SwyftError, _ failureCallback: SwyftFailureCallback? = nil) {
+internal func report(_ error: SwyftError, _ failureCallback: SwyftFailureCallback? = nil) {
     let errorInfo = error.build()
     debugPrint(errorInfo)
     failureCallback?(errorInfo)

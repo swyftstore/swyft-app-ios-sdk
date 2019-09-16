@@ -22,38 +22,38 @@ public final class SwyftSDK {
     private init() {}
     
     public static func initSDK() {
-        InitSdkPresenter.shared.execute()
+        InitSdkRouter.shared.route()
     }
     
     public static func initSDK(firebaseApp: FirebaseApp?) {
-        InitSdkPresenter.shared.execute(firebaseApp)
+        InitSdkRouter.shared.route(firebaseApp)
     }
     
     public static func enrollUser(user: SwyftUser, success: @escaping SwyftEnrollUserCallback, failure: @escaping SwyftFailureCallback) {
-        EnrollUserPresenter.shared.execute(user, success, failure)
+        EnrollUserRouter.shared.route(user, success, failure)
     }
     
     public static func authenticateUser(swyftId: String, qrCodeColor: UIColor, customAuth: String? = nil, success: @escaping SwyftAuthenticateUserCallback, failure: @escaping SwyftFailureCallback) {
-        AuthenticateUserPresenter.shared.execute(swyftId, qrCodeColor, customAuth, success, failure)
+        AuthenticateUserRouter.shared.route(swyftId, qrCodeColor, customAuth, success, failure)
     }
     
     public static func addPaymentMethod(method: PaymentMethod, isDefault: Bool, success: @escaping SwyftAddPaymentMethodCallback, failure: @escaping SwyftFailureCallback) {
-        AddPaymentMethodPresenter.shared.execute(method, isDefault, success, failure)
+        AddPaymentMethodRouter.shared.route(method, isDefault, success, failure)
     }
     
     public static func getPaymentMethods(success: @escaping SwyftGetPaymentMethodsCallback, failure: @escaping SwyftFailureCallback) {
-        GetPaymentMethodsPresenter.shared.execute(success, failure)
+        GetPaymentMethodsRouter.shared.route(success, failure)
     }
     
     public static func setDefaultPaymentMethod(defaultMethod: SwyftPaymentMethod, success: @escaping SwyftSetDefaultPaymentMethodCallback, failure: @escaping SwyftFailureCallback) {
-        SetDefaultPaymentMethodPresenter.shared.execute(defaultMethod, success, failure)
+        SetDefaultPaymentMethodRouter.shared.route(defaultMethod, success, failure)
     }
     
     public static func removePaymentMethod(cardRef: String, merchantRef: String, success: @escaping SwyftRemovePaymentMethodCallback, failure: @escaping SwyftFailureCallback) {
-        RemovePaymentMethodPresenter.shared.execute(cardRef, merchantRef, success, failure)
+        RemovePaymentMethodRouter.shared.route(cardRef, merchantRef, success, failure)
     }
     
     public static func getOrders(customerId: String, start: Int, pageSize: Int, success: @escaping SwyftGetOrdersCallback, failure: @escaping SwyftFailureCallback) {
-        GetOrdersPresenter.shared.execute(customerId, start, pageSize, success, failure)
+        GetOrdersRouter.shared.route(customerId, start, pageSize, success, failure)
     }
 }

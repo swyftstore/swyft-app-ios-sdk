@@ -1,5 +1,5 @@
 //
-//  InitSdkPresenter.swift
+//  InitSdkRouter.swift
 //  SwyftSdk
 //
 //  Created by Rigoberto Saenz Imbacuan on 9/12/19.
@@ -10,15 +10,20 @@ import FirebaseCore
 import FirebaseAuth
 import FirebaseFirestore
 
-class InitSdkPresenter {
+internal class InitSdkRouter {
     
     // MARK: Singleton
-    static let shared = InitSdkPresenter()
+    static let shared = InitSdkRouter()
     private init() {}
     
-    func execute() {
+    // MARK: Data
+    let appName = "com_swyft_SwyftSdk"
+    let googleFile = "Swyft-GoogleService-Info"
+    
+    // MARK: Actions
+    func route() {
         
-        guard let filePath = Bundle.main.path(forResource: "Swyft-GoogleService-Info", ofType: "plist") else {
+        guard let filePath = Bundle.main.path(forResource: googleFile, ofType: "plist") else {
             report(.initSdkNoSwyftFile)
             return
         }
@@ -28,14 +33,13 @@ class InitSdkPresenter {
             return
         }
         
-        let appName = "com_swyft_SwyftSdk"
         FirebaseApp.configure(name: appName, options: firebaseOptions)
         
         let firebaseApp = FirebaseApp.app(name: appName)
-        execute(firebaseApp)
+        route(firebaseApp)
     }
     
-    func execute(_ firebaseApp: FirebaseApp?) {
+    func route(_ firebaseApp: FirebaseApp?) {
         
         Configure.setup(session: SwyftSession(), firebaseApp: firebaseApp)
         
