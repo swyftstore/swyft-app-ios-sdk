@@ -63,11 +63,20 @@ internal class EnrollUserRouter {
     
     private func checkFirebaseUser() {
         
-        //        // TODO: we should implement an auto retry
-        //        guard let _ = Configure.current.session?.sdkFirebaseUser else {
-        //            report(.enrollUserSdkNotInitialized, failure)
-        //            return
-        //        }
+        var iteration = 0
+        while (true) {
+            
+            if let _ = Configure.current.session?.sdkFirebaseUser {
+                break
+                
+            } else if iteration > SwyftConstants.RouterMaxRetries {
+                report(.enrollUserSdkNotInitialized, failure)
+                return
+            }
+            
+            iteration += 1
+            usleep(UInt32(SwyftConstants.RouterWaitBetweenRetries))
+        }
         
         getToken()
     }

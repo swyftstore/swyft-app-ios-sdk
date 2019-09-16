@@ -58,7 +58,7 @@ internal class InitSdkRouter {
                 }
                 
                 self.addAuthentication(response.payload.authToken, firebaseApp)
-             }
+            }
             
         }) { error in
             report(.initSdkAuthFailure)
@@ -80,7 +80,7 @@ internal class InitSdkRouter {
                 report(.initSdkNoFirebaseSignIn)
                 return
             }
-
+            
             let user = result.user
             Configure.current.session?.sdkFirebaseUser = user
         }

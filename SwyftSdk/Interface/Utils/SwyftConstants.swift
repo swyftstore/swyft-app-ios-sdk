@@ -44,7 +44,11 @@ open class SwyftConstants {
     
     //DB Retries
     public static let MaxDbRetries = 10
-    public static let WaitBetweenRetries = 250000
+    public static let WaitBetweenRetries = 250_000
+    
+    //Router Retries
+    public static let RouterMaxRetries = 10
+    public static let RouterWaitBetweenRetries = 500_000
     
     //Type Alaises
     public typealias readSuccess = ((_ data: FireStoreModelProto)->Void)?

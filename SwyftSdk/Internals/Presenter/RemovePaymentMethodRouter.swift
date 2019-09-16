@@ -34,12 +34,21 @@ internal class RemovePaymentMethodRouter {
     
     private func checkFirebaseUser() {
         
-        //        // TODO: we should implement an auto retry
-        //        guard let _ = Configure.current.session?.sdkFirebaseUser else {
-        //            report(.removePaymentMethodSdkNotInitialized, failure)
-        //            return
-        //        }
-
+        var iteration = 0
+        while (true) {
+            
+            if let _ = Configure.current.session?.sdkFirebaseUser {
+                break
+                
+            } else if iteration > SwyftConstants.RouterMaxRetries {
+                report(.removePaymentMethodSdkNotInitialized, failure)
+                return
+            }
+            
+            iteration += 1
+            usleep(UInt32(SwyftConstants.RouterWaitBetweenRetries))
+        }
+        
         removePayment()
     }
     
