@@ -2,15 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/tommanuel/Documents/swyft/swyft-app-ios-sdk/SwyftSdk.xcodeproj">
+      location = "group:SwyftSdk.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/tommanuel/Documents/swyft/swyft-app-ios-sdk/SwyftSdk.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:SwyftSdk.xcodeproj">
    </FileRef>
 </Workspace>
