@@ -308,8 +308,8 @@
 			children = (
 				B19DE48D232C293300E7CC23 /* SwyftSDK.swift */,
 				B19DE48E232C293300E7CC23 /* Responses */,
-				B19DE496232C293300E7CC23 /* Utils */,
 				B19DE499232C293300E7CC23 /* Model */,
+				B19DE496232C293300E7CC23 /* Utils */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -340,6 +340,8 @@
 		B19DE499232C293300E7CC23 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B1C4D9182330436700790B72 /* Firestore */,
+				B1C4D9192330440C00790B72 /* Network */,
 				B19DE49A232C293300E7CC23 /* SwyftPaymentMethod.swift */,
 				B19DE49F232C293300E7CC23 /* PaymentMethod.swift */,
 				B19DE49B232C293300E7CC23 /* SwyftUser.swift */,
@@ -374,7 +376,6 @@
 			children = (
 				B19DE4BA232C294700E7CC23 /* Write */,
 				B19DE4BE232C294700E7CC23 /* Read */,
-				B19DE4C8232C294700E7CC23 /* Model */,
 			);
 			path = Firestore;
 			sourceTree = "<group>";
@@ -417,14 +418,6 @@
 				B19DE4C6232C294700E7CC23 /* FireStoreRead.swift */,
 			);
 			path = Base;
-			sourceTree = "<group>";
-		};
-		B19DE4C8232C294700E7CC23 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B19DE4C9232C294700E7CC23 /* FireStoreModel.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		B19DE4CA232C294700E7CC23 /* Resources */ = {
@@ -492,7 +485,6 @@
 		B19DE4E7232C294700E7CC23 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				B19DE4E8232C294700E7CC23 /* XmlRequestBase.swift */,
 				B19DE4E9232C294700E7CC23 /* XmlResponseBase.swift */,
 			);
 			path = Base;
@@ -570,6 +562,22 @@
 				B19DE4FF232C294700E7CC23 /* SwyftSession.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		B1C4D9182330436700790B72 /* Firestore */ = {
+			isa = PBXGroup;
+			children = (
+				B19DE4C9232C294700E7CC23 /* FireStoreModel.swift */,
+			);
+			path = Firestore;
+			sourceTree = "<group>";
+		};
+		B1C4D9192330440C00790B72 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B19DE4E8232C294700E7CC23 /* XmlRequestBase.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		B55F0FCC29D0B4E1B56755F5 /* Pods */ = {

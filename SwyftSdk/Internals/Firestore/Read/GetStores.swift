@@ -9,21 +9,21 @@
 import Foundation
 import FirebaseFirestore
 
-public class GetStores: FireStoreRead{
-    public var fail: SwyftConstants.fail
-    public var success: SwyftConstants.readSuccessWArray
+internal class GetStores: FireStoreRead{
+    var fail: SwyftConstants.fail
+    var success: SwyftConstants.readSuccessWArray
     
-    public var db: Firestore?
+    var db: Firestore?
     
     private var stores = Array<Store>()
     
-    public required init(success: SwyftConstants.readSuccessWArray, fail: SwyftConstants.fail) {
+    required init(success: SwyftConstants.readSuccessWArray, fail: SwyftConstants.fail) {
         self.success = success
         self.fail = fail
         self.db = Configure.current.db!
     }
     
-    public func querySuccess(data: Dictionary<String, Any>, id: String, done: Bool) {
+    func querySuccess(data: Dictionary<String, Any>, id: String, done: Bool) {
         let store = Store()
         store.serialize(data: data)
         store.id = id
@@ -35,7 +35,7 @@ public class GetStores: FireStoreRead{
         }
     }
     
-    public func queryFailure(msg: String) {
+    func queryFailure(msg: String) {
         if let _fail = fail {
             DispatchQueue.main.async {
                 _fail(msg)
@@ -43,7 +43,7 @@ public class GetStores: FireStoreRead{
         }
     }
     
-    public func get(key: SwyftConstants.StoreSearchKey, value: Any)  {
+    func get(key: SwyftConstants.StoreSearchKey, value: Any)  {
       
         
         DispatchQueue.global(qos: .background).async {

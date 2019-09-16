@@ -31,6 +31,10 @@ internal class AddPaymentMethodRouter {
             self.checkFirebaseUser()
         }
     }
+}
+
+// MARK: Internals
+private extension AddPaymentMethodRouter {
     
     private func checkFirebaseUser() {
         

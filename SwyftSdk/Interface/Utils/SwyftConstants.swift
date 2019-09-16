@@ -8,25 +8,25 @@
 
 import Foundation
 
-open class SwyftConstants {
+internal class SwyftConstants {
 
-    public static let FBSessionStart = "fbSessionStart";
-    public static let SessionLength = 10;
+    internal static let FBSessionStart = "fbSessionStart";
+    internal static let SessionLength = 10;
     
     //Customer data keys
-    public static let ActivationCode = "activationCode"
-    public static let PhoneNumber = "phoneNumber"
-    public static let NewPhoneNumber = "newPhoneNumber"
-    public static let Status = "status"
-    public static let EmailAddress = "emailAddress"
-    public static let LogInCounter = "logInCounter"
-    public static let LastLogIn = "lastLogIn"
+    internal static let ActivationCode = "activationCode"
+    internal static let PhoneNumber = "phoneNumber"
+    internal static let NewPhoneNumber = "newPhoneNumber"
+    internal static let Status = "status"
+    internal static let EmailAddress = "emailAddress"
+    internal static let LogInCounter = "logInCounter"
+    internal static let LastLogIn = "lastLogIn"
     
     //Order data keys
-    public static let CustomerId = "customerId"
+    internal static let CustomerId = "customerId"
     
     //Store data keys
-    public enum StoreSearchKey : String{
+    internal enum StoreSearchKey : String{
         case ID = "id"
         case GeoPoint = "geoPoint"
         case Name = "name"
@@ -36,35 +36,30 @@ open class SwyftConstants {
     }
     
     //DB Collections
-    public static let CustomerCollection = "customers"
-    public static let OrderCollection = "/nanoshop/cart/transactions"
-    public static let ProductCollection = "products"
-    public static let StoreCollection = "stores"
-    public static let OrderCreationDate = "createDateTime"
+    internal static let CustomerCollection = "customers"
+    internal static let OrderCollection = "/nanoshop/cart/transactions"
+    internal static let ProductCollection = "products"
+    internal static let StoreCollection = "stores"
+    internal static let OrderCreationDate = "createDateTime"
     
     //DB Retries
-    public static let MaxDbRetries = 10
-    public static let WaitBetweenRetries = 250_000
+    internal static let MaxDbRetries = 10
+    internal static let WaitBetweenRetries = 250_000
     
     //Router Retries
-    public static let RouterMaxRetries = 10
-    public static let RouterWaitBetweenRetries = 500_000
+    internal static let RouterMaxRetries = 10
+    internal static let RouterWaitBetweenRetries = 500_000
     
     //Type Alaises
-    public typealias readSuccess = ((_ data: FireStoreModelProto)->Void)?
-    public typealias readSuccessWArray = ((_ data: [FireStoreModelProto])->Void)?
-    public typealias writeSuccess = ((_ msg: String, _ id: String?)->Void)?
-    public typealias addPaymentSuccess = ((_ method: SwyftPaymentMethod)->Void)?
-    public typealias editPaymentSuccess = ((_ method: SwyftPaymentMethod)->Void)?
-    public typealias defaultPaymentSuccess = (()->Void)?
-    public typealias removePaymentSuccess = (()->Void)?
-    public typealias sdkAuthSuccess = (_ response: SdkAuthResponse)->Void
-    public typealias sdkEnrollSuccess = (_ response: SdkEnrollResponse)->Void
-    public typealias sdkCustomerAuthSuccess = (_ response: SdkCustomerAuthResponse)->Void
-    public typealias fail = ((_ msg: String)->Void)?
-    
-    //Errors
-    enum ClientError: Error {
-        case runtimeError(String)
-    }
+    internal typealias readSuccess = ((_ data: FireStoreModelProto)->Void)?
+    internal typealias readSuccessWArray = ((_ data: [FireStoreModelProto])->Void)?
+    internal typealias writeSuccess = ((_ msg: String, _ id: String?)->Void)?
+    internal typealias addPaymentSuccess = ((_ method: SwyftPaymentMethod)->Void)?
+    internal typealias editPaymentSuccess = ((_ method: SwyftPaymentMethod)->Void)?
+    internal typealias defaultPaymentSuccess = (()->Void)?
+    internal typealias removePaymentSuccess = (()->Void)?
+    internal typealias sdkAuthSuccess = (_ response: SdkAuthResponse)->Void
+    internal typealias sdkEnrollSuccess = (_ response: SdkEnrollResponse)->Void
+    internal typealias sdkCustomerAuthSuccess = (_ response: SdkCustomerAuthResponse)->Void
+    internal typealias fail = ((_ msg: String)->Void)?
 }

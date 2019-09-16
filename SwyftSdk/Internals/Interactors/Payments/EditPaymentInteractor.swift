@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class EditPaymentInteractor {
+internal class EditPaymentInteractor {
     
-    public static func editPaymentMethod(method: EditPaymentMethod, isDefault: Bool,
+    static func editPaymentMethod(method: EditPaymentMethod, isDefault: Bool,
                                  success:SwyftConstants.editPaymentSuccess, failure: SwyftConstants.fail) {
         DispatchQueue.global(qos: .background).async {
             if let session = Configure.current.session, let customer = session.customer {

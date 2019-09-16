@@ -41,6 +41,17 @@ internal class InitSdkRouter {
     
     func route(_ firebaseApp: FirebaseApp?) {
         
+        DispatchQueue.global(qos: .background).async {
+            self.auth(firebaseApp)
+        }
+    }
+}
+
+// MARK: Internals
+private extension InitSdkRouter {
+    
+    private func auth(_ firebaseApp: FirebaseApp?) {
+        
         Configure.setup(session: SwyftSession(), firebaseApp: firebaseApp)
         
         SdkAuthInteractor.auth(success: { response in

@@ -36,6 +36,10 @@ internal class AuthenticateUserRouter {
             self.checkFirebaseUser()
         }
     }
+}
+
+// MARK: Internals
+private extension AuthenticateUserRouter {
     
     private func checkFirebaseUser() {
         

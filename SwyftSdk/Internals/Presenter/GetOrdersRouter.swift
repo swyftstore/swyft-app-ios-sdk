@@ -33,6 +33,10 @@ internal class GetOrdersRouter {
             self.checkFirebaseUser()
         }
     }
+}
+
+// MARK: Internals
+private extension GetOrdersRouter {
     
     private func checkFirebaseUser() {
         

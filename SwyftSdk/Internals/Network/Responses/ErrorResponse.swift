@@ -14,7 +14,7 @@ class ErrorResponse: XmlResponseBase {
     
     var errorString: String?
     
-    required public init?(map: XMLMap) {
+    required init?(map: XMLMap) {
         super.init()
         errorString = map[errorStringKey].currentValue as? String        
     }

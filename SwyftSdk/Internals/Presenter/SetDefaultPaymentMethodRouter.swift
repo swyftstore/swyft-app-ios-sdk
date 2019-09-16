@@ -29,6 +29,10 @@ internal class SetDefaultPaymentMethodRouter {
             self.checkFirebaseUser()
         }
     }
+}
+
+// MARK: Internals
+private extension SetDefaultPaymentMethodRouter {
     
     private func checkFirebaseUser() {
         

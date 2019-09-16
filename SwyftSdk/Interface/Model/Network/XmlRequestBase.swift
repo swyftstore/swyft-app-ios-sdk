@@ -53,7 +53,7 @@ public class XmlRequestBase{
         return terminalRef
     }
     
-    func buildXMLTag(key: String, value: String?) -> String {
+    internal func buildXMLTag(key: String, value: String?) -> String {
         var tag: String
         if let value = value {
             tag = "<\(key)>\(value)</\(key)>"

@@ -11,14 +11,14 @@ import FirebaseCore
 import FirebaseAuth
 import FirebaseFirestore
 
-public class Configure: NSObject {
+class Configure: NSObject {
     private var _fireBaseApp: FirebaseApp?
     private var _qrColor = UIColor.black
     
     var db : Firestore?
     var session: SwyftSession?
     
-    class public var fireBaseApp: FirebaseApp {
+    class var fireBaseApp: FirebaseApp {
         get {
             if let _ = Static.instance._fireBaseApp {
                 return Static.instance._fireBaseApp!
@@ -28,7 +28,7 @@ public class Configure: NSObject {
         }
     }
     
-    class public var qrColor: UIColor {
+    class var qrColor: UIColor {
         set (color) {
             if let _ = Static.instance.session {
                 return Static.instance._qrColor = color
@@ -54,7 +54,7 @@ public class Configure: NSObject {
         }
     }
     
-    class public func setup(session: SwyftSession, firebaseApp: FirebaseApp?) {
+    class func setup(session: SwyftSession, firebaseApp: FirebaseApp?) {
         current.session = session
         Static.instance._fireBaseApp = firebaseApp
     }

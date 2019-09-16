@@ -10,13 +10,13 @@ import Foundation
 import Moya
 
 
-open class SwyftNetworkAdapter {
+internal class SwyftNetworkAdapter {
     static var plugins : [PluginType] = []
     //plugins.append(NetworkLoggerPlugin())
     static let provider = MoyaProvider<Repository>(plugins:plugins)
     
     
-    public static func request(target: Repository, success successCallback: @escaping (Response) -> Void, error errorCallback: @escaping (Swift.Error) -> Void, failure failureCallback: @escaping (MoyaError) -> Void) {
+    static func request(target: Repository, success successCallback: @escaping (Response) -> Void, error errorCallback: @escaping (Swift.Error) -> Void, failure failureCallback: @escaping (MoyaError) -> Void) {
         provider.request(target) { (result) in
             switch result {
             case .success(let response):

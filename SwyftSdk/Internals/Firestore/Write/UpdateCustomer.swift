@@ -9,21 +9,21 @@
 import Foundation
 import FirebaseFirestore
 
-public class UpdateCustomer: FireStoreWrite {
+internal class UpdateCustomer: FireStoreWrite {
     
-    public var success:SwyftConstants.writeSuccess
+    var success:SwyftConstants.writeSuccess
     
-    public var fail: SwyftConstants.fail
+    var fail: SwyftConstants.fail
     
-    public var db: Firestore?
+    var db: Firestore?
     
-    public required init(success: SwyftConstants.writeSuccess, fail: SwyftConstants.fail) {
+    required init(success: SwyftConstants.writeSuccess, fail: SwyftConstants.fail) {
         self.success = success;
         self.fail = fail;
         self.db = Configure.current.db
     }
         
-    public func querySuccess(msg: String, id: String) {
+    func querySuccess(msg: String, id: String) {
         if let _success = success {
             GetCustomer(success: {(data) in
                 DispatchQueue.main.async {
@@ -36,7 +36,7 @@ public class UpdateCustomer: FireStoreWrite {
         }
     }
     
-    public func queryFailure(msg: String) {
+    func queryFailure(msg: String) {
         if let _fail = fail {
             DispatchQueue.main.async {
                 _fail(msg)
@@ -44,7 +44,7 @@ public class UpdateCustomer: FireStoreWrite {
         }
     }
     
-    public func put(key: String, data: Dictionary<String,Any>) {
+    func put(key: String, data: Dictionary<String,Any>) {
         
         DispatchQueue.global(qos: .background).async {
             if let db = self.db {
@@ -71,7 +71,7 @@ public class UpdateCustomer: FireStoreWrite {
 
     }
     
-    public func add(key: String?, data: Dictionary<String,Any>) {
+    func add(key: String?, data: Dictionary<String,Any>) {
         
         DispatchQueue.global(qos: .background).async {
             if let db = self.db {
@@ -99,12 +99,12 @@ public class UpdateCustomer: FireStoreWrite {
         }
     }
     
-    public func put(key: String, customer: Customer) {
+    func put(key: String, customer: Customer) {
         let data = customer.deserialize()
         put(key: key, data: data)        
     }
     
-    public func add(key: String?, customer: Customer) {
+    func add(key: String?, customer: Customer) {
         let data = customer.deserialize()
         add(key: key, data: data)
     }

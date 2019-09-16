@@ -10,19 +10,19 @@ import Foundation
 import FirebaseFirestore
 
 
-public class GetCustomer: FireStoreRead {
+internal class GetCustomer: FireStoreRead {
 
-    public var success: SwyftConstants.readSuccess
-    public var fail:  SwyftConstants.fail
-    public var db: Firestore?
+    var success: SwyftConstants.readSuccess
+    var fail:  SwyftConstants.fail
+    var db: Firestore?
     
-    public required init(success:  SwyftConstants.readSuccess, fail:  SwyftConstants.fail) {
+    required init(success:  SwyftConstants.readSuccess, fail:  SwyftConstants.fail) {
         self.success = success
         self.fail = fail
         self.db = Configure.current.db
     }
     
-    public func get(id: String) {
+    func get(id: String) {
         
         DispatchQueue.global(qos: .background).async {
             var ref: CollectionReference?
@@ -54,7 +54,7 @@ public class GetCustomer: FireStoreRead {
         }
     }
     
-    public func get(email: String) {
+    func get(email: String) {
         DispatchQueue.global(qos: .background).async {
             var ref: CollectionReference?
             
@@ -84,7 +84,7 @@ public class GetCustomer: FireStoreRead {
         }
     }
     
-    public func querySuccess(data: Dictionary<String, Any>, id: String, done: Bool) {
+    func querySuccess(data: Dictionary<String, Any>, id: String, done: Bool) {
         let customer = Customer()
         customer.serialize(data: data)
         customer.id = id
@@ -96,7 +96,7 @@ public class GetCustomer: FireStoreRead {
         }
     }
     
-    public func queryFailure(msg: String) {
+    func queryFailure(msg: String) {
         if let _fail = fail {
             DispatchQueue.main.async {
                 _fail(msg)

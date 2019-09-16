@@ -8,10 +8,10 @@
 import UIKit
 import MBProgressHUD
 
-public class ProgressHud: NSObject {
+class ProgressHud: NSObject {
     //    private var hud : UIView?
     
-    public class func displayMessage(_ text: String?, fromView : UIView?, mode : MBProgressHUDMode = .text, delayTime : Double = 1, completion : (() -> Void)? = nil) -> MBProgressHUD?{
+    class func displayMessage(_ text: String?, fromView : UIView?, mode : MBProgressHUDMode = .text, delayTime : Double = 1, completion : (() -> Void)? = nil) -> MBProgressHUD?{
         
         if let fromView = fromView, let text = text {
             let hud = MBProgressHUD.showAdded(to: fromView, animated: true)
@@ -31,7 +31,7 @@ public class ProgressHud: NSObject {
         return nil
     }
     
-    public class func displayProgress(_ text: String?, fromView : UIView?, completion : (() -> Void)? = nil) -> MBProgressHUD?{
+    class func displayProgress(_ text: String?, fromView : UIView?, completion : (() -> Void)? = nil) -> MBProgressHUD?{
         
         return self.displayMessage(text, fromView: fromView, mode: .indeterminate, delayTime: 60, completion: completion)
     }

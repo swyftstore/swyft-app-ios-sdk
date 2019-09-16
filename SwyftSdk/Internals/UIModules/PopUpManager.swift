@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class PopUpManager: NSObject {
+class PopUpManager: NSObject {
     
     static let shared = PopUpManager()
     
@@ -34,7 +34,7 @@ public class PopUpManager: NSObject {
         PopUpManager.dismiss()
     }
     
-    public class func present(view: UIView, cancelIsHidden: Bool = false, newQueue: Bool = false, _ completionHandler : (()->Void)? = nil) -> [UIView]?{
+    class func present(view: UIView, cancelIsHidden: Bool = false, newQueue: Bool = false, _ completionHandler : (()->Void)? = nil) -> [UIView]?{
         self.shared.cancelButton.isHidden = cancelIsHidden
         let viewCache = self.shared.viewsQueue
         if newQueue {
@@ -62,7 +62,7 @@ public class PopUpManager: NSObject {
     }
     
     
-    public class func dismiss(_ completionHandler : (()->Void)? = nil) {
+    class func dismiss(_ completionHandler : (()->Void)? = nil) {
         
         if self.hasContentToPresent() {
             self.shared.viewsQueue.removeFirst()
@@ -80,7 +80,7 @@ public class PopUpManager: NSObject {
         
     }
     
-    public class func hasContentToPresent() -> Bool {
+    class func hasContentToPresent() -> Bool {
         if self.shared.viewsQueue.isEmpty {
             return false
         }
@@ -94,7 +94,7 @@ public class PopUpManager: NSObject {
     }
     
     
-    public class func hide(_ wantsToHide: Bool, _ completion : (()->Void)? = nil) {
+    class func hide(_ wantsToHide: Bool, _ completion : (()->Void)? = nil) {
         
         if !self.hasContentToPresent() && !wantsToHide {
             if let completion = completion {

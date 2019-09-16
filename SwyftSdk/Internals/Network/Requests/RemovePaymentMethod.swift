@@ -9,7 +9,7 @@
 import Foundation
 import XMLMapper
 
-public class RemovePaymentMethod: XmlRequestBase {
+class RemovePaymentMethod: XmlRequestBase {
  
     private let cardRefKey = "CARDREFERENCE"
     private let hashKey = "HASH"
@@ -18,7 +18,7 @@ public class RemovePaymentMethod: XmlRequestBase {
     
     var cardRef: String?
     
-    public init(cardRef: String, merchantRef: String) {
+    init(cardRef: String, merchantRef: String) {
         super.init()
         self.cardRef = cardRef;
         self.merchantRef = merchantRef;
@@ -28,7 +28,7 @@ public class RemovePaymentMethod: XmlRequestBase {
         self.hashCode = Utils.createPaymentHash(signature: signature)
     }
     
-    required public init?(map: XMLMap) {
+    required init?(map: XMLMap) {
         super.init()
         terminalId = map[terminalIdKey].currentValue as? String
         cardRef = map[cardRefKey].currentValue as? String
@@ -38,7 +38,7 @@ public class RemovePaymentMethod: XmlRequestBase {
 }
 
 extension RemovePaymentMethod: XMLMappable {
-    public var nodeName: String! {
+    var nodeName: String! {
         get {
             return "SECURECARDREMOVAL"
         }
@@ -46,7 +46,7 @@ extension RemovePaymentMethod: XMLMappable {
         }
     }
     
-    public func mapping(map: XMLMap) {
+    func mapping(map: XMLMap) {
         merchantRef <- map[merchantRefKey]
         terminalId <- map[terminalIdKey]
         cardRef <- map[cardRefKey]
@@ -54,7 +54,7 @@ extension RemovePaymentMethod: XMLMappable {
     }
     
 
-    public func toXMLString() -> String  {
+    func toXMLString() -> String  {
         var xml = "<?xml version='1.0' encoding='UTF-8' standalone='yes' ?> <\(nodeName!)>"
         
         xml = "\(xml)\(buildXMLTag(key: merchantRefKey, value:merchantRef))"

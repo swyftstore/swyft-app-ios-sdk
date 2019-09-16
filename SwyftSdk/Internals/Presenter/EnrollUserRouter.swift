@@ -29,6 +29,10 @@ internal class EnrollUserRouter {
             self.validateData()
         }
     }
+}
+
+// MARK: Internals
+private extension EnrollUserRouter {
     
     private func validateData() {
         

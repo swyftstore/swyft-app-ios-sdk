@@ -9,21 +9,21 @@
 import Foundation
 import FirebaseFirestore
 
-public class GetOrders: FireStoreRead{
-    public var fail: SwyftConstants.fail
-    public var success: SwyftConstants.readSuccessWArray
+internal class GetOrders: FireStoreRead{
+    var fail: SwyftConstants.fail
+    var success: SwyftConstants.readSuccessWArray
     
-    public var db: Firestore?
+    var db: Firestore?
     
     private var orders = Array<Order>()
     
-    public required init(success: SwyftConstants.readSuccessWArray, fail: SwyftConstants.fail) {
+    required init(success: SwyftConstants.readSuccessWArray, fail: SwyftConstants.fail) {
         self.success = success
         self.fail = fail
         self.db = Configure.current.db!
     }
     
-    public func querySuccess(data: Dictionary<String, Any>, id: String, done: Bool) {
+    func querySuccess(data: Dictionary<String, Any>, id: String, done: Bool) {
         let order = Order()
         order.serialize(data: data)
         if self.hasProducts(order: order) {
@@ -37,7 +37,7 @@ public class GetOrders: FireStoreRead{
         }
     }
     
-    public func queryFailure(msg: String) {
+    func queryFailure(msg: String) {
         if let _fail = fail {
             DispatchQueue.main.async {
                 _fail(msg)
@@ -45,7 +45,7 @@ public class GetOrders: FireStoreRead{
         }
     }
     
-    public func get(customerId: String, startIndex: Int, limit: Int) {
+    func get(customerId: String, startIndex: Int, limit: Int) {
         orders.removeAll()
         
         DispatchQueue.global(qos: .background).async {            
