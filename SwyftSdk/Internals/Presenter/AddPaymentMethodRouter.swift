@@ -6,7 +6,7 @@
 //  Copyright © 2019 Swyft. All rights reserved.
 //
 
-internal class AddPaymentMethodRouter {
+class AddPaymentMethodRouter {
     
     // MARK: Singleton
     static let shared = AddPaymentMethodRouter()
@@ -31,6 +31,10 @@ internal class AddPaymentMethodRouter {
             self.checkFirebaseUser()
         }
     }
+}
+
+// MARK: Internals
+private extension AddPaymentMethodRouter {
     
     private func checkFirebaseUser() {
         

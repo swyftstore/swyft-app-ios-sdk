@@ -10,19 +10,19 @@ import Foundation
 import FirebaseFirestore
 
 
-public class GetOrder: FireStoreRead {
-    public var fail: SwyftConstants.fail
-    public var success: SwyftConstants.readSuccess
+class GetOrder: FireStoreRead {
+    var fail: SwyftConstants.fail
+    var success: SwyftConstants.readSuccess
     
-    public var db: Firestore?
+    var db: Firestore?
         
-    public required init(success: SwyftConstants.readSuccess, fail: SwyftConstants.fail) {
+    required init(success: SwyftConstants.readSuccess, fail: SwyftConstants.fail) {
         self.success = success
         self.fail = fail
         self.db = Configure.current.db!
     }
     
-    public func querySuccess(data: Dictionary<String, Any>, id: String, done: Bool) {
+    func querySuccess(data: Dictionary<String, Any>, id: String, done: Bool) {
         let order = Order()
         order.serialize(data: data)
         order.id = id
@@ -33,7 +33,7 @@ public class GetOrder: FireStoreRead {
         }
     }
     
-    public func queryFailure(msg: String) {
+    func queryFailure(msg: String) {
         if let _fail = fail {
             DispatchQueue.main.async {
                 _fail(msg)
@@ -41,7 +41,7 @@ public class GetOrder: FireStoreRead {
         }
     }
     
-    public func get(id: String) {
+    func get(id: String) {
        
         DispatchQueue.global(qos: .background).async {
             var ref: CollectionReference?

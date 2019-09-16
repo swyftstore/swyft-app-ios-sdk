@@ -6,7 +6,7 @@
 //  Copyright © 2019 Swyft. All rights reserved.
 //
 
-internal class GetOrdersRouter {
+class GetOrdersRouter {
     
     // MARK: Singleton
     static let shared = GetOrdersRouter()
@@ -33,6 +33,10 @@ internal class GetOrdersRouter {
             self.checkFirebaseUser()
         }
     }
+}
+
+// MARK: Internals
+private extension GetOrdersRouter {
     
     private func checkFirebaseUser() {
         

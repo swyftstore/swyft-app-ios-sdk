@@ -57,7 +57,7 @@ public enum SwyftError: String, Error {
     case getOrdersFirebaseFailure
 }
 
-extension SwyftError {
+private extension SwyftError {
     
     private func data() -> (code: Int, message: String) {
         
@@ -180,8 +180,10 @@ extension SwyftError {
     }
 }
 
-internal func report(_ error: SwyftError, _ failureCallback: SwyftFailureCallback? = nil) {
-    let errorInfo = error.build()
-    debugPrint(errorInfo)
-    failureCallback?(errorInfo)
+func report(_ error: SwyftError, _ failureCallback: SwyftFailureCallback? = nil) {
+    DispatchQueue.main.async {
+        let errorInfo = error.build()
+        debugPrint(errorInfo)
+        failureCallback?(errorInfo)
+    }
 }

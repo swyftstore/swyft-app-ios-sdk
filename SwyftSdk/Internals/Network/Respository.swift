@@ -9,7 +9,7 @@
 import Foundation
 import Moya
 
-public enum Repository {
+enum Repository {
     case auth(token: String)
     case addPayment(paymentMethod: PaymentMethod)
     case editPayment(paymentMethod: EditPaymentMethod)
@@ -20,7 +20,8 @@ public enum Repository {
 }
 
 extension Repository: TargetType {
-    public var baseURL: URL {
+    
+    var baseURL: URL {
         switch self {
         case .auth:
             return  Utils.getBaseURL()!
@@ -35,7 +36,7 @@ extension Repository: TargetType {
         }
     }
     
-    public var path: String {
+    var path: String {
         switch self {
         case .auth:
             return "rest/auth"
@@ -54,7 +55,7 @@ extension Repository: TargetType {
         }
     }
     
-    public var method: Moya.Method {
+    var method: Moya.Method {
         switch self {
         case .auth:
             return .post
@@ -69,7 +70,7 @@ extension Repository: TargetType {
         }
     }
     
-    public var parameters: [String : Any] {
+    var parameters: [String : Any] {
         switch self {
         case .auth(let token):
             var parameters = [String: Any]()
@@ -82,7 +83,7 @@ extension Repository: TargetType {
     }
     
     
-    public var data: Data {
+    var data: Data {
         switch self {
         case .addPayment(let paymentMethod):
             let req = paymentMethod.toXMLString()
@@ -99,11 +100,11 @@ extension Repository: TargetType {
     }
         
 
-    public var sampleData: Data {
+    var sampleData: Data {
         return Data()
     }
     
-    public var task: Task {
+    var task: Task {
         switch self {
         case .auth:
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
@@ -123,7 +124,7 @@ extension Repository: TargetType {
       
     }
     
-    public var headers: [String : String]? {
+    var headers: [String : String]? {
         var headers = [String: String]()
         switch self {
         case .auth:            

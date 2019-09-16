@@ -6,7 +6,7 @@
 //  Copyright © 2019 Swyft. All rights reserved.
 //
 
-internal class EnrollUserRouter {
+class EnrollUserRouter {
     
     // MARK: Singleton
     static let shared = EnrollUserRouter()
@@ -29,6 +29,10 @@ internal class EnrollUserRouter {
             self.validateData()
         }
     }
+}
+
+// MARK: Internals
+private extension EnrollUserRouter {
     
     private func validateData() {
         

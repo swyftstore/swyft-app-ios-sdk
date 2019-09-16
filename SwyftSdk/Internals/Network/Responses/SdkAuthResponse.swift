@@ -6,19 +6,19 @@
 //  Copyright © 2019 Swyft. All rights reserved.
 //
 
-public struct SdkAuthResponse: Codable {
+struct SdkAuthResponse: Codable {
     let success: Bool
     let message: String
     let payload: SdkAuthPayloadResponse
 }
 
-public struct SdkAuthPayloadResponse: Codable {
+struct SdkAuthPayloadResponse: Codable {
     let authToken: String
     let roles: SdkAuthRolesResponse
     let merchantNames: [String: String]
     let categories: [String]
 }
 
-public struct SdkAuthRolesResponse: Codable {
+struct SdkAuthRolesResponse: Codable {
     let swyftSdkClient: Bool
 }

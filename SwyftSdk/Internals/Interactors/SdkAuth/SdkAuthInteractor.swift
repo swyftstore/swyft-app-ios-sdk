@@ -8,12 +8,12 @@
 
 import Moya
 
-public class SdkAuthInteractor {
+class SdkAuthInteractor {
     
     private static var success: SwyftConstants.sdkAuthSuccess?
     private static var failure: SwyftConstants.fail?
     
-    public static func auth(success successCallback: @escaping SwyftConstants.sdkAuthSuccess, failure failureCallback: SwyftConstants.fail) {
+    static func auth(success successCallback: @escaping SwyftConstants.sdkAuthSuccess, failure failureCallback: SwyftConstants.fail) {
         
         DispatchQueue.global(qos: .background).async {
             

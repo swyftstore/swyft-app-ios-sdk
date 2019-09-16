@@ -8,12 +8,12 @@
 
 import Moya
 
-public class SdkEnrollInteractor {
+class SdkEnrollInteractor {
     
     private static var success: SwyftConstants.sdkEnrollSuccess?
     private static var failure: SwyftConstants.fail?
     
-    public static func enroll(customerInfo info: SwyftUser, idToken: String, success successCallback: @escaping SwyftConstants.sdkEnrollSuccess, failure failureCallback: SwyftConstants.fail) {
+    static func enroll(customerInfo info: SwyftUser, idToken: String, success successCallback: @escaping SwyftConstants.sdkEnrollSuccess, failure failureCallback: SwyftConstants.fail) {
         
         DispatchQueue.global(qos: .background).async {
             

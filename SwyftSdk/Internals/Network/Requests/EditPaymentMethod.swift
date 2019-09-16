@@ -12,7 +12,7 @@ import Foundation
 import Foundation
 import XMLMapper
 
-public class EditPaymentMethod: XmlRequestBase {
+class EditPaymentMethod: XmlRequestBase {
     
     private let cardNumberKey = "CARDNUMBER"
     private let cardExpiryKey = "CARDEXPIRY"
@@ -39,7 +39,7 @@ public class EditPaymentMethod: XmlRequestBase {
         }
     }
     
-    public init(cardNumber: String,
+    init(cardNumber: String,
          cardExpiry: String, cardType: String,
          cardHolderName: String, cvv: String, merchantRef: String) {
         super.init()
@@ -56,7 +56,7 @@ public class EditPaymentMethod: XmlRequestBase {
         self.hashCode = Utils.createPaymentHash(signature: signature)
     }
     
-    required public init?(map: XMLMap) {
+    required init?(map: XMLMap) {
         super.init()
         merchantRef = map[merchantRefKey].currentValue as? String
         terminalId = map[terminalIdKey].currentValue as? String
@@ -75,7 +75,7 @@ public class EditPaymentMethod: XmlRequestBase {
 }
 
 extension EditPaymentMethod: XMLMappable {
-    public var nodeName: String! {
+    var nodeName: String! {
         get {
             return "SECURECARDUPDATE"
         }
@@ -83,7 +83,7 @@ extension EditPaymentMethod: XMLMappable {
         }
     }
     
-    public func mapping(map: XMLMap) {
+    func mapping(map: XMLMap) {
         merchantRef <- map[merchantRefKey]
         terminalId <- map[terminalIdKey]
         cardNumber <- map[cardNumberKey]
@@ -94,7 +94,7 @@ extension EditPaymentMethod: XMLMappable {
         hashCode <- map[hashKey]
     }
     
-    public func toXMLString() -> String  {
+    func toXMLString() -> String  {
         var xml = "<?xml version='1.0' encoding='UTF-8' standalone='yes' ?> <\(nodeName!)>"
         
         xml = "\(xml)\(buildXMLTag(key: merchantRefKey, value:merchantRef))"

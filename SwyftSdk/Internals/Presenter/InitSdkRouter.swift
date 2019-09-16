@@ -10,7 +10,7 @@ import FirebaseCore
 import FirebaseAuth
 import FirebaseFirestore
 
-internal class InitSdkRouter {
+class InitSdkRouter {
     
     // MARK: Singleton
     static let shared = InitSdkRouter()
@@ -40,6 +40,17 @@ internal class InitSdkRouter {
     }
     
     func route(_ firebaseApp: FirebaseApp?) {
+        
+        DispatchQueue.global(qos: .background).async {
+            self.auth(firebaseApp)
+        }
+    }
+}
+
+// MARK: Internals
+private extension InitSdkRouter {
+    
+    private func auth(_ firebaseApp: FirebaseApp?) {
         
         Configure.setup(session: SwyftSession(), firebaseApp: firebaseApp)
         

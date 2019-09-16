@@ -6,13 +6,13 @@
 //  Copyright © 2019 Swyft. All rights reserved.
 //
 
-public struct SdkEnrollResponse: Codable {
+struct SdkEnrollResponse: Codable {
     let success: Bool
     let message: String
     let payload: SdkEnrollPayLoadResponse
 }
 
-public struct SdkEnrollPayLoadResponse: Codable {
+struct SdkEnrollPayLoadResponse: Codable {
     let swyftId: String
     let authToken: String
 }

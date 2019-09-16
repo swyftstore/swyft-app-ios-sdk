@@ -11,7 +11,7 @@ import FirebaseAuth
 
 open class SwyftSession: NSObject {
     
-    public var customer : Customer? {
+    var customer : Customer? {
         didSet {
             if let _ = signOnDate {} else {
                 signOnDate = Date()
@@ -20,16 +20,16 @@ open class SwyftSession: NSObject {
         }
     }
     
-    public var signOnDate: Date?
-    public var sessionExpiry: Date?
-    public var signInMethod: String?    
-    public var merchantNames: [String: String]?
-    public var categories: [String]?
+    var signOnDate: Date?
+    var sessionExpiry: Date?
+    var signInMethod: String?
+    var merchantNames: [String: String]?
+    var categories: [String]?
     
     var sdkFirebaseUser: User?
     var sdkAuthToken: String?
     
-    public func isSessionExpired() -> Bool {
+    func isSessionExpired() -> Bool {
         if let _ = signOnDate, let sessionExpiry = sessionExpiry {
             return Date() >= sessionExpiry
         } else {
@@ -37,7 +37,7 @@ open class SwyftSession: NSObject {
         }
     }
     
-    public func updateSessionExpiry() {
+    func updateSessionExpiry() {
         if !isSessionExpired() {
             sessionExpiry = Date().adding(minutes: SwyftConstants.SessionLength)
         } else {

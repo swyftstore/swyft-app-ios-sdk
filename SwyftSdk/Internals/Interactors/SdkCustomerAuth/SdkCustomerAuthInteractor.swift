@@ -7,12 +7,12 @@
 
 import Moya
 
-public class SdkCustomerAuthInteractor {
+class SdkCustomerAuthInteractor {
     
     private static var success: SwyftConstants.sdkCustomerAuthSuccess?
     private static var failure: SwyftConstants.fail?
     
-    public static func customerAuth(swyftId: String, idToken: String, customAuth: String? = nil, success successCallback: @escaping SwyftConstants.sdkCustomerAuthSuccess, failure failureCallback: SwyftConstants.fail) {
+    static func customerAuth(swyftId: String, idToken: String, customAuth: String? = nil, success successCallback: @escaping SwyftConstants.sdkCustomerAuthSuccess, failure failureCallback: SwyftConstants.fail) {
         
         DispatchQueue.global(qos: .background).async {
             

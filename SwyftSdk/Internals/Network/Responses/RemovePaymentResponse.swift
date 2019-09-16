@@ -17,7 +17,7 @@ class RemoveMethodResponse: XmlResponseBase {
 
     var cardRef: String?
     
-    required public init?(map: XMLMap) {
+    required init?(map: XMLMap) {
         super.init()
         merchantRef = map[merchantRefKey].currentValue as? String
         cardRef = map[cardRefKey].currentValue as? String
@@ -36,7 +36,7 @@ class RemoveMethodResponse: XmlResponseBase {
 }
 
 extension RemoveMethodResponse: XMLMappable {
-    public var nodeName: String! {
+    var nodeName: String! {
         get {
             return "SECURECARDREMOVALRESPONSE"
         }
@@ -44,7 +44,7 @@ extension RemoveMethodResponse: XMLMappable {
         }
     }
     
-    public func mapping(map: XMLMap) {
+    func mapping(map: XMLMap) {
         merchantRef <- map[merchantRefKey]
         cardRef <- map[cardRefKey]
         dateTime <- map[dateTimeKey]

@@ -16,7 +16,7 @@ class PaymentMethodResponse: XmlResponseBase {
     private var hashCode: String?
     var cardRef: String?
     
-    required public init?(map: XMLMap) {
+    required init?(map: XMLMap) {
         super.init()
         merchantRef = map[merchantRefKey].currentValue as? String
         cardRef = map[cardRefKey].currentValue as? String
@@ -37,7 +37,7 @@ class PaymentMethodResponse: XmlResponseBase {
 }
 
 extension PaymentMethodResponse: XMLMappable {
-    public var nodeName: String! {
+    var nodeName: String! {
         get {
             return "SECURECARDREGISTRATIONRESPONSE"
         }
@@ -45,7 +45,7 @@ extension PaymentMethodResponse: XMLMappable {
         }
     }
     
-    public func mapping(map: XMLMap) {
+    func mapping(map: XMLMap) {
         merchantRef <- map[merchantRefKey]
         cardRef <- map[cardRefKey]
         dateTime <- map[dateTimeKey]

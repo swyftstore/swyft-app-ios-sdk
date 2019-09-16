@@ -9,9 +9,9 @@
 import Foundation
 import FirebaseFirestore
 
-public class RemovePaymentInteractor {
+class RemovePaymentInteractor {
     
-    public static func removePaymentMethod(removeMethod: RemovePaymentMethod,
+    static func removePaymentMethod(removeMethod: RemovePaymentMethod,
                                  success:SwyftConstants.removePaymentSuccess,
                                  failure: SwyftConstants.fail) {
         DispatchQueue.global(qos: .background).async {

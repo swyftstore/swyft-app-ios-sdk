@@ -9,20 +9,18 @@
 import Foundation
 import SwiftTryCatch
 
-
-
-public protocol FireStoreModelProto {
-    
+protocol FireStoreModelProto {
     func toString()
 }
 
 public class FireStoreModelSerialize: NSObject {
-    public func serialize(data: Dictionary<String, Any>) {
+    
+    func serialize(data: Dictionary<String, Any>) {
         
         for (key, value) in data {
             let keyName = key as String
             SwiftTryCatch.try({
-                self.setValue(value, forKey: keyName)              
+                self.setValue(value, forKey: keyName)
             }, catch: { (error) in
                 print("Error serializing data \(error!.description)")
             }, finally: {})
@@ -30,7 +28,7 @@ public class FireStoreModelSerialize: NSObject {
         }
     }
     
-    public func deserialize() -> Dictionary<String, Any> {
+    func deserialize() -> Dictionary<String, Any> {
         
         var dict:[String:Any] = [:]
         
@@ -69,9 +67,9 @@ public class FireStoreModelSerialize: NSObject {
     }
 }
 
-
-extension FireStoreModelSerialize {
+private extension FireStoreModelSerialize {
     func propertyNames() -> [String] {
         return Mirror(reflecting: self).children.compactMap { $0.label }
     }
 }
+
