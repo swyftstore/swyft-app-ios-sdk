@@ -13,13 +13,13 @@ enum UIViewBackgroundAnimationState {
     case darken
 }
 
-internal extension Date {
+extension Date {
     func adding(minutes: Int) -> Date {
         return Calendar.current.date(byAdding: .minute, value: minutes, to: self)!
     }
 }
 
-internal extension CIImage {
+extension CIImage {
     /// Inverts the colors and creates a transparent image by converting the mask to alpha.
     /// Input image should be black and white.
     var transparent: CIImage? {
@@ -60,7 +60,7 @@ internal extension CIImage {
     }
 }
 
-internal extension Encodable {
+extension Encodable {
     
     func encodeToJson() -> String? {
         
@@ -89,7 +89,7 @@ internal extension Encodable {
     }
 }
 
-internal extension String {
+extension String {
     
     func decodeFrom<T: Decodable>() -> T? {
         

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Swyft. All rights reserved.
 //
 
-internal class RemovePaymentMethodRouter {
+class RemovePaymentMethodRouter {
     
     // MARK: Singleton
     static let shared = RemovePaymentMethodRouter()

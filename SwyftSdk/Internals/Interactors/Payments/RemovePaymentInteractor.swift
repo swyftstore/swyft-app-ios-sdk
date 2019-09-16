@@ -9,7 +9,7 @@
 import Foundation
 import FirebaseFirestore
 
-internal class RemovePaymentInteractor {
+class RemovePaymentInteractor {
     
     static func removePaymentMethod(removeMethod: RemovePaymentMethod,
                                  success:SwyftConstants.removePaymentSuccess,

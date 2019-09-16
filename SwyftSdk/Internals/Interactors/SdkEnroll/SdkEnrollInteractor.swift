@@ -8,7 +8,7 @@
 
 import Moya
 
-internal class SdkEnrollInteractor {
+class SdkEnrollInteractor {
     
     private static var success: SwyftConstants.sdkEnrollSuccess?
     private static var failure: SwyftConstants.fail?

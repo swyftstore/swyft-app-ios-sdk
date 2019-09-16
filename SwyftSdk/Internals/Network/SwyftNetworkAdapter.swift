@@ -10,7 +10,7 @@ import Foundation
 import Moya
 
 
-internal class SwyftNetworkAdapter {
+class SwyftNetworkAdapter {
     static var plugins : [PluginType] = []
     //plugins.append(NetworkLoggerPlugin())
     static let provider = MoyaProvider<Repository>(plugins:plugins)

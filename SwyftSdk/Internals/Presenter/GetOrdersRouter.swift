@@ -6,7 +6,7 @@
 //  Copyright © 2019 Swyft. All rights reserved.
 //
 
-internal class GetOrdersRouter {
+class GetOrdersRouter {
     
     // MARK: Singleton
     static let shared = GetOrdersRouter()

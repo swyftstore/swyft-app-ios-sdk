@@ -10,7 +10,7 @@ import Foundation
 import FirebaseCore
 import FirebaseFirestore
 
-internal protocol FireStoreRead: class {
+protocol FireStoreRead: class {
    
     var fail: SwyftConstants.fail {get}
     var db: Firestore? {get}
@@ -19,7 +19,7 @@ internal protocol FireStoreRead: class {
     func queryFailure(msg: String)
 }
 
-internal extension FireStoreRead {
+extension FireStoreRead {
     
     func queryDB(query: Query)  {
         DispatchQueue.global(qos: .background).async {

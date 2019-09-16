@@ -9,7 +9,7 @@
 import Foundation
 import Moya
 
-internal enum Repository {
+enum Repository {
     case auth(token: String)
     case addPayment(paymentMethod: PaymentMethod)
     case editPayment(paymentMethod: EditPaymentMethod)

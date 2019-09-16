@@ -9,7 +9,7 @@
 import FirebaseCore
 import FirebaseAuth
 
-internal class AuthenticateUserRouter {
+class AuthenticateUserRouter {
     
     // MARK: Singleton
     static let shared = AuthenticateUserRouter()

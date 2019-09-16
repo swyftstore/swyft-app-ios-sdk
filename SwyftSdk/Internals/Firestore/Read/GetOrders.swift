@@ -9,7 +9,7 @@
 import Foundation
 import FirebaseFirestore
 
-internal class GetOrders: FireStoreRead{
+class GetOrders: FireStoreRead{
     var fail: SwyftConstants.fail
     var success: SwyftConstants.readSuccessWArray
     

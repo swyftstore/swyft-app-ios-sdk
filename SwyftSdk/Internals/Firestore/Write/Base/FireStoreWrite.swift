@@ -10,7 +10,7 @@ import Foundation
 import FirebaseCore
 import FirebaseFirestore
 
-internal protocol FireStoreWrite: class {
+protocol FireStoreWrite: class {
     
     var success: SwyftConstants.writeSuccess {get}
     var fail: SwyftConstants.fail {get}
@@ -23,7 +23,7 @@ internal protocol FireStoreWrite: class {
     func put(key: String, data: Dictionary<String,Any>)
 }
 
-internal extension FireStoreWrite {
+extension FireStoreWrite {
     
     func addDocument(document: DocumentReference, data: Dictionary<String,Any>)  {
         DispatchQueue.global(qos: .background).async {

@@ -9,7 +9,7 @@
 import Foundation
 
 
-internal class DefaultPaymentInteractor {
+class DefaultPaymentInteractor {
     
     static func setDefaultPaymentMethod(defaultMethod: SwyftPaymentMethod,
                                     success:SwyftConstants.defaultPaymentSuccess, failure: SwyftConstants.fail) {

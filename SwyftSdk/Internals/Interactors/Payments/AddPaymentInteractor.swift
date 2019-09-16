@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal class AddPaymentInteractor {
+class AddPaymentInteractor {
     
     static func addPaymentMethod(method: PaymentMethod, isDefault: Bool,
                                  success:SwyftConstants.addPaymentSuccess, failure: SwyftConstants.fail) {

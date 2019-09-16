@@ -180,7 +180,7 @@ private extension SwyftError {
     }
 }
 
-internal func report(_ error: SwyftError, _ failureCallback: SwyftFailureCallback? = nil) {
+func report(_ error: SwyftError, _ failureCallback: SwyftFailureCallback? = nil) {
     DispatchQueue.main.async {
         let errorInfo = error.build()
         debugPrint(errorInfo)

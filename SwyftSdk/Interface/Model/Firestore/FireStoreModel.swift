@@ -15,7 +15,7 @@ protocol FireStoreModelProto {
 
 public class FireStoreModelSerialize: NSObject {
     
-    internal func serialize(data: Dictionary<String, Any>) {
+    func serialize(data: Dictionary<String, Any>) {
         
         for (key, value) in data {
             let keyName = key as String
@@ -28,7 +28,7 @@ public class FireStoreModelSerialize: NSObject {
         }
     }
     
-    internal func deserialize() -> Dictionary<String, Any> {
+    func deserialize() -> Dictionary<String, Any> {
         
         var dict:[String:Any] = [:]
         

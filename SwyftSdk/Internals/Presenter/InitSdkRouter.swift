@@ -10,7 +10,7 @@ import FirebaseCore
 import FirebaseAuth
 import FirebaseFirestore
 
-internal class InitSdkRouter {
+class InitSdkRouter {
     
     // MARK: Singleton
     static let shared = InitSdkRouter()
