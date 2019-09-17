@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5FE08699CEBF426A424C3C96 /* Pods_SwyftSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868BFDACAFB50C90DF227616 /* Pods_SwyftSdk.framework */; };
 		B10EE0D6E8A3E2FD6D946092 /* Pods_SwyftSdkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570AF5B237BF66049749A57E /* Pods_SwyftSdkTests.framework */; };
-		B19DE4A4232C293300E7CC23 /* SwyftSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE48D232C293300E7CC23 /* SwyftSDK.swift */; };
+		B19DE4A4232C293300E7CC23 /* SwyftSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE48D232C293300E7CC23 /* SwyftSdk.swift */; };
 		B19DE4A5232C293300E7CC23 /* SwyftAuthenticateUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE48F232C293300E7CC23 /* SwyftAuthenticateUserResponse.swift */; };
 		B19DE4A6232C293300E7CC23 /* SwyftSetDefaultPaymentMethodResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE490232C293300E7CC23 /* SwyftSetDefaultPaymentMethodResponse.swift */; };
 		B19DE4A7232C293300E7CC23 /* SwyftGetPaymentMethodsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE491232C293300E7CC23 /* SwyftGetPaymentMethodsResponse.swift */; };
@@ -113,7 +113,7 @@
 		80B062963F20B808F2AA587B /* Pods-SwyftSdkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwyftSdkTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwyftSdkTests/Pods-SwyftSdkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		868BFDACAFB50C90DF227616 /* Pods_SwyftSdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwyftSdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88DB4010AA83575ED758B0CD /* Pods-SwyftSdk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwyftSdk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwyftSdk/Pods-SwyftSdk.debug.xcconfig"; sourceTree = "<group>"; };
-		B19DE48D232C293300E7CC23 /* SwyftSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwyftSDK.swift; sourceTree = "<group>"; };
+		B19DE48D232C293300E7CC23 /* SwyftSdk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwyftSdk.swift; sourceTree = "<group>"; };
 		B19DE48F232C293300E7CC23 /* SwyftAuthenticateUserResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwyftAuthenticateUserResponse.swift; sourceTree = "<group>"; };
 		B19DE490232C293300E7CC23 /* SwyftSetDefaultPaymentMethodResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwyftSetDefaultPaymentMethodResponse.swift; sourceTree = "<group>"; };
 		B19DE491232C293300E7CC23 /* SwyftGetPaymentMethodsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwyftGetPaymentMethodsResponse.swift; sourceTree = "<group>"; };
@@ -306,10 +306,11 @@
 		B19DE48C232C293300E7CC23 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				B19DE48D232C293300E7CC23 /* SwyftSDK.swift */,
+				B19DE48D232C293300E7CC23 /* SwyftSdk.swift */,
 				B19DE48E232C293300E7CC23 /* Responses */,
 				B19DE499232C293300E7CC23 /* Model */,
 				B19DE496232C293300E7CC23 /* Utils */,
+				B19DE4CA232C294700E7CC23 /* Resources */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -366,7 +367,6 @@
 				B19DE4ED232C294700E7CC23 /* UIModules */,
 				B19DE4FD232C294700E7CC23 /* Data */,
 				B19DE4EA232C294700E7CC23 /* Utils */,
-				B19DE4CA232C294700E7CC23 /* Resources */,
 			);
 			path = Internals;
 			sourceTree = "<group>";
@@ -831,7 +831,7 @@
 				B19DE515232C294700E7CC23 /* Respository.swift in Sources */,
 				B19DE501232C294700E7CC23 /* FireStoreWrite.swift in Sources */,
 				B19DE50E232C294700E7CC23 /* InitSdkRouter.swift in Sources */,
-				B19DE4A4232C293300E7CC23 /* SwyftSDK.swift in Sources */,
+				B19DE4A4232C293300E7CC23 /* SwyftSdk.swift in Sources */,
 				B19DE511232C294700E7CC23 /* SetDefaultPaymentMethodRouter.swift in Sources */,
 				B19DE51D232C294700E7CC23 /* RemovePaymentMethod.swift in Sources */,
 				B19DE514232C294700E7CC23 /* RemovePaymentMethodRouter.swift in Sources */,

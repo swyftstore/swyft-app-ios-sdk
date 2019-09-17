@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rmP-Xg-SpL">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--MainVC-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="MainVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="MainVC" customModule="DemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swyft SDK Demo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Mm-MQ-Nft">
+                                <rect key="frame" x="121.5" y="118" width="171.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYs-Zw-2LJ">
+                                <rect key="frame" x="10" y="174.5" width="394" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ZGw-nR-xnj"/>
+                                </constraints>
+                                <state key="normal" title="Users"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTapUsers:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JA6-EV-eOv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TrC-h8-GcF">
+                                <rect key="frame" x="10" y="254.5" width="394" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="rLN-pB-M52"/>
+                                </constraints>
+                                <state key="normal" title="Orders"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTapOrders:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pFE-es-37Y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Na-yL-5Ix">
+                                <rect key="frame" x="10" y="334.5" width="394" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="AVf-ZY-gyi"/>
+                                </constraints>
+                                <state key="normal" title="Payment Methods"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTapPaymentMethods:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yun-HE-vLq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="TYs-Zw-2LJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="3Di-Jw-u3A"/>
+                            <constraint firstItem="9Na-yL-5Ix" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="48y-CU-INR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TYs-Zw-2LJ" secondAttribute="trailing" constant="10" id="8wT-bf-geA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TrC-h8-GcF" secondAttribute="trailing" constant="10" id="IpV-SD-OfJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9Na-yL-5Ix" secondAttribute="trailing" constant="10" id="Ly1-pP-ErS"/>
+                            <constraint firstItem="1Mm-MQ-Nft" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NsA-fS-oiD"/>
+                            <constraint firstItem="9Na-yL-5Ix" firstAttribute="top" secondItem="TrC-h8-GcF" secondAttribute="bottom" constant="30" id="Ruu-hJ-LWL"/>
+                            <constraint firstItem="TrC-h8-GcF" firstAttribute="top" secondItem="TYs-Zw-2LJ" secondAttribute="bottom" constant="30" id="SNv-qT-9oE"/>
+                            <constraint firstItem="TrC-h8-GcF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="TQ8-0F-egy"/>
+                            <constraint firstItem="1Mm-MQ-Nft" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="wCs-kx-ahe"/>
+                            <constraint firstItem="TYs-Zw-2LJ" firstAttribute="top" secondItem="1Mm-MQ-Nft" secondAttribute="bottom" constant="30" id="wei-44-WRD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Liy-Yj-db6"/>
+                    <connections>
+                        <outlet property="ordersButton" destination="TrC-h8-GcF" id="vfK-Mt-TFd"/>
+                        <outlet property="paymentMethodsButton" destination="9Na-yL-5Ix" id="tXg-gk-k8q"/>
+                        <outlet property="usersButton" destination="TYs-Zw-2LJ" id="1mh-Cc-DkK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="957.97101449275374" y="20.758928571428569"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7kW-EF-nn5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rmP-Xg-SpL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dcA-ts-Olm">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="5yc-xS-Mp8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R9X-Qm-BFC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="193" y="21"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" red="0.98035818340000003" green="0.42788624759999999" blue="0.15458315610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</document>
