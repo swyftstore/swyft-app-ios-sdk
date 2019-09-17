@@ -30,9 +30,9 @@ Before using the Swyft SDK you will need request access credentials and install 
 
 ### Request SDK credentials 
 
-In order to use the SDK you need to request credentials by supplying swyft with your Applications Bundle ID. The credentials will should be stored in a pList file that you will need to include in your applications build path. 
+In order to use the SDK you need to request credentials by supplying swyft with your Applications Bundle ID. The credentials will should be stored in a plist file that you will need to include in your applications build path. 
 
-Sample JSON file swyft-sdk.json
+Sample plist entry
 ```xml
 <key>TERMINAL_ID</key>
 <string>00000001</string>
@@ -65,14 +65,15 @@ Below you will find some code examples for how you can intergate the sdk with yo
 
 ### SDK Initilization
 
-The first step when integrating the Swyft SDK with your project is to the initializion methond on the skd. We recommend doing this on your main activities onCreate method. The initializion methond takes in the application context that is used to access some local resources within the SDK. 
-```java
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
-    SwyftSdk.initSDK(getApplicationContext());
-}
+The first step when integrating the Swyft SDK with your project is to the initializion methond on the skd. We recommend doing this in your appdelegate's application method. The initializion methond takes in the application context that is used to access some local resources within the SDK. 
+```swift
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Override point for customization after application launch.
+
+        SwyftSdk.initSDK()
+        
+        return true
+    }
 ```
 
 <a name="enroll"/>
