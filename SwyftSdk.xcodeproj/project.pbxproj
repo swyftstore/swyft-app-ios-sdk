@@ -359,14 +359,14 @@
 		B19DE4B8232C294700E7CC23 /* Internals */ = {
 			isa = PBXGroup;
 			children = (
-				B19DE4CD232C294700E7CC23 /* Presenter */,
+				B19DE4CD232C294700E7CC23 /* Routers */,
 				B19DE4B9232C294700E7CC23 /* Firestore */,
-				B19DE4CA232C294700E7CC23 /* Resources */,
-				B19DE4D6232C294700E7CC23 /* Network */,
-				B19DE4EA232C294700E7CC23 /* Utils */,
-				B19DE4ED232C294700E7CC23 /* UIModules */,
 				B19DE4F1232C294700E7CC23 /* Interactors */,
+				B19DE4D6232C294700E7CC23 /* Network */,
+				B19DE4ED232C294700E7CC23 /* UIModules */,
 				B19DE4FD232C294700E7CC23 /* Data */,
+				B19DE4EA232C294700E7CC23 /* Utils */,
+				B19DE4CA232C294700E7CC23 /* Resources */,
 			);
 			path = Internals;
 			sourceTree = "<group>";
@@ -383,8 +383,8 @@
 		B19DE4BA232C294700E7CC23 /* Write */ = {
 			isa = PBXGroup;
 			children = (
-				B19DE4BB232C294700E7CC23 /* UpdateCustomer.swift */,
 				B19DE4BC232C294700E7CC23 /* Base */,
+				B19DE4BB232C294700E7CC23 /* UpdateCustomer.swift */,
 			);
 			path = Write;
 			sourceTree = "<group>";
@@ -400,13 +400,13 @@
 		B19DE4BE232C294700E7CC23 /* Read */ = {
 			isa = PBXGroup;
 			children = (
+				B19DE4C5232C294700E7CC23 /* Base */,
 				B19DE4BF232C294700E7CC23 /* GetProduct.swift */,
 				B19DE4C0232C294700E7CC23 /* GetStore.swift */,
 				B19DE4C1232C294700E7CC23 /* GetPaymentMethods.swift */,
 				B19DE4C2232C294700E7CC23 /* GetCustomer.swift */,
 				B19DE4C3232C294700E7CC23 /* GetStores.swift */,
 				B19DE4C4232C294700E7CC23 /* GetOrders.swift */,
-				B19DE4C5232C294700E7CC23 /* Base */,
 				B19DE4C7232C294700E7CC23 /* GetOrder.swift */,
 			);
 			path = Read;
@@ -429,7 +429,7 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		B19DE4CD232C294700E7CC23 /* Presenter */ = {
+		B19DE4CD232C294700E7CC23 /* Routers */ = {
 			isa = PBXGroup;
 			children = (
 				B19DE4CF232C294700E7CC23 /* InitSdkRouter.swift */,
@@ -441,17 +441,17 @@
 				B19DE4D5232C294700E7CC23 /* RemovePaymentMethodRouter.swift */,
 				B19DE4CE232C294700E7CC23 /* GetOrdersRouter.swift */,
 			);
-			path = Presenter;
+			path = Routers;
 			sourceTree = "<group>";
 		};
 		B19DE4D6232C294700E7CC23 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				B19DE4D7232C294700E7CC23 /* Respository.swift */,
+				B19DE4E7232C294700E7CC23 /* Base */,
 				B19DE4D8232C294700E7CC23 /* Responses */,
 				B19DE4E0232C294700E7CC23 /* Requests */,
 				B19DE4E6232C294700E7CC23 /* SwyftNetworkAdapter.swift */,
-				B19DE4E7232C294700E7CC23 /* Base */,
+				B19DE4D7232C294700E7CC23 /* Respository.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -512,8 +512,8 @@
 		B19DE4F1232C294700E7CC23 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
-				B19DE4F2232C294700E7CC23 /* SdkEnroll */,
 				B19DE4F4232C294700E7CC23 /* Payments */,
+				B19DE4F2232C294700E7CC23 /* SdkEnroll */,
 				B19DE4F9232C294700E7CC23 /* SdkAuth */,
 				B19DE4FB232C294700E7CC23 /* SdkCustomerAuth */,
 			);

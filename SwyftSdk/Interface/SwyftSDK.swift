@@ -41,8 +41,8 @@ public final class SwyftSDK {
         AddPaymentMethodRouter.shared.route(method, isDefault, success, failure)
     }
     
-    public static func getPaymentMethods(success: @escaping SwyftGetPaymentMethodsCallback, failure: @escaping SwyftFailureCallback) {
-        GetPaymentMethodsRouter.shared.route(success, failure)
+    public static func getPaymentMethods(customerId: String, success: @escaping SwyftGetPaymentMethodsCallback, failure: @escaping SwyftFailureCallback) {
+        GetPaymentMethodsRouter.shared.route(customerId, success, failure)
     }
     
     public static func setDefaultPaymentMethod(defaultMethod: SwyftPaymentMethod, success: @escaping SwyftSetDefaultPaymentMethodCallback, failure: @escaping SwyftFailureCallback) {
