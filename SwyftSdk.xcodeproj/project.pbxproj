@@ -41,7 +41,6 @@
 		B19DE509232C294700E7CC23 /* GetOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4C7232C294700E7CC23 /* GetOrder.swift */; };
 		B19DE50A232C294700E7CC23 /* FireStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4C9232C294700E7CC23 /* FireStoreModel.swift */; };
 		B19DE50B232C294700E7CC23 /* MockStores.json in Resources */ = {isa = PBXBuildFile; fileRef = B19DE4CB232C294700E7CC23 /* MockStores.json */; };
-		B19DE50C232C294700E7CC23 /* Swyft-GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B19DE4CC232C294700E7CC23 /* Swyft-GoogleService-Info.plist */; };
 		B19DE50D232C294700E7CC23 /* GetOrdersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4CE232C294700E7CC23 /* GetOrdersRouter.swift */; };
 		B19DE50E232C294700E7CC23 /* InitSdkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4CF232C294700E7CC23 /* InitSdkRouter.swift */; };
 		B19DE50F232C294700E7CC23 /* GetPaymentMethodsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4D0232C294700E7CC23 /* GetPaymentMethodsRouter.swift */; };
@@ -80,6 +79,7 @@
 		B19DE530232C294700E7CC23 /* SdkCustomerAuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4FC232C294700E7CC23 /* SdkCustomerAuthInteractor.swift */; };
 		B19DE531232C294700E7CC23 /* Configure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4FE232C294700E7CC23 /* Configure.swift */; };
 		B19DE532232C294700E7CC23 /* SwyftSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4FF232C294700E7CC23 /* SwyftSession.swift */; };
+		B1D717DD2331874B00E1900E /* Swyft-GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1D717DC2331874B00E1900E /* Swyft-GoogleService-Info.plist */; };
 		CEB6B780BC4F2AB0D3241B7F /* Pods_SwyftSdkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39274FC2924BF3112B5BD2C1 /* Pods_SwyftSdkTests.framework */; };
 		D08D7F3522AB123600A6298B /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08D7F3422AB123600A6298B /* Moya.framework */; };
 		D0997B1D2280AEBC00A82DFB /* SwyftSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0997B132280AEBC00A82DFB /* SwyftSdk.framework */; };
@@ -145,7 +145,6 @@
 		B19DE4C7232C294700E7CC23 /* GetOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetOrder.swift; sourceTree = "<group>"; };
 		B19DE4C9232C294700E7CC23 /* FireStoreModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireStoreModel.swift; sourceTree = "<group>"; };
 		B19DE4CB232C294700E7CC23 /* MockStores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockStores.json; sourceTree = "<group>"; };
-		B19DE4CC232C294700E7CC23 /* Swyft-GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Swyft-GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B19DE4CE232C294700E7CC23 /* GetOrdersRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetOrdersRouter.swift; sourceTree = "<group>"; };
 		B19DE4CF232C294700E7CC23 /* InitSdkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitSdkRouter.swift; sourceTree = "<group>"; };
 		B19DE4D0232C294700E7CC23 /* GetPaymentMethodsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetPaymentMethodsRouter.swift; sourceTree = "<group>"; };
@@ -184,6 +183,7 @@
 		B19DE4FC232C294700E7CC23 /* SdkCustomerAuthInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SdkCustomerAuthInteractor.swift; sourceTree = "<group>"; };
 		B19DE4FE232C294700E7CC23 /* Configure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configure.swift; sourceTree = "<group>"; };
 		B19DE4FF232C294700E7CC23 /* SwyftSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwyftSession.swift; sourceTree = "<group>"; };
+		B1D717DC2331874B00E1900E /* Swyft-GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Swyft-GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CBD541C0DB7602FF109E3644 /* Pods_SwyftSdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwyftSdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D02C0F142294803E00856279 /* JVFloatLabeledTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JVFloatLabeledTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D06A398122849FAE00DBF639 /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -310,7 +310,6 @@
 				B19DE48E232C293300E7CC23 /* Responses */,
 				B19DE499232C293300E7CC23 /* Model */,
 				B19DE496232C293300E7CC23 /* Utils */,
-				B19DE4CA232C294700E7CC23 /* Resources */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -365,6 +364,7 @@
 				B19DE4F1232C294700E7CC23 /* Interactors */,
 				B19DE4D6232C294700E7CC23 /* Network */,
 				B19DE4ED232C294700E7CC23 /* UIModules */,
+				B19DE4CA232C294700E7CC23 /* Resources */,
 				B19DE4FD232C294700E7CC23 /* Data */,
 				B19DE4EA232C294700E7CC23 /* Utils */,
 			);
@@ -423,8 +423,8 @@
 		B19DE4CA232C294700E7CC23 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B1D717DC2331874B00E1900E /* Swyft-GoogleService-Info.plist */,
 				B19DE4CB232C294700E7CC23 /* MockStores.json */,
-				B19DE4CC232C294700E7CC23 /* Swyft-GoogleService-Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -726,7 +726,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B19DE50B232C294700E7CC23 /* MockStores.json in Resources */,
-				B19DE50C232C294700E7CC23 /* Swyft-GoogleService-Info.plist in Resources */,
+				B1D717DD2331874B00E1900E /* Swyft-GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

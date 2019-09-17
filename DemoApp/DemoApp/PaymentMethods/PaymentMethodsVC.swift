@@ -22,6 +22,8 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        KVNProgress.show()
+        
         SwyftSdk.getPaymentMethods(customerId: customerId, success: { response in
             
             self.paymentMethods = response.paymentMethods
@@ -37,12 +39,19 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         let isDefault = false
         let cardNumber = "4111111111111111"
-        let cardExpiry = "10/20"
+        let cardExpiry = "10/2020"
         let cardType = "VISA"
         let cardHolderName = "Carl Peterson"
         let cvv = "987"
         
-        let method = PaymentMethod(cardNumber: cardNumber, cardExpiry: cardExpiry, cardType: cardType, cardHolderName: cardHolderName, cvv: cvv)
+        let method = PaymentMethod(
+            cardNumber: cardNumber,
+            cardExpiry: cardExpiry,
+            cardType: cardType,
+            cardHolderName: cardHolderName,
+            cvv: cvv)
+        
+        KVNProgress.show()
         
         SwyftSdk.addPaymentMethod(method: method, isDefault: isDefault, success: { response in
             

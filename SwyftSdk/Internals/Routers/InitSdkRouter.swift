@@ -27,7 +27,7 @@ class InitSdkRouter {
             report(.initSdkNoSwyftFile)
             return
         }
-        
+
         guard let firebaseOptions = FirebaseOptions(contentsOfFile: filePath) else {
             report(.initSdkNoFirebaseOptions)
             return
@@ -52,7 +52,7 @@ private extension InitSdkRouter {
     
     private func auth(_ firebaseApp: FirebaseApp?) {
         
-        Configure.setup(session: SwyftSession(), firebaseApp: firebaseApp)
+        Configure.setup(firebaseApp: firebaseApp)
         
         SdkAuthInteractor.auth(success: { response in
             

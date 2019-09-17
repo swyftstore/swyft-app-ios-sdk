@@ -19,6 +19,8 @@ class OrdersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        KVNProgress.show()
+        
         let customerId = "qwerty12345"
         let start = 1
         let pageSize = 20

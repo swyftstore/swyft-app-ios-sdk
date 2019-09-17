@@ -28,6 +28,8 @@
 	<string>https://payments.worldnettps.com/</string>
 	<key>SWYFT_SDK_AUTH_KEY</key>
 	<string>fasdfg32243tfavartefgfy5h647sdfv2R2</string>
+	<key>TERMINAL_ID</key>
+	<string>19894001</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
