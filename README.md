@@ -68,12 +68,12 @@ Below you will find some code examples for how you can intergate the sdk with yo
 The first step when integrating the Swyft SDK with your project is to the initializion methond on the skd. We recommend doing this in your appdelegate's application method. The initializion methond takes in the application context that is used to access some local resources within the SDK. 
 ```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    // Override point for customization after application launch.
 
-        SwyftSdk.initSDK()
-        
-        return true
-    }
+    SwyftSdk.initSDK()
+
+    return true
+}
 ```
 
 <a name="enroll"/>
