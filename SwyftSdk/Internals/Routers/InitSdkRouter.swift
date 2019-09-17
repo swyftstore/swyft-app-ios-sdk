@@ -17,8 +17,8 @@ class InitSdkRouter {
     private init() {}
     
     // MARK: Data
-    let appName = "com_swyft_SwyftSdk"
-    let googleFile = "Swyft-GoogleService-Info"
+    private let appName = "com_swyft_SwyftSdk"
+    private let googleFile = "Swyft-GoogleService-Info"
     
     // MARK: Actions
     func route() {

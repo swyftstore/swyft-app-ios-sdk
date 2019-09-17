@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uCK-5q-qBl">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--UsersVC-->
+        <scene sceneID="tgD-7z-KHL">
+            <objects>
+                <viewController storyboardIdentifier="UsersVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uCK-5q-qBl" customClass="UsersVC" customModule="DemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aVV-LB-2th">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swyft SDK Demo: Users" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iva-pU-dWw">
+                                <rect key="frame" x="86.5" y="74" width="241" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jP6-j8-Ln3">
+                                <rect key="frame" x="10" y="130.5" width="394" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="c7N-6b-t4g"/>
+                                </constraints>
+                                <state key="normal" title="enrollUser(SwyftUser)"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTapEnroll:" destination="uCK-5q-qBl" eventType="touchUpInside" id="81B-X2-G5H"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afU-L9-Gtm">
+                                <rect key="frame" x="10" y="290.5" width="394" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="pPB-91-CNR"/>
+                                </constraints>
+                                <state key="normal" title="authenticateUser(swyftId, qrCodeColor, customAuth)"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTapAuthCustom:" destination="uCK-5q-qBl" eventType="touchUpInside" id="vZr-JM-0rE"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iOc-XW-KRe">
+                                <rect key="frame" x="83" y="370.5" width="248" height="248.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="iOc-XW-KRe" secondAttribute="height" multiplier="1:1" id="r0a-1X-fS1"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XK3-wR-0SA">
+                                <rect key="frame" x="10" y="210.5" width="394" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="fIs-X3-Tgx"/>
+                                </constraints>
+                                <state key="normal" title="authenticateUser(swyftId, qrCodeColor)"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTapAuthStandard:" destination="uCK-5q-qBl" eventType="touchUpInside" id="FEV-IT-hDV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="afU-L9-Gtm" secondAttribute="trailing" constant="10" id="0zg-Pa-6EC"/>
+                            <constraint firstItem="iOc-XW-KRe" firstAttribute="top" secondItem="afU-L9-Gtm" secondAttribute="bottom" constant="30" id="AM6-UP-nud"/>
+                            <constraint firstItem="iOc-XW-KRe" firstAttribute="width" secondItem="aVV-LB-2th" secondAttribute="width" multiplier="0.6" id="APs-c9-VU7"/>
+                            <constraint firstItem="Iva-pU-dWw" firstAttribute="top" secondItem="N4w-Eu-MDK" secondAttribute="top" constant="30" id="I9c-Vq-eQY"/>
+                            <constraint firstItem="afU-L9-Gtm" firstAttribute="leading" secondItem="N4w-Eu-MDK" secondAttribute="leading" constant="10" id="K3Y-ti-fhK"/>
+                            <constraint firstItem="XK3-wR-0SA" firstAttribute="leading" secondItem="N4w-Eu-MDK" secondAttribute="leading" constant="10" id="KiJ-EV-ltT"/>
+                            <constraint firstItem="jP6-j8-Ln3" firstAttribute="leading" secondItem="N4w-Eu-MDK" secondAttribute="leading" constant="10" id="NXU-2e-ztt"/>
+                            <constraint firstItem="afU-L9-Gtm" firstAttribute="top" secondItem="XK3-wR-0SA" secondAttribute="bottom" constant="30" id="TIM-9x-700"/>
+                            <constraint firstItem="Iva-pU-dWw" firstAttribute="centerX" secondItem="aVV-LB-2th" secondAttribute="centerX" id="XPW-y3-r6J"/>
+                            <constraint firstItem="N4w-Eu-MDK" firstAttribute="trailing" secondItem="XK3-wR-0SA" secondAttribute="trailing" constant="10" id="d0V-EH-nIS"/>
+                            <constraint firstItem="jP6-j8-Ln3" firstAttribute="top" secondItem="Iva-pU-dWw" secondAttribute="bottom" constant="30" id="gw7-N5-nlC"/>
+                            <constraint firstItem="N4w-Eu-MDK" firstAttribute="trailing" secondItem="jP6-j8-Ln3" secondAttribute="trailing" constant="10" id="jhu-q7-wSJ"/>
+                            <constraint firstItem="XK3-wR-0SA" firstAttribute="top" secondItem="jP6-j8-Ln3" secondAttribute="bottom" constant="30" id="qyA-ed-wSE"/>
+                            <constraint firstItem="iOc-XW-KRe" firstAttribute="centerX" secondItem="aVV-LB-2th" secondAttribute="centerX" id="vi7-4G-0vp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="N4w-Eu-MDK"/>
+                    </view>
+                    <connections>
+                        <outlet property="authCustomButon" destination="afU-L9-Gtm" id="pu8-0D-t9J"/>
+                        <outlet property="authStandardButton" destination="XK3-wR-0SA" id="Vbq-NM-cE5"/>
+                        <outlet property="enrollButton" destination="jP6-j8-Ln3" id="IyR-Mw-5b1"/>
+                        <outlet property="qrCodeImage" destination="iOc-XW-KRe" id="Jmw-pT-Wod"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w1s-Bs-Rbe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9" y="-42"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" red="0.98035818340000003" green="0.42788624759999999" blue="0.15458315610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</document>

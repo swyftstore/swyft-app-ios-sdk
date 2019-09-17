@@ -1,5 +1,5 @@
 //
-//  SwyftSDK.swift
+//  SwyftSdk.swift
 //  SwyftSdk
 //
 //  Created by Rigoberto Saenz Imbacuan on 9/12/19.
@@ -17,7 +17,7 @@ public typealias SwyftRemovePaymentMethodCallback = (_ response: SwyftRemovePaym
 public typealias SwyftGetOrdersCallback = (_ response: SwyftGetOrdersResponse)->()
 public typealias SwyftFailureCallback = (_ error: NSError)->()
 
-public final class SwyftSDK {
+public final class SwyftSdk {
     
     private init() {}
     
