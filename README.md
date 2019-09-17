@@ -103,8 +103,8 @@ SwyftSdk.enrollUser(user: customerInfo, success: { response in
 After you have enrolled a user you can authenticate the user. This creates a session for the user so they can interact with the Swyft Vision Cabinet by scanning a QR Code returned by the sdk for your application to display. You can either supply an authentication string for the SDK to display as a QR Code or have the SDK generate a dynamic one for you. You can set the qrCode foreground color by passing in the UIColor value you wish to use.
 
 - Auto Generated QR Code
-```java
- SwyftSdk.authenticateUser(swyftId: self.swyftId, qrCodeColor: self.view.tintColor, customAuth: customAuth, success: { response in
+```swift
+SwyftSdk.authenticateUser(swyftId: self.swyftId, qrCodeColor: self.view.tintColor, customAuth: customAuth, success: { response in
   DispatchQueue.main.async {
       //display the returned qrCode UIImage
       self.qrCodeImage.image = response.qrCode
@@ -117,7 +117,7 @@ After you have enrolled a user you can authenticate the user. This creates a ses
 ``` 
 - Custom Generated QR Code
 ```swift
- SwyftSdk.authenticateUser(swyftId: self.swyftId, qrCodeColor: self.view.tintColor, success: { response in                        
+SwyftSdk.authenticateUser(swyftId: self.swyftId, qrCodeColor: self.view.tintColor, success: { response in                        
     DispatchQueue.main.async {
         //display the returned qrCode UIImage
         self.qrCodeImage.image = response.qrCode
