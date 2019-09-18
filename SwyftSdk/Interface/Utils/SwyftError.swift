@@ -44,6 +44,10 @@ public enum SwyftError: String, Error {
     case getPaymentMethodsSdkNotInitialized
     case getPaymentMethodsParsingFailure
     case getPaymentMethodsFirebaseFailure
+    case getPaymentMethodsNoFirebaseUser
+    case getPaymentMethodsInvalidCustomerData
+    case getPaymentMethodsNoCustomerId
+    case getPaymentMethodsGetCustomerFailure
 
     // MARK: SetDefaultPaymentMethod
     case setDefaultPaymentMethodSdkNotInitialized
@@ -57,6 +61,11 @@ public enum SwyftError: String, Error {
     case getOrdersSdkNotInitialized
     case getOrdersParsingFailure
     case getOrdersFirebaseFailure
+    
+    case getOrdersNoFirebaseUser
+    case getOrdersInvalidCustomerData
+    case getOrdersNoCustomerId
+    case getOrdersGetCustomerFailure
 }
 
 private extension SwyftError {
@@ -149,6 +158,18 @@ private extension SwyftError {
         case .getPaymentMethodsFirebaseFailure:
             return (code: 20_403, message: "Swyft SDK Get Payment Methods: Firebase Error")
             
+        case .getPaymentMethodsNoFirebaseUser:
+            return (code: 20_404, message: "Swyft SDK Get Payment Methods: No Firebase User")
+            
+        case .getPaymentMethodsInvalidCustomerData:
+            return (code: 20_405, message: "Swyft SDK Get Payment Methods: Invalid Customer Data")
+            
+        case .getPaymentMethodsNoCustomerId:
+            return (code: 20_406, message: "Swyft SDK Get Payment Methods: No Customer Id")
+            
+        case .getPaymentMethodsGetCustomerFailure:
+            return (code: 20_407, message: "Swyft SDK Get Payment Methods: Get Customer Failure")
+            
             
         // MARK: SetDefaultPaymentMethod
         case .setDefaultPaymentMethodSdkNotInitialized:
@@ -175,6 +196,18 @@ private extension SwyftError {
             
         case .getOrdersFirebaseFailure:
             return (code: 20_703, message: "Swyft SDK Get Orders: Firebase Error")
+            
+        case .getOrdersNoFirebaseUser:
+            return (code: 20_704, message: "Swyft SDK Get Orders: No Firebase User")
+            
+        case .getOrdersInvalidCustomerData:
+            return (code: 20_705, message: "Swyft SDK Get Orders: Invalid Customer Data")
+            
+        case .getOrdersNoCustomerId:
+            return (code: 20_706, message: "Swyft SDK Get Orders: No Customer Id")
+            
+        case .getOrdersGetCustomerFailure:
+            return (code: 20_707, message: "Swyft SDK Get Orders: Get Customer Failure")
         }
     }
     

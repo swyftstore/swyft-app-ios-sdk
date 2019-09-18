@@ -92,8 +92,7 @@ private extension InitSdkRouter {
                 return
             }
             
-            let user = result.user
-            Configure.current.session?.sdkFirebaseUser = user
+            Configure.current.session?.sdkFirebaseUser = result.user
         }
     }
 }

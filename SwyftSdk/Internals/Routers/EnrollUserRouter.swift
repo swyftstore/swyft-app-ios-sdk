@@ -105,7 +105,7 @@ private extension EnrollUserRouter {
     
     private func enroll(_ idToken: String) {
         
-        SdkEnrollInteractor.enroll(customerInfo: user, idToken: idToken, success: { response in
+        SdkEnrollInteractor.enroll(swyftUser: user, idToken: idToken, success: { response in
             
             Configure.current.session?.sdkAuthToken = response.payload.authToken
             

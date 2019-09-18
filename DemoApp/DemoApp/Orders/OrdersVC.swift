@@ -21,11 +21,10 @@ class OrdersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         KVNProgress.show()
         
-        let customerId = "qwerty12345"
         let start = 1
         let pageSize = 20
         
-        SwyftSdk.getOrders(customerId: customerId, start: start, pageSize: pageSize, success: { response in
+        SwyftSdk.getOrders(start: start, pageSize: pageSize, success: { response in
             
             self.orders = response.orders
             self.ordersTable.reloadData()

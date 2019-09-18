@@ -13,15 +13,13 @@ class GetPaymentMethodsRouter {
     private init() {}
     
     // MARK: Data
-    private var customerId: String!
     private var success: SwyftGetPaymentMethodsCallback!
     private var failure: SwyftFailureCallback!
     
     // MARK: Actions
-    func route(_ customerId: String, _ success: @escaping SwyftGetPaymentMethodsCallback, _ failure: @escaping SwyftFailureCallback) {
+    func route(_ success: @escaping SwyftGetPaymentMethodsCallback, _ failure: @escaping SwyftFailureCallback) {
         
         // Save all parameters for later use
-        self.customerId = customerId
         self.success = success
         self.failure = failure
         
@@ -51,10 +49,38 @@ private extension GetPaymentMethodsRouter {
             usleep(UInt32(SwyftConstants.RouterWaitBetweenRetries))
         }
         
-        getMethods()
+        getCustomer()
     }
     
-    private func getMethods() {
+    private func getCustomer() {
+        
+        guard let email = Configure.current.session?.sdkFirebaseUser?.email else {
+            report(.getPaymentMethodsNoFirebaseUser, self.failure)
+            return
+        }
+        
+        let action = GetCustomer(success: { data in
+            
+            guard let customer = data as? Customer else {
+                report(.getPaymentMethodsInvalidCustomerData, self.failure)
+                return
+            }
+            
+            guard let customerId = customer.id else {
+                report(.getPaymentMethodsNoCustomerId, self.failure)
+                return
+            }
+            
+            self.getMethods(for: customerId)
+            
+        }) { error in
+            report(.getPaymentMethodsGetCustomerFailure, self.failure)
+        }
+        
+        action.get(email: email)
+    }
+    
+    private func getMethods(for customerId: String) {
         
         let action = GetPaymentMethods(success: { data in
 

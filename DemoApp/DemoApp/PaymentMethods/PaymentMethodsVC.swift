@@ -15,7 +15,7 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBOutlet private weak var addPaymentButton: UIButton!
     @IBOutlet private weak var paymentMethodsTable: UITableView!
     
-    private let customerId = "qwerty12345"
+    private let customerId = "qwerty12345" // TODO
     
     private var paymentMethods = [PaymentMethod]()
     
@@ -24,7 +24,7 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         KVNProgress.show()
         
-        SwyftSdk.getPaymentMethods(customerId: customerId, success: { response in
+        SwyftSdk.getPaymentMethods(success: { response in
             
             self.paymentMethods = response.paymentMethods
             self.paymentMethodsTable.reloadData()
@@ -55,7 +55,7 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         SwyftSdk.addPaymentMethod(method: method, isDefault: isDefault, success: { response in
             
-            SwyftSdk.getPaymentMethods(customerId: self.customerId, success: { response in
+            SwyftSdk.getPaymentMethods(success: { response in
                 
                 self.paymentMethods = response.paymentMethods
                 self.paymentMethodsTable.reloadData()
