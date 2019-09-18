@@ -97,7 +97,13 @@ private extension GetOrdersRouter {
             self.callSuccess(using: result)
             
         }) { error in
-            report(.getOrdersFirebaseFailure, self.failure)
+            
+            if error == "document not found" {
+                let result = SwyftGetOrdersResponse(orders: [])
+                self.callSuccess(using: result)
+            } else {
+                report(.getOrdersFirebaseFailure, self.failure)
+            }
         }
         
         action.get(customerId: customerId, startIndex: start, limit: pageSize)

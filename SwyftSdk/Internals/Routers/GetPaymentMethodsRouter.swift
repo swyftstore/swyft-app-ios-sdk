@@ -93,7 +93,13 @@ private extension GetPaymentMethodsRouter {
             self.callSuccess(using: result)
 
         }) { error in
-            report(.getPaymentMethodsFirebaseFailure, self.failure)
+            
+            if error == "document not found" {
+                let result = SwyftGetPaymentMethodsResponse(paymentMethods: [])
+                self.callSuccess(using: result)
+            } else {
+                report(.getPaymentMethodsFirebaseFailure, self.failure)
+            }
         }
 
         action.get(id: customerId)
