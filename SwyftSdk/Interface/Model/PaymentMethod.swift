@@ -21,11 +21,11 @@ public class PaymentMethod: XmlRequestBase {
     
     private var hashCode: String?
     
-    var cardNumber: String?
-    var cardExpiry: String?
-    var cardType: String?
-    var cardHolderName: String?
-    var cvv: String?
+    public var cardNumber: String?
+    public var cardExpiry: String?
+    public var cardType: String?
+    public var cardHolderName: String?
+    public var cvv: String?
     
     var last4 : String? {
         get {

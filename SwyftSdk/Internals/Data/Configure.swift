@@ -54,8 +54,8 @@ class Configure: NSObject {
         }
     }
     
-    class func setup(session: SwyftSession, firebaseApp: FirebaseApp?) {
-        current.session = session
+    class func setup(firebaseApp: FirebaseApp?) {
+        Static.instance.session = SwyftSession()
         Static.instance._fireBaseApp = firebaseApp
     }
     

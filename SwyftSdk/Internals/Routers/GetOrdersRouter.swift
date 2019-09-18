@@ -13,17 +13,15 @@ class GetOrdersRouter {
     private init() {}
     
     // MARK: Data
-    private var customerId: String!
     private var start: Int!
     private var pageSize: Int!
     private var success: SwyftGetOrdersCallback!
     private var failure: SwyftFailureCallback!
     
     // MARK: Actions
-    func route(_ customerId: String, _ start: Int, _ pageSize: Int, _ success: @escaping SwyftGetOrdersCallback, _ failure: @escaping SwyftFailureCallback) {
+    func route(_ start: Int, _ pageSize: Int, _ success: @escaping SwyftGetOrdersCallback, _ failure: @escaping SwyftFailureCallback) {
         
         // Save all parameters for later use
-        self.customerId = customerId
         self.start = start
         self.pageSize = pageSize
         self.success = success
@@ -55,10 +53,38 @@ private extension GetOrdersRouter {
             usleep(UInt32(SwyftConstants.RouterWaitBetweenRetries))
         }
         
-        getOrders()
+        getCustomer()
     }
     
-    private func getOrders() {
+    private func getCustomer() {
+        
+        guard let email = Configure.current.session?.sdkFirebaseUser?.email else {
+            report(.getOrdersNoFirebaseUser, self.failure)
+            return
+        }
+        
+        let action = GetCustomer(success: { data in
+            
+            guard let customer = data as? Customer else {
+                report(.getOrdersInvalidCustomerData, self.failure)
+                return
+            }
+            
+            guard let customerId = customer.id else {
+                report(.getOrdersNoCustomerId, self.failure)
+                return
+            }
+            
+            self.getOrders(for: customerId)
+            
+        }) { error in
+            report(.getOrdersGetCustomerFailure, self.failure)
+        }
+        
+        action.get(email: email)
+    }
+    
+    private func getOrders(for customerId: String) {
         
         let action = GetOrders(success: { data in
             
@@ -71,7 +97,13 @@ private extension GetOrdersRouter {
             self.callSuccess(using: result)
             
         }) { error in
-            report(.getOrdersFirebaseFailure, self.failure)
+            
+            if error == "document not found" {
+                let result = SwyftGetOrdersResponse(orders: [])
+                self.callSuccess(using: result)
+            } else {
+                report(.getOrdersFirebaseFailure, self.failure)
+            }
         }
         
         action.get(customerId: customerId, startIndex: start, limit: pageSize)

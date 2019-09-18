@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UPI-rf-Lyd">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Payment MethodsVC-->
+        <scene sceneID="IRZ-Bp-Ek4">
+            <objects>
+                <viewController storyboardIdentifier="PaymentMethodsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UPI-rf-Lyd" customClass="PaymentMethodsVC" customModule="DemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KOs-Al-R2h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pc-sc-VTp">
+                                <rect key="frame" x="10" y="131" width="394" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Hrb-DE-hip"/>
+                                </constraints>
+                                <state key="normal" title="addPaymentMethod(method, isDefault)"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTapAddPayment:" destination="UPI-rf-Lyd" eventType="touchUpInside" id="Nrc-hq-RQm"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f8M-JN-aNh">
+                                <rect key="frame" x="0.0" y="211" width="414" height="651"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CellPaymentMethod" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellPaymentMethod" textLabel="KQc-ag-zgz" detailTextLabel="jxO-Rg-DJo" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="3CT-uT-ZHf" customClass="CellPaymentMethod" customModule="DemoApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3CT-uT-ZHf" id="Dfw-Ny-JNy">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KQc-ag-zgz">
+                                                    <rect key="frame" x="20" y="10" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jxO-Rg-DJo">
+                                                    <rect key="frame" x="20" y="33.5" width="44" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="UPI-rf-Lyd" id="x6a-dq-4kU"/>
+                                    <outlet property="delegate" destination="UPI-rf-Lyd" id="uks-Ld-7Z3"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swyft SDK Demo: Payment Methods" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YxL-iB-L7g">
+                                <rect key="frame" x="25" y="74" width="364" height="27"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="f8M-JN-aNh" firstAttribute="top" secondItem="8pc-sc-VTp" secondAttribute="bottom" constant="30" id="AfJ-3h-TQA"/>
+                            <constraint firstItem="8pc-sc-VTp" firstAttribute="leading" secondItem="7wd-k4-Exl" secondAttribute="leading" constant="10" id="F3W-it-iYQ"/>
+                            <constraint firstItem="7wd-k4-Exl" firstAttribute="bottom" secondItem="f8M-JN-aNh" secondAttribute="bottom" id="JYi-Bu-B1L"/>
+                            <constraint firstItem="YxL-iB-L7g" firstAttribute="top" secondItem="7wd-k4-Exl" secondAttribute="top" constant="30" id="K4w-5J-MkS"/>
+                            <constraint firstItem="f8M-JN-aNh" firstAttribute="trailing" secondItem="7wd-k4-Exl" secondAttribute="trailing" id="P7b-I1-EGr"/>
+                            <constraint firstItem="f8M-JN-aNh" firstAttribute="leading" secondItem="7wd-k4-Exl" secondAttribute="leading" id="Vs2-BX-0Wd"/>
+                            <constraint firstItem="8pc-sc-VTp" firstAttribute="top" secondItem="YxL-iB-L7g" secondAttribute="bottom" constant="30" id="Yus-XW-pOO"/>
+                            <constraint firstItem="7wd-k4-Exl" firstAttribute="trailing" secondItem="8pc-sc-VTp" secondAttribute="trailing" constant="10" id="fZ1-cv-PJR"/>
+                            <constraint firstItem="YxL-iB-L7g" firstAttribute="centerX" secondItem="KOs-Al-R2h" secondAttribute="centerX" id="mlD-hr-tfg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7wd-k4-Exl"/>
+                    </view>
+                    <connections>
+                        <outlet property="addPaymentButton" destination="8pc-sc-VTp" id="60f-QC-xW7"/>
+                        <outlet property="paymentMethodsTable" destination="f8M-JN-aNh" id="l4m-kc-Vm3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0ij-vA-Mv3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="237.68115942028987" y="-77.008928571428569"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" red="0.98035818340000003" green="0.42788624759999999" blue="0.15458315610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</document>

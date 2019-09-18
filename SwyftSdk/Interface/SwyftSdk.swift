@@ -1,5 +1,5 @@
 //
-//  SwyftSDK.swift
+//  SwyftSdk.swift
 //  SwyftSdk
 //
 //  Created by Rigoberto Saenz Imbacuan on 9/12/19.
@@ -17,7 +17,7 @@ public typealias SwyftRemovePaymentMethodCallback = (_ response: SwyftRemovePaym
 public typealias SwyftGetOrdersCallback = (_ response: SwyftGetOrdersResponse)->()
 public typealias SwyftFailureCallback = (_ error: NSError)->()
 
-public final class SwyftSDK {
+public final class SwyftSdk {
     
     private init() {}
     
@@ -53,7 +53,7 @@ public final class SwyftSDK {
         RemovePaymentMethodRouter.shared.route(cardRef, merchantRef, success, failure)
     }
     
-    public static func getOrders(customerId: String, start: Int, pageSize: Int, success: @escaping SwyftGetOrdersCallback, failure: @escaping SwyftFailureCallback) {
-        GetOrdersRouter.shared.route(customerId, start, pageSize, success, failure)
+    public static func getOrders(start: Int, pageSize: Int, success: @escaping SwyftGetOrdersCallback, failure: @escaping SwyftFailureCallback) {
+        GetOrdersRouter.shared.route(start, pageSize, success, failure)
     }
 }

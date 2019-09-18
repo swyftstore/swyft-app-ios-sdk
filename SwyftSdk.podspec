@@ -107,7 +107,7 @@ Pod::Spec.new do |spec|
   # spec.resource  = "icon.png"
   # spec.resources = "Resources/*.png"
 
-  spec.resources = "SwyftSdk/**/*.{png,jpeg,jpg,storyboard,xib,xcassets,json}","SwyftSdk/Resources/Swyft-GoogleService-Info.plist"
+  spec.resources = "SwyftSdk/**/*.{png,jpeg,jpg,storyboard,xib,xcassets,json}","SwyftSdk/Internals/Resources/Swyft-GoogleService-Info.plist"
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
 

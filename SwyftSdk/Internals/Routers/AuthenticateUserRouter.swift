@@ -121,6 +121,8 @@ private extension AuthenticateUserRouter {
                 return
             }
             
+            Configure.current.session?.sdkFirebaseUser = result.user
+            
             result.user.getIDTokenForcingRefresh(true, completion: { idToken, error in
                 
                 if let _ = error {

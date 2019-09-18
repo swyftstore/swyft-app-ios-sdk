@@ -13,7 +13,7 @@ class SdkEnrollInteractor {
     private static var success: SwyftConstants.sdkEnrollSuccess?
     private static var failure: SwyftConstants.fail?
     
-    static func enroll(customerInfo info: SwyftUser, idToken: String, success successCallback: @escaping SwyftConstants.sdkEnrollSuccess, failure failureCallback: SwyftConstants.fail) {
+    static func enroll(swyftUser: SwyftUser, idToken: String, success successCallback: @escaping SwyftConstants.sdkEnrollSuccess, failure failureCallback: SwyftConstants.fail) {
         
         DispatchQueue.global(qos: .background).async {
             
@@ -32,10 +32,10 @@ class SdkEnrollInteractor {
             }
             
             let customer = SdkEnrollCustomerRequest(
-                emailAddress: info.email,
-                firstName: info.firstName,
-                lastName: info.lastName,
-                phoneNumber: info.phoneNumber)
+                emailAddress: swyftUser.email,
+                firstName: swyftUser.firstName,
+                lastName: swyftUser.lastName,
+                phoneNumber: swyftUser.phoneNumber)
             
             let request = SdkEnrollRequest(key: key, id: id, idToken: idToken, customer: customer)
             let endpoint = Repository.sdkEnroll(request: request)

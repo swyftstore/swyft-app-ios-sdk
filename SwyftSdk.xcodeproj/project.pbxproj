@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5FE08699CEBF426A424C3C96 /* Pods_SwyftSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868BFDACAFB50C90DF227616 /* Pods_SwyftSdk.framework */; };
 		B10EE0D6E8A3E2FD6D946092 /* Pods_SwyftSdkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570AF5B237BF66049749A57E /* Pods_SwyftSdkTests.framework */; };
-		B19DE4A4232C293300E7CC23 /* SwyftSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE48D232C293300E7CC23 /* SwyftSDK.swift */; };
+		B19DE4A4232C293300E7CC23 /* SwyftSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE48D232C293300E7CC23 /* SwyftSdk.swift */; };
 		B19DE4A5232C293300E7CC23 /* SwyftAuthenticateUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE48F232C293300E7CC23 /* SwyftAuthenticateUserResponse.swift */; };
 		B19DE4A6232C293300E7CC23 /* SwyftSetDefaultPaymentMethodResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE490232C293300E7CC23 /* SwyftSetDefaultPaymentMethodResponse.swift */; };
 		B19DE4A7232C293300E7CC23 /* SwyftGetPaymentMethodsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE491232C293300E7CC23 /* SwyftGetPaymentMethodsResponse.swift */; };
@@ -41,7 +41,6 @@
 		B19DE509232C294700E7CC23 /* GetOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4C7232C294700E7CC23 /* GetOrder.swift */; };
 		B19DE50A232C294700E7CC23 /* FireStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4C9232C294700E7CC23 /* FireStoreModel.swift */; };
 		B19DE50B232C294700E7CC23 /* MockStores.json in Resources */ = {isa = PBXBuildFile; fileRef = B19DE4CB232C294700E7CC23 /* MockStores.json */; };
-		B19DE50C232C294700E7CC23 /* Swyft-GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B19DE4CC232C294700E7CC23 /* Swyft-GoogleService-Info.plist */; };
 		B19DE50D232C294700E7CC23 /* GetOrdersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4CE232C294700E7CC23 /* GetOrdersRouter.swift */; };
 		B19DE50E232C294700E7CC23 /* InitSdkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4CF232C294700E7CC23 /* InitSdkRouter.swift */; };
 		B19DE50F232C294700E7CC23 /* GetPaymentMethodsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4D0232C294700E7CC23 /* GetPaymentMethodsRouter.swift */; };
@@ -80,6 +79,7 @@
 		B19DE530232C294700E7CC23 /* SdkCustomerAuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4FC232C294700E7CC23 /* SdkCustomerAuthInteractor.swift */; };
 		B19DE531232C294700E7CC23 /* Configure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4FE232C294700E7CC23 /* Configure.swift */; };
 		B19DE532232C294700E7CC23 /* SwyftSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4FF232C294700E7CC23 /* SwyftSession.swift */; };
+		B1D717DD2331874B00E1900E /* Swyft-GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1D717DC2331874B00E1900E /* Swyft-GoogleService-Info.plist */; };
 		CEB6B780BC4F2AB0D3241B7F /* Pods_SwyftSdkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39274FC2924BF3112B5BD2C1 /* Pods_SwyftSdkTests.framework */; };
 		D08D7F3522AB123600A6298B /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08D7F3422AB123600A6298B /* Moya.framework */; };
 		D0997B1D2280AEBC00A82DFB /* SwyftSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0997B132280AEBC00A82DFB /* SwyftSdk.framework */; };
@@ -113,7 +113,7 @@
 		80B062963F20B808F2AA587B /* Pods-SwyftSdkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwyftSdkTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwyftSdkTests/Pods-SwyftSdkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		868BFDACAFB50C90DF227616 /* Pods_SwyftSdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwyftSdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88DB4010AA83575ED758B0CD /* Pods-SwyftSdk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwyftSdk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwyftSdk/Pods-SwyftSdk.debug.xcconfig"; sourceTree = "<group>"; };
-		B19DE48D232C293300E7CC23 /* SwyftSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwyftSDK.swift; sourceTree = "<group>"; };
+		B19DE48D232C293300E7CC23 /* SwyftSdk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwyftSdk.swift; sourceTree = "<group>"; };
 		B19DE48F232C293300E7CC23 /* SwyftAuthenticateUserResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwyftAuthenticateUserResponse.swift; sourceTree = "<group>"; };
 		B19DE490232C293300E7CC23 /* SwyftSetDefaultPaymentMethodResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwyftSetDefaultPaymentMethodResponse.swift; sourceTree = "<group>"; };
 		B19DE491232C293300E7CC23 /* SwyftGetPaymentMethodsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwyftGetPaymentMethodsResponse.swift; sourceTree = "<group>"; };
@@ -145,7 +145,6 @@
 		B19DE4C7232C294700E7CC23 /* GetOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetOrder.swift; sourceTree = "<group>"; };
 		B19DE4C9232C294700E7CC23 /* FireStoreModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireStoreModel.swift; sourceTree = "<group>"; };
 		B19DE4CB232C294700E7CC23 /* MockStores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockStores.json; sourceTree = "<group>"; };
-		B19DE4CC232C294700E7CC23 /* Swyft-GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Swyft-GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B19DE4CE232C294700E7CC23 /* GetOrdersRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetOrdersRouter.swift; sourceTree = "<group>"; };
 		B19DE4CF232C294700E7CC23 /* InitSdkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitSdkRouter.swift; sourceTree = "<group>"; };
 		B19DE4D0232C294700E7CC23 /* GetPaymentMethodsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetPaymentMethodsRouter.swift; sourceTree = "<group>"; };
@@ -184,6 +183,7 @@
 		B19DE4FC232C294700E7CC23 /* SdkCustomerAuthInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SdkCustomerAuthInteractor.swift; sourceTree = "<group>"; };
 		B19DE4FE232C294700E7CC23 /* Configure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configure.swift; sourceTree = "<group>"; };
 		B19DE4FF232C294700E7CC23 /* SwyftSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwyftSession.swift; sourceTree = "<group>"; };
+		B1D717DC2331874B00E1900E /* Swyft-GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Swyft-GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CBD541C0DB7602FF109E3644 /* Pods_SwyftSdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwyftSdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D02C0F142294803E00856279 /* JVFloatLabeledTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JVFloatLabeledTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D06A398122849FAE00DBF639 /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -306,7 +306,7 @@
 		B19DE48C232C293300E7CC23 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				B19DE48D232C293300E7CC23 /* SwyftSDK.swift */,
+				B19DE48D232C293300E7CC23 /* SwyftSdk.swift */,
 				B19DE48E232C293300E7CC23 /* Responses */,
 				B19DE499232C293300E7CC23 /* Model */,
 				B19DE496232C293300E7CC23 /* Utils */,
@@ -359,14 +359,14 @@
 		B19DE4B8232C294700E7CC23 /* Internals */ = {
 			isa = PBXGroup;
 			children = (
-				B19DE4CD232C294700E7CC23 /* Presenter */,
+				B19DE4CD232C294700E7CC23 /* Routers */,
 				B19DE4B9232C294700E7CC23 /* Firestore */,
-				B19DE4CA232C294700E7CC23 /* Resources */,
-				B19DE4D6232C294700E7CC23 /* Network */,
-				B19DE4EA232C294700E7CC23 /* Utils */,
-				B19DE4ED232C294700E7CC23 /* UIModules */,
 				B19DE4F1232C294700E7CC23 /* Interactors */,
+				B19DE4D6232C294700E7CC23 /* Network */,
+				B19DE4ED232C294700E7CC23 /* UIModules */,
+				B19DE4CA232C294700E7CC23 /* Resources */,
 				B19DE4FD232C294700E7CC23 /* Data */,
+				B19DE4EA232C294700E7CC23 /* Utils */,
 			);
 			path = Internals;
 			sourceTree = "<group>";
@@ -383,8 +383,8 @@
 		B19DE4BA232C294700E7CC23 /* Write */ = {
 			isa = PBXGroup;
 			children = (
-				B19DE4BB232C294700E7CC23 /* UpdateCustomer.swift */,
 				B19DE4BC232C294700E7CC23 /* Base */,
+				B19DE4BB232C294700E7CC23 /* UpdateCustomer.swift */,
 			);
 			path = Write;
 			sourceTree = "<group>";
@@ -400,13 +400,13 @@
 		B19DE4BE232C294700E7CC23 /* Read */ = {
 			isa = PBXGroup;
 			children = (
+				B19DE4C5232C294700E7CC23 /* Base */,
 				B19DE4BF232C294700E7CC23 /* GetProduct.swift */,
 				B19DE4C0232C294700E7CC23 /* GetStore.swift */,
 				B19DE4C1232C294700E7CC23 /* GetPaymentMethods.swift */,
 				B19DE4C2232C294700E7CC23 /* GetCustomer.swift */,
 				B19DE4C3232C294700E7CC23 /* GetStores.swift */,
 				B19DE4C4232C294700E7CC23 /* GetOrders.swift */,
-				B19DE4C5232C294700E7CC23 /* Base */,
 				B19DE4C7232C294700E7CC23 /* GetOrder.swift */,
 			);
 			path = Read;
@@ -423,13 +423,13 @@
 		B19DE4CA232C294700E7CC23 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B1D717DC2331874B00E1900E /* Swyft-GoogleService-Info.plist */,
 				B19DE4CB232C294700E7CC23 /* MockStores.json */,
-				B19DE4CC232C294700E7CC23 /* Swyft-GoogleService-Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		B19DE4CD232C294700E7CC23 /* Presenter */ = {
+		B19DE4CD232C294700E7CC23 /* Routers */ = {
 			isa = PBXGroup;
 			children = (
 				B19DE4CF232C294700E7CC23 /* InitSdkRouter.swift */,
@@ -441,17 +441,17 @@
 				B19DE4D5232C294700E7CC23 /* RemovePaymentMethodRouter.swift */,
 				B19DE4CE232C294700E7CC23 /* GetOrdersRouter.swift */,
 			);
-			path = Presenter;
+			path = Routers;
 			sourceTree = "<group>";
 		};
 		B19DE4D6232C294700E7CC23 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				B19DE4D7232C294700E7CC23 /* Respository.swift */,
+				B19DE4E7232C294700E7CC23 /* Base */,
 				B19DE4D8232C294700E7CC23 /* Responses */,
 				B19DE4E0232C294700E7CC23 /* Requests */,
 				B19DE4E6232C294700E7CC23 /* SwyftNetworkAdapter.swift */,
-				B19DE4E7232C294700E7CC23 /* Base */,
+				B19DE4D7232C294700E7CC23 /* Respository.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -512,8 +512,8 @@
 		B19DE4F1232C294700E7CC23 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
-				B19DE4F2232C294700E7CC23 /* SdkEnroll */,
 				B19DE4F4232C294700E7CC23 /* Payments */,
+				B19DE4F2232C294700E7CC23 /* SdkEnroll */,
 				B19DE4F9232C294700E7CC23 /* SdkAuth */,
 				B19DE4FB232C294700E7CC23 /* SdkCustomerAuth */,
 			);
@@ -726,7 +726,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B19DE50B232C294700E7CC23 /* MockStores.json in Resources */,
-				B19DE50C232C294700E7CC23 /* Swyft-GoogleService-Info.plist in Resources */,
+				B1D717DD2331874B00E1900E /* Swyft-GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -831,7 +831,7 @@
 				B19DE515232C294700E7CC23 /* Respository.swift in Sources */,
 				B19DE501232C294700E7CC23 /* FireStoreWrite.swift in Sources */,
 				B19DE50E232C294700E7CC23 /* InitSdkRouter.swift in Sources */,
-				B19DE4A4232C293300E7CC23 /* SwyftSDK.swift in Sources */,
+				B19DE4A4232C293300E7CC23 /* SwyftSdk.swift in Sources */,
 				B19DE511232C294700E7CC23 /* SetDefaultPaymentMethodRouter.swift in Sources */,
 				B19DE51D232C294700E7CC23 /* RemovePaymentMethod.swift in Sources */,
 				B19DE514232C294700E7CC23 /* RemovePaymentMethodRouter.swift in Sources */,

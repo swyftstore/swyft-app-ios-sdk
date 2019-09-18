@@ -17,8 +17,8 @@ class InitSdkRouter {
     private init() {}
     
     // MARK: Data
-    let appName = "com_swyft_SwyftSdk"
-    let googleFile = "Swyft-GoogleService-Info"
+    private let appName = "com_swyft_SwyftSdk"
+    private let googleFile = "Swyft-GoogleService-Info"
     
     // MARK: Actions
     func route() {
@@ -27,7 +27,7 @@ class InitSdkRouter {
             report(.initSdkNoSwyftFile)
             return
         }
-        
+
         guard let firebaseOptions = FirebaseOptions(contentsOfFile: filePath) else {
             report(.initSdkNoFirebaseOptions)
             return
@@ -52,7 +52,7 @@ private extension InitSdkRouter {
     
     private func auth(_ firebaseApp: FirebaseApp?) {
         
-        Configure.setup(session: SwyftSession(), firebaseApp: firebaseApp)
+        Configure.setup(firebaseApp: firebaseApp)
         
         SdkAuthInteractor.auth(success: { response in
             
@@ -92,8 +92,7 @@ private extension InitSdkRouter {
                 return
             }
             
-            let user = result.user
-            Configure.current.session?.sdkFirebaseUser = user
+            Configure.current.session?.sdkFirebaseUser = result.user
         }
     }
 }

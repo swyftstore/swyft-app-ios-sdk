@@ -9,11 +9,20 @@
 /* Begin PBXBuildFile section */
 		374C32FB18888B3F8C05A5FF /* Pods_DemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDB0ED03751A6ADD448F7B8 /* Pods_DemoApp.framework */; };
 		B184F3732327F7F4005F3B87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B184F3722327F7F4005F3B87 /* AppDelegate.swift */; };
-		B184F3752327F7F4005F3B87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B184F3742327F7F4005F3B87 /* ViewController.swift */; };
-		B184F3782327F7F5005F3B87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B184F3762327F7F5005F3B87 /* Main.storyboard */; };
+		B184F3752327F7F4005F3B87 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B184F3742327F7F4005F3B87 /* MainVC.swift */; };
+		B184F3782327F7F5005F3B87 /* MainVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B184F3762327F7F5005F3B87 /* MainVC.storyboard */; };
 		B184F37A2327F7F6005F3B87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B184F3792327F7F6005F3B87 /* Assets.xcassets */; };
 		B184F37D2327F7F6005F3B87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B184F37B2327F7F6005F3B87 /* LaunchScreen.storyboard */; };
 		B184F3852328074D005F3B87 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B184F3842328074D005F3B87 /* GoogleService-Info.plist */; };
+		B1C9705D23327ED900FFBA9B /* CellOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C9705C23327ED900FFBA9B /* CellOrder.swift */; };
+		B1C9705F23327F8A00FFBA9B /* CellPaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C9705E23327F8A00FFBA9B /* CellPaymentMethod.swift */; };
+		B1E66AA8233154DE00CB403B /* UsersVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1E66AA7233154DE00CB403B /* UsersVC.storyboard */; };
+		B1E66AAA233154E800CB403B /* OrdersVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1E66AA9233154E800CB403B /* OrdersVC.storyboard */; };
+		B1E66AAC233154FB00CB403B /* PaymentMethodsVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1E66AAB233154FB00CB403B /* PaymentMethodsVC.storyboard */; };
+		B1E66AAF2331556600CB403B /* UsersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E66AAE2331556600CB403B /* UsersVC.swift */; };
+		B1E66AB12331556E00CB403B /* OrdersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E66AB02331556E00CB403B /* OrdersVC.swift */; };
+		B1E66AB32331557700CB403B /* PaymentMethodsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E66AB22331557700CB403B /* PaymentMethodsVC.swift */; };
+		B1E66AB623315BDA00CB403B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E66AB523315BDA00CB403B /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,12 +31,21 @@
 		4CDB0ED03751A6ADD448F7B8 /* Pods_DemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B184F36F2327F7F4005F3B87 /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B184F3722327F7F4005F3B87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B184F3742327F7F4005F3B87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B184F3772327F7F5005F3B87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B184F3742327F7F4005F3B87 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		B184F3772327F7F5005F3B87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainVC.storyboard; sourceTree = "<group>"; };
 		B184F3792327F7F6005F3B87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B184F37C2327F7F6005F3B87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B184F37E2327F7F6005F3B87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B184F3842328074D005F3B87 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B1C9705C23327ED900FFBA9B /* CellOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellOrder.swift; sourceTree = "<group>"; };
+		B1C9705E23327F8A00FFBA9B /* CellPaymentMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellPaymentMethod.swift; sourceTree = "<group>"; };
+		B1E66AA7233154DE00CB403B /* UsersVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UsersVC.storyboard; sourceTree = "<group>"; };
+		B1E66AA9233154E800CB403B /* OrdersVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrdersVC.storyboard; sourceTree = "<group>"; };
+		B1E66AAB233154FB00CB403B /* PaymentMethodsVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaymentMethodsVC.storyboard; sourceTree = "<group>"; };
+		B1E66AAE2331556600CB403B /* UsersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersVC.swift; sourceTree = "<group>"; };
+		B1E66AB02331556E00CB403B /* OrdersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersVC.swift; sourceTree = "<group>"; };
+		B1E66AB22331557700CB403B /* PaymentMethodsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodsVC.swift; sourceTree = "<group>"; };
+		B1E66AB523315BDA00CB403B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,15 +90,56 @@
 		B184F3712327F7F4005F3B87 /* DemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				B1E66AAD2331554B00CB403B /* Main */,
+				B1E66AA6233154CE00CB403B /* Users */,
+				B1E66AA5233154B900CB403B /* Orders */,
+				B1E66AA42331548B00CB403B /* PaymentMethods */,
+				B1E66AB523315BDA00CB403B /* Utils.swift */,
 				B184F3722327F7F4005F3B87 /* AppDelegate.swift */,
-				B184F3742327F7F4005F3B87 /* ViewController.swift */,
-				B184F3762327F7F5005F3B87 /* Main.storyboard */,
-				B184F3792327F7F6005F3B87 /* Assets.xcassets */,
 				B184F37B2327F7F6005F3B87 /* LaunchScreen.storyboard */,
+				B184F3792327F7F6005F3B87 /* Assets.xcassets */,
 				B184F37E2327F7F6005F3B87 /* Info.plist */,
 				B184F3842328074D005F3B87 /* GoogleService-Info.plist */,
 			);
 			path = DemoApp;
+			sourceTree = "<group>";
+		};
+		B1E66AA42331548B00CB403B /* PaymentMethods */ = {
+			isa = PBXGroup;
+			children = (
+				B1E66AB22331557700CB403B /* PaymentMethodsVC.swift */,
+				B1E66AAB233154FB00CB403B /* PaymentMethodsVC.storyboard */,
+				B1C9705E23327F8A00FFBA9B /* CellPaymentMethod.swift */,
+			);
+			path = PaymentMethods;
+			sourceTree = "<group>";
+		};
+		B1E66AA5233154B900CB403B /* Orders */ = {
+			isa = PBXGroup;
+			children = (
+				B1E66AB02331556E00CB403B /* OrdersVC.swift */,
+				B1E66AA9233154E800CB403B /* OrdersVC.storyboard */,
+				B1C9705C23327ED900FFBA9B /* CellOrder.swift */,
+			);
+			path = Orders;
+			sourceTree = "<group>";
+		};
+		B1E66AA6233154CE00CB403B /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				B1E66AAE2331556600CB403B /* UsersVC.swift */,
+				B1E66AA7233154DE00CB403B /* UsersVC.storyboard */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		B1E66AAD2331554B00CB403B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B184F3742327F7F4005F3B87 /* MainVC.swift */,
+				B184F3762327F7F5005F3B87 /* MainVC.storyboard */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		BEB2DE769502763D18DEE2C4 /* Frameworks */ = {
@@ -152,10 +211,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1E66AAC233154FB00CB403B /* PaymentMethodsVC.storyboard in Resources */,
 				B184F37D2327F7F6005F3B87 /* LaunchScreen.storyboard in Resources */,
 				B184F3852328074D005F3B87 /* GoogleService-Info.plist in Resources */,
 				B184F37A2327F7F6005F3B87 /* Assets.xcassets in Resources */,
-				B184F3782327F7F5005F3B87 /* Main.storyboard in Resources */,
+				B1E66AA8233154DE00CB403B /* UsersVC.storyboard in Resources */,
+				B1E66AAA233154E800CB403B /* OrdersVC.storyboard in Resources */,
+				B184F3782327F7F5005F3B87 /* MainVC.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,20 +287,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B184F3752327F7F4005F3B87 /* ViewController.swift in Sources */,
+				B1E66AB32331557700CB403B /* PaymentMethodsVC.swift in Sources */,
+				B1C9705F23327F8A00FFBA9B /* CellPaymentMethod.swift in Sources */,
+				B184F3752327F7F4005F3B87 /* MainVC.swift in Sources */,
+				B1E66AB12331556E00CB403B /* OrdersVC.swift in Sources */,
 				B184F3732327F7F4005F3B87 /* AppDelegate.swift in Sources */,
+				B1C9705D23327ED900FFBA9B /* CellOrder.swift in Sources */,
+				B1E66AAF2331556600CB403B /* UsersVC.swift in Sources */,
+				B1E66AB623315BDA00CB403B /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B184F3762327F7F5005F3B87 /* Main.storyboard */ = {
+		B184F3762327F7F5005F3B87 /* MainVC.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B184F3772327F7F5005F3B87 /* Base */,
 			);
-			name = Main.storyboard;
+			name = MainVC.storyboard;
 			sourceTree = "<group>";
 		};
 		B184F37B2327F7F6005F3B87 /* LaunchScreen.storyboard */ = {
