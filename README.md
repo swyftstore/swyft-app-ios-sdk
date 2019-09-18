@@ -134,7 +134,16 @@ SwyftSdk.authenticateUser(swyftId: self.swyftId, qrCodeColor: self.view.tintColo
 
 After athenticating a user you can retrieve their past orders. Orders will be returned in a paginated list. 
 ```swift
+let start = 1
+let pageSize = 20
 
+SwyftSdk.getOrders(start: start, pageSize: pageSize, success: { response in
+  //store/display orders
+   self.orders = response.orders
+
+}) { error in
+  print(error)
+}
 ```
 <a name="pMethods"/>
 
@@ -142,7 +151,12 @@ After athenticating a user you can retrieve their past orders. Orders will be re
 
 If Swyft handling the payment processing for your integration, after you authenticate the user you can retreive a list of their previously enrolled payment methods
 ```swift
-
+SwyftSdk.getPaymentMethods(success: { response in
+  //store/display payment methods orders
+  self.paymentMethods = response.paymentMethods
+}) { error in
+   print(error)
+}
 ```
 
 <a name="addPMethod"/>
@@ -151,7 +165,23 @@ If Swyft handling the payment processing for your integration, after you authent
 
 If Swyft handling the payment processing for your integration, after you authenticate the user you can add additional payment methods for the user
 ```swift
+//build method
+let method = PaymentMethod(
+cardNumber: cardNumber,
+cardExpiry: cardExpiry,
+cardType: cardType,
+cardHolderName: cardHolderName,
+cvv: cvv)
 
+SwyftSdk.addPaymentMethod(method: method,
+                       isDefault: isDefault, //Is used to set the payment method as the 'default' method. If this  
+                                             //is the first/only method for the user it is ALWAYS treated as true, 
+                       success: { response in
+  //store new method
+  let method = response.paymentMethod
+}) { error in
+  print(error)
+}
 ```
 <a name="updatePMethod"/>
 
