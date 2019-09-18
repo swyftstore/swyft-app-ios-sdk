@@ -37,7 +37,7 @@ class UsersVC: UIViewController {
             print("swyftId: \(response.swyftId)")
             print("authToken: \(response.authToken)")
             
-            KVNProgress.dismiss()
+            KVNProgress.showSuccess()
             
         }) { error in
             debugPrint(error)
@@ -56,7 +56,7 @@ class UsersVC: UIViewController {
             DispatchQueue.main.async {
                 self.qrCodeImage.image = response.qrCode
             }
-            KVNProgress.dismiss()
+            KVNProgress.showSuccess()
             
         }) { error in
             debugPrint(error)
@@ -77,7 +77,7 @@ class UsersVC: UIViewController {
             DispatchQueue.main.async {
                 self.qrCodeImage.image = response.qrCode
             }
-            KVNProgress.dismiss()
+            KVNProgress.showSuccess()
             
         }) { error in
             debugPrint(error)

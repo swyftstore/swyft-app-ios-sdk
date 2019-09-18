@@ -8,6 +8,7 @@
 
 import UIKit
 import SwyftSdk
+import KVNProgress
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        KVNProgress.configuration()?.minimumSuccessDisplayTime = 1
         SwyftSdk.initSDK()
         return true
     }

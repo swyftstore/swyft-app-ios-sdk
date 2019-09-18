@@ -11,6 +11,7 @@ import FirebaseCore
 public typealias SwyftEnrollUserCallback = (_ response: SwyftEnrollUserResponse)->()
 public typealias SwyftAuthenticateUserCallback = (_ response: SwyftAuthenticateUserResponse)->()
 public typealias SwyftAddPaymentMethodCallback = (_ response: SwyftAddPaymentMethodResponse)->()
+public typealias SwyftEditPaymentMethodCallback = (_ response: SwyftEditPaymentMethodResponse)->()
 public typealias SwyftGetPaymentMethodsCallback = (_ response: SwyftGetPaymentMethodsResponse)->()
 public typealias SwyftSetDefaultPaymentMethodCallback = (_ response: SwyftSetDefaultPaymentMethodResponse)->()
 public typealias SwyftRemovePaymentMethodCallback = (_ response: SwyftRemovePaymentMethodResponse)->()
@@ -39,6 +40,10 @@ public final class SwyftSdk {
     
     public static func addPaymentMethod(method: PaymentMethod, isDefault: Bool, success: @escaping SwyftAddPaymentMethodCallback, failure: @escaping SwyftFailureCallback) {
         AddPaymentMethodRouter.shared.route(method, isDefault, success, failure)
+    }
+    
+    public static func editPaymentMethod(method: PaymentMethod, isDefault: Bool, success: @escaping SwyftEditPaymentMethodCallback, failure: @escaping SwyftFailureCallback) {
+        EditPaymentMethodRouter.shared.route(method, isDefault, success, failure)
     }
     
     public static func getPaymentMethods(success: @escaping SwyftGetPaymentMethodsCallback, failure: @escaping SwyftFailureCallback) {

@@ -84,7 +84,7 @@ private extension GetPaymentMethodsRouter {
         
         let action = GetPaymentMethods(success: { data in
 
-            guard let methods = data as? [PaymentMethod] else {
+            guard let methods = data as? [SwyftPaymentMethod] else {
                 report(.getPaymentMethodsParsingFailure, self.failure)
                 return
             }

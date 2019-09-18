@@ -40,29 +40,45 @@
                                 <rect key="frame" x="0.0" y="211" width="414" height="651"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CellPaymentMethod" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellPaymentMethod" textLabel="KQc-ag-zgz" detailTextLabel="jxO-Rg-DJo" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="3CT-uT-ZHf" customClass="CellPaymentMethod" customModule="DemoApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CellPaymentMethod" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellPaymentMethod" rowHeight="60" id="3CT-uT-ZHf" customClass="CellPaymentMethod" customModule="DemoApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3CT-uT-ZHf" id="Dfw-Ny-JNy">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KQc-ag-zgz">
-                                                    <rect key="frame" x="20" y="10" width="33.5" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cM-c6-oON">
+                                                    <rect key="frame" x="16" y="5" width="33.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jxO-Rg-DJo">
-                                                    <rect key="frame" x="20" y="33.5" width="44" height="14.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBm-xh-mDT">
+                                                    <rect key="frame" x="16" y="31" width="44" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CardDefault" translatesAutoresizingMaskIntoConstraints="NO" id="I3C-uV-t0T">
+                                                    <rect key="frame" x="344" y="5" width="60" height="49.5"/>
+                                                </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0cM-c6-oON" firstAttribute="top" secondItem="Dfw-Ny-JNy" secondAttribute="top" constant="5" id="8Ky-DG-ZyX"/>
+                                                <constraint firstAttribute="trailing" secondItem="I3C-uV-t0T" secondAttribute="trailing" constant="10" id="Hyl-rc-jwB"/>
+                                                <constraint firstItem="oBm-xh-mDT" firstAttribute="top" secondItem="0cM-c6-oON" secondAttribute="bottom" constant="5" id="QB7-QC-0Zs"/>
+                                                <constraint firstItem="I3C-uV-t0T" firstAttribute="top" secondItem="Dfw-Ny-JNy" secondAttribute="top" constant="5" id="S7t-0s-xix"/>
+                                                <constraint firstItem="oBm-xh-mDT" firstAttribute="leading" secondItem="Dfw-Ny-JNy" secondAttribute="leading" constant="16" id="XpY-6p-ktP"/>
+                                                <constraint firstItem="0cM-c6-oON" firstAttribute="leading" secondItem="Dfw-Ny-JNy" secondAttribute="leading" constant="16" id="Zxp-Qr-nDJ"/>
+                                                <constraint firstItem="I3C-uV-t0T" firstAttribute="centerY" secondItem="Dfw-Ny-JNy" secondAttribute="centerY" id="gVE-B3-mjf"/>
+                                                <constraint firstAttribute="bottom" secondItem="I3C-uV-t0T" secondAttribute="bottom" constant="5" id="teq-L0-giK"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="isDefaultIcon" destination="I3C-uV-t0T" id="OdO-Ej-acs"/>
+                                            <outlet property="subtitle" destination="oBm-xh-mDT" id="PbE-uI-0rM"/>
+                                            <outlet property="title" destination="0cM-c6-oON" id="B1Q-aq-aPy"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -101,5 +117,8 @@
             <point key="canvasLocation" x="237.68115942028987" y="-77.008928571428569"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="CardDefault" width="60" height="60"/>
+    </resources>
     <color key="tintColor" red="0.98035818340000003" green="0.42788624759999999" blue="0.15458315610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
