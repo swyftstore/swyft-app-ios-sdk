@@ -40,8 +40,12 @@ class OrdersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = ""
+        
+        let cell: CellOrder = tableView.dequeue(indexPath)
+        let order = orders[indexPath.row]
+        
+        cell.textLabel?.text = order.merchantName
+        cell.detailTextLabel?.text = "\(order.total)"
         return cell
     }
 }

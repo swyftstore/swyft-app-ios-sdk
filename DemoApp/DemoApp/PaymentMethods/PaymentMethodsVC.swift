@@ -15,8 +15,6 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBOutlet private weak var addPaymentButton: UIButton!
     @IBOutlet private weak var paymentMethodsTable: UITableView!
     
-    private let customerId = "qwerty12345" // TODO
-    
     private var paymentMethods = [PaymentMethod]()
     
     override func viewDidAppear(_ animated: Bool) {
@@ -56,7 +54,7 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         SwyftSdk.addPaymentMethod(method: method, isDefault: isDefault, success: { response in
             
             SwyftSdk.getPaymentMethods(success: { response in
-                
+
                 self.paymentMethods = response.paymentMethods
                 self.paymentMethodsTable.reloadData()
                 KVNProgress.dismiss()
@@ -80,8 +78,11 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = ""
+        let cell: CellPaymentMethod = tableView.dequeue(indexPath)
+        let method = paymentMethods[indexPath.row]
+        
+        cell.textLabel?.text = method.cardNumber
+        cell.detailTextLabel?.text = method.cardType
         return cell
     }
 }
