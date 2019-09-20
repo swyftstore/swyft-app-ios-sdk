@@ -96,11 +96,11 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
                 
                 let method = self.paymentMethods[indexPath.row]
                 
-                guard let cardRef = method.token, let merchantRef = method.merchantRef else {
+                guard let token = method.token, let merchantRef = method.merchantRef else {
                     return
                 }
                 
-                SwyftSdk.removePaymentMethod(cardRef: cardRef, merchantRef: merchantRef, success: { response in
+                SwyftSdk.removePaymentMethod(token: token, merchantRef: merchantRef, success: { response in
                     self.getPaymentMethods()
                     
                 }, failure: { error in
