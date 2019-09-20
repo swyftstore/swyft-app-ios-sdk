@@ -15,7 +15,8 @@ This project is to be used by a 3rd party iOS application, inorder to integrate 
   - [Get User Payment Methods](#pMethods)
   - [Add User Payment Method](#addPMethod)
   - [Update User Payment Method](#updatePMethod)
-  - WIP
+  - [Set User Default Payment Method](#setDefaultPMethod)
+  - [Delete User Payment Method](#removePMethod)
 - [Webhooks](#webhooks)
   - [Session Begins](#webhookBegins)
   - [Session Ends](#webhookEnd)
@@ -189,7 +190,7 @@ SwyftSdk.addPaymentMethod(method: fullMethod,
 
 If Swyft handling the payment processing for your integration, after you authenticate the user you can update payment methods for the user
 ```swift
-//load method you would like to change
+//load previously stored payment method you would like to change
 let method = paymentMethods[0]
 //map SwyftPaymentMethod to FullPaymentMethod
 let fullMethod = FullPaymentMethod(from: method)
@@ -203,8 +204,34 @@ SwyftSdk.editPaymentMethod(method: fullMethod, success: { response in
     print(error)
 }
 ```
+<a name="setDefaultPMethod"/>
 
-WIP
+### Set User Default Payment Method
+
+If Swyft is handling the payment processing for your integration, after you authenticate the user you can set the default payment method being used to pay for their Swyft Vission Cabinet transactions
+```java
+//load previously stored payment method you wish to set as the default method
+
+```
+<a name="removePMethod"/>
+
+### Delete User Payment Method
+
+If Swyft is handling the payment processing for your integration, after you authenticate the user you can delete a payment method
+```java
+//load previously stored payment method you wish to set as the default method
+ let method = self.paymentMethods[indexPath.row]
+//load the token and merchantRef from the method                
+guard let token = method.token, let merchantRef = method.merchantRef else {
+    return
+}
+
+SwyftSdk.removePaymentMethod(token: token, merchantRef: merchantRef, success: { response in
+    //update list of payment methods
+
+}, failure: { error in
+    print(error)
+})
 
 <a name="webhooks"/>
 
