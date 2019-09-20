@@ -166,14 +166,14 @@ SwyftSdk.getPaymentMethods(success: { response in
 If Swyft handling the payment processing for your integration, after you authenticate the user you can add additional payment methods for the user
 ```swift
 //build method
-let method = PaymentMethod(
+let fullMethod = FullPaymentMethod(
 cardNumber: cardNumber,
 cardExpiry: cardExpiry,
 cardType: cardType,
 cardHolderName: cardHolderName,
 cvv: cvv)
 
-SwyftSdk.addPaymentMethod(method: method,
+SwyftSdk.addPaymentMethod(method: fullMethod,
                        isDefault: isDefault, //Is used to set the payment method as the 'default' method. If this  
                                              //is the first/only method for the user it is ALWAYS treated as true, 
                        success: { response in
@@ -189,7 +189,19 @@ SwyftSdk.addPaymentMethod(method: method,
 
 If Swyft handling the payment processing for your integration, after you authenticate the user you can update payment methods for the user
 ```swift
+//load method you would like to change
+let method = paymentMethods[0]
+//map SwyftPaymentMethod to FullPaymentMethod
+let fullMethod = FullPaymentMethod(from: method)
+//change the values you wish to change
+fullMethod.cvv = "111"
+fullMethod.cardNumber = "4111111111112222"
+SwyftSdk.editPaymentMethod(method: fullMethod, success: { response in
+    //update methods stored in memory
 
+}) { error in
+    print(error)
+}
 ```
 
 WIP
