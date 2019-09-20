@@ -66,7 +66,8 @@ Below you will find some code examples for how you can intergate the sdk with yo
 
 ### SDK Initilization
 
-The first step when integrating the Swyft SDK with your project is to the initializion methond on the skd. We recommend doing this in your appdelegate's application method. The initializion methond takes in the application context that is used to access some local resources within the SDK. 
+The first step when integrating the Swyft SDK with your project is to the initializion method on the SDK. We recommend doing this in your AppDelegate's application method.
+
 ```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
@@ -81,7 +82,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 ### Enroll User 
 
-The next is to enroll your applications user with Swyft. This is used to track the user's orders and paymentment methods. The method returns a swyftId that is used to authenticate the user later on. If the user already exist the SDK blocks the creation of a duplicate user and returns the swyftId successfully. 
+The next is to enroll your applications user with Swyft. This is used to create a profile for your user on Swyft's Platform. The method returns a swyftId that is used to authenticate the user later on. If the user already exist the SDK blocks the creation of a duplicate user and returns the swyftId successfully.
 ```swift
 let user = SwyftUser(
     email: "user@swyftstore.com",
@@ -101,7 +102,7 @@ SwyftSdk.enrollUser(user: user, success: { response in
 
 ### User Authentication 
 
-After you have enrolled a user you can authenticate the user. This creates a session for the user so they can interact with the Swyft Vision Cabinet by scanning a QR Code returned by the sdk for your application to display. You can either supply an authentication string for the SDK to display as a QR Code or have the SDK generate a dynamic one for you. You can set the qrCode foreground color by passing in the UIColor value you wish to use.
+After you have enrolled a user you can authenticate the user. This creates a session for the user so they can interact with the Swyft Vision Cabinet by scanning a returned QR Code. You can either supply an authentication string for the SDK to display as a QR Code or have the SDK generate a dynamic one for you. You can set the qrCode foreground color by passing in the UIColor value you wish to use.
 
 - Auto Generated QR Code
 ```swift
@@ -208,7 +209,7 @@ SwyftSdk.editPaymentMethod(method: fullMethod, success: { response in
 
 ### Set User Default Payment Method
 
-If Swyft is handling the payment processing for your integration, after you authenticate the user you can set the default payment method being used to pay for their Swyft Vission Cabinet transactions
+If Swyft is handling the payment processing for your integration, after you authenticate the user you can set the default payment method
 ```java
 //load previously stored payment method you wish to set as the default method
 let method = self.paymentMethods[indexPath.row]
@@ -227,7 +228,7 @@ If Swyft is handling the payment processing for your integration, after you auth
 //load previously stored payment method you wish to set as the default method
 let method = self.paymentMethods[indexPath.row]
 
-SwyftSdk.removePaymentMethod(method: method, success: { response in
+SwyftSdk.deletePaymentMethod(deleteMethod: method, success: { response in
     //update list of payment methods
 
 }, failure: { error in
@@ -239,7 +240,7 @@ SwyftSdk.removePaymentMethod(method: method, success: { response in
 
 ## Webhooks
 
-Ontop of the Swyft Client SDK we have a pair of webhooks that you can choose to integrate with. The webhooks can alert you eachtime one of your users begin a session with a Swyft Vision Cabinet, as well as once the session ends and its transaction details. If you wish to intgrate with the Swyft Vision Cabinet webhooks below are the payloads you can expect once you supply Swyft with your end points. 
+Swyft offers a pair of webhooks that you can choose to integrate with along with the SDK. The webhooks can alert you eachtime one of your users begin a session with a Swyft Vision Cabinet, as well as once the session ends and its transaction details. If you wish to intgrate with the Swyft Vision Cabinet webhooks below are the payloads you can expect once you supply Swyft with your end points. 
 
 <a name="webhookBegins"/>
 
