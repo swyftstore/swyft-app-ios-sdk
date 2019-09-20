@@ -66,7 +66,8 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         cell.title.text = method.last4
         cell.subtitle.text = method.cardType
-        cell.isDefaultIcon.isHidden = true
+        //cell.isDefaultIcon.isHidden = true
+        cell.method = method
         
         return cell
     }
@@ -96,13 +97,8 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
                 
                 let method = self.paymentMethods[indexPath.row]
                 
-                guard let token = method.token, let merchantRef = method.merchantRef else {
-                    return
-                }
-                
-                SwyftSdk.removePaymentMethod(token: token, merchantRef: merchantRef, success: { response in
-                    self.getPaymentMethods()
-                    
+                SwyftSdk.removePaymentMethod(deleteMethod: method, success: { response in
+                    self.getPaymentMethods()                    
                 }, failure: { error in
                     print(error)
                     KVNProgress.dismiss()
