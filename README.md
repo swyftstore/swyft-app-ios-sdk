@@ -232,6 +232,7 @@ SwyftSdk.removePaymentMethod(token: token, merchantRef: merchantRef, success: { 
 }, failure: { error in
     print(error)
 })
+```
 
 <a name="webhooks"/>
 
