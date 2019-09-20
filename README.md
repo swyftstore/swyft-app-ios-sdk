@@ -211,7 +211,12 @@ SwyftSdk.editPaymentMethod(method: fullMethod, success: { response in
 If Swyft is handling the payment processing for your integration, after you authenticate the user you can set the default payment method being used to pay for their Swyft Vission Cabinet transactions
 ```java
 //load previously stored payment method you wish to set as the default method
-
+let method = self.paymentMethods[indexPath.row]
+SwyftSdk.setDefaultPaymentMethod(defaultMethod: method, success: { response in
+            //update ui to show new default method
+        }) { error in
+            print(error)
+        }
 ```
 <a name="removePMethod"/>
 
@@ -220,13 +225,9 @@ If Swyft is handling the payment processing for your integration, after you auth
 If Swyft is handling the payment processing for your integration, after you authenticate the user you can delete a payment method
 ```java
 //load previously stored payment method you wish to set as the default method
- let method = self.paymentMethods[indexPath.row]
-//load the token and merchantRef from the method                
-guard let token = method.token, let merchantRef = method.merchantRef else {
-    return
-}
+let method = self.paymentMethods[indexPath.row]
 
-SwyftSdk.removePaymentMethod(token: token, merchantRef: merchantRef, success: { response in
+SwyftSdk.removePaymentMethod(method: method, success: { response in
     //update list of payment methods
 
 }, failure: { error in
