@@ -82,13 +82,13 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 The next is to enroll your applications user with Swyft. This is used to track the user's orders and paymentment methods. The method returns a swyftId that is used to authenticate the user later on. If the user already exist the SDK blocks the creation of a duplicate user and returns the swyftId successfully. 
 ```swift
-let customerInfo = SwyftUser(
+let user = SwyftUser(
     email: "user@swyftstores.com",
     firstName: "John",
     lastName: "Smith",
     phoneNumber: "+1 1234567890")
         
-SwyftSdk.enrollUser(user: customerInfo, success: { response in  
+SwyftSdk.enrollUser(user: user, success: { response in  
     //store swyftId for later usage
     self.swyftId = response.swyftId                      
 }) { error in
