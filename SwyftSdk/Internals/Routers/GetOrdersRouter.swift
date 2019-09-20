@@ -41,7 +41,7 @@ private extension GetOrdersRouter {
         var iteration = 0
         while (true) {
             
-            if let _ = Configure.current.session?.sdkFirebaseUser {
+            if let _ = Configure.current.session?.clientFirebaseUser {
                 break
                 
             } else if iteration > SwyftConstants.RouterMaxRetries {
@@ -58,7 +58,7 @@ private extension GetOrdersRouter {
     
     private func getCustomer() {
         
-        guard let email = Configure.current.session?.sdkFirebaseUser?.email else {
+        guard let id = Configure.current.session?.clientFirebaseUser?.uid else {
             report(.getOrdersNoFirebaseUser, self.failure)
             return
         }
@@ -81,7 +81,7 @@ private extension GetOrdersRouter {
             report(.getOrdersGetCustomerFailure, self.failure)
         }
         
-        action.get(email: email)
+        action.get(id: id)
     }
     
     private func getOrders(for customerId: String) {

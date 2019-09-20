@@ -38,12 +38,12 @@ public final class SwyftSdk {
         AuthenticateUserRouter.shared.route(swyftId, qrCodeColor, customAuth, success, failure)
     }
     
-    public static func addPaymentMethod(method: PaymentMethod, isDefault: Bool, success: @escaping SwyftAddPaymentMethodCallback, failure: @escaping SwyftFailureCallback) {
+    public static func addPaymentMethod(method: FullPaymentMethod, isDefault: Bool, success: @escaping SwyftAddPaymentMethodCallback, failure: @escaping SwyftFailureCallback) {
         AddPaymentMethodRouter.shared.route(method, isDefault, success, failure)
     }
     
-    public static func editPaymentMethod(method: PaymentMethod, isDefault: Bool, success: @escaping SwyftEditPaymentMethodCallback, failure: @escaping SwyftFailureCallback) {
-        EditPaymentMethodRouter.shared.route(method, isDefault, success, failure)
+    public static func editPaymentMethod(method: FullPaymentMethod, success: @escaping SwyftEditPaymentMethodCallback, failure: @escaping SwyftFailureCallback) {
+        EditPaymentMethodRouter.shared.route(method, success, failure)
     }
     
     public static func getPaymentMethods(success: @escaping SwyftGetPaymentMethodsCallback, failure: @escaping SwyftFailureCallback) {

@@ -41,7 +41,7 @@ private extension RemovePaymentMethodRouter {
         var iteration = 0
         while (true) {
             
-            if let _ = Configure.current.session?.sdkFirebaseUser {
+            if let _ = Configure.current.session?.clientFirebaseUser {
                 break
                 
             } else if iteration > SwyftConstants.RouterMaxRetries {

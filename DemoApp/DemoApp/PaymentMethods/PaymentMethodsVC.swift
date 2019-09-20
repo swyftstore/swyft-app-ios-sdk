@@ -28,12 +28,12 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         let isDefault = false
         let cardNumber = "4111111111111111"
-        let cardExpiry = "10 / 20"
+        let cardExpiry = "1020"
         let cardType = "VISA"
         let cardHolderName = "Carl Peterson"
         let cvv = "987"
         
-        let method = PaymentMethod(
+        let method = FullPaymentMethod(
             cardNumber: cardNumber,
             cardExpiry: cardExpiry,
             cardType: cardType,
@@ -74,16 +74,12 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let isDefault = false
-        
-        let method = PaymentMethod(
-            cardNumber: "4123111111111111",
-            cardExpiry: "11/22",
-            cardType: "MASTER",
-            cardHolderName: "Lisa Lorentz",
-            cvv: "741")
-        
-        SwyftSdk.editPaymentMethod(method: method, isDefault: isDefault, success: { response in
+        let method = paymentMethods[indexPath.row]
+
+        let fullMethod = FullPaymentMethod(from: method)
+        fullMethod.cvv = "111"
+        fullMethod.cardNumber = "4111111111112222"
+        SwyftSdk.editPaymentMethod(method: fullMethod, success: { response in
             self.getPaymentMethods()
             
         }) { error in

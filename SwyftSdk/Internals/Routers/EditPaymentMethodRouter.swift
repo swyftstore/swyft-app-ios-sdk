@@ -13,17 +13,15 @@ class EditPaymentMethodRouter {
     private init() {}
     
     // MARK: Data
-    private var method: PaymentMethod!
-    private var isDefault: Bool!
+    private var method: FullPaymentMethod!
     private var success: SwyftEditPaymentMethodCallback!
     private var failure: SwyftFailureCallback!
     
     // MARK: Actions
-    func route(_ method: PaymentMethod, _ isDefault: Bool, _ success: @escaping SwyftEditPaymentMethodCallback, _ failure: @escaping SwyftFailureCallback) {
+    func route(_ method: FullPaymentMethod, _ success: @escaping SwyftEditPaymentMethodCallback, _ failure: @escaping SwyftFailureCallback) {
         
         // Save all parameters for later use
         self.method = method
-        self.isDefault = isDefault
         self.success = success
         self.failure = failure
         
@@ -41,7 +39,7 @@ private extension EditPaymentMethodRouter {
         var iteration = 0
         while (true) {
             
-            if let _ = Configure.current.session?.sdkFirebaseUser {
+            if let _ = Configure.current.session?.clientFirebaseUser {
                 break
                 
             } else if iteration > SwyftConstants.RouterMaxRetries {
@@ -58,11 +56,9 @@ private extension EditPaymentMethodRouter {
     
     private func editMethod() {
         
-        guard let cardNumber = method.cardNumber,
-            let cardExpiry = method.cardExpiry,
+        guard let cardExpiry = method.cardExpiry,
             let cardType = method.cardType,
-            let cardHolderName = method.cardHolderName,
-            let cvv = method.cvv,
+            let cardHolderName = method.cardholderName,
             let merchantRef = method.merchantRef else {
                 
             report(.editPaymentMethodInvalidCardData, self.failure)
@@ -70,20 +66,20 @@ private extension EditPaymentMethodRouter {
         }
         
         let methodToEdit = EditPaymentMethod(
-            cardNumber: cardNumber,
+            cardNumber: method.cardNumber,
             cardExpiry: cardExpiry,
             cardType: cardType,
             cardHolderName: cardHolderName,
-            cvv: cvv,
+            cvv: method.cvv,
             merchantRef: merchantRef)
         
-        EditPaymentInteractor.editPaymentMethod(method: methodToEdit, isDefault: isDefault, success: { paymentMethod in
+        EditPaymentInteractor.editPaymentMethod(method: methodToEdit, success: { paymentMethod in
             
             let result = SwyftEditPaymentMethodResponse(paymentMethod: paymentMethod)
             self.callSuccess(using: result)
             
         }) { error in
-            report(.editPaymentMethodSdkNotInitialized, self.failure)
+            report(.editPaymentMethodInvalidCardData, self.failure)
         }
     }
     

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Swyft. All rights reserved.
 //
 
-struct SdkEnrollResponse: Codable {
+class SdkEnrollResponse: Codable {
     let success: Bool
     let message: String
     let payload: SdkEnrollPayLoadResponse

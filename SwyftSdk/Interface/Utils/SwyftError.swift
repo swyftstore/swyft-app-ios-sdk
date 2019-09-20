@@ -38,7 +38,8 @@ public enum SwyftError: String, Error {
 
     // MARK: AddPaymentMethod
     case addPaymentMethodSdkNotInitialized
-    case AddPaymentMethodFirebaseFailure
+    case addPaymentMethodFirebaseFailure
+    case addPaymentMethodInvalidCardData
     
     // MARK: EditPaymentMethod
     case editPaymentMethodSdkNotInitialized
@@ -149,9 +150,11 @@ private extension SwyftError {
         case .addPaymentMethodSdkNotInitialized:
             return (code: 20_301, message: "Swyft SDK Add Payment Method: SDK still initializing, please wait a moment and try again")
             
-        case .AddPaymentMethodFirebaseFailure:
+        case .addPaymentMethodFirebaseFailure:
             return (code: 20_302, message: "Swyft SDK Add Payment Method: Firebase Error")
             
+        case .addPaymentMethodInvalidCardData:
+            return (code: 20_303, message: "Swyft SDK Add Payment Method: Invalid card data")
             
         // MARK: EditPaymentMethod
         case .editPaymentMethodSdkNotInitialized:
