@@ -13,16 +13,20 @@ class RemovePaymentMethodRouter {
     private init() {}
     
     // MARK: Data
-    var cardRef: String!
+    var token: String!
     var merchantRef: String!
     var success: SwyftRemovePaymentMethodCallback!
     var failure: SwyftFailureCallback!
     
     // MARK: Actions
-    func route(_ cardRef: String, _ merchantRef: String, _ success: @escaping SwyftRemovePaymentMethodCallback, _ failure: @escaping SwyftFailureCallback) {
+    func route(_ deleteMethod: SwyftPaymentMethod, _ success: @escaping SwyftRemovePaymentMethodCallback, _ failure: @escaping SwyftFailureCallback) {
         
+        guard let token = deleteMethod.token, let merchantRef = deleteMethod.merchantRef else {
+            report(.removePaymentMethodInvalidCardData, failure)
+            return;
+        }
         // Save all parameters for later use
-        self.cardRef = cardRef
+        self.token = token
         self.merchantRef = merchantRef
         self.success = success
         self.failure = failure
@@ -58,7 +62,7 @@ private extension RemovePaymentMethodRouter {
     
     private func removePayment() {
         
-        let removeMethod = RemovePaymentMethod(cardRef: cardRef, merchantRef: merchantRef)
+        let removeMethod = RemovePaymentMethod(cardRef: token, merchantRef: merchantRef)
         
         RemovePaymentInteractor.removePaymentMethod(removeMethod: removeMethod, success: {
             

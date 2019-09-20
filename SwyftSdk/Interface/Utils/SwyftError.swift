@@ -62,6 +62,7 @@ public enum SwyftError: String, Error {
     // MARK: RemovePaymentMethod
     case removePaymentMethodSdkNotInitialized
     case removePaymentMethodFirebaseFailure
+    case removePaymentMethodInvalidCardData
 
     // MARK: GetOrders
     case getOrdersSdkNotInitialized
@@ -166,7 +167,6 @@ private extension SwyftError {
         case .editPaymentMethodFirebaseFailure:
             return (code: 20_402, message: "Swyft SDK Edit Payment Method: Firebase Error")
             
-            
         // MARK: GetPaymentMethods
         case .getPaymentMethodsSdkNotInitialized:
             return (code: 20_501, message: "Swyft SDK Get Payment Methods: SDK still initializing, please wait a moment and try again")
@@ -204,6 +204,9 @@ private extension SwyftError {
             
         case .removePaymentMethodFirebaseFailure:
             return (code: 20_702, message: "Swyft SDK Remove Payment Method: Firebase Error")
+        
+        case .removePaymentMethodInvalidCardData:
+            return (code: 20_703, message: "Swyft SDK Remove Payment Method: Invalid Card Data")
             
         
         // MARK: GetOrders
