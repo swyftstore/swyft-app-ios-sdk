@@ -36,6 +36,8 @@ public class FireStoreModelSerialize: NSObject {
             if prop != "id" {
                 if let val = value(forKey: prop) as? String {
                     dict[prop] = val
+                } else if let val = value(forKey: prop) as? Bool {
+                    dict[prop] = val
                 } else if let val = value(forKey: prop) as? Int {
                     dict[prop] = val
                 } else if let val = value(forKey: prop) as? Double {
