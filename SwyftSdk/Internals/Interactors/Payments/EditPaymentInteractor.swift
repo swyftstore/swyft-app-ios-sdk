@@ -50,15 +50,18 @@ class EditPaymentInteractor {
                                         swyftPaymentMethod.cardholderName = method.cardHolderName
                                         swyftPaymentMethod.isDefault = isDefault
                                         
-                                        if (isDefault) {
+                                        var data : [String: Any] = [:]
+                                        var pMethods : [String: Any] = [:]
+                                        
+                                        if (isDefault || swyftPaymentMethod.token == customer.defaultPaymentMethod) {
                                             if let token = customer.defaultPaymentMethod, let cMethod = customer.paymentMethods[token] {
                                                 cMethod.isDefault = false
+                                                pMethods[cMethod.token!] = cMethod.deserialize()
                                             }
                                             customer.defaultPaymentMethod =  swyftPaymentMethod.token
                                         }
                                         
-                                        var data : [String: Any] = [:]
-                                        var pMethods : [String: Any] = [:]
+                                        
                                         
                                         let update = UpdateCustomer.init(success: { (msg, id) in
                                             DispatchQueue.main.async {
