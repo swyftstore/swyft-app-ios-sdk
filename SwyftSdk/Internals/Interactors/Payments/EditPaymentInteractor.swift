@@ -10,7 +10,7 @@ import Foundation
 
 class EditPaymentInteractor {
     
-    static func editPaymentMethod(method: EditPaymentMethod,
+    static func editPaymentMethod(method: EditPaymentMethod, isDefault: Bool,
                                  success:SwyftConstants.editPaymentSuccess, failure: SwyftConstants.fail) {
         DispatchQueue.global(qos: .background).async {
             if let session = Configure.current.session, let customer = session.customer {
@@ -48,6 +48,14 @@ class EditPaymentInteractor {
                                         swyftPaymentMethod.token = paymentResponse!.cardRef
                                         swyftPaymentMethod.merchantRef = method.merchantRef
                                         swyftPaymentMethod.cardholderName = method.cardHolderName
+                                        swyftPaymentMethod.isDefault = isDefault
+                                        
+                                        if (isDefault) {
+                                            if let token = customer.defaultPaymentMethod, let cMethod = customer.paymentMethods[token] {
+                                                cMethod.isDefault = false
+                                            }
+                                            customer.defaultPaymentMethod =  swyftPaymentMethod.token
+                                        }
                                         
                                         var data : [String: Any] = [:]
                                         var pMethods : [String: Any] = [:]

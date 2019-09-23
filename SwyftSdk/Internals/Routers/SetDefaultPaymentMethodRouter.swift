@@ -21,7 +21,7 @@ class SetDefaultPaymentMethodRouter {
     func route(_ defaultMethod: SwyftPaymentMethod, _ success: @escaping SwyftSetDefaultPaymentMethodCallback, _ failure: @escaping SwyftFailureCallback) {
         
         // Save all parameters for later use
-        self.defaultMethod = defaultMethod
+        self.defaultMethod = defaultMethod      
         self.success = success
         self.failure = failure
         

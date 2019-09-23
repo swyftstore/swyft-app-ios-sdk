@@ -16,6 +16,7 @@ public class FullPaymentMethod {
     @objc public var cardExpiry: String?
     @objc public var cardholderName: String?
     @objc public var merchantRef: String?
+    @objc public var isDefault = false
     
     public init(from swyftPaymentMethod: SwyftPaymentMethod) {
         self.token = swyftPaymentMethod.token
@@ -23,6 +24,7 @@ public class FullPaymentMethod {
         self.cardExpiry = swyftPaymentMethod.cardExpiry
         self.cardholderName = swyftPaymentMethod.cardholderName
         self.merchantRef = swyftPaymentMethod.merchantRef
+        self.isDefault = swyftPaymentMethod.isDefault
     }
     
     public init(cardNumber: String,

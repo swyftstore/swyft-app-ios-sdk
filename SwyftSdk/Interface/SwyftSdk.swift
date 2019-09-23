@@ -54,7 +54,7 @@ public final class SwyftSdk {
         SetDefaultPaymentMethodRouter.shared.route(defaultMethod, success, failure)
     }
     
-    public static func removePaymentMethod(deleteMethod: SwyftPaymentMethod, success: @escaping SwyftRemovePaymentMethodCallback, failure: @escaping SwyftFailureCallback) {
+    public static func deletePaymentMethod(deleteMethod: SwyftPaymentMethod, success: @escaping SwyftRemovePaymentMethodCallback, failure: @escaping SwyftFailureCallback) {
         RemovePaymentMethodRouter.shared.route(deleteMethod, success, failure)
     }
     

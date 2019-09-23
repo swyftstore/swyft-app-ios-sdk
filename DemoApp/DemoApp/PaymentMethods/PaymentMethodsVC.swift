@@ -10,7 +10,13 @@ import UIKit
 import SwyftSdk
 import KVNProgress
 
-class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+protocol UpdateDelegate {
+    func updateMethods()
+    func showProgress()
+    func hideProgress()
+}
+
+class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet private weak var addPaymentButton: UIButton!
     @IBOutlet private weak var paymentMethodsTable: UITableView!
@@ -28,7 +34,7 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         let isDefault = false
         let cardNumber = "4111111111111111"
-        let cardExpiry = "1020"
+        let cardExpiry = "1021"        
         let cardType = "VISA"
         let cardHolderName = "Carl Peterson"
         let cvv = "987"
@@ -66,27 +72,18 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         cell.title.text = method.last4
         cell.subtitle.text = method.cardType
-        //cell.isDefaultIcon.isHidden = true
         cell.method = method
+        cell.delegate = self
+        cell.addListeners()
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        let method = paymentMethods[indexPath.row]
-
-        let fullMethod = FullPaymentMethod(from: method)
-        fullMethod.cvv = "111"
-        fullMethod.cardNumber = "4111111111112222"
-        SwyftSdk.editPaymentMethod(method: fullMethod, success: { response in
-            self.getPaymentMethods()
-            
-        }) { error in
-            print(error)
-            KVNProgress.dismiss()
-        }
+        let cell: CellPaymentMethod = tableView.dequeue(indexPath)
+     
+       
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -97,8 +94,8 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
                 
                 let method = self.paymentMethods[indexPath.row]
                 
-                SwyftSdk.removePaymentMethod(deleteMethod: method, success: { response in
-                    self.getPaymentMethods()                    
+                SwyftSdk.deletePaymentMethod(deleteMethod: method, success: { response in
+                    self.getPaymentMethods()
                 }, failure: { error in
                     print(error)
                     KVNProgress.dismiss()
@@ -121,6 +118,19 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
             print(error)
             KVNProgress.dismiss()
         }
+    }
+}
+
+extension PaymentMethodsVC: UpdateDelegate {
+    func updateMethods() {
+        getPaymentMethods()
+    }
+    
+    func showProgress() {
+         KVNProgress.show()
+    }
+    func hideProgress() {
+         KVNProgress.dismiss()
     }
 }
 

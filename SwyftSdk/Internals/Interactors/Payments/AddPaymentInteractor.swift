@@ -48,14 +48,19 @@ class AddPaymentInteractor {
                                 swyftPaymentMethod.merchantRef = paymentResponse!.merchantRef
                                 swyftPaymentMethod.cardholderName = method.cardHolderName
                                 
-                                
                                 customer.paymentMethods[paymentResponse!.cardRef!] = swyftPaymentMethod
                                 
                                 if isDefault {
+                                    if  let defaultId = customer.defaultPaymentMethod,
+                                        let oldDefault = customer.paymentMethods[defaultId] {
+                                        oldDefault.isDefault = false
+                                        swyftPaymentMethod.isDefault = true
+                                    }
                                     customer.defaultPaymentMethod = paymentResponse!.cardRef!
                                 } else {
                                     if let token = customer.defaultPaymentMethod, let _ = customer.paymentMethods[token]  {} else {
                                         customer.defaultPaymentMethod = paymentResponse!.cardRef!
+                                         swyftPaymentMethod.isDefault = true
                                     }
                                 }
                                 

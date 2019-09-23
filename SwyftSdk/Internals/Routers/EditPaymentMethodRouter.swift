@@ -73,7 +73,7 @@ private extension EditPaymentMethodRouter {
             cvv: method.cvv,
             merchantRef: merchantRef)
         
-        EditPaymentInteractor.editPaymentMethod(method: methodToEdit, success: { paymentMethod in
+        EditPaymentInteractor.editPaymentMethod(method: methodToEdit, isDefault: method.isDefault, success: { paymentMethod in
             
             let result = SwyftEditPaymentMethodResponse(paymentMethod: paymentMethod)
             self.callSuccess(using: result)
