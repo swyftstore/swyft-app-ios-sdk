@@ -37,7 +37,7 @@ private extension GetPaymentMethodsRouter {
         var iteration = 0
         while (true) {
             
-            if let _ = Configure.current.session?.sdkFirebaseUser {
+            if let _ = Configure.current.session?.clientFirebaseUser {
                 break
                 
             } else if iteration > SwyftConstants.RouterMaxRetries {
@@ -54,7 +54,7 @@ private extension GetPaymentMethodsRouter {
     
     private func getCustomer() {
         
-        guard let email = Configure.current.session?.sdkFirebaseUser?.email else {
+        guard let id = Configure.current.session?.clientFirebaseUser?.uid else {
             report(.getPaymentMethodsNoFirebaseUser, self.failure)
             return
         }
@@ -77,14 +77,14 @@ private extension GetPaymentMethodsRouter {
             report(.getPaymentMethodsGetCustomerFailure, self.failure)
         }
         
-        action.get(email: email)
+        action.get(id: id)
     }
     
     private func getMethods(for customerId: String) {
         
         let action = GetPaymentMethods(success: { data in
 
-            guard let methods = data as? [PaymentMethod] else {
+            guard let methods = data as? [SwyftPaymentMethod] else {
                 report(.getPaymentMethodsParsingFailure, self.failure)
                 return
             }

@@ -29,6 +29,8 @@ open class SwyftSession: NSObject {
     var sdkFirebaseUser: User?
     var sdkAuthToken: String?
     
+    var clientFirebaseUser: User?
+    
     func isSessionExpired() -> Bool {
         if let _ = signOnDate, let sessionExpiry = sessionExpiry {
             return Date() >= sessionExpiry

@@ -5,6 +5,7 @@
 //  Created by Rigoberto Saenz Imbacuan on 9/12/19.
 //  Copyright © 2019 Swyft. All rights reserved.
 //
+import FirebaseAuth
 
 class EnrollUserRouter {
     
@@ -109,8 +110,26 @@ private extension EnrollUserRouter {
             
             Configure.current.session?.sdkAuthToken = response.payload.authToken
             
-            let result = SwyftEnrollUserResponse(message: response.message, swyftId: response.payload.swyftId, authToken: response.payload.authToken)
-            self.callSuccess(using: result)
+            let enrollResult = SwyftEnrollUserResponse(message: response.message, swyftId: response.payload.swyftId, authToken: response.payload.authToken)
+            
+            Auth.auth(app: Configure.fireBaseApp).signIn(withCustomToken: response.payload.authToken) { result, error in
+                
+                if let _ = error {
+                    Configure.current.session?.sdkFirebaseUser = nil
+                    report(.authenticateUserFirebaseSignInFailure, self.failure)
+                    return
+                }
+                
+                guard let result = result else {
+                    Configure.current.session?.sdkFirebaseUser = nil
+                    report(.authenticateUserNoFirebaseSignIn, self.failure)
+                    return
+                }
+                
+                Configure.current.session?.clientFirebaseUser = result.user
+                self.callSuccess(using: enrollResult)
+            }
+           
             
         }) { error in
             report(.enrollUserSdkEnrollFailure, self.failure)

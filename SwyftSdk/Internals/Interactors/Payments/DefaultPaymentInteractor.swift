@@ -21,12 +21,19 @@ class DefaultPaymentInteractor {
                 let _failure = failure
                 var newDefault: SwyftPaymentMethod?
                 
+               
+                
                 if let token = defaultMethod.token {
                     newDefault = customer.paymentMethods[token]
+                   
+                }
+                if  let defaultId = customer.defaultPaymentMethod,
+                    let oldDefault = customer.paymentMethods[defaultId] {
+                    oldDefault.isDefault = false
                 }
                 
                 if let _  = newDefault  {
-                    
+                    newDefault?.isDefault = true
                     customer.defaultPaymentMethod = defaultMethod.token
                     
                     let update = UpdateCustomer.init(success: { (msg, id) in

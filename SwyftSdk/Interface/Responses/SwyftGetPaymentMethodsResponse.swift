@@ -7,5 +7,5 @@
 //
 
 public struct SwyftGetPaymentMethodsResponse {
-    public let paymentMethods: [PaymentMethod]
+    public let paymentMethods: [SwyftPaymentMethod]
 }

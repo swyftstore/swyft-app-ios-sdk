@@ -21,7 +21,7 @@ class SetDefaultPaymentMethodRouter {
     func route(_ defaultMethod: SwyftPaymentMethod, _ success: @escaping SwyftSetDefaultPaymentMethodCallback, _ failure: @escaping SwyftFailureCallback) {
         
         // Save all parameters for later use
-        self.defaultMethod = defaultMethod
+        self.defaultMethod = defaultMethod      
         self.success = success
         self.failure = failure
         
@@ -39,7 +39,7 @@ private extension SetDefaultPaymentMethodRouter {
         var iteration = 0
         while (true) {
             
-            if let _ = Configure.current.session?.sdkFirebaseUser {
+            if let _ = Configure.current.session?.clientFirebaseUser {
                 break
                 
             } else if iteration > SwyftConstants.RouterMaxRetries {

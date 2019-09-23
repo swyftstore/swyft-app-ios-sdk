@@ -24,10 +24,10 @@ class UsersVC: UIViewController {
         KVNProgress.show()
         
         let customerInfo = SwyftUser(
-            email: "test15@rigo.com",
-            firstName: "Carl",
-            lastName: "Perterson",
-            phoneNumber: "+1 1234567890")
+            email: "tmanuel@dropspotusa.com",
+            firstName: "Tom",
+            lastName: "Manuel",
+            phoneNumber: "+16504512190")
         
         SwyftSdk.enrollUser(user: customerInfo, success: { response in
             
@@ -37,7 +37,7 @@ class UsersVC: UIViewController {
             print("swyftId: \(response.swyftId)")
             print("authToken: \(response.authToken)")
             
-            KVNProgress.dismiss()
+            KVNProgress.showSuccess()
             
         }) { error in
             debugPrint(error)
@@ -56,7 +56,7 @@ class UsersVC: UIViewController {
             DispatchQueue.main.async {
                 self.qrCodeImage.image = response.qrCode
             }
-            KVNProgress.dismiss()
+            KVNProgress.showSuccess()
             
         }) { error in
             debugPrint(error)
@@ -70,14 +70,14 @@ class UsersVC: UIViewController {
         
         qrCodeImage.image = nil
         
-        let customAuth = "myCustomStringToEncode"
+        let customAuth = "tmanuel@dropspotusa.com"
         
         SwyftSdk.authenticateUser(swyftId: self.swyftId, qrCodeColor: self.view.tintColor, customAuth: customAuth, success: { response in
             
             DispatchQueue.main.async {
                 self.qrCodeImage.image = response.qrCode
             }
-            KVNProgress.dismiss()
+            KVNProgress.showSuccess()
             
         }) { error in
             debugPrint(error)

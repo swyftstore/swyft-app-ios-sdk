@@ -19,10 +19,20 @@ class AddPaymentMethodRouter {
     private var failure: SwyftFailureCallback!
     
     // MARK: Actions
-    func route(_ method: PaymentMethod, _ isDefault: Bool, _ success: @escaping SwyftAddPaymentMethodCallback, _ failure: @escaping SwyftFailureCallback) {
+    func route(_ method: FullPaymentMethod, _ isDefault: Bool, _ success: @escaping SwyftAddPaymentMethodCallback, _ failure: @escaping SwyftFailureCallback) {
         
         // Save all parameters for later use
-        self.method = method
+        guard let cardNumber = method.cardNumber,
+            let cardExpiry = method.cardExpiry,
+            let cardType = method.cardType,
+            let cardholderName = method.cardholderName,
+            let cvv = method.cvv else {
+            
+            report(.addPaymentMethodInvalidCardData, failure)
+
+            return
+        }
+        self.method = PaymentMethod(cardNumber: cardNumber, cardExpiry: cardExpiry, cardType: cardType, cardHolderName: cardholderName, cvv: cvv)
         self.isDefault = isDefault
         self.success = success
         self.failure = failure
@@ -41,7 +51,7 @@ private extension AddPaymentMethodRouter {
         var iteration = 0
         while (true) {
             
-            if let _ = Configure.current.session?.sdkFirebaseUser {
+            if let _ = Configure.current.session?.clientFirebaseUser {
                 break
                 
             } else if iteration > SwyftConstants.RouterMaxRetries {
@@ -64,7 +74,7 @@ private extension AddPaymentMethodRouter {
             self.callSuccess(using: result)
             
         }) { error in
-            report(.AddPaymentMethodFirebaseFailure, self.failure)
+            report(.addPaymentMethodFirebaseFailure, self.failure)
         }
     }
     

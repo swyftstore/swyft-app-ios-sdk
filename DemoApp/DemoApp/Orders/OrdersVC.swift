@@ -28,10 +28,11 @@ class OrdersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             self.orders = response.orders
             self.ordersTable.reloadData()
-            KVNProgress.dismiss()
+            KVNProgress.showSuccess()
             
         }) { error in
-            KVNProgress.showError(withStatus: error.description)
+            print(error)
+            KVNProgress.dismiss()
         }
     }
     

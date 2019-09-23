@@ -17,6 +17,7 @@ public class SwyftPaymentMethod: FireStoreModelSerialize, FireStoreModelProto  {
     @objc public var cardExpiry: String?
     @objc public var cardholderName: String?
     @objc public var merchantRef: String?
+    @objc public var isDefault = false
     
     public func toString() {
         //todo

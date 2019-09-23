@@ -25,7 +25,15 @@ class SwyftNetworkAdapter {
                     successCallback(response)
                 } else {
                     // 2:
-                    let error = NSError(domain:"com.swyft.networkLayer", code:0, userInfo:[NSLocalizedDescriptionKey: "Parsing Error"])
+                    let error: NSError
+                    
+                    if let respJson = Utils.getJsonString(from: response),
+                        let errorResp: SdkErrorResponse = respJson.decodeFrom()  {
+                        error = NSError(domain:"com.swyft.networkLayer", code:0, userInfo:[NSLocalizedDescriptionKey: errorResp.error])
+                        
+                    } else {
+                        error = NSError(domain:"com.swyft.networkLayer", code:0, userInfo:[NSLocalizedDescriptionKey: "Parsing Error"])
+                    }
                     errorCallback(error)
                 }
             case .failure(let error):

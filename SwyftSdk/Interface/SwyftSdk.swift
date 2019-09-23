@@ -11,6 +11,7 @@ import FirebaseCore
 public typealias SwyftEnrollUserCallback = (_ response: SwyftEnrollUserResponse)->()
 public typealias SwyftAuthenticateUserCallback = (_ response: SwyftAuthenticateUserResponse)->()
 public typealias SwyftAddPaymentMethodCallback = (_ response: SwyftAddPaymentMethodResponse)->()
+public typealias SwyftEditPaymentMethodCallback = (_ response: SwyftEditPaymentMethodResponse)->()
 public typealias SwyftGetPaymentMethodsCallback = (_ response: SwyftGetPaymentMethodsResponse)->()
 public typealias SwyftSetDefaultPaymentMethodCallback = (_ response: SwyftSetDefaultPaymentMethodResponse)->()
 public typealias SwyftRemovePaymentMethodCallback = (_ response: SwyftRemovePaymentMethodResponse)->()
@@ -37,8 +38,12 @@ public final class SwyftSdk {
         AuthenticateUserRouter.shared.route(swyftId, qrCodeColor, customAuth, success, failure)
     }
     
-    public static func addPaymentMethod(method: PaymentMethod, isDefault: Bool, success: @escaping SwyftAddPaymentMethodCallback, failure: @escaping SwyftFailureCallback) {
+    public static func addPaymentMethod(method: FullPaymentMethod, isDefault: Bool, success: @escaping SwyftAddPaymentMethodCallback, failure: @escaping SwyftFailureCallback) {
         AddPaymentMethodRouter.shared.route(method, isDefault, success, failure)
+    }
+    
+    public static func editPaymentMethod(method: FullPaymentMethod, success: @escaping SwyftEditPaymentMethodCallback, failure: @escaping SwyftFailureCallback) {
+        EditPaymentMethodRouter.shared.route(method, success, failure)
     }
     
     public static func getPaymentMethods(success: @escaping SwyftGetPaymentMethodsCallback, failure: @escaping SwyftFailureCallback) {
@@ -49,8 +54,8 @@ public final class SwyftSdk {
         SetDefaultPaymentMethodRouter.shared.route(defaultMethod, success, failure)
     }
     
-    public static func removePaymentMethod(cardRef: String, merchantRef: String, success: @escaping SwyftRemovePaymentMethodCallback, failure: @escaping SwyftFailureCallback) {
-        RemovePaymentMethodRouter.shared.route(cardRef, merchantRef, success, failure)
+    public static func deletePaymentMethod(deleteMethod: SwyftPaymentMethod, success: @escaping SwyftRemovePaymentMethodCallback, failure: @escaping SwyftFailureCallback) {
+        RemovePaymentMethodRouter.shared.route(deleteMethod, success, failure)
     }
     
     public static func getOrders(start: Int, pageSize: Int, success: @escaping SwyftGetOrdersCallback, failure: @escaping SwyftFailureCallback) {

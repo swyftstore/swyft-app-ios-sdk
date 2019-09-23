@@ -14,14 +14,15 @@ class EditPaymentInteractor {
                                  success:SwyftConstants.editPaymentSuccess, failure: SwyftConstants.fail) {
         DispatchQueue.global(qos: .background).async {
             if let session = Configure.current.session, let customer = session.customer {
-                let last4 = method.last4
                 let cardType = method.cardType
+                let merchantRef = method.merchantRef
+                let last4 = method.last4
                 let _sucesss = success
                 let _failure = failure
                 var cardFound = false
                 
                 for method in customer.paymentMethods.values {
-                    if ( last4 ==  method.last4 && cardType == method.cardType ) {
+                    if ( merchantRef ==  method.merchantRef && cardType == method.cardType ) {
                         cardFound = true;
                         break;
                     }
@@ -47,6 +48,14 @@ class EditPaymentInteractor {
                                         swyftPaymentMethod.token = paymentResponse!.cardRef
                                         swyftPaymentMethod.merchantRef = method.merchantRef
                                         swyftPaymentMethod.cardholderName = method.cardHolderName
+                                        swyftPaymentMethod.isDefault = isDefault
+                                        
+                                        if (isDefault) {
+                                            if let token = customer.defaultPaymentMethod, let cMethod = customer.paymentMethods[token] {
+                                                cMethod.isDefault = false
+                                            }
+                                            customer.defaultPaymentMethod =  swyftPaymentMethod.token
+                                        }
                                         
                                         var data : [String: Any] = [:]
                                         var pMethods : [String: Any] = [:]
@@ -60,10 +69,7 @@ class EditPaymentInteractor {
                                                 _failure?("Unable to update customer profile")
                                             }
                                         })
-                                                                                                            
-                                        if isDefault {
-                                            data["defaultPaymentMethod"] = swyftPaymentMethod.token!
-                                        }
+                                        
                                         pMethods[swyftPaymentMethod.token!] = swyftPaymentMethod.deserialize()
                                         data["paymentMethods"] = pMethods
                                         update.put(key: customer.id!, data: data)

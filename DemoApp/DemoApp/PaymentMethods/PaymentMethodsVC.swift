@@ -10,39 +10,36 @@ import UIKit
 import SwyftSdk
 import KVNProgress
 
-class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+protocol UpdateDelegate {
+    func updateMethods()
+    func showProgress()
+    func hideProgress()
+}
+
+class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet private weak var addPaymentButton: UIButton!
     @IBOutlet private weak var paymentMethodsTable: UITableView!
     
-    private var paymentMethods = [PaymentMethod]()
+    private var paymentMethods = [SwyftPaymentMethod]()
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         KVNProgress.show()
-        
-        SwyftSdk.getPaymentMethods(success: { response in
-            
-            self.paymentMethods = response.paymentMethods
-            self.paymentMethodsTable.reloadData()
-            KVNProgress.dismiss()
-            
-        }) { error in
-            KVNProgress.showError(withStatus: error.description)
-        }
+        getPaymentMethods()
     }
     
     @IBAction func onTapAddPayment(_ sender: UIButton) {
         
         let isDefault = false
         let cardNumber = "4111111111111111"
-        let cardExpiry = "10/2020"
+        let cardExpiry = "1021"        
         let cardType = "VISA"
         let cardHolderName = "Carl Peterson"
         let cvv = "987"
         
-        let method = PaymentMethod(
+        let method = FullPaymentMethod(
             cardNumber: cardNumber,
             cardExpiry: cardExpiry,
             cardType: cardType,
@@ -52,19 +49,11 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         KVNProgress.show()
         
         SwyftSdk.addPaymentMethod(method: method, isDefault: isDefault, success: { response in
-            
-            SwyftSdk.getPaymentMethods(success: { response in
-
-                self.paymentMethods = response.paymentMethods
-                self.paymentMethodsTable.reloadData()
-                KVNProgress.dismiss()
-                
-            }) { error in
-                KVNProgress.showError(withStatus: error.description)
-            }
+            self.getPaymentMethods()
             
         }) { error in
-            KVNProgress.showError(withStatus: error.description)
+            print(error)
+            KVNProgress.dismiss()
         }
     }
     
@@ -81,8 +70,67 @@ class PaymentMethodsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         let cell: CellPaymentMethod = tableView.dequeue(indexPath)
         let method = paymentMethods[indexPath.row]
         
-        cell.textLabel?.text = method.cardNumber
-        cell.detailTextLabel?.text = method.cardType
+        cell.title.text = method.last4
+        cell.subtitle.text = method.cardType
+        cell.method = method
+        cell.delegate = self
+        cell.addListeners()
+        
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let cell: CellPaymentMethod = tableView.dequeue(indexPath)
+     
+       
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let actionDelete = UITableViewRowAction.init(
+            style: UITableViewRowAction.Style.destructive,
+            title: "Delete") { rowAction, indexPath in
+                
+                let method = self.paymentMethods[indexPath.row]
+                
+                SwyftSdk.deletePaymentMethod(deleteMethod: method, success: { response in
+                    self.getPaymentMethods()
+                }, failure: { error in
+                    print(error)
+                    KVNProgress.dismiss()
+                })
+        }
+        
+        return [actionDelete]
+    }
+    
+    
+    private func getPaymentMethods() {
+        
+        SwyftSdk.getPaymentMethods(success: { response in
+            
+            self.paymentMethods = response.paymentMethods
+            self.paymentMethodsTable.reloadData()
+            KVNProgress.showSuccess()
+            
+        }) { error in
+            print(error)
+            KVNProgress.dismiss()
+        }
+    }
 }
+
+extension PaymentMethodsVC: UpdateDelegate {
+    func updateMethods() {
+        getPaymentMethods()
+    }
+    
+    func showProgress() {
+         KVNProgress.show()
+    }
+    func hideProgress() {
+         KVNProgress.dismiss()
+    }
+}
+

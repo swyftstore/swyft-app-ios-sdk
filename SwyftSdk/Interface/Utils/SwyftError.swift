@@ -38,7 +38,13 @@ public enum SwyftError: String, Error {
 
     // MARK: AddPaymentMethod
     case addPaymentMethodSdkNotInitialized
-    case AddPaymentMethodFirebaseFailure
+    case addPaymentMethodFirebaseFailure
+    case addPaymentMethodInvalidCardData
+    
+    // MARK: EditPaymentMethod
+    case editPaymentMethodSdkNotInitialized
+    case editPaymentMethodInvalidCardData
+    case editPaymentMethodFirebaseFailure
 
     // MARK: GetPaymentMethods
     case getPaymentMethodsSdkNotInitialized
@@ -56,6 +62,7 @@ public enum SwyftError: String, Error {
     // MARK: RemovePaymentMethod
     case removePaymentMethodSdkNotInitialized
     case removePaymentMethodFirebaseFailure
+    case removePaymentMethodInvalidCardData
 
     // MARK: GetOrders
     case getOrdersSdkNotInitialized
@@ -144,70 +151,85 @@ private extension SwyftError {
         case .addPaymentMethodSdkNotInitialized:
             return (code: 20_301, message: "Swyft SDK Add Payment Method: SDK still initializing, please wait a moment and try again")
             
-        case .AddPaymentMethodFirebaseFailure:
+        case .addPaymentMethodFirebaseFailure:
             return (code: 20_302, message: "Swyft SDK Add Payment Method: Firebase Error")
             
+        case .addPaymentMethodInvalidCardData:
+            return (code: 20_303, message: "Swyft SDK Add Payment Method: Invalid card data")
+            
+        // MARK: EditPaymentMethod
+        case .editPaymentMethodSdkNotInitialized:
+            return (code: 20_401, message: "Swyft SDK Edit Payment Method: SDK still initializing, please wait a moment and try again")
+            
+        case .editPaymentMethodInvalidCardData:
+            return (code: 20_402, message: "Swyft SDK Edit Payment Method: Invalid card data")
+            
+        case .editPaymentMethodFirebaseFailure:
+            return (code: 20_402, message: "Swyft SDK Edit Payment Method: Firebase Error")
             
         // MARK: GetPaymentMethods
         case .getPaymentMethodsSdkNotInitialized:
-            return (code: 20_401, message: "Swyft SDK Get Payment Methods: SDK still initializing, please wait a moment and try again")
+            return (code: 20_501, message: "Swyft SDK Get Payment Methods: SDK still initializing, please wait a moment and try again")
             
         case .getPaymentMethodsParsingFailure:
-            return (code: 20_402, message: "Swyft SDK Get Payment Methods: Invalid Data Format")
+            return (code: 20_502, message: "Swyft SDK Get Payment Methods: Invalid Data Format")
             
         case .getPaymentMethodsFirebaseFailure:
-            return (code: 20_403, message: "Swyft SDK Get Payment Methods: Firebase Error")
+            return (code: 20_503, message: "Swyft SDK Get Payment Methods: Firebase Error")
             
         case .getPaymentMethodsNoFirebaseUser:
-            return (code: 20_404, message: "Swyft SDK Get Payment Methods: No Firebase User")
+            return (code: 20_504, message: "Swyft SDK Get Payment Methods: No Firebase User")
             
         case .getPaymentMethodsInvalidCustomerData:
-            return (code: 20_405, message: "Swyft SDK Get Payment Methods: Invalid Customer Data")
-            
+            return (code: 20_505, message: "Swyft SDK Get Payment Methods: Invalid Customer Data")
+    
         case .getPaymentMethodsNoCustomerId:
-            return (code: 20_406, message: "Swyft SDK Get Payment Methods: No Customer Id")
+            return (code: 20_506, message: "Swyft SDK Get Payment Methods: No Customer Id")
             
         case .getPaymentMethodsGetCustomerFailure:
-            return (code: 20_407, message: "Swyft SDK Get Payment Methods: Get Customer Failure")
+            return (code: 20_507, message: "Swyft SDK Get Payment Methods: Get Customer Failure")
             
             
         // MARK: SetDefaultPaymentMethod
         case .setDefaultPaymentMethodSdkNotInitialized:
-            return (code: 20_501, message: "Swyft SDK Set Default Payment Method: SDK still initializing, please wait a moment and try again")
+            return (code: 20_601, message: "Swyft SDK Set Default Payment Method: SDK still initializing, please wait a moment and try again")
             
         case .setDefaultPaymentMethodFirebaseFailure:
-            return (code: 20_502, message: "Swyft SDK Set Default Payment Method: Firebase Error")
+            return (code: 20_602, message: "Swyft SDK Set Default Payment Method: Firebase Error")
             
             
         // MARK: RemovePaymentMethod
         case .removePaymentMethodSdkNotInitialized:
-            return (code: 20_601, message: "Swyft SDK Remove Payment Method: SDK still initializing, please wait a moment and try again")
+            return (code: 20_701, message: "Swyft SDK Remove Payment Method: SDK still initializing, please wait a moment and try again")
             
         case .removePaymentMethodFirebaseFailure:
-            return (code: 20_602, message: "Swyft SDK Remove Payment Method: Firebase Error")
+            return (code: 20_702, message: "Swyft SDK Remove Payment Method: Firebase Error")
+        
+        case .removePaymentMethodInvalidCardData:
+            return (code: 20_703, message: "Swyft SDK Remove Payment Method: Invalid Card Data")
             
         
         // MARK: GetOrders
         case .getOrdersSdkNotInitialized:
-            return (code: 20_701, message: "Swyft SDK Get Orders: SDK still initializing, please wait a moment and try again")
+            return (code: 20_801, message: "Swyft SDK Get Orders: SDK still initializing, please wait a moment and try again")
             
         case .getOrdersParsingFailure:
-            return (code: 20_702, message: "Swyft SDK Get Orders: Invalid Data Format")
+            return (code: 20_802, message: "Swyft SDK Get Orders: Invalid Data Format")
             
         case .getOrdersFirebaseFailure:
-            return (code: 20_703, message: "Swyft SDK Get Orders: Firebase Error")
+            return (code: 20_803, message: "Swyft SDK Get Orders: Firebase Error")
             
         case .getOrdersNoFirebaseUser:
-            return (code: 20_704, message: "Swyft SDK Get Orders: No Firebase User")
+            return (code: 20_804, message: "Swyft SDK Get Orders: No Firebase User")
             
         case .getOrdersInvalidCustomerData:
-            return (code: 20_705, message: "Swyft SDK Get Orders: Invalid Customer Data")
+            return (code: 20_805, message: "Swyft SDK Get Orders: Invalid Customer Data")
             
         case .getOrdersNoCustomerId:
-            return (code: 20_706, message: "Swyft SDK Get Orders: No Customer Id")
+            return (code: 20_806, message: "Swyft SDK Get Orders: No Customer Id")
             
         case .getOrdersGetCustomerFailure:
-            return (code: 20_707, message: "Swyft SDK Get Orders: Get Customer Failure")
+            return (code: 20_807, message: "Swyft SDK Get Orders: Get Customer Failure")
         }
     }
     
