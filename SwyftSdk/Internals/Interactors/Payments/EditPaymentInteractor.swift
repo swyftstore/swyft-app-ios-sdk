@@ -48,7 +48,6 @@ class EditPaymentInteractor {
                                         swyftPaymentMethod.token = paymentResponse!.cardRef
                                         swyftPaymentMethod.merchantRef = method.merchantRef
                                         swyftPaymentMethod.cardholderName = method.cardHolderName
-                                        swyftPaymentMethod.isDefault = isDefault
                                         
                                         var data : [String: Any] = [:]
                                         var pMethods : [String: Any] = [:]
@@ -58,6 +57,7 @@ class EditPaymentInteractor {
                                                 cMethod.isDefault = false
                                                 pMethods[cMethod.token!] = cMethod.deserialize()
                                             }
+                                            swyftPaymentMethod.isDefault = true
                                             customer.defaultPaymentMethod =  swyftPaymentMethod.token
                                         }
                                         
@@ -75,6 +75,7 @@ class EditPaymentInteractor {
                                         
                                         pMethods[swyftPaymentMethod.token!] = swyftPaymentMethod.deserialize()
                                         data["paymentMethods"] = pMethods
+                                        data["defaultPaymentMethod"] =  customer.defaultPaymentMethod
                                         update.put(key: customer.id!, data: data)
                                         
                                     } else {

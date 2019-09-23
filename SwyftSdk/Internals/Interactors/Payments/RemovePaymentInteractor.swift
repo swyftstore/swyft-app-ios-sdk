@@ -116,7 +116,7 @@ class RemovePaymentInteractor {
                 if let _token = pMethod?.value.token {
                     data["defaultPaymentMethod"] = _token
                     pMethod!.value.isDefault = true
-                    pMethods[_token] = pMethod!.value.toDictionary()
+                    pMethods[_token] = pMethod!.value.deserialize()
                 }
                
             }
