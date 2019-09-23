@@ -36,4 +36,18 @@ public class SwyftPaymentMethod: FireStoreModelSerialize, FireStoreModelProto  {
             return false
         }
     }
+    
+    public func toDictionary() -> [String: Any] {
+        var mDict = [String: Any]()
+        
+        mDict["token"] = token
+        mDict["last4"] = last4
+        mDict["cardType"] = cardType
+        mDict["cardExpiry"] = cardExpiry
+        mDict["cardholderName"] = cardholderName
+        mDict["merchantRef"] = merchantRef
+        mDict["isDefault"] = isDefault
+        
+        return mDict
+    }
 }

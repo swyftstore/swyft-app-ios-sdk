@@ -113,7 +113,12 @@ class RemovePaymentInteractor {
             } else if customer.defaultPaymentMethod == token {
                 var interator = customer.paymentMethods.makeIterator()
                 let pMethod = interator.next();
-                data["defaultPaymentMethod"] = pMethod?.value.token
+                if let _token = pMethod?.value.token {
+                    data["defaultPaymentMethod"] = token
+                    pMethod!.value.isDefault = true
+                    pMethods[_token] = pMethod!.value.toDictionary()
+                }
+               
             }
             data["paymentMethods"] = pMethods
             update.put(key: customer.id!, data: data)
@@ -123,7 +128,7 @@ class RemovePaymentInteractor {
             }
         }
     }
-    
+        
     private static func errorHandler(errorMsg: String, failure: SwyftConstants.fail) {
         var msg : String
         if let errorResp = ErrorResponse.init(XMLString: errorMsg), let _msg = errorResp.errorString {
