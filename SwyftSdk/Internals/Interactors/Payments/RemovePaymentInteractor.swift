@@ -114,7 +114,7 @@ class RemovePaymentInteractor {
                 var interator = customer.paymentMethods.makeIterator()
                 let pMethod = interator.next();
                 if let _token = pMethod?.value.token {
-                    data["defaultPaymentMethod"] = token
+                    data["defaultPaymentMethod"] = _token
                     pMethod!.value.isDefault = true
                     pMethods[_token] = pMethod!.value.toDictionary()
                 }
