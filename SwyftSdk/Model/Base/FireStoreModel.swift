@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftTryCatch
+import FirebaseFirestore
 
 
 
@@ -43,6 +44,8 @@ public class FireStoreModelSerialize: NSObject {
                 } else if let val = value(forKey: prop) as? Double {
                     dict[prop] = val
                 } else if let val = value(forKey: prop) as? Array<String> {
+                    dict[prop] = val
+                } else if let val = value(forKey: prop) as? GeoPoint {
                     dict[prop] = val
                 } else if let vals = value(forKey: prop) as? [SwyftPaymentMethod] {
                     var _vals: [Any] = []
