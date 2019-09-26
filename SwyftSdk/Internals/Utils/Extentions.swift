@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum UIViewBackgroundAnimationState {
+internal  enum UIViewBackgroundAnimationState {
     case lighten
     case darken
 }

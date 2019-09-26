@@ -8,7 +8,7 @@
 
 import Foundation
 
-class EditPaymentInteractor {
+internal class EditPaymentInteractor {
     
     static func editPaymentMethod(method: EditPaymentMethod, isDefault: Bool,
                                  success:SwyftConstants.editPaymentSuccess, failure: SwyftConstants.fail) {

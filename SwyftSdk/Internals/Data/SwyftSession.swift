@@ -9,7 +9,7 @@
 import Foundation
 import FirebaseAuth
 
-open class SwyftSession: NSObject {
+internal  class SwyftSession: NSObject {
     
     var customer : Customer? {
         didSet {

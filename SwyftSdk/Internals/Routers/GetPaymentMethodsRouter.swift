@@ -6,7 +6,7 @@
 //  Copyright © 2019 Swyft. All rights reserved.
 //
 
-class GetPaymentMethodsRouter {
+internal class GetPaymentMethodsRouter {
     
     // MARK: Singleton
     static let shared = GetPaymentMethodsRouter()

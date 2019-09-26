@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PopUpManager: NSObject {
+internal class PopUpManager: NSObject {
     
     static let shared = PopUpManager()
     

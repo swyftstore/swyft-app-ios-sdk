@@ -9,7 +9,7 @@
 import Foundation
 import XMLMapper
 
-class PaymentMethodResponse: XmlResponseBase {
+internal class PaymentMethodResponse: XmlResponseBase {
     private let cardRefKey = "CARDREFERENCE"
     private let hashKey = "HASH"
     

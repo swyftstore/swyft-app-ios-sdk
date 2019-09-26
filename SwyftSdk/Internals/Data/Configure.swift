@@ -11,7 +11,7 @@ import FirebaseCore
 import FirebaseAuth
 import FirebaseFirestore
 
-class Configure: NSObject {
+internal class Configure: NSObject {
     private var _fireBaseApp: FirebaseApp?
     private var _qrColor = UIColor.black
     

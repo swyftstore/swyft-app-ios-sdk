@@ -8,7 +8,7 @@
 
 import Foundation
 
-class XmlResponseBase {
+internal class XmlResponseBase {
     
     let dateTimeKey = "DATETIME"
     let merchantRefKey = "MERCHANTREF"

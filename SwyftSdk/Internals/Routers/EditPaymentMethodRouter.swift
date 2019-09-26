@@ -6,7 +6,7 @@
 //  Copyright © 2019 Swyft. All rights reserved.
 //
 
-class EditPaymentMethodRouter {
+internal class EditPaymentMethodRouter {
     
     // MARK: Singleton
     static let shared = EditPaymentMethodRouter()

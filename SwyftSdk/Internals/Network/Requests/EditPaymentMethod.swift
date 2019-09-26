@@ -12,7 +12,7 @@ import Foundation
 import Foundation
 import XMLMapper
 
-class EditPaymentMethod: XmlRequestBase {
+internal class EditPaymentMethod: XmlRequestBase {
     
     private let cardNumberKey = "CARDNUMBER"
     private let cardExpiryKey = "CARDEXPIRY"

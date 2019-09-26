@@ -9,7 +9,7 @@
 import Foundation
 import XMLMapper
 
-class ErrorResponse: XmlResponseBase {
+internal class ErrorResponse: XmlResponseBase {
     private let errorStringKey = "ERRORSTRING"
     
     var errorString: String?

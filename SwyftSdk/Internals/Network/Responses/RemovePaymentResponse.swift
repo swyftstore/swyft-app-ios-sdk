@@ -9,7 +9,7 @@
 import Foundation
 import XMLMapper
 
-class RemoveMethodResponse: XmlResponseBase {
+internal class RemoveMethodResponse: XmlResponseBase {
     private let cardRefKey = "CARDREFERENCE"
     private let hashKey = "HASH"
     

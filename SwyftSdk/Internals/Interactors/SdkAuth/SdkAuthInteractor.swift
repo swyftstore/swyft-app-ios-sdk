@@ -8,7 +8,7 @@
 
 import Moya
 
-class SdkAuthInteractor {
+internal class SdkAuthInteractor {
     
     private static var success: SwyftConstants.sdkAuthSuccess?
     private static var failure: SwyftConstants.fail?

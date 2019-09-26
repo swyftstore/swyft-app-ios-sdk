@@ -6,7 +6,7 @@
 //  Copyright © 2019 Swyft. All rights reserved.
 //
 
-struct SdkErrorResponse: Codable {
+internal struct SdkErrorResponse: Codable {
     let error: String
     let message: String
     let success: Bool

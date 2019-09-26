@@ -6,7 +6,7 @@
 //  Copyright © 2019 Swyft. All rights reserved.
 //
 
-class SetDefaultPaymentMethodRouter {
+internal class SetDefaultPaymentMethodRouter {
     
     // MARK: Singleton
     static let shared = SetDefaultPaymentMethodRouter()

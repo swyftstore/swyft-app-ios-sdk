@@ -6,14 +6,14 @@
 //  Copyright © 2019 Swyft. All rights reserved.
 //
 
-struct SdkEnrollRequest: Codable {
+internal struct SdkEnrollRequest: Codable {
     let key: String
     let id: String
     let idToken: String
     let customer: SdkEnrollCustomerRequest
 }
 
-struct SdkEnrollCustomerRequest: Codable {
+internal struct SdkEnrollCustomerRequest: Codable {
     let emailAddress: String
     let firstName: String?
     let lastName: String?

@@ -9,7 +9,7 @@
 import Foundation
 import XMLMapper
 
-class RemovePaymentMethod: XmlRequestBase {
+internal class RemovePaymentMethod: XmlRequestBase {
  
     private let cardRefKey = "CARDREFERENCE"
     private let hashKey = "HASH"

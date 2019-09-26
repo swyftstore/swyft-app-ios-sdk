@@ -9,7 +9,7 @@
 import Foundation
 import FirebaseFirestore
 
-class GetProduct: FireStoreRead {
+internal class GetProduct: FireStoreRead {
     var fail: SwyftConstants.fail
     var success: SwyftConstants.readSuccess
     

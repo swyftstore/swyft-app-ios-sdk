@@ -9,7 +9,7 @@
 import Foundation
 import FirebaseFirestore
 
-class GetPaymentMethods: FireStoreRead {
+internal class GetPaymentMethods: FireStoreRead {
     
     var success: SwyftConstants.readSuccessWArray
     var fail:  SwyftConstants.fail

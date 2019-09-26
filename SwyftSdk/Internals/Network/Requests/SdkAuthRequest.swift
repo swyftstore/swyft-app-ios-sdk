@@ -6,7 +6,7 @@
 //  Copyright © 2019 Swyft. All rights reserved.
 //
 
-struct SdkAuthRequest: Codable {
+internal struct SdkAuthRequest: Codable {
     let key: String
     let id: String
 }

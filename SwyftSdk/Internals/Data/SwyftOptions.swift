@@ -9,7 +9,7 @@
 import Foundation
 import CryptoSwift
 
-class SwyftOptions {
+internal class SwyftOptions {
     
     public static let clientIDKey = "clientID"
     public static let gcmSenderIDKey = "gcmSenderID"

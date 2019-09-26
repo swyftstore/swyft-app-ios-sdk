@@ -10,7 +10,7 @@ import Foundation
 import FirebaseCore
 import FirebaseFirestore
 
-protocol FireStoreWrite: class {
+internal protocol FireStoreWrite: class {
     
     var success: SwyftConstants.writeSuccess {get}
     var fail: SwyftConstants.fail {get}

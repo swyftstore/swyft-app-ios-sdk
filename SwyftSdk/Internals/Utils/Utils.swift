@@ -9,7 +9,7 @@
 import Foundation
 import Moya
 
-class Utils: NSObject {
+internal class Utils: NSObject {
     static func getBaseURL() -> URL? {
         var url: URL?
         if let _url = Bundle.main.url(forResource:"Info", withExtension: "plist") {

@@ -7,7 +7,7 @@
 //
 import FirebaseAuth
 
-class EnrollUserRouter {
+internal class EnrollUserRouter {
     
     // MARK: Singleton
     static let shared = EnrollUserRouter()

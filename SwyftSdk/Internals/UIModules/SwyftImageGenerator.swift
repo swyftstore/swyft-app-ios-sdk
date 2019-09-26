@@ -10,7 +10,7 @@ import Foundation
 import CoreImage
 
 
-class SwyftImageGenerator {
+internal class SwyftImageGenerator {
     
     private static let qrCodeGen =  "CIQRCodeGenerator"
     private static let barCodeGen =  "CICode128BarcodeGenerator"

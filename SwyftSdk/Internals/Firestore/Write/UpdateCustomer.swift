@@ -9,7 +9,7 @@
 import Foundation
 import FirebaseFirestore
 
-class UpdateCustomer: FireStoreWrite {
+internal class UpdateCustomer: FireStoreWrite {
     
     var success:SwyftConstants.writeSuccess
     

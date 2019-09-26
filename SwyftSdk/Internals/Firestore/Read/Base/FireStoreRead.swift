@@ -10,7 +10,7 @@ import Foundation
 import FirebaseCore
 import FirebaseFirestore
 
-protocol FireStoreRead: class {
+internal protocol FireStoreRead: class {
    
     var fail: SwyftConstants.fail {get}
     var db: Firestore? {get}
