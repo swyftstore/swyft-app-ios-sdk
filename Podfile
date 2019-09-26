@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '11.0'
+platform :ios, '12.1'
 
 target 'SwyftSdk' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -7,8 +7,6 @@ target 'SwyftSdk' do
 
   # Pods for swyft-app-ios-sdk
   
-  # MBProgressHUD
-  #pod 'MBProgressHUD'
   # Moya
   pod 'Moya', '~> 12.0.1'
   #pod 'EVReflection/MoyaXML', '~> 5.10.1'
