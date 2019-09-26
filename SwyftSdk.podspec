@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "SwyftSdk"
-  spec.version      = "0.0.1"
+  spec.version      = "1.0-rc"
   spec.summary      = "A SDK to integrate in with Swyft Vision Stores."
 
   # This description is used to generate tags and improve search results.
@@ -52,7 +52,7 @@ Pod::Spec.new do |spec|
   #  profile URL.
   #
 
-  spec.author             = { "tommanuelDS" => "tmanuel@dropspotusa.com" }
+  spec.author             = { "tommanuelswyft" => "tmanuel@dropspot.com" }
   # Or just: spec.author    = "tommanuelDS"
   # spec.authors            = { "tommanuelDS" => "tmanuel@dropspotusa.com" }
   # spec.social_media_url   = "https://twitter.com/tommanuelDS"
@@ -63,7 +63,9 @@ Pod::Spec.new do |spec|
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-  spec.platform     = :ios
+  spec.platform     = :ios, "12.1"
+  
+  spec.swift_version = '4.2'
   #spec.platform     = :ios, "12.0"
 
   #  When using multiple platforms
@@ -79,7 +81,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/swyftstore/swyft-app-ios-sdk", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/swyftstore/swyft-app-ios-sdk.git", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

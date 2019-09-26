@@ -23,13 +23,8 @@ class InitSdkRouter {
     // MARK: Actions
     func route() {
         
-        guard let filePath = Bundle.main.path(forResource: googleFile, ofType: "plist") else {
-            report(.initSdkNoSwyftFile)
-            return
-        }
-
-        guard let firebaseOptions = FirebaseOptions(contentsOfFile: filePath) else {
-            report(.initSdkNoFirebaseOptions)
+        guard  let firebaseOptions = Configure.getFirebaseOptions() else {
+            report(.initSdkAuthFailure)
             return
         }
         

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 //! Project version number for SwyftSdk.
 FOUNDATION_EXPORT double SwyftSdkVersionNumber;
 

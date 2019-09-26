@@ -59,5 +59,43 @@ class Configure: NSObject {
         Static.instance._fireBaseApp = firebaseApp
     }
     
+    class func getFirebaseOptions() -> FirebaseOptions? {
+        let env = getEnvironment()
+        let swyftOptions = SwyftOptions()
+        
+        guard let googleAppID = swyftOptions.getOption(env: env, key: SwyftOptions.googleAppIDKey),
+        let gcmSenderID = swyftOptions.getOption(env: env, key: SwyftOptions.gcmSenderIDKey),
+        let clientID = swyftOptions.getOption(env: env, key: SwyftOptions.clientIDKey),
+        let apiKey = swyftOptions.getOption(env: env, key: SwyftOptions.apiKeyKey),
+        let projectID = swyftOptions.getOption(env: env, key: SwyftOptions.projectIDKey),
+        let bundleID = swyftOptions.getOption(env: env, key: SwyftOptions.bundleIDKey),
+        let storageBucket = swyftOptions.getOption(env: env, key: SwyftOptions.storageBucketKey),
+        let databaseURL = swyftOptions.getOption(env: env, key: SwyftOptions.databaseURLKey) else {
+            print("Invalid FirebaseOptions")
+            return nil
+        }
+        
+        let options = FirebaseOptions.init(googleAppID: googleAppID, gcmSenderID: gcmSenderID)
+        
+        options.clientID = clientID
+        options.apiKey = apiKey
+        options.projectID = projectID
+        options.bundleID = bundleID
+        options.storageBucket = storageBucket
+        options.databaseURL = databaseURL
+
+     
+        return options;
+      
+    }
+    
+    class private func getEnvironment() -> String {
+        #if DEBUG
+            return "dev"
+        #else
+            return "prod"
+        #endif    
+    }
+    
     private override init() {}
 }

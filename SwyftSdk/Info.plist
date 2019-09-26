@@ -15,12 +15,12 @@
 	<key>CFBundlePackageType</key>
 	<string>FMWK</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.0-beta</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
-	<key>LSApplicationCategoryType</key>
-	<string></string>
 	<key>ENVIRONMENT_URL</key>
 	<string>$(ENVIRONMENT_URL)</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 </dict>
 </plist>
