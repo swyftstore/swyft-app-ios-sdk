@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "SwyftSdk"
-  spec.version      = "1.0-rc"
+  spec.version      = "1.0-beta"
   spec.summary      = "A SDK to integrate in with Swyft Vision Stores."
 
   # This description is used to generate tags and improve search results.
@@ -24,7 +24,7 @@ Pod::Spec.new do |spec|
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  spec.description  = <<-DESC "A mobile sdk to integrate to allow a client application to authorize and register agains swyft systems and a vision storea."
+  spec.description  = <<-DESC "A mobile sdk to integrate to allow a client application to authorize and register against swyft systems and a vision storea."
                    DESC
 
   spec.homepage     = "http://www.swyft.com"
@@ -53,8 +53,6 @@ Pod::Spec.new do |spec|
   #
 
   spec.author             = { "tommanuelswyft" => "tmanuel@dropspot.com" }
-  # Or just: spec.author    = "tommanuelDS"
-  # spec.authors            = { "tommanuelDS" => "tmanuel@dropspotusa.com" }
   # spec.social_media_url   = "https://twitter.com/tommanuelDS"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -81,7 +79,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/swyftstore/swyft-app-ios-sdk.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://tommanuelswyft@github.com/swyftstore/swyft-app-ios-sdk.git", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -134,8 +132,6 @@ Pod::Spec.new do |spec|
   spec.requires_arc = true
   spec.static_framework = true
 
-  # MBProgressHUD
-  spec.dependency 'MBProgressHUD'
   # Moya
   spec.dependency 'Moya', '~> 12.0.1'
   #XML Mapper

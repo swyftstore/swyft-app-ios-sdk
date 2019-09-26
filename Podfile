@@ -8,7 +8,7 @@ target 'SwyftSdk' do
   # Pods for swyft-app-ios-sdk
   
   # MBProgressHUD
-  pod 'MBProgressHUD'
+  #pod 'MBProgressHUD'
   # Moya
   pod 'Moya', '~> 12.0.1'
   #pod 'EVReflection/MoyaXML', '~> 5.10.1'

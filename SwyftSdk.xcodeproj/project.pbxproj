@@ -70,7 +70,6 @@
 		B19DE525232C294700E7CC23 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4EB232C294700E7CC23 /* Extentions.swift */; };
 		B19DE526232C294700E7CC23 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4EC232C294700E7CC23 /* Utils.swift */; };
 		B19DE527232C294700E7CC23 /* PopUpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4EE232C294700E7CC23 /* PopUpManager.swift */; };
-		B19DE528232C294700E7CC23 /* ProgressHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4EF232C294700E7CC23 /* ProgressHud.swift */; };
 		B19DE529232C294700E7CC23 /* SwyftImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4F0232C294700E7CC23 /* SwyftImageGenerator.swift */; };
 		B19DE52A232C294700E7CC23 /* SdkEnrollInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4F3232C294700E7CC23 /* SdkEnrollInteractor.swift */; };
 		B19DE52B232C294700E7CC23 /* AddPaymentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4F5232C294700E7CC23 /* AddPaymentInteractor.swift */; };
@@ -81,7 +80,6 @@
 		B19DE530232C294700E7CC23 /* SdkCustomerAuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4FC232C294700E7CC23 /* SdkCustomerAuthInteractor.swift */; };
 		B19DE531232C294700E7CC23 /* Configure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4FE232C294700E7CC23 /* Configure.swift */; };
 		B19DE532232C294700E7CC23 /* SwyftSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4FF232C294700E7CC23 /* SwyftSession.swift */; };
-		B1D717DD2331874B00E1900E /* Swyft-GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1D717DC2331874B00E1900E /* Swyft-GoogleService-Info.plist */; };
 		CEB6B780BC4F2AB0D3241B7F /* Pods_SwyftSdkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39274FC2924BF3112B5BD2C1 /* Pods_SwyftSdkTests.framework */; };
 		D02E9130233C2B3F006220B0 /* SwyftOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02E912F233C2B3F006220B0 /* SwyftOptions.swift */; };
 		D08D7F3522AB123600A6298B /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08D7F3422AB123600A6298B /* Moya.framework */; };
@@ -179,7 +177,6 @@
 		B19DE4EB232C294700E7CC23 /* Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		B19DE4EC232C294700E7CC23 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		B19DE4EE232C294700E7CC23 /* PopUpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpManager.swift; sourceTree = "<group>"; };
-		B19DE4EF232C294700E7CC23 /* ProgressHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHud.swift; sourceTree = "<group>"; };
 		B19DE4F0232C294700E7CC23 /* SwyftImageGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwyftImageGenerator.swift; sourceTree = "<group>"; };
 		B19DE4F3232C294700E7CC23 /* SdkEnrollInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SdkEnrollInteractor.swift; sourceTree = "<group>"; };
 		B19DE4F5232C294700E7CC23 /* AddPaymentInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPaymentInteractor.swift; sourceTree = "<group>"; };
@@ -190,7 +187,6 @@
 		B19DE4FC232C294700E7CC23 /* SdkCustomerAuthInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SdkCustomerAuthInteractor.swift; sourceTree = "<group>"; };
 		B19DE4FE232C294700E7CC23 /* Configure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configure.swift; sourceTree = "<group>"; };
 		B19DE4FF232C294700E7CC23 /* SwyftSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwyftSession.swift; sourceTree = "<group>"; };
-		B1D717DC2331874B00E1900E /* Swyft-GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Swyft-GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CBD541C0DB7602FF109E3644 /* Pods_SwyftSdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwyftSdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D02C0F142294803E00856279 /* JVFloatLabeledTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JVFloatLabeledTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D02E912F233C2B3F006220B0 /* SwyftOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwyftOptions.swift; sourceTree = "<group>"; };
@@ -435,7 +431,6 @@
 		B19DE4CA232C294700E7CC23 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B1D717DC2331874B00E1900E /* Swyft-GoogleService-Info.plist */,
 				B19DE4CB232C294700E7CC23 /* MockStores.json */,
 			);
 			path = Resources;
@@ -517,7 +512,6 @@
 			isa = PBXGroup;
 			children = (
 				B19DE4EE232C294700E7CC23 /* PopUpManager.swift */,
-				B19DE4EF232C294700E7CC23 /* ProgressHud.swift */,
 				B19DE4F0232C294700E7CC23 /* SwyftImageGenerator.swift */,
 			);
 			path = UIModules;
@@ -741,7 +735,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B19DE50B232C294700E7CC23 /* MockStores.json in Resources */,
-				B1D717DD2331874B00E1900E /* Swyft-GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -820,7 +813,6 @@
 				B19DE517232C294700E7CC23 /* PaymentMethodResponse.swift in Sources */,
 				B19DE513232C294700E7CC23 /* AddPaymentMethodRouter.swift in Sources */,
 				B19DE52B232C294700E7CC23 /* AddPaymentInteractor.swift in Sources */,
-				B19DE528232C294700E7CC23 /* ProgressHud.swift in Sources */,
 				B19DE503232C294700E7CC23 /* GetStore.swift in Sources */,
 				B19DE526232C294700E7CC23 /* Utils.swift in Sources */,
 				B19DE505232C294700E7CC23 /* GetCustomer.swift in Sources */,

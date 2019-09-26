@@ -84,9 +84,7 @@ class Configure: NSObject {
         options.storageBucket = storageBucket
         options.databaseURL = databaseURL
 
-     
-        return options;
-      
+        return options;      
     }
     
     class private func getEnvironment() -> String {
