@@ -79,8 +79,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/swyftstore/swyft-app-ios-sdk.git", :tag => spec.version }
-
+ spec.source       = { :git => "https://tommanuelswyft@github.com/swyftstore/swyft-app-ios-sdk.git", :tag => "#{spec.version}" }
 #  spec.source       = { :http => "https://github.com/swyftstore/swyft-app-ios-sdk-cocoa-pod/raw/master/SwyftSdk/1.0.5-beta/SwyftSdk.zip" }
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -91,7 +90,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.source_files  = "SwyftSdk/**/*.{swift,m,h}"
-  spec.exclude_files = "SwyftSdk/Internals/**/*"
+  #spec.exclude_files = "SwyftSdk/Internals/**/*"
 
   # spec.public_header_files = "Classes/**/*.h"
 
