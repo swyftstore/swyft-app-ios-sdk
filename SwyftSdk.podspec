@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "SwyftSdk"
-  spec.version      = "1.0.6-beta"
+  spec.version      = "1.0.7-beta"
   spec.summary      = "A SDK to integrate in with Swyft Vision Stores."
 
   # This description is used to generate tags and improve search results.
@@ -79,7 +79,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/swyftstore/swyft-app-ios-sdk/" :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/swyftstore/swyft-app-ios-sdk.git", :tag => spec.version }
 
 #  spec.source       = { :http => "https://github.com/swyftstore/swyft-app-ios-sdk-cocoa-pod/raw/master/SwyftSdk/1.0.5-beta/SwyftSdk.zip" }
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
