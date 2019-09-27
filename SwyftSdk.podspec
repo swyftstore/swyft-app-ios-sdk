@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "SwyftSdk"
-  spec.version      = "1.0.2-beta"
+  spec.version      = "1.0.6-beta"
   spec.summary      = "A SDK to integrate in with Swyft Vision Stores."
 
   # This description is used to generate tags and improve search results.
@@ -79,9 +79,9 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://tommanuelswyft@github.com/swyftstore/swyft-app-ios-sdk.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/swyftstore/swyft-app-ios-sdk/" :tag => "#{spec.version}" }
 
-
+#  spec.source       = { :http => "https://github.com/swyftstore/swyft-app-ios-sdk-cocoa-pod/raw/master/SwyftSdk/1.0.5-beta/SwyftSdk.zip" }
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
   #  CocoaPods is smart about how it includes source code. For source files
@@ -91,7 +91,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.source_files  = "SwyftSdk/**/*.{swift,m,h}"
-  #spec.exclude_files = "Classes/Exclude"
+  spec.exclude_files = "SwyftSdk/Internals/**/*"
 
   # spec.public_header_files = "Classes/**/*.h"
 
@@ -107,7 +107,7 @@ Pod::Spec.new do |spec|
   # spec.resource  = "icon.png"
   # spec.resources = "Resources/*.png"
 
-  spec.resources = "SwyftSdk/**/*.{png,jpeg,jpg,storyboard,xib,xcassets,json}","SwyftSdk/Internals/Resources/Swyft-GoogleService-Info.plist"
+  spec.resources = "SwyftSdk/**/*.{png,jpeg,jpg,storyboard,xib,xcassets,json}"
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
 

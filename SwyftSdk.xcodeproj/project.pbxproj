@@ -88,6 +88,7 @@
 		D0997B242280AEBC00A82DFB /* SwyftSdk.h in Headers */ = {isa = PBXBuildFile; fileRef = D0997B162280AEBC00A82DFB /* SwyftSdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D0A765DE233443F20091E552 /* FullPaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A765DD233443F20091E552 /* FullPaymentMethod.swift */; };
 		D0A765E0233444B10091E552 /* SdkErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A765DF233444B10091E552 /* SdkErrorResponse.swift */; };
+		D0B3320C233E773C00BB30BA /* openssl_grpc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B3320B233E773C00BB30BA /* openssl_grpc.framework */; };
 		D0CD3465228E21B300585879 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CD3464228E21B300585879 /* FirebaseCore.framework */; };
 		D0CD3467228E21B300585879 /* FirebaseFirestore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CD3466228E21B300585879 /* FirebaseFirestore.framework */; };
 		D0CD346D228E21B300585879 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CD346C228E21B300585879 /* GoogleUtilities.framework */; };
@@ -95,7 +96,6 @@
 		D0CD3471228E21B300585879 /* grpcpp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CD3470228E21B300585879 /* grpcpp.framework */; };
 		D0CD3475228E21B300585879 /* leveldb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CD3474228E21B300585879 /* leveldb.framework */; };
 		D0CD3479228E21B300585879 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CD3478228E21B300585879 /* nanopb.framework */; };
-		D0CD347B228E21B300585879 /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CD347A228E21B300585879 /* openssl.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -199,6 +199,7 @@
 		D0997B232280AEBC00A82DFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0A765DD233443F20091E552 /* FullPaymentMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullPaymentMethod.swift; sourceTree = "<group>"; };
 		D0A765DF233444B10091E552 /* SdkErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SdkErrorResponse.swift; sourceTree = "<group>"; };
+		D0B3320B233E773C00BB30BA /* openssl_grpc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = openssl_grpc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0CD345E228E20AF00585879 /* MBProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MBProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0CD3460228E212600585879 /* Pods_customer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_customer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0CD3462228E21B300585879 /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -236,6 +237,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0B3320C233E773C00BB30BA /* openssl_grpc.framework in Frameworks */,
 				D08D7F3522AB123600A6298B /* Moya.framework in Frameworks */,
 				D0CD3465228E21B300585879 /* FirebaseCore.framework in Frameworks */,
 				D0CD3467228E21B300585879 /* FirebaseFirestore.framework in Frameworks */,
@@ -244,7 +246,6 @@
 				D0CD3471228E21B300585879 /* grpcpp.framework in Frameworks */,
 				D0CD3475228E21B300585879 /* leveldb.framework in Frameworks */,
 				D0CD3479228E21B300585879 /* nanopb.framework in Frameworks */,
-				D0CD347B228E21B300585879 /* openssl.framework in Frameworks */,
 				5FE08699CEBF426A424C3C96 /* Pods_SwyftSdk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,6 +266,7 @@
 		7766FE431708555F900EDBC8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D0B3320B233E773C00BB30BA /* openssl_grpc.framework */,
 				D08D7F3422AB123600A6298B /* Moya.framework */,
 				D02C0F142294803E00856279 /* JVFloatLabeledTextField.framework */,
 				D0CD3462228E21B300585879 /* FirebaseAuth.framework */,
