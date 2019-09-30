@@ -1,5 +1,9 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '11.0'
+platform :ios, '12.1'
+
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/swyftstore/swyft-app-ios-sdk-cocoa-pod.git'
+
 
 target 'DemoApp' do
 
@@ -9,7 +13,7 @@ target 'DemoApp' do
   # Pods for DemoApp
 
   # SwyftSdk
-  pod 'SwyftSdk', :path => '../../swyft-app-ios-sdk'
+  pod 'SwyftSdk', '1.0.7-beta'
 
   pod 'KVNProgress', '~> 2'
 
