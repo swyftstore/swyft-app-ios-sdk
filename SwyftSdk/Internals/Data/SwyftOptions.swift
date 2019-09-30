@@ -28,19 +28,17 @@ internal class SwyftOptions {
     private let iv = "52lV4RkAMCIEf4c1"
     
     init() {
-        pw[dev] = "twrJXHMmOJs157YM"
-        pw[qa] = "o4xllsExmomaMTyr"
-        pw[prod] = "Y2FgtowxZ4VzXQ2u"
+        //pw[qa] = "o4xllsExmomaMTyr"
+        //pw[prod] = "Y2FgtowxZ4VzXQ2u"
         options[dev] = [String: Array<UInt8>]()
         options[qa] = [String: Array<UInt8>]()
         options[prod] = [String: Array<UInt8>]()
         buildDevOptions()
     }
     
-    func addOption(env: String, key: String, value: String?) {
+    func addOption(env: String, key: String, value: String?, pwd: String) {
         
-        guard let _pw = pw[env],
-            var optValue = options[env],
+        guard var optValue = options[env],
             let value = value  else {
             print("Invalid environment")
             return;
@@ -48,7 +46,7 @@ internal class SwyftOptions {
        
         do {
            
-            let aes = try AES(key: _pw, iv: iv) // aes128
+            let aes = try AES(key: pwd, iv: iv) // aes128
             let ciphertext = try aes.encrypt(Array(value.utf8))
             optValue[key] = ciphertext
             debugPrint("\(key): \(ciphertext)")
@@ -58,15 +56,15 @@ internal class SwyftOptions {
       
     }
     
-    func getOption(env: String, key: String) -> String? {
+    func getOption(env: String, key: String, pwd: String) -> String? {
         
-        guard let encryptedData = options[env]?[key], let _pw = pw[env]  else {
+        guard let encryptedData = options[env]?[key] else {
             print("Invalid environment")
             return nil
         }
         
         do {
-            let aes = try AES(key: _pw, iv: iv)
+            let aes = try AES(key: pwd, iv: iv)
             let decryptedValue = try aes.decrypt(encryptedData)
             return String(bytes: decryptedValue, encoding: .utf8)
         } catch {

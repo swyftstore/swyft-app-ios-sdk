@@ -17,6 +17,7 @@ internal struct SdkAuthPayloadResponse: Codable {
     let roles: SdkAuthRolesResponse
     let merchantNames: [String: String]
     let categories: [String]
+    let optionsPwd: String
 }
 
 internal struct SdkAuthRolesResponse: Codable {

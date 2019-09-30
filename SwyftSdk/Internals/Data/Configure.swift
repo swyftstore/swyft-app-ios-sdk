@@ -59,18 +59,18 @@ internal class Configure: NSObject {
         Static.instance._fireBaseApp = firebaseApp
     }
     
-    class func getFirebaseOptions() -> FirebaseOptions? {
+    class func getFirebaseOptions(_ pwd: String) -> FirebaseOptions? {
         let env = getEnvironment()
         let swyftOptions = SwyftOptions()
         
-        guard let googleAppID = swyftOptions.getOption(env: env, key: SwyftOptions.googleAppIDKey),
-        let gcmSenderID = swyftOptions.getOption(env: env, key: SwyftOptions.gcmSenderIDKey),
-        let clientID = swyftOptions.getOption(env: env, key: SwyftOptions.clientIDKey),
-        let apiKey = swyftOptions.getOption(env: env, key: SwyftOptions.apiKeyKey),
-        let projectID = swyftOptions.getOption(env: env, key: SwyftOptions.projectIDKey),
-        let bundleID = swyftOptions.getOption(env: env, key: SwyftOptions.bundleIDKey),
-        let storageBucket = swyftOptions.getOption(env: env, key: SwyftOptions.storageBucketKey),
-        let databaseURL = swyftOptions.getOption(env: env, key: SwyftOptions.databaseURLKey) else {
+        guard let googleAppID = swyftOptions.getOption(env: env, key: SwyftOptions.googleAppIDKey, pwd: pwd),
+        let gcmSenderID = swyftOptions.getOption(env: env, key: SwyftOptions.gcmSenderIDKey, pwd: pwd),
+        let clientID = swyftOptions.getOption(env: env, key: SwyftOptions.clientIDKey, pwd: pwd),
+        let apiKey = swyftOptions.getOption(env: env, key: SwyftOptions.apiKeyKey, pwd: pwd),
+        let projectID = swyftOptions.getOption(env: env, key: SwyftOptions.projectIDKey, pwd: pwd),
+        let bundleID = swyftOptions.getOption(env: env, key: SwyftOptions.bundleIDKey, pwd: pwd),
+        let storageBucket = swyftOptions.getOption(env: env, key: SwyftOptions.storageBucketKey, pwd: pwd),
+        let databaseURL = swyftOptions.getOption(env: env, key: SwyftOptions.databaseURLKey, pwd: pwd) else {
             print("Invalid FirebaseOptions")
             return nil
         }

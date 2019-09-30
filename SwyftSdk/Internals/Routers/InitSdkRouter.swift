@@ -17,21 +17,14 @@ internal class InitSdkRouter {
     private init() {}
     
     // MARK: Data
-    private let appName = "com_swyft_SwyftSdk"
-    private let googleFile = "Swyft-GoogleService-Info"
+  
     
     // MARK: Actions
     func route() {
         
-        guard  let firebaseOptions = Configure.getFirebaseOptions() else {
-            report(.initSdkAuthFailure)
-            return
+        DispatchQueue.global(qos: .background).async {
+            self.auth()
         }
-        
-        FirebaseApp.configure(name: appName, options: firebaseOptions)
-        
-        let firebaseApp = FirebaseApp.app(name: appName)
-        route(firebaseApp)
     }
     
     func route(_ firebaseApp: FirebaseApp?) {
@@ -45,11 +38,27 @@ internal class InitSdkRouter {
 // MARK: Internals
 private extension InitSdkRouter {
     
-    private func auth(_ firebaseApp: FirebaseApp?) {
+    private func auth(_ _firebaseApp: FirebaseApp? = nil) {
+        let appName = "com_swyft_SwyftSdk"
         
-        Configure.setup(firebaseApp: firebaseApp)
         
         SdkAuthInteractor.auth(success: { response in
+            let firebaseApp: FirebaseApp?
+            
+            if let _firebaseApp = _firebaseApp {
+                firebaseApp = _firebaseApp
+            } else {
+                guard  let firebaseOptions = Configure.getFirebaseOptions(response.payload.optionsPwd) else {
+                    report(.initSdkAuthFailure)
+                    return
+                }
+                
+                FirebaseApp.configure(name: appName, options: firebaseOptions)
+                
+                firebaseApp = FirebaseApp.app(name: appName)
+            }
+            
+            Configure.setup(firebaseApp: firebaseApp)
             
             Configure.current.session?.sdkAuthToken = response.payload.authToken
             Configure.current.session?.merchantNames = response.payload.merchantNames
