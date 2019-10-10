@@ -86,7 +86,7 @@ internal class GetStores: FireStoreRead{
                     if let _ = self.db {
                         self.get(key: key, value: value)
                         break;
-                    } else if n > SwyftConstants.MaxDbRetries {
+                    } else if n > SwyftConstants.MaxDBRetries {
                         self.queryFailure(msg: "DB instance unable to initialize")
                         break;
                     }

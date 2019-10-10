@@ -59,7 +59,7 @@ internal class UpdateCustomer: FireStoreWrite {
                     if let _ = self.db {
                         self.put(key: key, data:data)
                         break;
-                    } else if n > SwyftConstants.MaxDbRetries {
+                    } else if n > SwyftConstants.MaxDBRetries {
                         self.queryFailure(msg: "DB instance unable to initialize")
                         break;
                     }
@@ -88,7 +88,7 @@ internal class UpdateCustomer: FireStoreWrite {
                     if let _ = self.db {
                         self.add(key: key, data:data)
                         break;
-                    } else if n > SwyftConstants.MaxDbRetries {
+                    } else if n > SwyftConstants.MaxDBRetries {
                         self.queryFailure(msg: "DB instance unable to initialize")
                         break;
                     }

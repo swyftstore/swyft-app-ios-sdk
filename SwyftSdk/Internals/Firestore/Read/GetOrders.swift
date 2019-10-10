@@ -59,7 +59,7 @@ internal class GetOrders: FireStoreRead{
                     if let _ = self.db {
                         self.get(customerId: customerId, startIndex: startIndex, limit:limit)
                         break;
-                    } else if n > SwyftConstants.MaxDbRetries {
+                    } else if n > SwyftConstants.MaxDBRetries {
                         self.queryFailure(msg: "DB instance unable to initialize")
                         break;
                     }

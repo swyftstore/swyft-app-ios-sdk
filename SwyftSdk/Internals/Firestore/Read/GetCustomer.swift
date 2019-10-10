@@ -42,7 +42,7 @@ internal class GetCustomer: FireStoreRead {
                     if let _ = self.db {
                         self.get(id: id)
                         break;
-                    } else if n > SwyftConstants.MaxDbRetries {
+                    } else if n > SwyftConstants.MaxDBRetries {
                         self.queryFailure(msg: "DB instance unable to initialize")
                         break;
                     }
@@ -73,7 +73,7 @@ internal class GetCustomer: FireStoreRead {
                     if let _ = self.db {
                         self.get(email: email)
                         break;
-                    } else if n > SwyftConstants.MaxDbRetries {
+                    } else if n > SwyftConstants.MaxDBRetries {
                         self.queryFailure(msg: "DB instance unable to initialize")
                         break;
                     }
