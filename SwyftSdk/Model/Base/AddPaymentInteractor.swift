@@ -44,6 +44,7 @@ public class AddPaymentInteractor {
                                 
                                 swyftPaymentMethod.cardType = cardType
                                 swyftPaymentMethod.last4 = last4
+                                swyftPaymentMethod.masked = getMasked(cardNumber: method.cardNumber)
                                 swyftPaymentMethod.cardExpiry = method.cardExpiry
                                 swyftPaymentMethod.token = paymentResponse!.cardRef
                                 swyftPaymentMethod.merchantRef = method.merchantRef
@@ -128,5 +129,17 @@ public class AddPaymentInteractor {
         DispatchQueue.main.async {
             failure?(msg)
         }
+    }
+    
+    private static func getMasked(cardNumber: String?) -> String? {
+        let masked = "******"
+        
+        guard let cardNumber = cardNumber else {
+            return nil
+        }
+        
+        let maskedCard = "\(String(cardNumber.prefix(6)))\(masked)\(String(cardNumber.suffix(4)))";
+        
+        return maskedCard;
     }
 }
