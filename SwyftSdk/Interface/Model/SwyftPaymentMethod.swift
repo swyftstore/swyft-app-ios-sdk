@@ -13,6 +13,7 @@ public class SwyftPaymentMethod: FireStoreModelSerialize, FireStoreModelProto  {
    
     @objc public var token: String?
     @objc public var last4: String?
+    @objc public var masked: String?
     @objc public var cardType: String?
     @objc public var cardExpiry: String?
     @objc public var cardholderName: String?
