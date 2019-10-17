@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "SwyftSdk"
-  spec.version      = "1.0.7-beta"
+  spec.version      = "1.1.1-beta"
   spec.summary      = "A SDK to integrate in with Swyft Vision Stores."
 
   # This description is used to generate tags and improve search results.
