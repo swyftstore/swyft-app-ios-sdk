@@ -77,11 +77,13 @@
 		B19DE52D232C294700E7CC23 /* EditPaymentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4F7232C294700E7CC23 /* EditPaymentInteractor.swift */; };
 		B19DE52E232C294700E7CC23 /* RemovePaymentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4F8232C294700E7CC23 /* RemovePaymentInteractor.swift */; };
 		B19DE52F232C294700E7CC23 /* SdkAuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4FA232C294700E7CC23 /* SdkAuthInteractor.swift */; };
-		B19DE530232C294700E7CC23 /* SdkCustomerAuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4FC232C294700E7CC23 /* SdkCustomerAuthInteractor.swift */; };
+		B19DE530232C294700E7CC23 /* SdkUserAuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4FC232C294700E7CC23 /* SdkUserAuthInteractor.swift */; };
 		B19DE531232C294700E7CC23 /* Configure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4FE232C294700E7CC23 /* Configure.swift */; };
 		B19DE532232C294700E7CC23 /* SwyftSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DE4FF232C294700E7CC23 /* SwyftSession.swift */; };
 		CEB6B780BC4F2AB0D3241B7F /* Pods_SwyftSdkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39274FC2924BF3112B5BD2C1 /* Pods_SwyftSdkTests.framework */; };
 		D02E9130233C2B3F006220B0 /* SwyftOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02E912F233C2B3F006220B0 /* SwyftOptions.swift */; };
+		D06156052354E41500CCCA71 /* SwyftUpdateUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06156042354E41500CCCA71 /* SwyftUpdateUserResponse.swift */; };
+		D061560A2354E5AF00CCCA71 /* UpdateUserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06156092354E5AF00CCCA71 /* UpdateUserRouter.swift */; };
 		D08D7F3522AB123600A6298B /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08D7F3422AB123600A6298B /* Moya.framework */; };
 		D0997B1D2280AEBC00A82DFB /* SwyftSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0997B132280AEBC00A82DFB /* SwyftSdk.framework */; };
 		D0997B222280AEBC00A82DFB /* SwyftSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0997B212280AEBC00A82DFB /* SwyftSDKTests.swift */; };
@@ -183,12 +185,14 @@
 		B19DE4F7232C294700E7CC23 /* EditPaymentInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPaymentInteractor.swift; sourceTree = "<group>"; };
 		B19DE4F8232C294700E7CC23 /* RemovePaymentInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemovePaymentInteractor.swift; sourceTree = "<group>"; };
 		B19DE4FA232C294700E7CC23 /* SdkAuthInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SdkAuthInteractor.swift; sourceTree = "<group>"; };
-		B19DE4FC232C294700E7CC23 /* SdkCustomerAuthInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SdkCustomerAuthInteractor.swift; sourceTree = "<group>"; };
+		B19DE4FC232C294700E7CC23 /* SdkUserAuthInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SdkUserAuthInteractor.swift; sourceTree = "<group>"; };
 		B19DE4FE232C294700E7CC23 /* Configure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configure.swift; sourceTree = "<group>"; };
 		B19DE4FF232C294700E7CC23 /* SwyftSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwyftSession.swift; sourceTree = "<group>"; };
 		CBD541C0DB7602FF109E3644 /* Pods_SwyftSdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwyftSdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D02C0F142294803E00856279 /* JVFloatLabeledTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JVFloatLabeledTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D02E912F233C2B3F006220B0 /* SwyftOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwyftOptions.swift; sourceTree = "<group>"; };
+		D06156042354E41500CCCA71 /* SwyftUpdateUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwyftUpdateUserResponse.swift; sourceTree = "<group>"; };
+		D06156092354E5AF00CCCA71 /* UpdateUserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserRouter.swift; sourceTree = "<group>"; };
 		D06A398122849FAE00DBF639 /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D08D7F3422AB123600A6298B /* Moya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Moya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0997B132280AEBC00A82DFB /* SwyftSdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwyftSdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -329,6 +333,7 @@
 				B19DE494232C293300E7CC23 /* SwyftRemovePaymentMethodResponse.swift */,
 				B19DE495232C293300E7CC23 /* SwyftGetOrdersResponse.swift */,
 				B16090D12332DC03001E2690 /* SwyftEditPaymentMethodResponse.swift */,
+				D06156042354E41500CCCA71 /* SwyftUpdateUserResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -446,6 +451,7 @@
 				B19DE4D2232C294700E7CC23 /* SetDefaultPaymentMethodRouter.swift */,
 				B19DE4D5232C294700E7CC23 /* RemovePaymentMethodRouter.swift */,
 				B19DE4CE232C294700E7CC23 /* GetOrdersRouter.swift */,
+				D06156092354E5AF00CCCA71 /* UpdateUserRouter.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -521,7 +527,7 @@
 				B19DE4F4232C294700E7CC23 /* Payments */,
 				B19DE4F2232C294700E7CC23 /* SdkEnroll */,
 				B19DE4F9232C294700E7CC23 /* SdkAuth */,
-				B19DE4FB232C294700E7CC23 /* SdkCustomerAuth */,
+				B19DE4FB232C294700E7CC23 /* SdkUserAuth */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -553,12 +559,12 @@
 			path = SdkAuth;
 			sourceTree = "<group>";
 		};
-		B19DE4FB232C294700E7CC23 /* SdkCustomerAuth */ = {
+		B19DE4FB232C294700E7CC23 /* SdkUserAuth */ = {
 			isa = PBXGroup;
 			children = (
-				B19DE4FC232C294700E7CC23 /* SdkCustomerAuthInteractor.swift */,
+				B19DE4FC232C294700E7CC23 /* SdkUserAuthInteractor.swift */,
 			);
-			path = SdkCustomerAuth;
+			path = SdkUserAuth;
 			sourceTree = "<group>";
 		};
 		B19DE4FD232C294700E7CC23 /* Data */ = {
@@ -789,6 +795,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D061560A2354E5AF00CCCA71 /* UpdateUserRouter.swift in Sources */,
 				B19DE531232C294700E7CC23 /* Configure.swift in Sources */,
 				D02E9130233C2B3F006220B0 /* SwyftOptions.swift in Sources */,
 				B19DE4A8232C293300E7CC23 /* SwyftAddPaymentMethodResponse.swift in Sources */,
@@ -800,6 +807,7 @@
 				D0A765DE233443F20091E552 /* FullPaymentMethod.swift in Sources */,
 				B19DE502232C294700E7CC23 /* GetProduct.swift in Sources */,
 				B19DE4B7232C293300E7CC23 /* StoreTransactions.swift in Sources */,
+				D06156052354E41500CCCA71 /* SwyftUpdateUserResponse.swift in Sources */,
 				B19DE508232C294700E7CC23 /* FireStoreRead.swift in Sources */,
 				B19DE52A232C294700E7CC23 /* SdkEnrollInteractor.swift in Sources */,
 				B19DE500232C294700E7CC23 /* UpdateCustomer.swift in Sources */,
@@ -854,7 +862,7 @@
 				B19DE50D232C294700E7CC23 /* GetOrdersRouter.swift in Sources */,
 				B19DE4B0232C293300E7CC23 /* Order.swift in Sources */,
 				B19DE519232C294700E7CC23 /* EditPaymentMethodResponse.swift in Sources */,
-				B19DE530232C294700E7CC23 /* SdkCustomerAuthInteractor.swift in Sources */,
+				B19DE530232C294700E7CC23 /* SdkUserAuthInteractor.swift in Sources */,
 				B19DE4B3232C293300E7CC23 /* PaymentMethod.swift in Sources */,
 				B19DE4B4232C293300E7CC23 /* Store.swift in Sources */,
 				B19DE4AB232C293300E7CC23 /* SwyftGetOrdersResponse.swift in Sources */,

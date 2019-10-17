@@ -27,6 +27,16 @@ public enum SwyftError: String, Error {
     case enrollUserNoAccessToken
     case enrollUserSdkEnrollFailure
     
+    // MARK: UpdateUser
+    case updateUserSdkNotInitialized
+    case updateUserInvalidUserEmail
+    case updateUserInvalidUserFirstName
+    case updateUserInvalidUserLastName
+    case updateUserInvalidUserPhone
+    case updateUserAccessTokenFailure
+    case updateUserNoAccessToken
+    case updateUserSdkUpdateFailure
+    
     // MARK: AuthenticateUser
     case authenticateUserSdkNotInitialized
     case authenticateUserSdkCustomerAuthFailure
@@ -122,6 +132,31 @@ private extension SwyftError {
             
         case .enrollUserSdkEnrollFailure:
             return (code: 20_108, message: "Swyft SDK Enroll User: Enrollment Failure")
+        
+        // MARK: UpdateUser
+        case .updateUserSdkNotInitialized:
+            return (code: 20_101, message: "Swyft SDK Update User: SDK still initializing, please wait a moment and try again")
+            
+        case .updateUserInvalidUserEmail:
+            return (code: 20_102, message: "Swyft SDK Update User: Invalid customer email")
+            
+        case .updateUserInvalidUserFirstName:
+            return (code: 20_103, message: "Swyft SDK Update User: Invalid customer first name")
+            
+        case .updateUserInvalidUserLastName:
+            return (code: 20_104, message: "Swyft SDK Update User: Invalid customer last name")
+            
+        case .updateUserInvalidUserPhone:
+            return (code: 20_105, message: "Swyft SDK Update User: Invalid customer phone number")
+            
+        case .updateUserAccessTokenFailure:
+            return (code: 20_106, message: "Swyft SDK Update User: Access Token error")
+            
+        case .updateUserNoAccessToken:
+            return (code: 20_107, message: "Swyft SDK Update User: No Access Token")
+            
+        case .updateUserSdkUpdateFailure:
+            return (code: 20_108, message: "Swyft SDK Update User: Update Failure")
             
             
         // MARK: AuthenticateUser

@@ -8,14 +8,18 @@
 
 import FirebaseCore
 
-public typealias SwyftEnrollUserCallback = (_ response: SwyftEnrollUserResponse)->()
+public typealias SwyftEnrollUserCallback = (_ response:
+    SwyftEnrollUserResponse)->()
+public typealias SwyftUpdateUserCallback = (_ response:
+    SwyftUpdateUserResponse)->()
 public typealias SwyftAuthenticateUserCallback = (_ response: SwyftAuthenticateUserResponse)->()
 public typealias SwyftAddPaymentMethodCallback = (_ response: SwyftAddPaymentMethodResponse)->()
 public typealias SwyftEditPaymentMethodCallback = (_ response: SwyftEditPaymentMethodResponse)->()
 public typealias SwyftGetPaymentMethodsCallback = (_ response: SwyftGetPaymentMethodsResponse)->()
 public typealias SwyftSetDefaultPaymentMethodCallback = (_ response: SwyftSetDefaultPaymentMethodResponse)->()
 public typealias SwyftRemovePaymentMethodCallback = (_ response: SwyftRemovePaymentMethodResponse)->()
-public typealias SwyftGetOrdersCallback = (_ response: SwyftGetOrdersResponse)->()
+public typealias SwyftGetOrdersCallback = (_ response:
+    SwyftGetOrdersResponse)->()
 public typealias SwyftFailureCallback = (_ error: NSError)->()
 
 public final class SwyftSdk {
@@ -32,6 +36,10 @@ public final class SwyftSdk {
     
     public static func enrollUser(user: SwyftUser, success: @escaping SwyftEnrollUserCallback, failure: @escaping SwyftFailureCallback) {
         EnrollUserRouter.shared.route(user, success, failure)
+    }
+    
+    public static func updateUser(user: SwyftUser, success: @escaping SwyftUpdateUserCallback, failure: @escaping SwyftFailureCallback) {
+        UpdateUserRouter.shared.route(user, success, failure)
     }
     
     public static func authenticateUser(swyftId: String, qrCodeColor: UIColor, customAuth: String? = nil, success: @escaping SwyftAuthenticateUserCallback, failure: @escaping SwyftFailureCallback) {

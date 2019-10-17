@@ -16,7 +16,7 @@ internal enum Repository {
     case removePayment(paymentMethod: RemovePaymentMethod)
     case sdkAuth(request: SdkAuthRequest)
     case sdkEnroll(request: SdkEnrollRequest)
-    case sdkCustomerAuth(request: SdkCustomerAuthRequest)
+    case sdkCustomerAuth(request: SdkUserAuthRequest)
 }
 
 extension Repository: TargetType {

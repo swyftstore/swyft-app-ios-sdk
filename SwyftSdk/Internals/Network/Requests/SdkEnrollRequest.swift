@@ -10,10 +10,10 @@ internal struct SdkEnrollRequest: Codable {
     let key: String
     let id: String
     let idToken: String
-    let customer: SdkEnrollCustomerRequest
+    let customer: SdkEnrollUserRequest
 }
 
-internal struct SdkEnrollCustomerRequest: Codable {
+internal struct SdkEnrollUserRequest: Codable {
     let emailAddress: String
     let firstName: String?
     let lastName: String?

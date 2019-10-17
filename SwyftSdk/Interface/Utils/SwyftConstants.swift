@@ -60,6 +60,7 @@ class SwyftConstants {
     typealias removePaymentSuccess = (()->Void)?
     typealias sdkAuthSuccess = (_ response: SdkAuthResponse)->Void
     typealias sdkEnrollSuccess = (_ response: SdkEnrollResponse)->Void
-    typealias sdkCustomerAuthSuccess = (_ response: SdkCustomerAuthResponse)->Void
+    typealias sdkUpdateUserSuccess = (_ response: writeSuccess)->Void
+    typealias sdkUserAuthSuccess = (_ response: SdkCustomerAuthResponse)->Void
     typealias fail = ((_ msg: String)->Void)?
 }

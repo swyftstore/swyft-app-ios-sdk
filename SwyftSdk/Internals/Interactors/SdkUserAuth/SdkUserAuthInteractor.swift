@@ -7,12 +7,12 @@
 
 import Moya
 
-internal class SdkCustomerAuthInteractor {
+internal class SdkUserAuthInteractor {
     
-    private static var success: SwyftConstants.sdkCustomerAuthSuccess?
+    private static var success: SwyftConstants.sdkUserAuthSuccess?
     private static var failure: SwyftConstants.fail?
     
-    static func customerAuth(swyftId: String, idToken: String, customAuth: String? = nil, success successCallback: @escaping SwyftConstants.sdkCustomerAuthSuccess, failure failureCallback: SwyftConstants.fail) {
+    static func userAuth(swyftId: String, idToken: String, customAuth: String? = nil, success successCallback: @escaping SwyftConstants.sdkUserAuthSuccess, failure failureCallback: SwyftConstants.fail) {
         
         DispatchQueue.global(qos: .background).async {
             
@@ -26,11 +26,11 @@ internal class SdkCustomerAuthInteractor {
             }
             
             guard let id = Bundle.main.bundleIdentifier else {
-                returnError("Swyft SDK Customer Auth: Missing bundle identifier")
+                returnError("Swyft SDK User Auth: Missing bundle identifier")
                 return
             }
             
-            let request = SdkCustomerAuthRequest(key: key, id: id, swyftId: swyftId, idToken: idToken, customAuth: customAuth)
+            let request = SdkUserAuthRequest(key: key, id: id, swyftId: swyftId, idToken: idToken, customAuth: customAuth)
             let endpoint = Repository.sdkCustomerAuth(request: request)
             
             SwyftNetworkAdapter.request(
@@ -47,24 +47,24 @@ internal class SdkCustomerAuthInteractor {
         
         // HTTP status code validation
         guard code == 200 else {
-            returnError("Swyft SDK Customer Auth: Invalid status code")
+            returnError("Swyft SDK User Auth: Invalid status code")
             return
         }
         
         // Convert raw data into a json string
         guard let jsonString = Utils.getJsonString(from: rawResponse) else {
-            returnError("Swyft SDK Customer Auth: Data parsing error")
+            returnError("Swyft SDK User Auth: Data parsing error")
             return
         }
         
         // Converts the jsonString into a valid Object
         guard let response: SdkCustomerAuthResponse = jsonString.decodeFrom() else {
-            returnError("Swyft SDK Customer Auth: Json parsing error")
+            returnError("Swyft SDK User Auth: Json parsing error")
             return
         }
         
         guard response.success else {
-            returnError("Swyft SDK Customer Auth: Enroll Failed")
+            returnError("Swyft SDK User Auth: Enroll Failed")
             return
         }
         

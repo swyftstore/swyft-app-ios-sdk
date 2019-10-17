@@ -22,7 +22,7 @@ internal class SdkEnrollInteractor {
             failure = failureCallback
             
             guard let key = Utils.getSdkAuthKey() else {
-                returnError("Swyft SDK Auth: No SDK Auth key on Client App")
+                returnError("Swyft SDK Enroll: No SDK Auth key on Client App")
                 return
             }
             
@@ -31,13 +31,13 @@ internal class SdkEnrollInteractor {
                 return
             }
             
-            let customer = SdkEnrollCustomerRequest(
+            let user = SdkEnrollUserRequest(
                 emailAddress: swyftUser.email,
                 firstName: swyftUser.firstName,
                 lastName: swyftUser.lastName,
                 phoneNumber: swyftUser.phoneNumber)
             
-            let request = SdkEnrollRequest(key: key, id: id, idToken: idToken, customer: customer)
+            let request = SdkEnrollRequest(key: key, id: id, idToken: idToken, customer: user)
             let endpoint = Repository.sdkEnroll(request: request)
             
             SwyftNetworkAdapter.request(

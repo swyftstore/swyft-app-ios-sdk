@@ -14,6 +14,7 @@ internal class GetOrders: FireStoreRead{
     var success: SwyftConstants.readSuccessWArray
     
     var db: Firestore?
+    private var merchantNames = [String: String]().values
     
     private var orders = Array<Order>()
     
@@ -21,12 +22,17 @@ internal class GetOrders: FireStoreRead{
         self.success = success
         self.fail = fail
         self.db = Configure.current.db!
+        if let merchantNames = Configure.current.session?.merchantNames {
+            self.merchantNames = merchantNames.values
+        }
     }
     
     func querySuccess(data: Dictionary<String, Any>, id: String, done: Bool) {
         let order = Order()
         order.serialize(data: data)
-        if self.hasProducts(order: order) {
+        if self.hasProducts(order: order),
+            let merchantName = order.merchantName,
+            self.merchantNames.contains(merchantName) {
             order.id = id
             orders.append(order)
         }

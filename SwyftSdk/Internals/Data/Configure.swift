@@ -47,12 +47,8 @@ internal class Configure: NSObject {
     }
     
     class var current : Configure {
-        if let _ = Static.instance.session {
-            return Static.instance
-        } else {
-            fatalError("Please initialize the SDK")
-        }
-    }
+        return Static.instance
+    } 
     
     class func setup(firebaseApp: FirebaseApp?) {
         Static.instance.session = SwyftSession()

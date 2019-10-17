@@ -82,7 +82,7 @@ private extension AuthenticateUserRouter {
     
     private func customerAuth(_ idToken: String) {
         
-        SdkCustomerAuthInteractor.customerAuth(swyftId: swyftId, idToken: idToken, customAuth: customAuth, success: { response in
+        SdkUserAuthInteractor.userAuth(swyftId: swyftId, idToken: idToken, customAuth: customAuth, success: { response in
             
             if let validCustomAuth = self.customAuth {
                 
