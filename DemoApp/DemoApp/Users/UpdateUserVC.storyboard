@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Update UserVC-->
+        <scene sceneID="QP0-W6-AoL">
+            <objects>
+                <viewController storyboardIdentifier="UpdateUserVC" id="Uq9-Lm-fLa" customClass="UpdateUserVC" customModule="DemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wfV-Yo-u34">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swyft SDK Demo: Users" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXJ-tL-gN2">
+                                <rect key="frame" x="0.0" y="74" width="414" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RzV-EP-kQg">
+                                <rect key="frame" x="15" y="221" width="384" height="30"/>
+                                <accessibility key="accessibilityConfiguration" hint="First Name"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bhp-6P-m1x">
+                                <rect key="frame" x="15" y="266" width="384" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nsJ-02-WH9">
+                                <rect key="frame" x="15" y="311" width="384" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oT5-GH-ocm">
+                                <rect key="frame" x="15" y="356" width="384" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ioa-Tu-3gE">
+                                <rect key="frame" x="10" y="586" width="394" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="2rV-9n-g7e"/>
+                                </constraints>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" red="0.99215686270000003" green="0.42745098040000001" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onSubmitTap:" destination="Uq9-Lm-fLa" eventType="touchUpInside" id="PJb-9z-Pst"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ioa-Tu-3gE" firstAttribute="leading" secondItem="0Cd-k8-xzO" secondAttribute="leading" constant="10" id="0OU-9v-JTr"/>
+                            <constraint firstItem="Bhp-6P-m1x" firstAttribute="trailing" secondItem="RzV-EP-kQg" secondAttribute="trailing" id="6r8-cU-gX2"/>
+                            <constraint firstItem="ioa-Tu-3gE" firstAttribute="trailing" secondItem="0Cd-k8-xzO" secondAttribute="trailing" constant="-10" id="BId-Pm-ZOQ"/>
+                            <constraint firstItem="KXJ-tL-gN2" firstAttribute="leading" secondItem="0Cd-k8-xzO" secondAttribute="leading" id="Ej5-9A-96d"/>
+                            <constraint firstItem="oT5-GH-ocm" firstAttribute="trailing" secondItem="nsJ-02-WH9" secondAttribute="trailing" id="GKc-Ct-0bb"/>
+                            <constraint firstItem="ioa-Tu-3gE" firstAttribute="top" secondItem="oT5-GH-ocm" secondAttribute="bottom" constant="200" id="KK9-UF-8yw"/>
+                            <constraint firstItem="RzV-EP-kQg" firstAttribute="top" secondItem="KXJ-tL-gN2" secondAttribute="bottom" constant="120" id="Otm-IV-HFt"/>
+                            <constraint firstItem="oT5-GH-ocm" firstAttribute="top" secondItem="nsJ-02-WH9" secondAttribute="bottom" constant="15" id="Pt2-8c-vF5"/>
+                            <constraint firstItem="nsJ-02-WH9" firstAttribute="leading" secondItem="Bhp-6P-m1x" secondAttribute="leading" id="W2m-Ev-zOn"/>
+                            <constraint firstItem="nsJ-02-WH9" firstAttribute="top" secondItem="Bhp-6P-m1x" secondAttribute="bottom" constant="15" id="YD0-Mo-weq"/>
+                            <constraint firstItem="RzV-EP-kQg" firstAttribute="leading" secondItem="0Cd-k8-xzO" secondAttribute="leading" constant="15" id="Zhk-4M-wGp"/>
+                            <constraint firstItem="KXJ-tL-gN2" firstAttribute="top" secondItem="0Cd-k8-xzO" secondAttribute="top" constant="30" id="csV-1p-qPU"/>
+                            <constraint firstItem="oT5-GH-ocm" firstAttribute="leading" secondItem="nsJ-02-WH9" secondAttribute="leading" id="dlp-oZ-61e"/>
+                            <constraint firstItem="Bhp-6P-m1x" firstAttribute="top" secondItem="RzV-EP-kQg" secondAttribute="bottom" constant="15" id="itH-1i-7Hz"/>
+                            <constraint firstItem="ioa-Tu-3gE" firstAttribute="centerX" secondItem="wfV-Yo-u34" secondAttribute="centerX" id="jb6-5n-qsk"/>
+                            <constraint firstItem="RzV-EP-kQg" firstAttribute="trailing" secondItem="0Cd-k8-xzO" secondAttribute="trailing" constant="-15" id="mub-dX-tqU"/>
+                            <constraint firstItem="nsJ-02-WH9" firstAttribute="trailing" secondItem="Bhp-6P-m1x" secondAttribute="trailing" id="wTh-Bd-Fcd"/>
+                            <constraint firstItem="KXJ-tL-gN2" firstAttribute="trailing" secondItem="0Cd-k8-xzO" secondAttribute="trailing" id="xQW-Xs-bAz"/>
+                            <constraint firstItem="Bhp-6P-m1x" firstAttribute="leading" secondItem="RzV-EP-kQg" secondAttribute="leading" id="zfR-L9-idl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0Cd-k8-xzO"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailField" destination="nsJ-02-WH9" id="gtk-Rk-NCt"/>
+                        <outlet property="firstNameField" destination="RzV-EP-kQg" id="9l8-zp-ji3"/>
+                        <outlet property="lastNameField" destination="Bhp-6P-m1x" id="eHa-vN-9MD"/>
+                        <outlet property="phoneNumberField" destination="oT5-GH-ocm" id="1GB-Yl-Q9Z"/>
+                        <outlet property="updateUserButton" destination="ioa-Tu-3gE" id="T0q-bf-w27"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X7D-Kd-NDI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5" y="61"/>
+        </scene>
+    </scenes>
+</document>
