@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ENVIRONMENT_URL</key>
+	<string>https://us-central1-zoom-shops-dev.cloudfunctions.net/app_api</string>
+	<key>TERMINAL_ID</key>
+	<string>19894001</string>
+	<key>PAYMENT_SECRET</key>
+	<string>q#A4Jt&quot;5</string>
+	<key>PAYMENT_URL</key>
+	<string>https://payments.worldnettps.com/</string>
+</dict>
+</plist>

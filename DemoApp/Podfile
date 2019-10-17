@@ -13,8 +13,8 @@ target 'DemoApp' do
   # Pods for DemoApp
 
   # SwyftSdk
-  #pod 'SwyftSdk', '1.0.7-beta'
-  pod 'SwyftSdk', :path => '../../swyft-app-ios-sdk'
+  pod 'SwyftSdk', '1.1.1-beta'
+  #pod 'SwyftSdk', :path => '../../swyft-app-ios-sdk'
 
   pod 'KVNProgress', '~> 2'
 

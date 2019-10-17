@@ -19,7 +19,7 @@
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>ENVIRONMENT_URL</key>
-	<string>$(ENVIRONMENT_URL)</string>
+	<string>https://us-central1-zoom-shops-dev.cloudfunctions.net/app_api</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 </dict>

@@ -27,7 +27,7 @@ Pod::Spec.new do |spec|
   spec.description  = <<-DESC "A mobile sdk to integrate to allow a client application to authorize and register against swyft systems and a vision storea."
                    DESC
 
-  spec.homepage     = "http://www.swyft.com"
+  spec.homepage     = "http://www.swyftstore.com"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -106,7 +106,7 @@ Pod::Spec.new do |spec|
   # spec.resource  = "icon.png"
   # spec.resources = "Resources/*.png"
 
-  spec.resources = "SwyftSdk/**/*.{png,jpeg,jpg,storyboard,xib,xcassets,json}"
+  spec.resources = "SwyftSdk/**/*.{png,jpeg,jpg,storyboard,xib,xcassets,json}","SwyftSdk/swyft.plist"
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
 

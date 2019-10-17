@@ -84,6 +84,7 @@
 		D02E9130233C2B3F006220B0 /* SwyftOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02E912F233C2B3F006220B0 /* SwyftOptions.swift */; };
 		D06156052354E41500CCCA71 /* SwyftUpdateUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06156042354E41500CCCA71 /* SwyftUpdateUserResponse.swift */; };
 		D061560A2354E5AF00CCCA71 /* UpdateUserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06156092354E5AF00CCCA71 /* UpdateUserRouter.swift */; };
+		D06156102358F5E000CCCA71 /* swyft.plist in Resources */ = {isa = PBXBuildFile; fileRef = D061560F2358F5E000CCCA71 /* swyft.plist */; };
 		D08D7F3522AB123600A6298B /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08D7F3422AB123600A6298B /* Moya.framework */; };
 		D0997B1D2280AEBC00A82DFB /* SwyftSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0997B132280AEBC00A82DFB /* SwyftSdk.framework */; };
 		D0997B222280AEBC00A82DFB /* SwyftSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0997B212280AEBC00A82DFB /* SwyftSDKTests.swift */; };
@@ -193,6 +194,7 @@
 		D02E912F233C2B3F006220B0 /* SwyftOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwyftOptions.swift; sourceTree = "<group>"; };
 		D06156042354E41500CCCA71 /* SwyftUpdateUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwyftUpdateUserResponse.swift; sourceTree = "<group>"; };
 		D06156092354E5AF00CCCA71 /* UpdateUserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserRouter.swift; sourceTree = "<group>"; };
+		D061560F2358F5E000CCCA71 /* swyft.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = swyft.plist; sourceTree = "<group>"; };
 		D06A398122849FAE00DBF639 /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D08D7F3422AB123600A6298B /* Moya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Moya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0997B132280AEBC00A82DFB /* SwyftSdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwyftSdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -631,6 +633,7 @@
 				B19DE4B8232C294700E7CC23 /* Internals */,
 				D0997B162280AEBC00A82DFB /* SwyftSdk.h */,
 				D0997B172280AEBC00A82DFB /* Info.plist */,
+				D061560F2358F5E000CCCA71 /* swyft.plist */,
 			);
 			path = SwyftSdk;
 			sourceTree = "<group>";
@@ -738,6 +741,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D06156102358F5E000CCCA71 /* swyft.plist in Resources */,
 				B19DE50B232C294700E7CC23 /* MockStores.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,30 +12,16 @@ import Moya
 internal class Utils: NSObject {
     static func getBaseURL() -> URL? {
         var url: URL?
-        if let _url = Bundle.main.url(forResource:"Info", withExtension: "plist") {
-            do {
-                let data = try Data(contentsOf:_url)
-                let infoPlist = try PropertyListSerialization.propertyList(from: data, options: [], format: nil) as! [String:Any]
-                let urlString = infoPlist["ENVIRONMENT_URL"] as! String
-                url = URL(string: urlString)
-            } catch {
-                print(error)
-            }
+        if let _url = getValue(of: "ENVIRONMENT_URL", from: "swyft", as: String.self) {
+            url = URL(string: _url)
         }
         return url
     }
     
     static func getPaymentURL() -> URL? {
         var url: URL?
-        if let _url = Bundle.main.url(forResource:"Info", withExtension: "plist") {
-            do {
-                let data = try Data(contentsOf:_url)
-                let infoPlist = try PropertyListSerialization.propertyList(from: data, options: [], format: nil) as! [String:Any]
-                let urlString = infoPlist["PAYMENT_URL"] as! String
-                url = URL(string: urlString)
-            } catch {
-                print(error)
-            }
+        if let _url = getValue(of: "PAYMENT_URL", from: "swyft", as: String.self) {
+            url = URL(string: _url)
         }
         return url
     }
@@ -69,6 +55,21 @@ internal class Utils: NSObject {
         }
         
         return key
+    }
+    
+    static func getValue<T: Any>(of key: String,
+                                 from resourceName: String,
+                                 withExtension extention: String = "plist",
+                                 as type: T.Type) -> T? {
+        guard let URL = Bundle(for: self).url(forResource: resourceName, withExtension: extention) else {
+            print("I was not able to find \(resourceName).\(extention) resource file")
+            return nil
+        }
+        guard let fileContent = NSDictionary(contentsOf: URL) as? [String: Any] else {
+            print("I was not able to read \(key) content and convert it into [String: Any]")
+            return nil
+        }
+        return fileContent[key] as? T
     }
     
     static func getPaymentDateTime() -> String{
