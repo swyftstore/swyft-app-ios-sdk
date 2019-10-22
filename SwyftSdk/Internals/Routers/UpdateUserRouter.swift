@@ -139,7 +139,8 @@ private extension UpdateUserRouter {
     
     private func updateAuth(_ customer: Customer) {
         DispatchQueue.global(qos: .background).async {
-            guard let sdkFBUser = Configure.current.session?.sdkFirebaseUser else {
+            guard let sdkFBUser = Configure.current.session?.sdkFirebaseUser,
+                let clientFBUser = Configure.current.session?.clientFirebaseUser else {
                 report(.updateUserSdkUpdateFailure, self.failure)
                 return
             }
@@ -152,13 +153,13 @@ private extension UpdateUserRouter {
             }
             
             if let fn = customer.firstName, let ln = customer.lastName,
-                "\(fn) \(ln)" != sdkFBUser.displayName {
-                let changeRequest = sdkFBUser.createProfileChangeRequest()
+                "\(fn) \(ln)" != clientFBUser.displayName {
+                let changeRequest = clientFBUser.createProfileChangeRequest()
                 changeRequest.displayName = "\(fn) \(ln)"
                 changeRequest.commitChanges(completion: { (error) in
                     if let _ = error {
                         debugPrint("Swyft SDK Update User: Unable to update user's firebase auth profile")
-                        report(.updateUserSdkUpdateFailure, self.failure)
+                        //report(.updateUserSdkUpdateFailure, self.failure)                        
                     }
                 })
             }

@@ -23,6 +23,8 @@
 		B1E66AB12331556E00CB403B /* OrdersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E66AB02331556E00CB403B /* OrdersVC.swift */; };
 		B1E66AB32331557700CB403B /* PaymentMethodsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E66AB22331557700CB403B /* PaymentMethodsVC.swift */; };
 		B1E66AB623315BDA00CB403B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E66AB523315BDA00CB403B /* Utils.swift */; };
+		D061560C2356372300CCCA71 /* UpdateUserVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D061560B2356372300CCCA71 /* UpdateUserVC.storyboard */; };
+		D061560E2356391700CCCA71 /* UpdateUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D061560D2356391700CCCA71 /* UpdateUserVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		B1E66AB02331556E00CB403B /* OrdersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersVC.swift; sourceTree = "<group>"; };
 		B1E66AB22331557700CB403B /* PaymentMethodsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodsVC.swift; sourceTree = "<group>"; };
 		B1E66AB523315BDA00CB403B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		D061560B2356372300CCCA71 /* UpdateUserVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UpdateUserVC.storyboard; sourceTree = "<group>"; };
+		D061560D2356391700CCCA71 /* UpdateUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,8 @@
 			children = (
 				B1E66AAE2331556600CB403B /* UsersVC.swift */,
 				B1E66AA7233154DE00CB403B /* UsersVC.storyboard */,
+				D061560B2356372300CCCA71 /* UpdateUserVC.storyboard */,
+				D061560D2356391700CCCA71 /* UpdateUserVC.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -212,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1E66AAC233154FB00CB403B /* PaymentMethodsVC.storyboard in Resources */,
+				D061560C2356372300CCCA71 /* UpdateUserVC.storyboard in Resources */,
 				B184F37D2327F7F6005F3B87 /* LaunchScreen.storyboard in Resources */,
 				B184F3852328074D005F3B87 /* GoogleService-Info.plist in Resources */,
 				B184F37A2327F7F6005F3B87 /* Assets.xcassets in Resources */,
@@ -292,6 +299,7 @@
 				B184F3752327F7F4005F3B87 /* MainVC.swift in Sources */,
 				B1E66AB12331556E00CB403B /* OrdersVC.swift in Sources */,
 				B184F3732327F7F4005F3B87 /* AppDelegate.swift in Sources */,
+				D061560E2356391700CCCA71 /* UpdateUserVC.swift in Sources */,
 				B1C9705D23327ED900FFBA9B /* CellOrder.swift in Sources */,
 				B1E66AAF2331556600CB403B /* UsersVC.swift in Sources */,
 				B1E66AB623315BDA00CB403B /* Utils.swift in Sources */,
