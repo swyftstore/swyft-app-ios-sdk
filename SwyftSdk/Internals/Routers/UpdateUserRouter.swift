@@ -159,7 +159,7 @@ private extension UpdateUserRouter {
                 changeRequest.commitChanges(completion: { (error) in
                     if let _ = error {
                         debugPrint("Swyft SDK Update User: Unable to update user's firebase auth profile")
-                        //report(.updateUserSdkUpdateFailure, self.failure)                        
+                        //report(.updateUserSdkUpdateFailure, self.failure)
                     }
                 })
             }
