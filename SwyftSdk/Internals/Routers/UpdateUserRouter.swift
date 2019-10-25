@@ -133,35 +133,38 @@ private extension UpdateUserRouter {
             print(error)
             report(.updateUserSdkUpdateFailure, self.failure)
         }
-        
+        updateAuthName(customer)
         updateCustomer.put(key: customer.id!, customer: customer)
+    }
+    
+    private func updateAuthName(_ customer: Customer) {
+        guard  let clientFBUser = Configure.current.session?.clientFirebaseUser else {
+                report(.updateUserSdkUpdateFailure, self.failure)
+                return
+        }
+        
+        if let fn = customer.firstName, let ln = customer.lastName,
+            "\(fn) \(ln)" != clientFBUser.displayName {
+            let changeRequest = clientFBUser.createProfileChangeRequest()
+            changeRequest.displayName = "\(fn) \(ln)"
+            changeRequest.commitChanges(completion: { (error) in
+                if let _ = error {
+                    debugPrint("Swyft SDK Update User: Unable to update user's firebase auth profile")
+                }
+            })
+        }
     }
     
     private func updateAuth(_ customer: Customer) {
         DispatchQueue.global(qos: .background).async {
-            guard let sdkFBUser = Configure.current.session?.sdkFirebaseUser,
-                let clientFBUser = Configure.current.session?.clientFirebaseUser else {
+            guard let sdkFBUser = Configure.current.session?.sdkFirebaseUser else {
                 report(.updateUserSdkUpdateFailure, self.failure)
                 return
             }
-            
-           
             
             guard let email = customer.emailAddress else {
                 report(.updateUserSdkUpdateFailure, self.failure)
                 return
-            }
-            
-            if let fn = customer.firstName, let ln = customer.lastName,
-                "\(fn) \(ln)" != clientFBUser.displayName {
-                let changeRequest = clientFBUser.createProfileChangeRequest()
-                changeRequest.displayName = "\(fn) \(ln)"
-                changeRequest.commitChanges(completion: { (error) in
-                    if let _ = error {
-                        debugPrint("Swyft SDK Update User: Unable to update user's firebase auth profile")
-                        //report(.updateUserSdkUpdateFailure, self.failure)
-                    }
-                })
             }
             
             sdkFBUser.getIDTokenForcingRefresh(true, completion: { (idToken, error) in
@@ -178,10 +181,7 @@ private extension UpdateUserRouter {
                 
                 self.customerReAuth(idToken, customer, email)
             })
-           
-            
-        }
-        
+        }        
     }
     
     private func customerReAuth(_ idToken: String, _ customer: Customer, _ email: String) {
